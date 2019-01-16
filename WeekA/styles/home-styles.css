@@ -1,0 +1,31 @@
+h3, h6{
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: blue;
+}
+
+p {
+    background-color: lightskyblue;
+    border: solid lightskyblue 10px;
+    /* margin: 10px; */
+    border-radius: 20px;
+}
+
+a:active{
+    color: yellow;
+}
+
+figure{
+    text-align: center;
+}
+
+img{
+    border: solid navy 10px;
+    background-color: white;
+    margin: 20px;
+    padding: 45px;
+}
+
+img:hover{
+    background-color: rgb(233, 185, 151);
+}

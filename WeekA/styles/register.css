@@ -1,0 +1,15 @@
+form, #register-header {
+    text-align: center;
+}
+
+input, select {
+    margin: 10px;
+}
+
+input[type="submit"]{
+    background-color: darkblue;
+    color: aliceblue;
+    font-weight: 600;
+    padding: 5px;
+    border-radius: 10px;
+}

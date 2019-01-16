@@ -1,0 +1,13 @@
+/* #bobs-colors{
+    border: solid 2px;
+} */
+
+th, tr, td {
+    border: solid 2px;
+    padding: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
