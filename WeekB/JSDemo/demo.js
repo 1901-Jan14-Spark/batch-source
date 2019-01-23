@@ -1,3 +1,7 @@
+///////////////////////////////////////////
+// getting started 
+///////////////////////////////////////////
+
 // console.log("JavaScript is working!")
 
 // // casting to a boolean will show us our falsy values
@@ -7,7 +11,12 @@
 // console.log(Boolean(false));
 // console.log(Boolean(null));
 // console.log(Boolean("seven"*7));
-// console.log(Boolean(9));
+// console.log(Boolean(9)); // this will print true
+
+
+///////////////////////////////////////////
+// working with objects and methods
+///////////////////////////////////////////
 
 // create an object 
 let sandwich = { 
@@ -24,9 +33,12 @@ let sandwich = {
 
 // console.log("Eating my sandwich. It has "+sandwich.meatType+" and "+sandwich.cheeseType+" cheese.")
 
-// console.log("Eating my sandwich. It has "+sandwich[meatType]+" and "+sandwich[cheeseType]+" cheese.")
+// console.log("Eating my sandwich. It has "+sandwich["meatType"]+" and "+sandwich["cheeseType"]+" cheese.")
 
-// Arrays
+///////////////////////////////////////////
+// Objects and Arrays, for/in and for/of
+///////////////////////////////////////////
+
 let myObj = {
     0: null,
     1: "hello",
@@ -63,6 +75,10 @@ let myArr = [null, "hello", true, 25];
 // for(i of sandwich){
 //     console.log(i);
 // }
+
+///////////////////////////////////////////
+// var, let, and const
+///////////////////////////////////////////
 
 var x = 5;
 var x = 6;
@@ -134,7 +150,9 @@ mySandwich.breadType = 5;
 
 
 
-//// functions and arguments
+///////////////////////////////////////////
+// functions and arguments 
+///////////////////////////////////////////
 
 function printAll(a,b,c){
     console.log(a);

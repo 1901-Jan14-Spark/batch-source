@@ -39,7 +39,7 @@ function isPrime(input){
     return true;
 }
 
-// Problem 5: Write a JavaScript function which calculates the first number to the power of the second number. Do not do this recursively.
+// Problem 5: Write a JavaScript function which calculates the first number to the power of the second number. Do not do this recursively. Do not use the Math library.
 
 function calculateExponent(base, exponent){
     let product = 1;
