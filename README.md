@@ -1,2 +1,8 @@
 # batch-source
+<<<<<<< HEAD
 repository where examples from the Jan 14 2019 Spark batch will be shared
+=======
+repository where examples from the Jan 14 2019 Spark batch will be 
+shared
+
+>>>>>>> Carolyn_Rehm

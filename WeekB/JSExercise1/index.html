@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JS Exercise 1 Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="exercise1.js"></script>
+    <style>
+        div {
+            display: inline-table;
+            margin-right: 75px;
+        }
+        h1{
+            background-color: rgb(172, 172, 172);
+            padding: 10px 0px 10px 20px;
+        }
+        hr{
+            margin-top: -20px;
+        }
+        h3{
+            border-bottom: solid gray 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>JS Exercise 1 Test Cases</h1>
+    <hr>
+    <div>
+        <h3>Problem 1: isWeekday</h3>
+        <p>Checking for: "Friday" <br> Expecting: <span class="expected">true</span> <br> Result is: <span id="p1c1"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: "Monday" <br> Expecting: <span class="expected">true</span> <br> Result is: <span id="p1c2"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: "Saturday" <br> Expecting: <span class="expected">false</span> <br> Result is: <span id="p1c3"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: "Sunday" <br> Expecting: <span class="expected">false</span> <br> Result is: <span id="p1c4"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+    </div>
+    <div>
+        <h3>Problem 2: isEven</h3>
+        <p>Checking for: 0 <br> Expecting: <span class="expected">true</span> <br> Result is: <span id="p2c1"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 2 <br> Expecting: <span class="expected">true</span> <br> Result is: <span id="p2c2"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 5 <br> Expecting: <span class="expected">false</span> <br> Result is: <span id="p2c3"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 8 <br> Expecting: <span class="expected">true</span> <br> Result is: <span id="p2c4"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+    </div>
+    <div>
+        <h3>Problem 3: findType</h3>
+        <p>Checking for: 25 <br> Expecting: <span class="expected">number</span> <br> Result is: <span id="p3c1"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: true <br> Expecting: <span class="expected">boolean</span> <br> Result is: <span id="p3c2"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: "cat" <br> Expecting: <span class="expected">string</span> <br> Result is: <span id="p3c3"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: <br> Expecting: <span class="expected">undefined</span> <br> Result is: <span id="p3c4"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: {} <br> Expecting: <span class="expected">object</span> <br> Result is: <span id="p3c5"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+    </div>
+    <div>
+        <h3>Problem 4: isPrime</h3>
+        <p>Checking for: 1 <br> Expecting: <span class="expected">false</span> <br> Result is: <span id="p4c1"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 2 <br> Expecting: <span class="expected">true</span> <br> Result is: <span id="p4c2"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 3 <br> Expecting: <span class="expected">true</span> <br> Result is: <span id="p4c3"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 4 <br> Expecting: <span class="expected">false</span> <br> Result is: <span id="p4c4"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 5 <br> Expecting: <span class="expected">true</span> <br> Result is: <span id="p4c5"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+    </div>
+    <div>
+        <h3>Problem 5: <br> calculateExponent <br> non recursive</h3>
+        <p>Checking for: 10<sup>0</sup> <br> Expecting: <span class="expected">1</span> <br> Result is: <span id="p5c1"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 10<sup>1</sup> <br> Expecting: <span class="expected">10</span> <br> Result is: <span id="p5c2"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 2<sup>5</sup> <br> Expecting: <span class="expected">32</span> <br> Result is: <span id="p5c3"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 3<sup>3</sup> <br> Expecting: <span class="expected">27</span> <br> Result is: <span id="p5c4"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+    </div>
+    <div>
+        <h3>Problem 6: <br> calculateExponent <br> recursive</h3>
+        <p>Checking for: 10<sup>0</sup> <br> Expecting: <span class="expected">1</span> <br> Result is: <span id="p6c1"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 10<sup>1</sup> <br> Expecting: <span class="expected">10</span> <br> Result is: <span id="p6c2"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 2<sup>5</sup> <br> Expecting: <span class="expected">32</span> <br> Result is: <span id="p6c3"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+        <p>Checking for: 3<sup>3</sup> <br> Expecting: <span class="expected">27</span> <br> Result is: <span id="p6c4"></span>
+            <img class="icon" height="15px" width="15px" alt="indicator" /></p>
+    </div>
+    <script src="exercise1.js"></script>
+    <script>
+        // problem 1
+        document.getElementById("p1c1").innerHTML = isWeekday("Friday");
+        evaulate("p1c1");
+        document.getElementById("p1c2").innerHTML = isWeekday("Monday");
+        evaulate("p1c2");
+        document.getElementById("p1c3").innerHTML = isWeekday("Saturday");
+        evaulate("p1c3");
+        document.getElementById("p1c4").innerHTML = isWeekday("Sunday");
+        evaulate("p1c4");
+
+        // problem 2
+        document.getElementById("p2c1").innerHTML = isEven(0);
+        evaulate("p2c1");
+        document.getElementById("p2c2").innerHTML = isEven(2);
+        evaulate("p2c2");
+        document.getElementById("p2c3").innerHTML = isEven(5);
+        evaulate("p2c3");
+        document.getElementById("p2c4").innerHTML = isEven(8);
+        evaulate("p2c4");
+
+        // problem 3
+        document.getElementById("p3c1").innerHTML = findType(25);
+        evaulate("p3c1");
+        document.getElementById("p3c2").innerHTML = findType(true);
+        evaulate("p3c2");
+        document.getElementById("p3c3").innerHTML = findType("cat");
+        evaulate("p3c3");
+        document.getElementById("p3c4").innerHTML = findType();
+        evaulate("p3c4");
+        document.getElementById("p3c5").innerHTML = findType({});
+        evaulate("p3c5");
+
+        // problem 4
+        document.getElementById("p4c1").innerHTML = isPrime(1);
+        evaulate("p4c1");
+        document.getElementById("p4c2").innerHTML = isPrime(2);
+        evaulate("p4c2");
+        document.getElementById("p4c3").innerHTML = isPrime(3);
+        evaulate("p4c3");
+        document.getElementById("p4c4").innerHTML = isPrime(4);
+        evaulate("p4c4");
+        document.getElementById("p4c5").innerHTML = isPrime(5);
+        evaulate("p4c5");
+
+        // problem 5
+        document.getElementById("p5c1").innerHTML = calculateExponent(10, 0);
+        evaulate("p5c1");
+        document.getElementById("p5c2").innerHTML = calculateExponent(10, 1);
+        evaulate("p5c2");
+        document.getElementById("p5c3").innerHTML = calculateExponent(2, 5);
+        evaulate("p5c3");
+        document.getElementById("p5c4").innerHTML = calculateExponent(3, 3);
+        evaulate("p5c4");
+
+
+        // problem 6
+        document.getElementById("p6c1").innerHTML = calculateExponent2(10, 0);
+        evaulate("p6c1");
+        document.getElementById("p6c2").innerHTML = calculateExponent2(10, 1);
+        evaulate("p6c2");
+        document.getElementById("p6c3").innerHTML = calculateExponent2(2, 5);
+        evaulate("p6c3");
+        document.getElementById("p6c4").innerHTML = calculateExponent2(3, 3);
+        evaulate("p6c4");
+
+        function evaulate(resultId) {
+            let resultNode = document.getElementById(resultId);
+            if (resultNode.innerHTML == resultNode.parentElement.getElementsByClassName("expected")[0].innerHTML) {
+                resultNode.nextSibling.nextSibling.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTqD6psvdmqU_Mr6aCkK_cpzzCjbd1sqBU0eMS-0_3QfgHujfz";
+            } else {
+                resultNode.nextSibling.nextSibling.src = "https://i.4pcdn.org/pol/1495138675713.gif";
+            }
+        }
+    </script>
+</body>
+
+</html>
