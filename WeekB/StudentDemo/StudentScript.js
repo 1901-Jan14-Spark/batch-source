@@ -64,7 +64,6 @@ function addRow(name, major, id){
 
 }
 
-
 // add a click event to our button
 document.getElementById("studentButton").addEventListener("click", addNew);
 
@@ -74,10 +73,17 @@ function addNew(){
     let major = document.getElementById("major").value;
     console.log(`You have submitted ${name} with a major of ${major}`);
 
+
+    // here we add validation
     if(name&&major){
-        clearError();
-        addRow(name, major);
+        if(!hasDuplicate(name,major)){
+            clearError();
+            addRow(name, major);
+        } else {
+            displayDuplicateError();
+        }
     } else {
+        console.log("no name or major")
         displayError();
     }
 }
@@ -91,4 +97,23 @@ function displayError(){
 function clearError(){
     let errorNode = document.getElementById("error")
     errorNode.innerHTML = "";
+}
+
+function displayDuplicateError(){
+    let errorNode = document.getElementById("error")
+    errorNode.innerHTML = "Please enter a student not already in the table";
+    errorNode.style = "color:red; margin-top: 10px";
+}
+
+function hasDuplicate(name, major){
+    let tableRows =  document.getElementById("students").getElementsByTagName("tr");
+    for(row of tableRows){
+        let cells = row.children;
+        let nameInput = cells[1].innerHTML;
+        let majorInput = cells[2].innerHTML;
+        if(nameInput===name && majorInput===major){
+            return true;
+        }
+    }
+    return false;
 }
