@@ -32,8 +32,9 @@ const createOnStartUp = () => {
     earth_time_check.setAttribute("onclick", "displayTime()");
     wh4.setAttribute("onclick", "changeBackground()");
     createElement("button", "calculator-button", "", document.getElementsByClassName("float-right")[0]);
-    document.getElementById("calculator-button").innerHTML = "calculate";
+    document.getElementById("calculator-button").innerHTML = "Calculate";
     document.getElementById("calculator-button").setAttribute("onclick", "calculate()");
+    document.getElementById("calculator-button").setAttribute("class", "btn btn-primary")
 }
 
 const createElement = (element, id, style, referenceNode) => {
