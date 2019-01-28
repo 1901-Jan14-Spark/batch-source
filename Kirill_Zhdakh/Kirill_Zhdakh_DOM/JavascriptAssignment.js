@@ -72,7 +72,8 @@ function addForm() {
 
     //Check for correct data format
     //Get table
-    //Create row
+    //Go into tbody child
+    //Create row with scope="row"
     //Create table data using the information
     //Append table data to row as child
     //Append row to table as child
