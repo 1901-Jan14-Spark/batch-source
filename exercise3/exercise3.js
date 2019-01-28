@@ -83,7 +83,6 @@ const removePluto = () => {
 
 
 // 3.
-// No bueno :'( 
 const alienText = () => {
     console.log("alienText called");
     let hiddenMsg = document.getElementsByTagName("p");
