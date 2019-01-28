@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Ajax Assignment</title>
+    <script>
+        var url = "http://testapp-env.hnpsxrq3bj.us-east-1.elasticbeanstalk.com:8080/message";
+        let xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        if (xhr.readyState === 200 && xhr.readyState === 4) {
+            console.log("Request success");
+            xhr.send();
+        }
+        else
+            console.log("Request failed");
+        //let str = JSON.parse(xhr.response);
+        //console.log(str);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
