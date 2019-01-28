@@ -41,7 +41,7 @@ function alienText() {
         document.getElementById("alienText").hidden = false;
     }
 }
-//4
+//4 Got values, not appended to table
 document.getElementById("form-sub").addEventListener("click", addForm);
 function addForm() {
     let firstName = document.getElementById("firstname").value;
