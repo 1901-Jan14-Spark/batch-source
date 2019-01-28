@@ -4,7 +4,6 @@ window.onload = function () {
     removePluto();
     printSpan();
     appendLineBreak();
-    changeBackground();
 }
 
 
@@ -14,7 +13,7 @@ const twitterLink = document.getElementsByName("twitter")[0];
 const slackLink = document.getElementsByName("slack")[0];
 const java = document.getElementsByName("javadocs")[0];
 const planet = document.getElementById("planet");
-const alienText = document.getElementById("alientext");
+const mars = document.getElementById("planet")[1];
 const form_sub = document.getElementById("form-sub");
 const summary = document.getElementsByTagName("summary")[0];
 const earth_time = document.getElementById("earth_time");
@@ -23,12 +22,9 @@ const wh4 = document.getElementsByTagName("h4")[0];
 const num2 = document.getElementById("n2");
 const option = document.getElementById("operation");
 
-
 //  global functions
 const createOnStartUp = () => {
-    planet[1].setAttribute("onclick", "alienText()");
-    planet[0].setAttribute("onclick", "removeAlienText()");
-    createElement("div", "alientext", "color: red", planet);
+    mars.addEventListener("click", alienText);
     form_sub.addEventListener("click", submitForm);
     summary.setAttribute("onmouseover", "openDetails()");
     summary.setAttribute("onmouseout", "closeDetails()");
@@ -87,17 +83,14 @@ const removePluto = () => {
 
 
 // 3.
-const addAlienText = () => {
-    // console.log("add");
-    if (alienText.innerHTML == "") {
-        alienText.innerHTML = "Insert alien language here"
-    }
-}
-
-const removeAlienText = () => {
-    // console.log("remove");
-    if (alienText.innerHTML != "") {
-        alienText.innerHTML = "";
+// No bueno :'( 
+const alienText = () => {
+    console.log("alienText called");
+    let hiddenMsg = document.getElementsByTagName("p");
+    for (i = 0; i < hiddenMsg.length; i++) {
+        if (hiddenMsg[i].hidden) {
+            hiddenMsg[i].hidden = false;
+        }
     }
 }
 
