@@ -1,4 +1,4 @@
-//1
+//1 DONE
 let googleLink = document.getElementsByName("google")[0];
 googleLink.innerHTML = "Google";
 googleLink.href = "https://www.google.com";
@@ -18,10 +18,10 @@ let javadocsLink = document.getElementsByName("javadocs")[0];
 javadocsLink.innerHTML = "JavaDocs";
 javadocsLink.href = "https://www.oracle.com/technetwork/java/javase/documentation/index-137868.html";
 javadocsLink.target = "_blank";
-//2
+//2 DONE
 let planets = document.getElementById("planet");
 planets[2].remove();
-//3
+//3 DONE
 planets.addEventListener("click", alienText);
 function alienText() {
     //console.log("alienText called");
@@ -42,8 +42,42 @@ function alienText() {
     }
 }
 //4
+document.getElementById("form-sub").addEventListener("click", addForm);
+function addForm() {
+    let firstName = document.getElementById("firstname").value;
+    let lastName = document.getElementById("lastname").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let birthday = document.getElementById("bday").value;
+    let planet = document.getElementById("planet")[document.getElementById("planet").selectedIndex].innerHTML;
+    let radios = document.getElementsByName("gender");
+    let gender = "";
+    for (let i = 0; i < radios.length; ++i) {
+        if (radios[i].checked)
+            gender = radios[i].value;
+    }
+    let color = document.getElementById("color").value.toUpperCase();
+    let actUL = document.createElement("ul");
+    let acts = document.getElementsByClassName("activity");
+    for (let i = 0; i < acts.length; ++i) {
+        if (acts[i].checked) {
+            let actLI = document.createElement("li");
+            let textNode = document.createTextNode(acts[i].value);
+            //console.log(textNode);
+            actLI.appendChild(textNode);
+            actUL.appendChild(actLI);
+        }
+    }
+    //console.log(actUL.innerText);
 
-//5
+    //Check for correct data format
+    //Get table
+    //Create row
+    //Create table data using the information
+    //Append table data to row as child
+    //Append row to table as child
+}
+//5 DONE
 let details = document.getElementsByTagName("details");
 details[0].addEventListener("mouseover", openDetails);
 details[0].addEventListener("mouseout", openDetails);
@@ -55,7 +89,7 @@ function openDetails() {
     else
         detail.open = false;
 }
-//6
+//6 DONE
 function printSpans() {
     let spans = document.getElementsByTagName("span");
     let str = "Linked spans: ";
@@ -65,7 +99,7 @@ function printSpans() {
     console.log(str);
 }
 printSpans();
-//7
+//7 DONE
 document.getElementById("earth_time_check").addEventListener("click", showEarthTime);
 function showEarthTime() {
     let hour, minute, second;
@@ -75,10 +109,60 @@ function showEarthTime() {
     second = date.getSeconds();
     document.getElementById("earth_time").innerHTML = String(`${hour}:${minute}:${second}`);
 }
-//8
-
-//9
-function doMath() {
-    
+//8 DONE
+document.getElementsByTagName("h1")[0].addEventListener("click", changeBackground);
+function changeBackground() {
+    let rand = "#";
+    for (let i = 0; i < 6; ++i) {
+        rand += Math.floor(Math.random() * 16).toString(16).toUpperCase();
+    }
+    //console.log(rand);
+    if (rand == "#000000")
+        changeBackground();
+    setTimeout(function () { document.body.style.backgroundColor = rand }, 3000);
 }
-//10
+//9 DONE
+document.getElementById("operation").addEventListener("click", doMath);
+function doMath() {
+    let n1 = Number(document.getElementById("n1").value);
+    let n2 = Number(document.getElementById("n2").value);
+
+    if (!isNaN(n1) && !isNaN(n2)) {
+        let operation = document.getElementById("operation");
+        switch (operation.options[operation.selectedIndex].innerHTML) {
+            case "Add":
+                {
+                    document.getElementById("result").innerHTML = `${n1} + ${n2} = ${n1 + n2}`;
+                }
+                break;
+            case "Subtract":
+                {
+                    document.getElementById("result").innerHTML = `${n1} - ${n2} = ${n1 - n2}`;
+                }
+                break;
+            case "Multiply":
+                {
+                    document.getElementById("result").innerHTML = `${n1} * ${n2} = ${n1 * n2}`;
+                }
+                break;
+            case "Divide":
+                {
+                    document.getElementById("result").innerHTML = `${n1} / ${n2} = ${n1 / n2}`;
+                }
+                break;
+        }
+    }
+    else {
+        document.getElementById("result").innerHTML = "Invalid Inputs";
+    }
+}
+//10 DONE
+function walkTheDome(node, func)
+{
+    func(node);
+    node = node.firstChild;
+    while (node) {
+        walkTheDome(node, func);
+        node = node.nextSibling;
+    }
+}
