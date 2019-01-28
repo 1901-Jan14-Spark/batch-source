@@ -24,7 +24,7 @@ const option = document.getElementById("operation");
 
 //  global functions
 const createOnStartUp = () => {
-    mars.addEventListener("change", alienText(planet));
+    planet.addEventListener("change", alienText);
     form_sub.addEventListener("click", submitForm);
     summary.setAttribute("onmouseover", "openDetails()");
     summary.setAttribute("onmouseout", "closeDetails()");
@@ -84,17 +84,18 @@ const removePluto = () => {
 
 // 3.
 const alienText = () => {
-    console.log("alienText called");
+    // console.log("alienText called");
     let hiddenMsg = document.getElementsByTagName("p");
     for (let i = 0; i < hiddenMsg.length; ++i) {
         if (hiddenMsg[i].hidden) {
             hiddenMsg[i].setAttribute("id", "alienText");
         }
     }
-    if (planet.options[planet.selectedIndex].innerHTML == "Earth")
-        document.getElementById("alienText").setAttribute("hidden", "");
-    else
-        document.getElementById("alienText").removeAttribute("hidden");
+    if (planet.options[planet.selectedIndex].innerHTML == "Earth") {
+        document.getElementById("alienText").hidden = true;
+    } else {
+        document.getElementById("alienText").hidden = false;
+    }
 }
 
 
