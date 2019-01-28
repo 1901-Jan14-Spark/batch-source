@@ -71,6 +71,33 @@ function addForm() {
     //console.log(actUL.innerText);
 
     //Check for correct data format
+    if (firstName.length < 2) {
+        console.log("Invalid First Name");
+        break;
+    }
+    if (lastName.length < 2) {
+        console.log("Invalid Last Name");
+        break;
+    }
+    if (!email.match(/^[a-zA-Z0-9._\-]{5,}@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/g)) {
+        console.log("Invalid Email");
+        break;
+    }
+    if (!phone.toString().match(/^\d{10}$/)) {
+        console.log("Invalid Number");
+        break;
+    }
+    if (!birthday) {
+        console.log("Invalid Birthday");
+        break;
+    }
+    if (gender == "") {
+        console.log("Invalid Gender");
+        break;
+    }
+    if (!actUL) {
+        console.log("Invalid Activities")
+    }
     //Get table
     //Go into tbody child
     //Create row with scope="row"
