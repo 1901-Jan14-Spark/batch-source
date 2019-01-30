@@ -12,3 +12,4 @@ XHR.onreadystatechange = function () {
 }
 XHR.open("GET", url);
 XHR.send();
+

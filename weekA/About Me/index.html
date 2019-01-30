@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>About Me</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://scriptverse.academy/img/thumbnails/reactjs.png"
+    />
+  </head>
+  <body>
+    <h2>Dat Tran</h2>
+    <div id="img-container">
+      <img
+        src="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/22089213_1919952511657945_4074122104625518546_n.jpg?_nc_cat=104&_nc_ht=scontent-sjc3-1.xx&oh=d3287d9376069204eeeb821562fadcec&oe=5CBDF023"
+        alt=""
+      />
+    </div>
+
+    <hr />
+
+    <p>
+      Hello, my name is Dat. I likes to play soccer and video games. My first
+      programming language was JavaScript.
+    </p>
+
+    <table>
+      <tr>
+        <th>Movies</th>
+        <th>Sport Teams</th>
+        <th>TV Shows</th>
+        <th>Websites</th>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://www.imdb.com/title/tt1663662/" target="_blank"
+            ><strong><em>Pacific Rim</em></strong></a
+          >
+        </td>
+        <td>
+          <a href="https://www.fcbarcelona.com/en/" target="_blank"
+            ><Strong><span id="fc-barca">FC Barcelona</span></Strong></a
+          >
+        </td>
+        <td>
+          <a href="https://www.imdb.com/title/tt0944947/" target="_blank"
+            ><strong>Game of Thrones</strong></a
+          >
+        </td>
+        <td>
+          <strong>
+            <a href="https://www.youtube.com/" target="_blank"
+              >YouTube
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/b2/YouTube_logo_%282013-2015%29.png"
+                alt=""
+            /></a>
+          </strong>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="https://www.imdb.com/title/tt2802144/" target="_blank"
+            ><strong><em>Kingsman</em></strong></a
+          >
+        </td>
+        <td>
+          <a href="https://www.manutd.com/" target="_blank"
+            ><strong><span id="man-utd">Manchester United</span></strong></a
+          >
+        </td>
+        <td>
+          <a href="https://www.imdb.com/title/tt2802850/" target="_blank"
+            ><strong>Fargo</strong></a
+          >
+        </td>
+        <td>
+          <strong>
+            <a href="https://www.twitch.tv/" target="_blank"
+              >Twitch
+              <img
+                src="https://cdn.freebiesupply.com/logos/large/2x/twitch-purple-logo-png-transparent.png"
+                alt=""
+            /></a>
+          </strong>
+        </td>
+      </tr>
+    </table>
+
+    <div id="list-container">
+      <ol>
+        <h3>To-Do List:</h3>
+        <li>Study Java</li>
+        <li>Buy Grocery</li>
+        <li>Cook dinner</li>
+        <li>Laundry</li>
+        <li>Feed the dogs</li>
+      </ol>
+
+      <ul>
+        <h3>Programming Languages:</h3>
+        <li>C</li>
+        <li>C++</li>
+        <li>C#</li>
+        <li>Java</li>
+        <li>Python</li>
+      </ul>
+    </div>
+
+    <br />
+
+    <div class="form-container">
+      <form action=""><h3>Random Form</h3></form>
+      First name: <input type="text" name="fName" class="inputStyle" /><br />
+      Last name: <input type="text" name="lName" class="inputStyle" /><br />
+      <br />
+      <div id="submit-container">
+        <button
+          onclick="show_image('https://pbs.twimg.com/profile_images/446566229210181632/2IeTff-V_400x400.jpeg',)"
+          id="submit-btn"
+        >
+          Click Me
+        </button>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="append_pic"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

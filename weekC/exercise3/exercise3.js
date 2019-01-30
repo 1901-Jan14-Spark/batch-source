@@ -22,6 +22,7 @@ const wh4 = document.getElementsByTagName("h4")[0];
 const num2 = document.getElementById("n2");
 const option = document.getElementById("operation");
 
+
 //  global functions
 const createOnStartUp = () => {
     planet.addEventListener("change", alienText);

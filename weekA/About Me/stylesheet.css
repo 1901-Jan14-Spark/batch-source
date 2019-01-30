@@ -1,0 +1,91 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+h2{
+    text-align: center;
+}
+
+#img-container {
+    width: 100%;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#append_pic img {
+    display: inline-block;
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    align-self: auto;
+}
+
+td {
+    padding: 8px;
+}
+
+td img {
+    height: 50px;
+    width: 50px;
+}
+
+#fc-barca {
+    color: #EDBB00;
+}
+#man-utd {
+    color: #DA291C;
+}
+
+.form-container {
+    width: 50%;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.form-container .inputStyle {
+    width: 60%;
+}
+
+#submit-container {
+    width: 100%;
+    display: flex;
+}
+
+#submit-btn {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+    font-weight: 700;
+}
+
+#list-container {
+    display: flex;
+}
+
+ol {
+    width: 50%;
+}
+
+ul {
+    width: 50%;
+}

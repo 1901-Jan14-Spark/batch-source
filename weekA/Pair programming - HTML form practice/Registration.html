@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet2.css" />
+  </head>
+  <body>
+    <form
+      action="http://testapp-env.hnpsxrq3bj.us-east-1.elasticbeanstalk.com:8080/users"
+      method="POST"
+    >
+      <h2>Registration</h2>
+      <div>
+        <label for="firstName">First Name: </label>
+        <input type="text" name="firstName" /> <br />
+        <label for="lastName">Last Name: </label>
+        <input type="text" name="lastName" /> <br />
+        <label for="email">Email: </label> <input type="email" name="email" />
+        <br />
+        <label for="date">Birthday: </label>
+        <input type="text" name="birthday" /> <br />
+        <label for="username">Username: </label>
+        <input type="text" name="username" /> <br />
+        <label for="password">Password: </label>
+        <input type="password" name="password" /> <br />
+        <label for="password2">Re-type password again: </label>
+        <input type="password" name="password2" /> <br />
+        <input type="submit" value="Register" id="register_btn" /> <br />
+      </div>
+    </form>
+    <br />
+    <a href="http://localhost:5500/login.html"
+      ><button id="login_btn">Home</button>
+    </a>
+  </body>
+</html>
