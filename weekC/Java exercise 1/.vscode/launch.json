@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Customer",
+            "request": "launch",
+            "mainClass": "Customer"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Helper",
+            "request": "launch",
+            "mainClass": "Helper"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Loops",
+            "request": "launch",
+            "mainClass": "Loops"
+        }
+    ]
+}
