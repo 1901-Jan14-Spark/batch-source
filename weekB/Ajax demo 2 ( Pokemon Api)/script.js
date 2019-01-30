@@ -4,6 +4,13 @@ const pokemon = document.getElementById("pokemon");
 const pokemonBtn = document.getElementById('submit');
 let imgURL = "https://pokeapi.co/api/v2/pokemon-form/";
 
+pokemon.addEventListener("keyup", function(e) {
+    e.preventDefault();
+    if(e.keyCode === 13) {
+        pokemonBtn.click();
+    }
+})
+
 pokemonBtn.addEventListener("click", function() {
     let XHR = new XMLHttpRequest();
     XHR.onreadystatechange = function () {
