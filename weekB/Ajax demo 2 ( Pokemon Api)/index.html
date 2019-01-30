@@ -22,16 +22,22 @@
 <body>
     <br>
     <div class="container text-center">
-        <!-- <div>
+        <table id="MainTable">
+            <tbody id="BodyRows"></tbody>
+        </table>
+
+        <div>
             <img id="img_holder" src="" alt="">
         </div>
         <br>
         <div>
-            <p id="text_holder">test</p>
-        </div> -->
-        <!-- <div>
-            <button class="btn btn-primary" id=cat_btn>Click me for free cat photos</button>
-        </div> -->
+            <p id="text_holder"></p>
+        </div>
+        <p>Enter an id of a pokemon</p>
+            <div class="form-group form-inline justify-content-center">
+                <input type="number" id="pokemon" class="form-control" placeholder="Pokemon ID">
+                <button class="btn btn-primary" id="submit">Submit</button>
+            </div>
     </div>
 
     <script src="script.js"></script>
