@@ -1,3 +1,5 @@
+package JavaIntro;
+
 public class Pizza{
 
     private String crustType;
