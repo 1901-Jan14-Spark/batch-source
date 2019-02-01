@@ -1,0 +1,24 @@
+﻿Using VSC complete the following:
+Part 1
+Create a Loops.java class and in the main method:
+1. Print  "hello world" to the console.
+2. Declare a variable, x, and assign it a numeric value. Write an if statement which evaluates the condition of whether x is greater than 10. If it is, write "x is greater than 10" to the console. If it is not, write "x is equal to or less than 10."
+3. Using a for loop, print "greetings" to the console 4 times.
+4. Using a while loop, print "greetings" to the console 4 times, do not use the break keyword to stop the loop
+5. Using a do while loop, print “greetings” to the console 4 times
+6. Declare a variable, color. Create a switch statement which evaluates the color variable. The values we would general expect are green, purple, and orange. If any of these cases are met, the two colors which make them up should be printed to the console. (e.g. if color is "orange" -> "yellow and red" is printed to the console) If the value of "color" is not one of those three options, "color unknown" should be printed to the console.
+
+Part 2
+1. In a new file, create a “Helper” class, create an instance of it. The following methods should be instance methods of this class.
+2. Write a method, "printNums" which takes no arguments and prints each number from 1 to 10 to the console, each number printing on a new line.
+3. Write a method, "printUpToVal" which takes one numeric argument and prints each number from 1 up to that number.
+4. Write a method "printRange" which takes two numeric arguments and prints each number from the first value to the second value.
+5. Write a method "printString" which takes two arguments. The first argument should be a string, and the second should be a number. The function should return a string of the original string parameter concatenated the number of times provided by second parameter (ex. printString("hello",5) returns "hellohellohellohellohello").
+6. Try making the methods from 2-5 static. Invoke them without using an instance of the helper class.
+
+Part 3
+1. Create a new Customer class
+2. Define at least 2 constructors
+3. Define at least 3 instance variables and one static variable
+4. Define getters and setters for each of the instance variables
+5. Create a main method where you create several instances of the Customer class and invoke each method
