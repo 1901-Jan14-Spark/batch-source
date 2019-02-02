@@ -1,7 +1,7 @@
 # Welcome to my repo!
 
 
-# incoming new  Features!
+# Incoming new  Features!
 
 
 ──────────────────────────────
