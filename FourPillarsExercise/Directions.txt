@@ -1,0 +1,9 @@
+Create a Java Project which incorporates the 4 pillars of OOP
+Create a hierarchy with classes representing different animals, include at least 3 classes and at least 1 interface
+Organize your classes into appropriate an package structure
+Follow the appropriate naming conventions for the project, classes, and class members
+Comment liberally to explain where and how each pillar of OOP is implemented in your code
+Include each of the examples of polymorphism that we discussed today
+Push this project (named “FourPillars”) to your github branch
+
+Upload to your GitHub branch by 4 Feb 5pm
