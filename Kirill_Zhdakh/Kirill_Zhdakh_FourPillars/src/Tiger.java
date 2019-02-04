@@ -10,6 +10,7 @@ public class Tiger extends Animal implements iInfo {
 		age = 10;
 		pattern = "Stripped";
 		patternColor = "Black";
+		animalCount++;
 	}
 	public Tiger(String eyeColor, String furColor, String pattern, String patternColor, int age)
 	{
@@ -18,6 +19,7 @@ public class Tiger extends Animal implements iInfo {
 		this.pattern = pattern;
 		this.patternColor = patternColor;
 		this.age = age;
+		animalCount++;
 	}
 	public String warCry()
 	{
@@ -34,7 +36,7 @@ public class Tiger extends Animal implements iInfo {
 	}
 	public String toString()
 	{
-		return "Animal: Tiger" + " Eye Color: " + eyeColor + " Fur Color: " + furColor + " Pattern: " + pattern + " Pattern Color: " + patternColor + " Age: " + age;
+		return "Animal: Tiger" + " Eye Color: " + eyeColor + " Fur Color: " + furColor + " Pattern: " + pattern + " Pattern Color: " + patternColor + " Age: " + age + " Animal Count: " + animalCount;
 	}
 	public String getPattern() {
 		return pattern;

@@ -1,14 +1,13 @@
 
 public abstract class Animal {
 	//Variables
+	static int animalCount;
 	String eyeColor;
 	String furColor;
 	int legs;
 	int age;
 	
 	//Methods
-	public Animal() {}
-	
 	//Polymorphism, Fox and Tiger have different returns(override)
 	public abstract String warCry();
 	public abstract String warCry(boolean isBaby);

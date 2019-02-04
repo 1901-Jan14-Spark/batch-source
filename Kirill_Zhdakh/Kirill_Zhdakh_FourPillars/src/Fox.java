@@ -6,16 +6,18 @@ public class Fox extends Animal implements iInfo {
 		eyeColor = "Green";
 		furColor = "Orange";
 		age = 5;
+		animalCount++;
 	}
 	public Fox(String eyeColor, String furColor, int age)
 	{
 		this.eyeColor = eyeColor;
 		this.furColor = furColor;
 		this.age = age;
+		animalCount++;
 	}
 	public String toString()
 	{
-		return "Animal: Fox" + " Eye Color: " + eyeColor + " Fur Color: " + furColor + " Age: " + age;
+		return "Animal: Fox" + " Eye Color: " + eyeColor + " Fur Color: " + furColor + " Age: " + age + " Animal Count: " + animalCount;
 	}
 	public String warCry()
 	{
