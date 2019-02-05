@@ -19,7 +19,7 @@ public abstract class Animal implements Talkable {
 	public String talk() {
 		return "Animal sound!";
 	}
-
+	
 	public int getLegs() {
 		return legs;
 	}
@@ -36,4 +36,20 @@ public abstract class Animal implements Talkable {
 		this.hasFur = hasFur;
 	}
 	
+	// Declare static method for method hiding
+	public static void makeNoise() {
+		System.out.println("Animal Noises");
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		Animal a = (Animal) o;
+		if (a.getLegs() == this.getLegs() && a.isHasFur() == this.isHasFur()) {
+			return true;
+		}
+		return false;
+	}
 }

@@ -9,4 +9,20 @@ public class Mouse extends Animal {
 	public String talk() {
 		return "Squeek!";
 	}
+	
+	public static void makeNoise() {
+		System.out.println("Mouse Noises");
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		Mouse a = (Mouse) o;
+		if (a.getLegs() == this.getLegs() && a.isHasFur() == this.isHasFur()) {
+			return true;
+		}
+		return false;
+	}
 }

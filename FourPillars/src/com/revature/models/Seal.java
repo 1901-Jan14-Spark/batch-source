@@ -9,4 +9,20 @@ public class Seal extends Animal {
 	public String talk() {
 		return "Ow ow ow!";
 	}
+	
+	public static void makeNoise() {
+		System.out.println("Seal Noises");
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		Seal a = (Seal) o;
+		if (a.getLegs() == this.getLegs() && a.isHasFur() == this.isHasFur()) {
+			return true;
+		}
+		return false;
+	}
 }

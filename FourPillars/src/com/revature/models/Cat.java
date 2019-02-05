@@ -9,4 +9,20 @@ public class Cat extends Animal {
 	public String talk() {
 		return "Meow!";
 	}
+	
+	public static void makeNoise() {
+		System.out.println("Cat Noises");
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		Cat a = (Cat) o;
+		if (a.getLegs() == this.getLegs() && a.isHasFur() == this.isHasFur()) {
+			return true;
+		}
+		return false;
+	}
 }

@@ -9,4 +9,20 @@ public class Fish extends Animal {
 	public String talk() {
 		return "Blub!";
 	}
+	
+	public static void makeNoise() {
+		System.out.println("Fish Noises");
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		Fish a = (Fish) o;
+		if (a.getLegs() == this.getLegs() && a.isHasFur() == this.isHasFur()) {
+			return true;
+		}
+		return false;
+	}
 }

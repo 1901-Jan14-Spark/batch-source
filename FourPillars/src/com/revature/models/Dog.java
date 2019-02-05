@@ -9,4 +9,18 @@ public class Dog extends Animal {
 	public String talk() {
 		return "Woof!";
 	}
+	public static void makeNoise() {
+		System.out.println("Dog Noises");
+	}
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		Dog a = (Dog) o;
+		if (a.getLegs() == this.getLegs() && a.isHasFur() == this.isHasFur()) {
+			return true;
+		}
+		return false;
+	}
 }

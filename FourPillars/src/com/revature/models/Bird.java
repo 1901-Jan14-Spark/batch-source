@@ -9,4 +9,19 @@ public class Bird extends Animal {
 	public String talk() {
 		return "Tweet!";
 	}
+	public static void makeNoise() {
+		System.out.println("Bird Noises");
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		Bird a = (Bird) o;
+		if (a.getLegs() == this.getLegs() && a.isHasFur() == this.isHasFur()) {
+			return true;
+		}
+		return false;
+	}
 }

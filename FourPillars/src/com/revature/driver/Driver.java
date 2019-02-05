@@ -29,6 +29,15 @@ public class Driver {
 		Animal seal = new Seal();
 		Animal fox = new Fox();
 		
+		Animal[] myZoo = {dog, cat, bird, mouse, cow, frog, elephant, duck, fish, seal, fox};
+		//Method hiding, the static method of the subclass is hidden by the Animal superclass static method
+		for(Animal animal : myZoo) {
+			animal.makeNoise();
+		}
+		//Overriden equals method.
+		System.out.println("\n\nAre dog and cat the same?" + dog.equals(cat)+"\n\n");
+		
+		//Virtual method invocation, the animal talk() method is invoked with the subclasses implementation
 		String whatDoAnimalsSay = 	"Dog goes " + dog.talk() + "\n" +
 									"Cat goes " + cat.talk() + "\n" +
 									"Bird goes " + bird.talk() + "\n" +
@@ -43,5 +52,6 @@ public class Driver {
 									fox.talk() + "\n";
 		
 		System.out.println(whatDoAnimalsSay);
+		
 	}
 }
