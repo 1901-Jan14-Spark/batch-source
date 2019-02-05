@@ -47,8 +47,28 @@ public class Vehicle {
 		this.isMoving = isMoving;
 	}
 	
+	public static void myStaticMethod() {
+		System.out.println("static method from Vehicle");
+	}
+	
 	public String toString() {
 		return "Vehicle: numOfWheels="+numOfWheels+", isMoving="+isMoving;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass()!=this.getClass()) {
+			return false;
+		}
+		Vehicle v = (Vehicle) o;
+		if(v.isMoving!=this.isMoving) {
+			return false;
+		}
+		if(v.numOfWheels!=this.numOfWheels) {
+			return false;
+		}
+		return true;
+		
 	}
 	
 

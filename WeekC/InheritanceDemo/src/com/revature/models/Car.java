@@ -30,10 +30,37 @@ public class Car extends Vehicle {
 	public void setModel(String model) {
 		this.model = model;
 	}
+	
+	// this isn't considered to be method overriding as it's a static method 
+	// instead it is "method hiding"
+	public static void myStaticMethod() {
+		System.out.println("static method from Car");
+	}
 
 	@Override
 	public String toString() {
 		return "Car [make=" + make + ", model=" + model +", isMoving="+this.getIsMoving()+", numOfWheels="+this.getNumOfWheels()+"]";
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass()!=this.getClass()) {
+			return false;
+		}
+		Car v = (Car) o;
+		if(v.getIsMoving()!=this.getIsMoving()) {
+			return false;
+		}
+		if(v.getNumOfWheels()!=this.getNumOfWheels()) {
+			return false;
+		}
+		if(v.getMake()!=this.getMake()) {
+			return false;
+		}
+		if(v.getModel()!=this.getModel()) {
+			return false;
+		}
+		return true;
 	}
 	
 	
