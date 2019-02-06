@@ -9,6 +9,7 @@ public class Lion extends Mamals{
 
 
 	private boolean groupHunter;
+	private Object isGroupHunter;
 
 	//polymorphism. allows you to implement multiple methods within the same class that use the same name
 	// but a different set of parameters. 
@@ -30,6 +31,7 @@ public class Lion extends Mamals{
 
 
 	public String getGenus() {
+		
 		return genus;
 }
 	
@@ -58,11 +60,26 @@ public class Lion extends Mamals{
 	}
 
 
-
 	@Override
 	protected void groupHunter() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Lion are group hunters");
 	}
+	
+	//Equals method
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass()!=this.getClass()) {
+			return false;
+		}
+		Lion v = (Lion) o;
+		if(v.isGroupHunter!=this.isGroupHunter) {
+			return false;
+		}
+		if(v.genus!=this.genus) {
+			return false;
+		}
+		return true;
+	}
+
 	
 }

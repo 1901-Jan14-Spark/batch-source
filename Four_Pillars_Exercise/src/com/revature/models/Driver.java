@@ -8,6 +8,8 @@ public class Driver {
 		l.setName("Lion");
 		l.setGenus("Pantera");
 		l.setCanHunt(true);
+		l.getIsGroubHunter();
+		l.setIsGroupHunter(true);
 		System.out.println(l.getName());
 		System.out.println(l.getGenus());
 

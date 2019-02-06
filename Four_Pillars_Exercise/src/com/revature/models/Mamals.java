@@ -10,7 +10,7 @@ public abstract class Mamals implements Predator{
 		
 	}
 	
-	public Mamals(String name, String genus,String huntingSkill,boolean canHunt) {
+	public Mamals(String name, String genus,boolean canHunt) {
 		this.name = name;
 		this.genus= genus;
 		this.canHunt = canHunt;
