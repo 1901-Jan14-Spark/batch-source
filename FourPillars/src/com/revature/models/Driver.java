@@ -50,10 +50,8 @@ public class Driver {
 		String sound = "Meow";
 		c.makeNoise(sound);
 		anim.makeNoise(sound);
-		
-		//This is an example of method hiding
-		Animals.run();
-		Cat.run();
+		Base bingo = new Child();
+		bingo.printThis();
 		
 		//This is an example of using the .equals method
 		Cat thiscat = new Cat();
@@ -69,6 +67,15 @@ public class Driver {
 		othercat.setHasWhiskers(true);
 		
 		System.out.println(thiscat.equals(othercat));
+		
+		//This is an example of method hiding
+		new Child().printThis();
+		new Base().printThis();
+		Animals.run();
+		Cat.run();
+		
+		
+	
 		
 		
 		
