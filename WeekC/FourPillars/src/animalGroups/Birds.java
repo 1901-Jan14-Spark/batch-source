@@ -58,6 +58,21 @@ public class Birds extends Animal implements CanFly {
 		return  "wings with feather";
 	}
 
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass()!=this.getClass()) {
+			return false;
+		}
+		Birds b = (Birds) o;
+		if(b.beaktype!=this.beaktype) {
+			return false;
+		}
+
+		
+		return true;
+
+	}
 
 	
 	

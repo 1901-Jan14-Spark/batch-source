@@ -23,7 +23,11 @@ public class Fish extends Animal{
 	}
 
 
-
+public static boolean havefins() {
+		
+		return true;
+		
+	}
 	
 	
 	

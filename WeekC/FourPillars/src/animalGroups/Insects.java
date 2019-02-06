@@ -16,7 +16,7 @@ public class Insects extends Animal implements CanFly  {
 	
 	
 	/*here insect is extends from Animal object, but also implements the the fly interface.
-	 * The reason to put flying capability 
+	 * 
 	 *   */
 	@Override
 	public void fly() {
