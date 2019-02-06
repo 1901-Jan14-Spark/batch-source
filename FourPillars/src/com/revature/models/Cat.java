@@ -51,6 +51,36 @@ public class Cat extends Animals {
 		this.hasWhiskers = hasWhiskers;
 	}
 	
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		
+		Cat c = (Cat) o;
+		if(c.hasLungs != this.hasLungs) {
+			return false;
+		}
+		if (c.numHearts != this.numHearts) {
+			return false;
+		}
+		if (c.numLegs != this.numLegs) {
+			return false;
+		}
+		if (c.hasWhiskers != this.hasWhiskers) {
+			return false;
+		}
+		return true;
+	}
+	
+	public String makeNoise(String sound) {
+		String s = "The cat says "+sound;
+		System.out.println(s);
+		return s;
+	}
+	
+	public static void run() {
+		System.out.println("The cat is running");
+	}
 	
 
 

@@ -44,7 +44,31 @@ public abstract class Animals implements Walkable {
 		this.hasLungs = hasLungs;
 	}
 	
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		Animals a = (Animals) o;
+		if(a.hasLungs != this.hasLungs) {
+			return false;
+		}
+		if (a.numHearts != this.numHearts) {
+			return false;
+		}
+		if (a.numLegs != this.numLegs) {
+			return false;
+		}
+		return true;
+	}
 	
+	public String makeNoise(String sound) {
+		String s = "The animal says "+sound;
+		System.out.println(s);
+		return s;
+	}
 	
+	public static void run() {
+		System.out.println("The animal is running");
+	}
 
 }

@@ -44,7 +44,34 @@ public class Driver {
 		Driver driv = new Driver();
 		System.out.println(driv.add(1, 2));
 		System.out.println(driv.add(5, 6, 7));
-
+		
+		// This is an example of virtual method invocation
+		Animals anim = new Cat();
+		String sound = "Meow";
+		c.makeNoise(sound);
+		anim.makeNoise(sound);
+		
+		//This is an example of method hiding
+		Animals.run();
+		Cat.run();
+		
+		//This is an example of using the .equals method
+		Cat thiscat = new Cat();
+		thiscat.setHasLungs(false);
+		thiscat.setNumLegs(3);
+		thiscat.setNumHearts(1);
+		thiscat.setHasWhiskers(true);
+		
+		Cat othercat = new Cat();
+		othercat.setHasLungs(false);
+		othercat.setNumLegs(3);
+		othercat.setNumHearts(1);
+		othercat.setHasWhiskers(true);
+		
+		System.out.println(thiscat.equals(othercat));
+		
+		
+		
 	}
 	
 }
