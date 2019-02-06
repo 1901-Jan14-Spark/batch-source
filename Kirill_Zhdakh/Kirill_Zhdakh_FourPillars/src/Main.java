@@ -11,5 +11,8 @@ public class Main {
 		System.out.println(a.warCry(true));
 		Tiger t = (Tiger)a;
 		System.out.println(t.writeInfo());
+		System.out.println(Animal.likesFood());
+		System.out.println(Fox.likesFood());
+		System.out.println(Tiger.likesFood());
 	}
 }

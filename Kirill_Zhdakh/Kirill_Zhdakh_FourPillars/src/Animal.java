@@ -12,6 +12,9 @@ public abstract class Animal {
 	public abstract String warCry();
 	public abstract String warCry(boolean isBaby);
 	public abstract String toString();
+	public static String likesFood() {
+		return "Default food";
+	}
 	
 	//Encapsulation
 	public String getEyeColor() {

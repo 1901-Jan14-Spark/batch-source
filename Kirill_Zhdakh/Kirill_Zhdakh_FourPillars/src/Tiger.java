@@ -21,6 +21,9 @@ public class Tiger extends Animal implements iInfo {
 		this.age = age;
 		animalCount++;
 	}
+	public static String likesFood() {
+		return "I just love meat, nice and tender.";
+	}
 	public String warCry()
 	{
 		return "GRAAAAAWWWWRRRRRR!";
@@ -49,5 +52,18 @@ public class Tiger extends Animal implements iInfo {
 	}
 	public void setPatternColor(String patternColor) {
 		this.patternColor = patternColor;
+	}
+	public boolean equals(Object o)
+	{
+		if (o == this)
+			return true;
+		if (!(o instanceof Tiger))
+			return false;
+		Tiger t = (Tiger)o;
+		return eyeColor.compareToIgnoreCase(t.eyeColor) == 0 &&
+				furColor.compareToIgnoreCase(t.furColor) == 0 &&
+				age == t.age &&
+				pattern.compareToIgnoreCase(t.pattern) == 0 &&
+				patternColor.compareToIgnoreCase(t.patternColor) == 0;
 	}
 }
