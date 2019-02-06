@@ -4,7 +4,7 @@ public class Dog extends Animal{
 	private boolean isHappy = false;
 	public Dog() {
 		super();
-		this.type = "carnivore";
+		this.setLegs(4);
 	}
 	//Constructor Overloading
 	public Dog(boolean isHappy) {
@@ -12,8 +12,8 @@ public class Dog extends Animal{
 		this.setLegs(4);
 		this.setHappy(isHappy);
 	}
-	public static void call() {
-		System.out.println("Woof");
+	public String call() {
+		return "Woof";
 	}
 	//Polymorphism Overloading example
 	public String call(boolean isAgitated) {
@@ -30,21 +30,5 @@ public class Dog extends Animal{
 	public void setHappy(boolean isHappy) {
 		this.isHappy = isHappy;
 	}
-	public String getType(){
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	@Override
-	public boolean equals(Object o) {
-		if(o.getClass()!=this.getClass()) {
-			return false;
-		}
-		Dog d = (Dog) o;
-		if(this.type!= d.getType()){
-			return false;
-		}
-		return true;
-	}
+	
 }

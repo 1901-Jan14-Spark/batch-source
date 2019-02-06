@@ -9,18 +9,8 @@ public class Driver {
 		System.out.println(a.getLegs());
 		
 		//Covarient Types Example
-		
-		
-		//Method Hiding
 		Animal d = new Dog();
-		d.call();
-		//Virtual Method Invocation will return "carnivore" instead of the Animal "omnivore"
-		System.out.println(d.getType());
-		//Subclass version of Method Hiding
-		Dog dog = new Dog();
-		dog.call();
-		System.out.println(dog.getType());
-		
+		System.out.println(d.call());
 		System.out.println(d.getType());
 		
 		Dog d2 = new Dog(true);
@@ -34,6 +24,6 @@ public class Driver {
 		Bat b = new Bat();
 		b.Fly();
 		
-		b.call();
+		System.out.println(b.call());
 	}
 }

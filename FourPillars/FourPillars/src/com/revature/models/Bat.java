@@ -19,21 +19,10 @@ public class Bat extends Animal implements Flyable{
 
 	@Override
 	public void Fly() {
-		System.out.println("A Bat is the only mammal with sustained flight and has " + wings + " Wings and " + getLegs() + " Legs");
+		System.out.println("A Bat is the only mammal with sustained flight and has " + wings + " Wings and " + legs() + " Legs");
 	}
-	public static void call() {
-		System.out.println("Screeeh");
-	}
-	@Override
-	public boolean equals(Object o) {
-		if(o.getClass()!=this.getClass()) {
-			return false;
-		}
-		Bat b = (Bat) o;
-		if(this.wings!=b.getWings()) {
-			return false;
-		}
-		return true;
+	public String call() {
+		return "Screech";
 	}
 
 }

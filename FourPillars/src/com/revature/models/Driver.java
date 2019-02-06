@@ -25,5 +25,13 @@ public class Driver {
 		b.Fly();
 		
 		System.out.println(b.call());
+		
+		//Equals override example
+		System.out.println(d.equals(d2));
+		
+		Dog d3 = new Dog();
+		d3.setType("Carnivore");
+		System.out.println(d2.equals(d2));
+		
 	}
 }

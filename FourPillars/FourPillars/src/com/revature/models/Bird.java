@@ -8,11 +8,15 @@ public abstract class Bird extends Animal implements Flyable{
 	
 	public Bird() {
 		super();
-		this.wings = 2;
+		this.setLegs(2);
 		
 	}
-	public static void call() {
-		System.out.println("Chrip");
+	public String call() {
+		return "Chirp";
+	}
+	
+	public int wings() {
+		return wings;
 	}
 
 	public int getWings() {
@@ -24,18 +28,8 @@ public abstract class Bird extends Animal implements Flyable{
 
 	@Override
 	public void Fly() {
-		System.out.println("Birds can soar throught the sky with " + wings + " Wings");
+		System.out.println("Birds can soar throught the sky with " + wings() + " Wings");
 	}
-	@Override
-	public boolean equals(Object o) {
-		if(o.getClass()!=this.getClass()) {
-			return false;
-		}
-		Bird br = (Bird) o;
-		if(this.wings!= br.getWings()) {
-			return false;
-		}
-		return true;
-	}
+	
 	
 }

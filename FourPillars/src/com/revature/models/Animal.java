@@ -2,8 +2,8 @@ package com.revature.models;
 
 public class Animal {
 	protected String type = "omnivore";
-	
 	private int legs = 0;
+	
 	public Animal() {
 		super();
 	}

@@ -6,11 +6,12 @@ public class Animal {
 	private int legs = 0;
 	public Animal() {
 		super();
-		this.legs = 4;
-		this.type = "omnivore";
 	}
-	public static void call() {
-		System.out.println("Animal");
+	public String call() {
+		return "Animal";
+	}
+	public int legs() {
+		return legs;
 	}
 	//Encapsulation through getters and setters
 	public int getLegs() {
@@ -25,18 +26,5 @@ public class Animal {
 	public String getType() {
 		return type;
 	}
-	@Override
-	public boolean equals(Object o) {
-		if(o.getClass()!=this.getClass()) {
-			return false;
-		}
-		Animal a = (Animal) o;
-		if(this.legs!= a.getLegs()) {
-			return false;
-		}
-		if(this.type!=a.getType()) {
-			return false;
-		}
-		return true;
-	}
+		
 }

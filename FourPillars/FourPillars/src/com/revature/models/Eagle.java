@@ -13,10 +13,10 @@ public class Eagle extends Bird{
 
 	@Override
 	public void Fly() {
-		System.out.println("Eagles will Fly for great lengths to hunt on " + this.wings + " Wings and " + this.getLegs() + " Legs");
+		System.out.println("Eagles will Fly for great lengths to hunt on " + this.wings + " Wings and " + this.legs() + " Legs");
 	}
-	public static void call(){
-		System.out.println("Scraaaw");
+	public String call() {
+		return "Screee";
 	}
 	
 	
