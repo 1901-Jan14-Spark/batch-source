@@ -38,4 +38,17 @@ public int getPurringVolume(){
     return purringVolume;
 }
 
+
+public static void feed(){ //Hides method of identical name in the superclass Animals
+    this.setHungry(false);
+    this.setSleeping(true);
+}
+
+public boolean equals(Object a){
+    if(a.getClass() != this.getClass()) return false;
+    Cats a2 = (Cats)a;
+    if (this.breed == a.breed && this.sleeping == a.sleeping && this.running == a.running && this.purringVolume == a.purringVolume) return true;
+    else return false;
+}
+
 }

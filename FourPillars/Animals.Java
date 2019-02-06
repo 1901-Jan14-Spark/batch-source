@@ -55,11 +55,11 @@ public class Animals{
         this.sleeping = sleep; //Running and sleeping are mutually exclusive
     }
 
-    public void setHungry(hunger){
+    public void setHungry(boolean hunger){
         this.hungry = hunger;
     }
 
-    public void setBreed(newBreed){
+    public void setBreed(String newBreed){
         this.breed = newBreed;
     }
 
@@ -72,9 +72,14 @@ public class Animals{
         running = true;
     }
 
-    public 
-    //abstraction: only show the essential details. hide everything else for cleanliness
-    //encapsulation: only give access to what is needed, and restrict accesss to everything else
-    //inheritance: self-evident, but also for reducing needless redundancy
-    //polymorphism: multiple possible behaviors for the same object
+    public static void feed(){
+        this.setHungry(false);
+    }
+
+    public boolean equals(Object a){ //override the default equals function
+        if(a.getClass() != this.getClass()) return false;
+        Animals a2 = (Animals)a;
+        if (this.breed == a.breed && this.sleeping == a.sleeping && this.running == a.running) return true;
+        else return false;
+    }
 }

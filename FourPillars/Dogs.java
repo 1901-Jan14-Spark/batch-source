@@ -18,11 +18,17 @@ public class Dogs extends Animals{
         this.breed = "breed";
     }
 
-    public void startle(){ //overrides 'startle' in Animals
+    public void startle(){ //overrides 'startle' in Animals 
         sleeping = false;
         running = true;
         movementSpeed = 5;
         barking = true;
     }
 
+    public boolean equals(Object a){
+        if(a.getClass() != this.getClass()) return false;
+        Dogs a2 = (Dogs)a;
+        if (this.breed == a.breed && this.sleeping == a.sleeping && this.running == a.running && this.barking == a.barking) return true;
+        else return false;
+    }
 }
