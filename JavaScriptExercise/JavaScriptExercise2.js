@@ -1,6 +1,6 @@
-// // 0
+// 0
 function printNumbers(){
-    for(i=1; i<101; i++){
+    for(i=1; i<101; i++){  //O(1)
  if(i%3==0 && i%5==0)
     console.log("FizzBuzz");
 else if(i%3==0)
@@ -19,8 +19,8 @@ function maxLenght(quack){
     var maxString=0;
     var indexMax=0;
     var currentString="";
-    for (var i=0; i < a; i++){
-    currentString=quack[i];
+    for (var i=0; i < a; i++){   
+    currentString=quack[i];          //O(n)
     indexLength=currentString.length;
     
     if (maxString<indexLength){
@@ -35,7 +35,7 @@ function maxLenght(quack){
 
 }  
     
-// // 2
+// // 2                                 //O(1)
 var arr= [5, "dog", 17, "cat", "lizard", 64];
 function reverseArray(arr){
 let reverseArr= arr.reverse();
@@ -46,7 +46,7 @@ console.log(reverseArr);
 function vowelsNumber(array){
 var vowel=["a","e","i","o","u"];
 var amount=0;
-for (var i=0; i < array.length; i++){
+for (var i=0; i < array.length; i++){   //O(n)
 if(array[i]== "a"){
     (amount++);
 
@@ -72,13 +72,13 @@ return amount;
 
 }
 
-// // // 4  
+// 4                            //O(1)
 function scriptRemoval(string){
 var newString= string.replace(/Script/gi,"");
 return newString;
 }
 
-// // 5
+// // 5                       //O(1)
 function leapYear(year){
     if((year%4==0)&&(year%100!==0)||(year%400==0))
 
@@ -89,34 +89,34 @@ else
 
 }
 
-// 6
+// 6                       //O(1)
 function validEmail(email){
 var test=(/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/);
 return test.test(email);
 }
 
-// 7
+// 7                                //O(1)
 function dissectChar(string,char){
     
     var cut=string.slice(0,char)+string.slice(char+1,string.length);
     return cut;
 }
 
-// 8
+// 8                                //O(n^2)
 function bubbleSort(numArray){
     var size = numArray.length;
     var swapped;
     do {
         swapped = false;
-        for (var i = 0; i < size; i++) {
+        for (var i = 0; i < size; i++) {        
             if (numArray[i] > numArray[i + 1]) {
                 var temp = numArray[i];
-                numArray[i] = numArray[i + 1];
+                numArray[i] = numArray[i + 1];     
                 numArray[i + 1] = temp;
                 swapped = true;
             }
         }
-    } while (swapped);
+    } while (swapped);                        
     return numArray;
 }
 
@@ -130,7 +130,7 @@ else {
 }
 }
 
-// 10//Seperated Diamond not working fully
+// 10//Seperated Diamond not working fully   //O(n^2)   
 function square(){
 var rows=5;
 var colu=5;
@@ -142,7 +142,7 @@ for(var i=0; i<=rows; i++){
 }
 }
 
-function triangle(){
+function triangle(){               //O(n^2)
 var rows=5;
 for(var i=0; i<=rows; i++){
     for(var j=0; j<=i; j++){
@@ -152,7 +152,7 @@ for(var i=0; i<=rows; i++){
 }
 }
 
-function diamond(){
+function diamond(){                   //O(n^3)
     var rows=5;
     for(var i=0; i<=rows; i++){
         for(var k=0; k<=rows-i;k++){
@@ -172,7 +172,7 @@ function rotateString(){
 }
 
 
-// 12// Not Working
+// 12// Not Working              //O(n)
 function balanced(string){
     var a =string.length
     if(a%2==0){
