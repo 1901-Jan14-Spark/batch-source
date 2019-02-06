@@ -1,0 +1,39 @@
+package com.revature.models;
+
+public class Driver {
+	public static void main(String[] args) {
+		
+		Animal a = new Animal();
+		System.out.println(a.getLegs());
+		a.setLegs(4);
+		System.out.println(a.getLegs());
+		
+		//Covarient Types Example
+		
+		
+		//Method Hiding
+		Animal d = new Dog();
+		d.call();
+		//Virtual Method Invocation will return "carnivore" instead of the Animal "omnivore"
+		System.out.println(d.getType());
+		//Subclass version of Method Hiding
+		Dog dog = new Dog();
+		dog.call();
+		System.out.println(dog.getType());
+		
+		System.out.println(d.getType());
+		
+		Dog d2 = new Dog(true);
+		System.out.println(d2.isHappy());
+		d2.setType("Carnivore");
+		System.out.println(d2.getType());
+		
+		Eagle e = new Eagle();
+		e.Fly();
+		
+		Bat b = new Bat();
+		b.Fly();
+		
+		b.call();
+	}
+}
