@@ -16,7 +16,10 @@ public class Giraffe extends AnimalTypes{
 	public boolean huntable() {
 		return huntable(false);
 	}
-
+	public static void printNotice() {
+		System.out.println("This is a Giraffe");
+	}
+	
 	@Override
 	public boolean huntable(boolean huntable) {
 		return false;

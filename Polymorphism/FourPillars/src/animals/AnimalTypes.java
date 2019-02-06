@@ -7,6 +7,24 @@ public abstract class AnimalTypes implements Huntable{
 	private boolean eatsMeat;
 	private boolean hunted;
 	
+	public static void printNotice() {
+		System.out.println("This is an Animal");
+	}
+	
+	@Override
+    public boolean equals(Object o) {
+        if(o.getClass() != this.getClass()) {
+            return false;
+        }
+        AnimalTypes grr = (AnimalTypes) o;
+        if(grr.hunted != this.hunted) {
+            return false;
+        }
+        if(grr.eatsMeat != this.eatsMeat) {
+            return false;
+        }
+        return true;
+    } 
 	
 	public boolean getEatsMeat() {
 		return EatsMeat();

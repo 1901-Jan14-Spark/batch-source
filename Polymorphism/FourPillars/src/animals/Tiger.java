@@ -7,6 +7,20 @@ public class Tiger extends AnimalTypes{
 	private boolean huntable;
 	
 	
+	public boolean equals(Object o) {  //equal
+        if(o.getClass() != this.getClass()) {
+            return false;
+        }
+        AnimalTypes grr = (AnimalTypes) o;
+        if(grr.huntable() != this.huntable()){
+            return false;
+        }
+        if(grr.getEatsMeat() != this.getEatsMeat()) {
+            return false;
+        }
+        return true;
+    } 
+	
 	public void setAnimalName(String animalName) {
 		this.animalName=animalName;
 	}
@@ -40,7 +54,9 @@ public class Tiger extends AnimalTypes{
 	public boolean isHuntable() {
 		return huntable;
 	}
-
+	public static void printNotice() {
+		System.out.println("This is a Tiger");
+	}
 
 	public void setHuntable(boolean huntable) {
 		this.huntable = huntable;
@@ -59,8 +75,6 @@ public class Tiger extends AnimalTypes{
 				+ animalName + ", isHunted()=" + isHunted() + "]";
 	}
 
-	
-	
 	
 
 }
