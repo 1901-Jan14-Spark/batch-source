@@ -10,6 +10,18 @@ public abstract class Animal{
         this.classification = classification;
     }
     public abstract void talk();
+    public boolean equals(Object a){
+        if(a.getClass() != this.getClass())
+            return false;
+        Animal o = (Animal)a;
+        if(o.getNumLegs() != this.getNumLegs())
+            return false;
+        if(o.getHasWarmBlood() != this.getHasWarmBlood())
+            return false;
+        if(o.getClassification() != this.getClassification())
+            return false;
+        return true;
+    }
     public void setClassification(String classification){
         this.classification = classification;
     }
@@ -25,7 +37,7 @@ public abstract class Animal{
     public void setHasWarmBlood(boolean hasWB){
         this.hasWarmBlood = hasWB;
     }
-    public boolean getHasWarmBlood(boolean hasWB){
+    public boolean getHasWarmBlood(){
         return this.hasWarmBlood;
     }
 
