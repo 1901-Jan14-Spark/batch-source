@@ -36,6 +36,13 @@ public class Reptile extends Animals{
 			System.out.println("You have not been bitten");
 		}
 	}
+	public void MakeNoise() {
+		System.out.println("HIIISSSS");
+	}
+	
+	public static void thisIS() {
+		System.out.println("This is a reptile");
+	}
 //polymorphism overloading example where another parameter is added for a case where the reptile is venemous
 	public void itBitYou(boolean youBitten, boolean isVenemous) {
 		if(youBitten && isVenemous) {
@@ -51,6 +58,21 @@ public class Reptile extends Animals{
 		else {
 			System.out.println("You have not been bitten.");
 		}
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return false;
+		}
+		Reptile r = (Reptile) o;
+		if(this.getNumOfLegs() != r.getNumOfLegs()) {
+			return false;
+		}
+		if(this.getAnimalNoise() != r.getAnimalNoise()) {
+			return false;
+		}
+		return true;
 	}
 
 }

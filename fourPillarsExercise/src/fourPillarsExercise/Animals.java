@@ -18,4 +18,26 @@ public abstract class Animals implements additionaFacts {
 	public String getAnimalNoise() {
 		return Noise;
 	}
+	public void MakeNoise() {
+		System.out.println("RAAARRRR");
+	}
+	
+	public static void thisIS() {
+		System.out.println("This is an animal");
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o.getClass() != this.getClass()) {
+			return true;
+		}
+		Animals a = (Animals) o;
+		if(this.numOfLegs != a.getNumOfLegs()) {
+			return false;
+		}
+		if(this.Noise != a.getAnimalNoise()) {
+			return false;
+		}
+		return false;
+	}
 }
