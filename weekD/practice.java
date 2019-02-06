@@ -23,6 +23,16 @@ public class practice {
     return current;
   }
 
+  public static int recFibonacci(int n){
+    if(n == 1){
+      return 1;
+    } else if(n == 0){
+      return 0;
+    } else{
+      return recFibonacci(n-1) + recFibonacci(n-2);
+    }
+  }
+
 // O(n)
   public static int gcf(int n1, int n2){
     int maximum = Math.max(n1, n2);
@@ -59,12 +69,10 @@ public class practice {
     }
 
     return Integer.parseInt(str);
-
   }
 
   public static void main(String[] args){
-    System.out.println(fibonacci(8));
-    System.out.println(gcf(190, 285));
-    System.out.println(convertToBinary(12));
+    System.out.println(recFibonacci(10));
+    System.out.println(fibonacci(10));
   }
 }
