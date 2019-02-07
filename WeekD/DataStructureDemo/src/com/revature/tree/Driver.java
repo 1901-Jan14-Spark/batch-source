@@ -16,6 +16,11 @@ public class Driver {
 		
 		System.out.println("data from node with id 5: "+tree.returnData(5));
 		System.out.println("data from node with id 6: "+tree.returnData(6));
+		
+		tree.addNode(6, "Charles");
+		
+		System.out.println(tree.containsValue(6));
+		System.out.println("data from node with id 6: "+tree.returnData(6));
 	}
 
 }

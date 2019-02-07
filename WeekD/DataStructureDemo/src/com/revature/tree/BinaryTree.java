@@ -47,4 +47,34 @@ public class BinaryTree {
 		return "";
 	}
 
+	public Node addNode(int val, String name) {
+		if(root==null) {
+			root = new Node(val);
+		}
+		return addNode(root, val, name);
+	}
+	
+	private Node addNode(Node n, int val, String name) {
+		Node newNode = new Node(val, name);
+		if(n != null && n.id == val) {
+			return n;
+		}
+		if(val>n.id) {
+			if(n.right == null) {
+				n.right = newNode;
+				return newNode;
+			} else {
+				return addNode(n.right, val, name);
+			}
+		}
+		if(val<n.id) {
+			if(n.left == null) {
+				n.left = newNode;
+				return newNode;
+			} else {
+				return addNode(n.left, val, name);
+			}
+		}
+		return null;
+	}
 }
