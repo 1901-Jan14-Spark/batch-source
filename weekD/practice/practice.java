@@ -52,7 +52,6 @@ public class practice {
     return maximum;
   }
 
-
 // O(n)
   public static int convertToBinary(int input){
     int temp1 = input;
