@@ -14,44 +14,12 @@ class Animals {
 		super();
 	}
 	
-	public boolean getHasWings() {
-		return hasWings;
-	}
-	
-	public boolean getHasFlippers() {
-		return hasFlippers;
-	}
-	
-	public boolean GetBreathesOxygen() {
-		return breathesOxygen;
-	}
-	
-	public boolean getIsBipedal() {
-		return isBipedal;
-	}
-	
-	public boolean getCanBark() {
-		return canBark;
-	}
-	
-	public void setHasWings(boolean wings) {
-		this.hasWings = wings;
-	}
-	
-	public void setHasFlippers(boolean flippers) {
-		this.hasFlippers = flippers;
-	}
-	
-	public void setBreathesOxygen(boolean oxygen) {
-		this.breathesOxygen = oxygen;
-	}
-	
-	public void setIsBipedal(boolean bipedal) {
-		this.isBipedal = bipedal;
-	}
-	
-	public void setCanBark(boolean bark) {
-		this.canBark = bark;
+	// downcasting and method overriding
+	public static int animalType() {
+		Animals a1 = new Felines();
+		Felines f1 = (Felines) a1;
+		System.out.println(f1.animalType());
+		return 0;
 	}
 	
 	public static void main(String[] args) {
@@ -59,9 +27,18 @@ class Animals {
 		Felines newKitty = new Felines();
 		// this creates a new Parakeet, where only values within the subclass are printed out. Their boolean values are not used.
 		Parakeet pPaulie = new Parakeet();
-		newKitty.returnAll();
+		newKitty.printAll();
 		pPaulie.canBark();
-		// if I were to have a new Felines or Parakeet constructor, I could change their inherit values. That would be polymorphism. However, their values are static for now. I would need to change the values here.
+		
+		// calling the below to downcast and override
+		animalType();
+		
+		Felines fel1 = new Felines();
+		Felines fel2 = new Felines();
+		System.out.println("Felines...using value: " + fel1.equals(fel2));
+		
+		Parakeet par1 = new Parakeet();
+		Parakeet par2 = new Parakeet();
+		System.out.println("Parakeet...using value: " + par1.equals(par2));		
 	}
-	
 }
