@@ -1,4 +1,5 @@
-public abstract class Animal{
+
+public abstract class Animal implements Comparable<Animal>{
     private String classification; //abstract class at the top of the higherarchy
     private int numLegs;
     private boolean hasWarmBlood;
@@ -40,6 +41,8 @@ public abstract class Animal{
     public boolean getHasWarmBlood(){
         return this.hasWarmBlood;
     }
-
+    public int compareTo(Animal o){ //Comparable
+        return this.getClassification().compareTo(o.getClassification());
+    }
 
 }
