@@ -2,7 +2,7 @@ package com.revature.models;
 
 import com.revature.interfaces.Talkable;
 // Abstraction: Animal super class implements interface and is abstracted to push the user to implement subclasses
-public abstract class Animal implements Talkable {
+public abstract class Animal implements Talkable, Comparable<Animal> {
 	// Inheritance/Encapsulation: protected states to allow direct access to subclasses 
 	protected int legs;
 	protected boolean hasFur;
@@ -51,5 +51,15 @@ public abstract class Animal implements Talkable {
 			return true;
 		}
 		return false;
+	}
+	
+	// compareTo Implementation
+	public int compareTo(Animal o) {
+		return this.getLegs() - o.getLegs();
+	}
+
+	@Override
+	public String toString() {
+		return "Animal [legs=" + legs + ", hasFur=" + hasFur + "]";
 	}
 }

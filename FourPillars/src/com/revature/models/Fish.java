@@ -25,4 +25,8 @@ public class Fish extends Animal {
 		}
 		return false;
 	}
+	@Override
+	public String toString() {
+		return "Fish [legs=" + legs + ", hasFur=" + hasFur + "]";
+	}
 }

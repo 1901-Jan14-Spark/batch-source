@@ -15,6 +15,10 @@ public class Duck extends Bird {
 	}
 	
 	@Override
+	public String toString() {
+		return "Duck [legs=" + legs + ", hasFur=" + hasFur + "]";
+	}
+	@Override
 	public boolean equals(Object o) {
 		if(o.getClass() != this.getClass()) {
 			return false;

@@ -1,5 +1,8 @@
 package com.revature.driver;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import com.revature.models.Animal;
 import com.revature.models.Bird;
 import com.revature.models.Cat;
@@ -12,6 +15,7 @@ import com.revature.models.Fox;
 import com.revature.models.Frog;
 import com.revature.models.Mouse;
 import com.revature.models.Seal;
+import com.revature.models.TalkComparator;
 
 public class Driver {
 
@@ -30,10 +34,27 @@ public class Driver {
 		Animal fox = new Fox();
 		
 		Animal[] myZoo = {dog, cat, bird, mouse, cow, frog, elephant, duck, fish, seal, fox};
-		//Method hiding, the static method of the subclass is hidden by the Animal superclass static method
-		for(Animal animal : myZoo) {
-			animal.makeNoise();
-		}
+//		//Method hiding, the static method of the subclass is hidden by the Animal superclass static method
+//		for(Animal animal : myZoo) {
+//			animal.makeNoise();
+//		}
+		
+		ArrayList<Animal> myAnimal = new ArrayList<Animal>();
+		
+		myAnimal.add(dog);
+		myAnimal.add(fish);
+		myAnimal.add(duck);
+		myAnimal.add(cat);
+		// sorting using comparable interface
+//		Collections.sort(myAnimal);
+		
+		// Sorting by noise animals make(alphabetically)
+		TalkComparator c = new TalkComparator();
+		Collections.sort(myAnimal,c);
+		
+		
+		System.out.println(myAnimal);
+		
 		//Overriden equals method.
 		System.out.println("\n\nAre dog and cat the same?" + dog.equals(cat)+"\n\n");
 		

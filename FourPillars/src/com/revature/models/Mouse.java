@@ -25,4 +25,8 @@ public class Mouse extends Animal {
 		}
 		return false;
 	}
+	@Override
+	public String toString() {
+		return "Mouse [legs=" + legs + ", hasFur=" + hasFur + "]";
+	}
 }

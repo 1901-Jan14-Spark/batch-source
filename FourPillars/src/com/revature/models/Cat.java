@@ -25,4 +25,8 @@ public class Cat extends Animal {
 		}
 		return false;
 	}
+	@Override
+	public String toString() {
+		return "Cat [legs=" + legs + ", hasFur=" + hasFur + "]";
+	}
 }

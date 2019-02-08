@@ -25,4 +25,8 @@ public class Cow extends Animal {
 		}
 		return false;
 	}
+	@Override
+	public String toString() {
+		return "Cow [legs=" + legs + ", hasFur=" + hasFur + "]";
+	}
 }

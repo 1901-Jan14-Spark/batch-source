@@ -40,4 +40,9 @@ public class Fox extends Animal {
 		}
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		return "Fox [hasEars=" + hasEars + ", legs=" + legs + ", hasFur=" + hasFur + "]";
+	}
 }
