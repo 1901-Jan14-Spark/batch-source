@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: budgeting-app
-server:
-  port: 9595
-  
