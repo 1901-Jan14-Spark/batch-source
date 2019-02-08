@@ -1,0 +1,16 @@
+.card-body {
+	padding: 0rem;
+}
+
+.card-header {
+	background-color: #17a2b8;
+	color: #fff;
+	border-radius: 5.25rem;
+}
+
+.card-header:first-child {
+    border-radius: 0.35rem;
+    height: 100px;
+}
+
+@media
