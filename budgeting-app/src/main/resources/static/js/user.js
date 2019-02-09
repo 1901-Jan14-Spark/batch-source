@@ -87,3 +87,10 @@ const addUserRow = (id, firstName, lastName, category) => {
 
 	document.getElementById("userTableBody").appendChild(row);
 }
+
+//Toggle the side navigation
+$("#sidebarToggle").on('click', function (e) {
+	e.preventDefault();
+	$("body").toggleClass("sidebar-toggled");
+	$(".sidebar").toggleClass("toggled");
+});
