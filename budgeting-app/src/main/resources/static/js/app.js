@@ -136,7 +136,7 @@ let UIController = (function () {
         dateLabel: '.budget__title--month'
     };
 
-    let formatNumber= function(num, type) {
+    let formatNumber = function (num, type) {
         let numSplit, int, dec;
 
         num = Math.abs(num);
@@ -145,7 +145,7 @@ let UIController = (function () {
         numSplit = num.split('.');
 
         int = numSplit[0];
-        if(int.length > 3) {
+        if (int.length > 3) {
             int = int.substr(0, int.length - 3) + ',' + int.substr(int.length - 3, 3);
         }
 
@@ -231,24 +231,24 @@ let UIController = (function () {
 
         displayMonth: function () {
             let now, months, month, year;
-            
+
             now = new Date();
 
             months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
             month = now.getMonth();
             year = now.getFullYear();
 
-            document.querySelector(DOMstrings.dateLabel). textContent = months[month] + ", " + year;
+            document.querySelector(DOMstrings.dateLabel).textContent = months[month] + ", " + year;
         },
 
         changedType: function () {
             let fields = document.querySelectorAll(
-                DOMstrings.inputType + ',' + 
+                DOMstrings.inputType + ',' +
                 DOMstrings.inputDescription + ',' +
                 DOMstrings.inputValue
             );
 
-            nodeListForEach(fields, function(cur) {
+            nodeListForEach(fields, function (cur) {
                 cur.classList.toggle('red-focus');
             });
             document.querySelector(DOMstrings.inputBtn).classList.toggle('red');
@@ -276,7 +276,7 @@ let controller = (function (budgetCtrl, UICtrl) {
         document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
 
         document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType);
-        
+
     };
 
     let updateBudget = function () {
@@ -305,7 +305,7 @@ let controller = (function (budgetCtrl, UICtrl) {
         if (input.description !== "" && !isNaN(input.value) && input.value > 0) {
 
             newItem = budgetCtrl.addItem(input.type, input.description, input.value)
-            
+
             UICtrl.addListItem(newItem, input.type);
             UICtrl.clearFields();
             updateBudget();
@@ -315,9 +315,9 @@ let controller = (function (budgetCtrl, UICtrl) {
 
     let ctrlDeleteItem = function (event) {
         let itemID, splitID, ID;
-        
+
         itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
-        
+
         if (itemID) {
             splitID = itemID.split('-');
             type = splitID[0];
@@ -336,7 +336,7 @@ let controller = (function (budgetCtrl, UICtrl) {
             UICtrl.displayBudget({
                 budget: 0,
                 totalInc: 0,
-                totalExp: 0, 
+                totalExp: 0,
                 percentage: -1
             });
             setupEventListeners();
@@ -348,8 +348,8 @@ let controller = (function (budgetCtrl, UICtrl) {
 controller.init();
 
 //Toggle the side navigation
-$("#sidebarToggle").on('click', function(e) {
-  e.preventDefault();
-  $("body").toggleClass("sidebar-toggled");
-  $(".sidebar").toggleClass("toggled");
+$("#sidebarToggle").on('click', function (e) {
+    e.preventDefault();
+    $("body").toggleClass("sidebar-toggled");
+    $(".sidebar").toggleClass("toggled");
 });

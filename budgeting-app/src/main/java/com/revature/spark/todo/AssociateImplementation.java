@@ -136,33 +136,50 @@ public class AssociateImplementation {
 	}
 
 
-/**
- * !! BONUS CHALLENGE REQUIREMENT !!
- *
- * Find the highest expense category for each user.
- *
- * @param calls
- * @return
- */
-    public Map<User, String> highestExpenseCategoryPerUser(List<Expense> expenses) {
-        Map<User, String> expensesMap = new HashMap<User, String>();
+	/**
+	 * !! BONUS CHALLENGE REQUIREMENT !!
+	 *
+	 * Find the highest expense category for each user.
+	 *
+	 * @param calls
+	 * @return
+	 */
+	public Map<User, String> highestExpenseCategoryPerUser(List<Expense> expenses) {
+		Map<User, String> expensesMap = new HashMap<User, String>();
 
-        for(int i = 0; i < expenses.size(); i++) {
-        	User currentUser = expenses.get(i).getUser();
-        	double currentCost = expenses.get(i).getCost();
-        	
-        	for(int j = 0; i < expenses.size(); j++) {
-        		User tempUser = expenses.get(j).getUser();
-        		double tempCost = expenses.get(j).getCost();
-        		if(currentUser == tempUser && currentCost >= tempCost) {
-        			expensesMap.put(currentUser, expenses.get(i).getCategory());
-        		} else {
-        			expensesMap.put(tempUser, expenses.get(j).getCategory());
-        		}
-        	}
-        }
+		User previousUser = expenses.get(0).getUser();
+		double maxCost = expenses.get(0).getCost();
+		int userIDWithMaxCost = 0;
 
-        return expensesMap;
-    	
-    }
+		for(int i = 1; i < expenses.size(); i++) {
+			Expense currentExpense = expenses.get(i);
+			User currentUser = currentExpense.getUser();
+			double currentCost = currentExpense.getCost();
+
+			if(previousUser.getId() == currentUser.getId()) {
+				String previousCategory = expenses.get(i - 1).getCategory();
+				String currentCategory = currentExpense.getCategory();
+
+				if(currentCategory.equals(previousCategory)) {
+					currentCost = expenses.get(i - 1).getCost() + currentExpense.getCost();
+				}
+
+				if(currentCost >= maxCost) {
+					userIDWithMaxCost = i;
+					maxCost = currentCost;
+					expensesMap.put(currentUser, currentExpense.getCategory());
+					previousUser = expenses.get(userIDWithMaxCost).getUser();
+				}
+			} else {
+				expensesMap.put(currentUser, currentExpense.getCategory());
+				maxCost = currentExpense.getCost();
+				previousUser = currentExpense.getUser();
+			}
+		}
+
+//		System.out.println(expensesMap.toString());
+
+		return expensesMap;
+
+	}
 }

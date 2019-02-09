@@ -3,7 +3,7 @@ window.onload = function () {
 }
 
 
-// variables initialized
+//variables initialized
 const getAllUrl = "http://localhost:9595/expense/all";
 const getUserUrl = "http://localhost:9595/user/all";
 const getMinUrl = "http://localhost:9595/expense/min";
@@ -36,13 +36,12 @@ const expensesList = document.getElementById("merchantTable");
 const styleChooseUser = document.getElementById("chooseUser");
 
 
-//////////////////////// AJAX Request /////////////////////////////
+////////////////////////AJAX Request /////////////////////////////
 const ajaxGET = (url) => {
 	let XHR = new XMLHttpRequest();
 	XHR.onreadystatechange = function () {
 		if (XHR.readyState == 4 && XHR.status == 200) {
 			let data = JSON.parse(XHR.response);
-			//			console.log(data);
 			for (user of data) {
 				addMerchantRow(user.id, user.merchant, user.category, user.cost, user.user.firstName + " " + user.user.lastName);
 			}
@@ -52,24 +51,11 @@ const ajaxGET = (url) => {
 	XHR.send();
 }
 
-//const ajaxGETUSER = (url) => {
-//	let XHR = new XMLHttpRequest();
-//	XHR.onreadystatechange = function () {
-//		if (XHR.readyState == 4 && XHR.status == 200) {
-//			let data = JSON.parse(XHR.response);
-//			console.log(data);
-//		}
-//	}
-//	XHR.open("GET", url, true);
-//	XHR.send();
-//}
-
 const ajaxGETTypeValue = (url, typeHolder) => {
 	let XHR = new XMLHttpRequest();
 	XHR.onreadystatechange = function () {
 		if (XHR.readyState == 4 && XHR.status == 200) {
 			let data = JSON.parse(XHR.response);
-			//			console.log(data);
 			data = (data).toFixed(2);
 			typeHolder.append(data);
 		}
@@ -124,8 +110,7 @@ const ajaxPOST = (url, newUserObject) => {
 const ajaxPUT = (url, newUserObject) => {
 	let XHR = new XMLHttpRequest();
 	XHR.onreadystatechange = function () {
-		if (XHR.readyState == 4 && XHR.status == 204) {
-			//        	console.log(XHR.response);   
+		if (XHR.readyState == 4 && XHR.status == 204) { 
 		} else {
 			console.log(XHR.response);
 		}
@@ -139,8 +124,7 @@ const ajaxPUT = (url, newUserObject) => {
 const ajaxDELETE = (url, newUserObject) => {
 	let XHR = new XMLHttpRequest();
 	XHR.onreadystatechange = function () {
-		if (XHR.readyState == 4 && XHR.status == 204) {
-			//        	console.log(XHR.response);   
+		if (XHR.readyState == 4 && XHR.status == 204) {  
 		} else {
 			console.log(XHR.response);
 		}
@@ -151,7 +135,7 @@ const ajaxDELETE = (url, newUserObject) => {
 	XHR.send(jsonUser);
 }
 
-// AJAX functions
+//AJAX functions
 const addExpense = () => {
 	let collection = userList.selectedOptions;
 	let output = "";
@@ -170,9 +154,9 @@ const addExpense = () => {
 	newExpense.category = category.value;
 	newExpense.cost = cost.value;
 	newExpense.user = {
-		firstName: null,
-		id: output,
-		lastName: null
+			firstName: null,
+			id: output,
+			lastName: null
 	}
 	console.log(newExpense)
 	ajaxPOST(expenseUrl, newExpense);
@@ -194,9 +178,9 @@ const updateExpense = () => {
 	newExpense.category = updateCategory.value;
 	newExpense.cost = updateCost.value;
 	newExpense.user = {
-		firstName: null,
-		id: output,
-		lastName: null
+			firstName: null,
+			id: output,
+			lastName: null
 	}
 	console.log(newExpense)
 	ajaxPUT(expenseUrl, newExpense);
@@ -210,19 +194,18 @@ const deleteExpense = () => {
 	newExpense.category = "string";
 	newExpense.cost = 0;
 	newExpense.user = {
-		firstName: null,
-		id: 1,
-		lastName: null
+			firstName: null,
+			id: 1,
+			lastName: null
 	}
 	console.log(newExpense)
 	ajaxDELETE(expenseUrl, newExpense);
 	refreshPage();
 }
 
-// global functions
+//global functions
 const createOnStartUp = () => {
 	ajaxGET(getAllUrl);
-	//	ajaxGETUSER(getUserUrl);
 	ajaxGETTypeValue(getMinUrl, minValHolder);
 	ajaxGETTypeValue(getMaxUrl, maxValHolder);
 	ajaxGETTypeValue(getAvgUrl, avgValHolder);
@@ -279,14 +262,12 @@ const addUserList2 = (idAndName) => {
 }
 
 const refreshPage = () => {
-	setTimeout(function () {
-		window.location.reload(true)
-	}, 0)
+	window.location.reload(true)
 }
 
-// Toggle the side navigation
-$("#sidebarToggle").on('click', function(e) {
-  e.preventDefault();
-  $("body").toggleClass("sidebar-toggled");
-  $(".sidebar").toggleClass("toggled");
+//Toggle the side navigation
+$("#sidebarToggle").on('click', function (e) {
+	e.preventDefault();
+	$("body").toggleClass("sidebar-toggled");
+	$(".sidebar").toggleClass("toggled");
 });
