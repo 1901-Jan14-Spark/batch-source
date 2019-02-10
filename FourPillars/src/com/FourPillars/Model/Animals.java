@@ -1,10 +1,12 @@
 package com.FourPillars.Model;
 //this class is an example of Abstraction
 public abstract class Animals implements Rideable{
+protected String habitat;
 protected int numOfColorRods;
-private int numOfLegs;
+protected int numOfLegs;
 private boolean livesOnLand;
 private boolean oftenInWater;
+public static int treats;
 
 public Animals() {
 	super();
@@ -21,7 +23,7 @@ public Animals(int numOfColorRods, int numofLegs) {
 	this.numOfColorRods=numOfColorRods;
 	this.numOfLegs=numOfLegs;
 }
-// getters and setters are an example of Encapsulation.
+
 public int getNumOfColorRods() {
 	return numOfColorRods;
 }
@@ -37,7 +39,7 @@ public int getNumOfLegs() {
 public void setNumOfLegs(int numOfLegs) {
 	this.numOfLegs = numOfLegs;
 }
-
+//getters and setters are an example of Encapsulation.
 public boolean isLivesOnLand() {
 	return livesOnLand;
 }
@@ -57,6 +59,13 @@ public void setOftenInWater(boolean oftenInWater) {
 public String toString() {
 	return "Vehicle: numOfLegs="+numOfLegs+", numOfColorRods="+numOfColorRods;
 }
-
+//method will be hidden
+public static void giveTreats() {
+	int moreTreats=treats+1;
+}
+//method for virtual method invocation
+public void findHabitat() {
+	System.out.println("Anywhere");
+}
 
 }

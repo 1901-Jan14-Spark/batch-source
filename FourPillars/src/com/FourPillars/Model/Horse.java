@@ -27,6 +27,9 @@ public class Horse extends Animals{
 		
 		System.out.println("A horse is rideable because it has "+ this.getNumOfLegs()+" and livesOnLand is " + this.isLivesOnLand());
 	}
-
+	//method was hidden instead of overriden because it was  static
+	public static void giveTreats() {
+		int moreTreats=treats+5;
+	}
 }
 
