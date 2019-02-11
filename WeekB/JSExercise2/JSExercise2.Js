@@ -1,4 +1,4 @@
-
+//Time complexity = o(n^2)
 //0)
     // for (var i=1; i < 101; i++){
          
@@ -16,7 +16,7 @@
 
 
 
-//1)
+//1) 0(n) 
 //    function maxLength(myArray){
 
 //   //  let container = myArray[0];
@@ -41,7 +41,7 @@
 
 
 
-//2)
+//2)  0(n) 
 //  function reverseArray(myArray){
  
 //      let i = 0;
@@ -76,7 +76,7 @@
 
 
 
-//3)
+//3)   0(n) 
 // function vowelCount(string){
 
 //   //  int[] array = new int[5];
@@ -111,7 +111,7 @@
 
 
 
-//4
+//4   0(n) 
 //  function removeScript(string) {
 
 //   let deleteWord = "Script"
@@ -153,7 +153,7 @@
 
 
 
-// 5)
+// 5) o(1)
 // function isLeapYear(date){
 
 //     if  (date % 100 === 0) 
@@ -176,7 +176,7 @@
 
 
 
-//6)
+//6)  o(1)
 // function isValidEmail(string) {
 //     var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 //     return pattern.test(string);
@@ -189,7 +189,7 @@
 
 
 
-//7)
+//7)  0(n) 
 
 // function removeChar(string, index){
 //  y = 0; 
@@ -217,7 +217,7 @@
 
 
 
-// //8)
+// //8)   o(n^2) 
 
 // function bubbleSort(numArray){
 
@@ -245,7 +245,7 @@
 
 
 
-// 10)
+// 10) o(1)
 // function isPalindrome(someStr){
 //  var length = someStr.length;
 //   var reverse = "";
@@ -272,7 +272,7 @@
 
 
 
-//11)
+//11)  o (n)
 
 // function printShape(shape, height, character){
 //  var someString = "";
@@ -324,7 +324,7 @@
 
 
 
-//12)
+//12) o(n)
 
 // function rotate(array, n){
 
