@@ -11,10 +11,11 @@ public class Monkey extends Animal implements Swingable {
 		// using the set methods in this instance give us the ability to change the variables that were established in the parent (Animal) class
 		this.setNumOfLegs(4);
 		this.setHasTail(true);
+		this.setName("Random Monkey");
 	}
 	
 	public Monkey(String breed) {
-		super(4, true);
+		super(4, true,"George");
 		this.breed = breed;
 	}
 
@@ -33,7 +34,7 @@ public class Monkey extends Animal implements Swingable {
 	
 	// an example of method overriding in Polymorphism, this version will retrun a different string than the version in the Cat class
 	public String toString() {
-		return "Monkey\n---\nBreed: " + breed + "\nNumber of Legs: " + numOfLegs + "\nHas Tail: " + hasTail;
+		return "Monkey\n------\nName: " + name + "\nBreed: " + breed + "\nNumber of Legs: " + numOfLegs + "\nHas Tail: " + hasTail;
 	}
 
 	
@@ -58,6 +59,9 @@ public class Monkey extends Animal implements Swingable {
 			return false;
 		}
 		if(m.getHasTail() != this.getHasTail()) {
+			return false;
+		}
+		if(m.getName() != this.getName()) {
 			return false;
 		}
 		if(m.getBreed() != this.getBreed()) {

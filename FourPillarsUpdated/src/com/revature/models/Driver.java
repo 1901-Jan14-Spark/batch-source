@@ -1,5 +1,10 @@
 package com.revature.models;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class Driver {
 	
 	public static void main(String[] args) {
@@ -113,6 +118,65 @@ public class Driver {
 		// we could also have Virtual Method Invocation in this way
 		Animal a3 = (Monkey) a2;
 		a3.instanceMethod();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		
+		System.out.println("IMPLEMENTATION OF COMPARABLE AND COMPARATOR");
+		System.out.println("-------------------------------------------");
+		System.out.println();
+		//create a new list of animals
+		LinkedList<Animal> animalList = new LinkedList<Animal>();
+		animalList.add(new Animal(4, false, "Spongebob"));
+		animalList.add(new Animal(5, false, "Dove"));
+		animalList.add(new Animal(8, true, "Squidward"));
+		animalList.add(new Animal(4, false, "Eugene"));
+		
+		System.out.println("Unsorted animals:");
+		for(Animal a : animalList) {
+			System.out.println(a);
+		}
+		System.out.println();
+		System.out.println();
+		//sort the animals by their respective number of legs
+		Collections.sort(animalList);
+		System.out.println("Animals Sorted as a Comparable");
+		for(Animal a : animalList) {
+			System.out.println(a);
+		}
+		
+		System.out.println();
+		System.out.println();
+		// implementation of comparator
+		// create a new list of cats
+		LinkedList<Cat> catList = new LinkedList<Cat>();
+		catList.add(new Cat("Siamese", true, "House"));
+		catList.add(new Cat("Jaguar", true, "Jungle"));
+		catList.add(new Cat("Munchkin", true, "House"));
+		
+		// using the CatComparator to sort the cats by their name and put them in their natural order (alphabetical)
+		CatComparator comparator = new CatComparator();
+		Collections.sort(catList, comparator);
+		System.out.println("Cats sorted with CatComparator:");
+		for(Cat kitty : catList) {
+			System.out.println(kitty);
+		}
+		
+		System.out.println();
+		System.out.println();
+		
+		// comparing two animals to each other directly
+		Animal firstAnimal = new Animal(4, false, "Pete");
+		Animal secondAnimal = new Animal(4, true, "Pete");
+		Animal thirdAnimal = new Animal(2, true, "Chuck");
+		
+		System.out.println(firstAnimal.toString());
+		System.out.println(secondAnimal.toString());
+		System.out.println(thirdAnimal.toString());
+		System.out.println();
+		
+		System.out.println("The first two animals are equal: " + firstAnimal.equals(secondAnimal));
+		System.out.println("The first and third animals are equal: " + firstAnimal.equals(thirdAnimal));
 		
 		
 		

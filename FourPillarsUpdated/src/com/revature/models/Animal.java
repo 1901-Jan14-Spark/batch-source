@@ -1,12 +1,14 @@
 package com.revature.models;
 
-public class Animal {
+
+public class Animal implements Comparable<Animal>{
 
 	/* this is a basic example of encapsulation, using protected variables
 	 * so that they can only be accessed by this class and all the subclasses
 	 * of this Animal class, and any class within the package */
 	protected int numOfLegs;
-	protected boolean hasTail;	
+	protected boolean hasTail;
+	protected String name;
 	
 	// this is the no-arguments constructor
 	public Animal() {
@@ -16,10 +18,11 @@ public class Animal {
 	
 	
 	// this second Animal constructor, that now takes two arguments, is an example of method overloading in Polymorphism
-	public Animal(int numOfLegs, boolean hasTail) {
+	public Animal(int numOfLegs, boolean hasTail, String name) {
 		super();
 		this.numOfLegs = numOfLegs;
 		this.hasTail = hasTail;
+		this.name = name;
 	}
 	
 	// because the variables of this class are protected, they can only be accessed and changed through the get and set methods
@@ -41,27 +44,70 @@ public class Animal {
 		
 	}
 	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 
 	//the most basic string method.  each subclass implements it's own version of this method through method overriding
 	// another example of polymorphism
 	public String toString() {
-		return "Animal\n------\nNumber of Legs: " + numOfLegs + "\nHas Tail: " + hasTail;
+		return "Animal\n------\nName: " + name + "\nNumber of Legs: " + numOfLegs + "\nHas Tail: " + hasTail;
 	}
 	
-	// overriding the .equals method of the 
 	@Override
-	public boolean equals(Object o) {
-		if(o.getClass() != this.getClass()) {
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (hasTail ? 1231 : 1237);
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + numOfLegs;
+		return result;
+	}
+
+
+//	@Override
+//	public boolean equals(Object o) {
+//		if(o.getClass() != this.getClass()) {
+//			return false;
+//		}
+//		Animal a = (Animal) o;
+//		if(a.getNumOfLegs() != this.getNumOfLegs()) {
+//			return false;
+//		}
+//		if(a.getHasTail() != this.getHasTail()) {
+//			return false;
+//		}
+//		if(a.getName() != this.getName()) {
+//			return false;
+//		}
+//		return true;		
+//	}
+	
+	// override the previous equals method to implement the comparable interface 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
 			return false;
-		}
-		Animal a = (Animal) o;
-		if(a.getNumOfLegs() != this.getNumOfLegs()) {
+		if (getClass() != obj.getClass())
 			return false;
-		}
-		if(a.getHasTail() != this.getHasTail()) {
+		Animal other = (Animal) obj;
+		if (hasTail != other.hasTail)
 			return false;
-		}
-		return true;		
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (numOfLegs != other.numOfLegs)
+			return false;
+		return true;
 	}
 	
 	
@@ -73,4 +119,15 @@ public class Animal {
 	public void instanceMethod() {
 		System.out.println("This is a non-static method in the parent (Animal) class.");
 	}
+
+	// implementation of the comparable interface using the compareTo method
+	@Override
+	public int compareTo(Animal a) {
+		if(this.numOfLegs == a.numOfLegs) {
+			return this.getName().compareTo(a.getName());
+		}
+		return this.numOfLegs - a.numOfLegs;
+	}
+
+
 }

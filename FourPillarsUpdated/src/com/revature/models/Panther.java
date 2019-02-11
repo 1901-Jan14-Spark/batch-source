@@ -2,7 +2,7 @@ package com.revature.models;
 
 // the extends keyword denotes that the Panther class is a subclass of the Cat class
 // through inheritance, a Panther object would contain all the same variables and methods of the parent Cat class
-public class Panther extends Cat {
+public class Panther extends Cat{
 	
 	//this constructor is a reference to the parent constructor in the Cat class that takes 3 arguments
 	public Panther() {
@@ -30,8 +30,7 @@ public class Panther extends Cat {
 		if(p.getHasTail() != this.getHasTail()) {
 			return false;
 		}
-		return true;
-		
+		return true;	
 	}
 
 }
