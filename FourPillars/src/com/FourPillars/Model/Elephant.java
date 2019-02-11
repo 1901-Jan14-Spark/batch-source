@@ -3,12 +3,30 @@ package com.FourPillars.Model;
 import java.util.Comparator;
 
 //Inheritance example- class inherits from Superclass Animals
-public class Elephant extends Animals, implements Comparator<Elephant>{
+public class Elephant extends Animals implements Comparable<Elephant>{
 boolean hasTusks;
 private String color;
 public Elephant() {
 	super();
 }
+// comparable
+@Override
+public int compareTo(Elephant o) {
+	if(this.numOfLegs == o.numOfLegs) {
+		return this.getColor().compareTo(o.getColor());
+	}
+	return this.numOfLegs - o.numOfLegs;
+}
+// hascode
+@Override
+public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + ((color == null) ? 0 : color.hashCode());
+	result = prime * result + numOfLegs;
+	return result;
+}
+
 
 public Elephant(boolean hasTusks) {
 	super();

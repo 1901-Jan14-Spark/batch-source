@@ -1,6 +1,6 @@
 package com.FourPillars.Model;
 //Inheritance example- class inherits from Superclass Animals
-public class Horse extends Animals{
+public class Horse extends Animals implements Comparable<Horse>{
 	String Breed;
 
 	public Horse() {
