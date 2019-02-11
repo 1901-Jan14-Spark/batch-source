@@ -1,5 +1,7 @@
 package animalGroups;
 
+import java.util.Arrays;
+
 public class creator {
 
 	public creator() {
@@ -63,6 +65,36 @@ public class creator {
  		System.out.println("with value: " + (bird1.equals(bird2)));
  		
          
+
+     Fish[] multiFishes = new Fruit[4];
+
+
+
+
+
+     Fish Fish1 = new Fish(1);
+     Fish Fish2 = new Fish(2);
+     Fish Fish3 = new Fish(3);
+     Fish Fish4 = new Fish(4);
+
+     multiFishes[0] = Fish4;
+     multiFishes[1] = Fish2;
+     multiFishes[2] = Fish1;
+     multiFishes[3] = Fish3;
+      
+ 
+
+      //comparable  
+     Arrays.sort(multiFishes);
+//Comparator
+  Arrays.sort(multiFishes, FishNameComparator);
+
+
+
+
+
+
+
 
 	}
 
