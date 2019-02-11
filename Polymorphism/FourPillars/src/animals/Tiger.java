@@ -74,6 +74,14 @@ public class Tiger extends AnimalTypes{
 		return "Tiger [species=" + species + ", endangered=" + endangered + ", huntable=" + huntable + ", animalName="
 				+ animalName + ", isHunted()=" + isHunted() + "]";
 	}
+//Attempt to generate CompareTo
+	public static int compareTo(Tiger white, Giraffe bob) {
+		return white.getNumOfLegs() - bob.getNumOfLegs();
+		
+	}
+
+
+	
 
 	
 

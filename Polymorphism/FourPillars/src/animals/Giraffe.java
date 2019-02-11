@@ -2,7 +2,7 @@ package animals;
 
 public class Giraffe extends AnimalTypes{
 	private boolean hasSpots;
-	private int numOfLegs;
+	public int numOfLegs;
 
 	public boolean isHasSpots() {
 		return hasSpots;
