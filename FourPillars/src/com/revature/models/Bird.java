@@ -9,7 +9,6 @@ public abstract class Bird extends Animal implements Flyable{
 	public Bird() {
 		super();
 		this.setLegs(2);
-		
 	}
 	public String call() {
 		return "Chirp";

@@ -7,9 +7,9 @@ public class Dog extends Animal{
 		this.setLegs(4);
 	}
 	//Constructor Overloading
-	public Dog(boolean isHappy) {
+	public Dog(boolean isHappy, int legs) {
 		super();
-		this.setLegs(4);
+		this.legs = legs;
 		this.setHappy(isHappy);
 	}
 	public String call() {

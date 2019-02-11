@@ -1,5 +1,8 @@
 package com.revature.models;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class Driver {
 	public static void main(String[] args) {
 		
@@ -13,7 +16,7 @@ public class Driver {
 		System.out.println(d.call());
 		System.out.println(d.getType());
 		
-		Dog d2 = new Dog(true);
+		Dog d2 = new Dog(true, 4);
 		System.out.println(d2.isHappy());
 		d2.setType("Carnivore");
 		System.out.println(d2.getType());
@@ -33,5 +36,15 @@ public class Driver {
 		d3.setType("Carnivore");
 		System.out.println(d2.equals(d2));
 		
+		LinkedList<Animal> animalList = new LinkedList<Animal>();
+		animalList.add(new Bat(0, 2));
+		animalList.add(new Bat(2, 2));
+		animalList.add(new Bat(2, 4));
+		
+		Iterator<Animal> i = animalList.descendingIterator();
+		while(i.hasNext()) {
+			Animal currentElement = i.next();
+			System.out.println(currentElement);
+		}
 	}
 }

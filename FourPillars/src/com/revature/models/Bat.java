@@ -5,7 +5,10 @@ public class Bat extends Animal implements Flyable{
 	public Bat() {
 		super();
 		this.setLegs(2);
-		
+	}
+	public Bat(int legs, int wings) {
+		this.legs = legs;
+		this.wings = wings;
 	}
 	
 	public int getWings() {
