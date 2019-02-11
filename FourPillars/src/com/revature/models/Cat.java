@@ -1,15 +1,42 @@
 package com.revature.models;
 
-public class Cat extends Animals {
+public class Cat extends Animals implements Comparable<Cat> {
 	
 	/*
 	 * The extends keyword allows for the Cat class to inherit from Animals. This essentially
 	 * allows the Cat class to adopt any states and behaviors of the superclass. Because Cat has inherited from Animals, Cat can not inherit any other states and behaviors from any other class. 
 	 */
 	
+	@Override
+	public String toString() {
+		return "Cat [hasWhiskers=" + hasWhiskers + ", name=" + name + ", furColor=" + furColor + ", age=" + age
+				+ ", lives=" + lives + "]";
+	}
+
 	private boolean hasWhiskers;
+
+	private String name;
+	private String furColor;
+	private int age;
+	private int lives;
 	
 	public Cat() {
+	}
+
+	public Cat(String name, String furColor, int age, int lives) {
+		super();
+		this.name = name;
+		this.furColor = furColor;
+		this.age = age;
+		this.lives = lives;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
@@ -80,6 +107,36 @@ public class Cat extends Animals {
 	
 	public static void run() {
 		System.out.println("The cat is running");
+	}
+	
+	public String getFurColor() {
+		return furColor;
+	}
+
+	public void setFurColor(String furColor) {
+		this.furColor = furColor;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getLives() {
+		return lives;
+	}
+
+	public void setLives(int lives) {
+		this.lives = lives;
+	}
+
+	@Override
+	public int compareTo(Cat o) {
+		return this.lives - o.lives;
+		
 	}
 	
 
