@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Call Center</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section class="dropDown">
+    <h3>Call Center</h3>
+        <select class="btn btn-primary btn-sm dropdown-toggle" id="callCenterOptions">
+            <option>All Calls</option>
+            <option>Call Metrics</option>
+        </select><br>
+        <hr>
+    </section>
+
+    <div hidden id="callCenterCall" class="">
+        <h5>All Calls</h5>
+        <table class="table1" id="info">
+            <tr>
+                <th>Call Duration</th>
+                <th>Call ID</th>
+                <th>Notes</th>
+                <th>Resolved</th>
+                <th>User ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </table>
+<hr>
+        <section style="display:inline-block;" style="overflow-y:auto">
+            <form class=""  style="display:inline-block;">
+                <input class="" id="callTime" type="number" placeholder="Call Duration">
+                <input class="" id="callID" type="number" placeHolder="Call ID">
+                <input class="" id="callNotes" type="text" placeholder="Call Notes">
+                <input class="" id="callResolved" type="text" placeholder="Resolved?">
+                <input class="" id="callerID" type="number" placeholder="User ID">
+                <br><br>
+                <button class="btn btn-success" onclick="createCaller()">Add Call</button>
+                <button class="btn btn-warning" onclick="updateCaller()">Update Call</button>
+            </form>
+        </section>
+<hr>
+            <section style="display:inline-block;">
+                <form class="" style="display:inline-block;">
+                  <input id="callID2" type="number" placeholder="Call ID">
+                  <br>
+                  <br>
+                  <button class="btn btn-danger" id="deleteCall" onclick="deleteCaller()">Delete Call</button>
+                </form><br>
+            </section>
+    </div>
+
+    <div hidden id="callSum">
+        <h5>Call Metrics</h5>
+        <table class="table" id="sumInfo">
+            <tr>
+                <th>Sum</th>
+                <th>Min</th>
+                <th>Median</th>
+                <th>Max</th>
+                <th>Average</th>
+            </tr>
+            <tr>
+                <td id="newSum">.</td>
+                <td id="newMin">.</td>
+                <td id="newMedian">.</td>
+                <td id="newMax">.</td>
+                <td id="newAverage">.</td>
+            </tr>
+        </table>
+    </div>
+
+    <script src="callcenter.js"></script>
+</body>
+</html>

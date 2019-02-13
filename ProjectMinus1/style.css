@@ -1,0 +1,27 @@
+
+body {
+    background-color: #f2f5f9;
+    color: #5f6a77;
+    margin: 5px;
+}
+
+h3 {
+    color: black;
+}
+
+.table1 {
+    font-size: 85%;
+    height: 75%;
+    display: block;
+    overflow-y: auto;
+    height: 280px;
+    overflow-x: hidden;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #dbe8f9;
+    background-color: #f2f5f9;
+}
+
+tr:nth-child(even) {
+    background-color: #dbe8f9;
+}
