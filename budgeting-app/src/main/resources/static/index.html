@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- including bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+  <link rel = "stylesheet" type="text/css" href = "budgetStyle.css">
+</head>
+<body>
+	<div class = "container">
+	<header class= "fixed-top" id = "topHeader">
+	<h1>Budgeting App</h1>
+	<h4>Expense Metrics</h4>
+	<table class = "table table-striped table-bordered table-hover-cells" id = "metrics">
+	<thead class = "thead-light">
+		<tr>
+			<th>Sum</th>
+			<th>Average</th>
+			<th>Min</th>
+			<th>Max</th>
+			<th>Median</th>
+		</tr>
+	<thead>
+			<tr>
+			<td id ="sum"></td>
+			<td id = "avg"></td>
+			<td id = "min"></td>
+			<td id = "max"></td>
+			<td id = "median"></td>
+		</tr>
+	</table>
+	<hr>
+	</header>
+	<table class="table table-striped table-hover table-hover-cells table-bordered" id = "expensesTable">
+		<thead class = "thead-dark">
+			<tr>
+				<th>Id</th>
+				<th>Cost</th>
+				<th>Category</th>
+				<th>Merchant</th>
+				<th>User ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+			</tr>
+		</thead>
+		<tbody id="expenses">
+		
+		</tbody>
+		
+		</tbody>
+	</table>
+	<footer class = "fixed-bottom" id = "bottomComponent">
+	<hr>
+    <div id ="formDiv">
+    	<form class = "form-group" id = "newExpense">
+    	<div class = "row">
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "number" id = "expenseId" placeholder = "Expense ID">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "number" id = "cost" placeholder = "Cost">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "text" id = "category" placeholder = "Category">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "text" id = "merchant" placeholder = "Merchant">
+    		</div>
+    	</div>
+    	<div class = "row">
+    		<!-- <div class = "col">
+    		<input class="form-control form-control-lg" type = "number" id = "users" placeholder = "User ID">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "text" id = "firstName" placeholder = "First Name">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "text" id = "lastName" placeholder = "Last Name">
+    		</div> -->
+    		<div class = "col">
+    		<select class = "form-control form-control-lg" id = "userSelect">
+    			<option value="" disabled selected>Select User</option>
+    		</select>
+    		</div>
+			<div class = "col">
+    		<button type = "button" class="btn btn-outline-warning btn-lg" id = "submitBtn">Submit</button>
+    		</div>
+    		<div class = "col">
+    		<button type = "button" class="btn btn-outline-warning btn-lg" id = "updateBtn">Update</button>
+    		</div>
+    		<div class = "col">
+    		<button type = "button" class="btn btn-outline-warning btn-lg" id = "deleteBtn">Delete</button>
+    		</div>
+   		 </div>
+    	</form>
+    	<p>To Update OR Delete an Expense, Please Provide an Expense ID</p>
+    </div>
+    </footer>
+   </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="budget.js"></script>
+</body>
+</html>
