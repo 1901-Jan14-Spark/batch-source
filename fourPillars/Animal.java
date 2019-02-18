@@ -30,6 +30,9 @@ public abstract class Animal implements Comparable<Animal>{
         return this.classification;
     }
     public void setNumLegs(int num){
+        if(num<0){
+            throw new NegativeLegsException("Animal cannot have less than 0 legs.");
+        }
         this.numLegs = num;
     }
     public int getNumLegs(){

@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+
 public class Dog extends Mammal implements Walkable{ //second subclass
     
     public void walk(){
@@ -18,9 +20,28 @@ public class Dog extends Mammal implements Walkable{ //second subclass
             System.out.println("Snoop and Snoopy are both equivalent dogs.");
         Mammal.cloaked(); // method that will be hidden in the sub class
         Dog.cloaked(); // method that hides the superclass implementation
+        //snoopy.setNumLegs(-1); //checked
+        Dog borker = new Dog("doggy.txt");//unchecked
+        borker.talk();
     }
     Dog(){
         super(4,true);
+    }
+    Dog(String dogConfig){
+        if(dogConfig.equals("dogConfig.txt"))
+            System.out.println("Dog is configured.");
+        else{
+            try{
+                throw new FileNotFoundException("cannot find dogConfig.txt");}
+            catch(FileNotFoundException e){
+                e.printStackTrace();
+                this.setClassification("Mammal");
+                this.setHasFur(true);
+                this.setNumLegs(4);
+                this.setHasWarmBlood(true);
+            }
+
+        }
     }
     public boolean equals(Object a){
         if(a.getClass() != this.getClass())
