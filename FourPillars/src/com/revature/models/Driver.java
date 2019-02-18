@@ -71,7 +71,7 @@ public class Driver {
 		othercat.setNumHearts(1);
 		othercat.setHasWhiskers(true);
 		
-		System.out.println(thiscat.equals(othercat));
+//		System.out.println(thiscat.equals(othercat));
 		
 	//This is an example of method hiding
 		new Child().printThis();
@@ -93,10 +93,10 @@ public class Driver {
 		
 		Collections.sort(catList);
 		for(Cat cats : catList) {
-			System.out.println(cats);
+//			System.out.println(cats);
 		}
 		
-		System.out.println();
+//		System.out.println();
 		
 		/*
 		 * This example using a comparator will sort the catList by using the comparator object which
@@ -107,11 +107,21 @@ public class Driver {
 		NameComparator namecomp = new NameComparator();
 		Collections.sort(catList, namecomp);
 		for(Cat catz: catList) {
-			System.out.println(catz);
+//			System.out.println(catz);
 		}
 		
+		//Testing to see if the checked exception is working as intended.
+		Cat catExcTest = new Cat("catConfig.txt");
+		System.out.println(catExcTest);
+		System.out.println();
+		Cat catExcTest1 = new Cat("catConfigFile.txt");
+		System.out.println(catExcTest1);
+		System.out.println();
 		
-		
+		//Testing to see if the unchecked exception works as intended.
+		Cat testCat = new Cat();
+		testCat.setAge(-5);
+		System.out.println(testCat);
 		
 		
 		

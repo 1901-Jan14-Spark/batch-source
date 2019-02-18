@@ -1,5 +1,9 @@
 package com.revature.models;
 
+import java.io.FileNotFoundException;
+
+import com.revature.exceptions.AgeSetValueException;
+
 public class Cat extends Animals implements Comparable<Cat> {
 	
 	/*
@@ -21,6 +25,33 @@ public class Cat extends Animals implements Comparable<Cat> {
 	private int lives;
 	
 	public Cat() {
+	}
+
+	//Creating a Cat constructor to accept some sort of configuration file we may use to initialize some default values/behaviors
+	//for our cat. If it is found then it will successfully create our cat that way, if not it will be configured with default values
+	// that we set via our exception that is caught. This is an example of a checked exception.
+	public Cat(String catConfigFile) {
+		if(catConfigFile.equals("catConfig.txt")) {
+			System.out.println("Successfully creating the cat according to configuration specifications...");
+		} else {
+			try {
+				getCatSpecs();
+			}
+		catch(FileNotFoundException e) {
+			e.printStackTrace();
+			System.out.println("This file was not found, cat will be configured with default values: ");
+			name = "Jax";
+			furColor = "Black";
+			age = 4;
+			lives = 9;
+		}	
+		}
+	}
+	
+	private void getCatSpecs() throws FileNotFoundException {
+		//This would do some code if we had a file that had catspecs...
+		throw new FileNotFoundException("Cannot find catConfig.txt");
+		
 	}
 
 	public Cat(String name, String furColor, int age, int lives) {
@@ -101,12 +132,12 @@ public class Cat extends Animals implements Comparable<Cat> {
 	
 	public String makeNoise(String sound) {
 		String s = "The cat says "+sound;
-		System.out.println(s);
+//		System.out.println(s);
 		return s;
 	}
 	
 	public static void run() {
-		System.out.println("The cat is running");
+//		System.out.println("The cat is running");
 	}
 	
 	public String getFurColor() {
@@ -121,7 +152,16 @@ public class Cat extends Animals implements Comparable<Cat> {
 		return age;
 	}
 
+	//Adding an exception to be thrown if the age set is below 0, which would be impossible.
 	public void setAge(int age) {
+		if (age < 0) {
+			try {
+				throw new AgeSetValueException("The age of the cat cannot be below 0, it would be unfortunately dead.");
+			} catch (AgeSetValueException e) {
+				e.printStackTrace();
+				System.out.println("Please set the age to be greater than 0 if you wish for your cat object to exist.");
+			}
+		}
 		this.age = age;
 	}
 

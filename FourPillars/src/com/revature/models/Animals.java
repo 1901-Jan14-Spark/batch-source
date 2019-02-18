@@ -68,7 +68,7 @@ public abstract class Animals implements Walkable {
 	}
 	
 	public static void run() {
-		System.out.println("The animal is running");
+//		System.out.println("The animal is running");
 	}
 
 }

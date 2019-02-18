@@ -4,7 +4,7 @@ public class Base {
 
 	public void printThis() {
 		
-		System.out.println("base ok");
+//		System.out.println("base ok");
 		
 	}
 }
