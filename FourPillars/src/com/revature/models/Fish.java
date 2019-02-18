@@ -2,8 +2,6 @@ package com.revature.models;
 
 import java.io.FileNotFoundException;
 
-import com.revature.exceptions.UnderwaterNoiseException;
-
 public class Fish extends Animal {
 	//Inheritance: class derived from a superclass allowing access to their states and behaviors
 	public Fish() {
@@ -18,6 +16,7 @@ public class Fish extends Animal {
 		System.out.println("Fish Noises");
 	}
 	
+	//Throws checked exception if file is missing to be handled in Driver
 	public static void makeNoise(String input) throws FileNotFoundException {
 		if(input.equals("fishNoise.text")) {
 			System.out.println("Successfully imported fish noise");

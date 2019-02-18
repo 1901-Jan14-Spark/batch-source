@@ -41,17 +41,18 @@ public class Driver {
 //		for(Animal animal : myZoo) {
 //			animal.makeNoise();
 //		}
-		
+
 		Fish f = (Fish) fish;
 		String input = "";
 
-				try {
-					f.makeNoise(input);
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-					System.out.println("Caught fish noises.");
-				}
+		//handles the filenotfoundexception for the fish noises (checked error by compiler)
+		try {
+			f.makeNoise(input);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			System.out.println("Caught fish noises.");
+		}
 
 		ArrayList<Animal> myAnimal = new ArrayList<Animal>();
 
@@ -66,6 +67,7 @@ public class Driver {
 		TalkComparator c = new TalkComparator();
 		Collections.sort(myAnimal, c);
 
+		// handles the possible negative leg exception
 		try {
 			fox.setLegs(-1);
 		} catch (NumLegsException e) {
@@ -73,9 +75,8 @@ public class Driver {
 			fox.setLegs(4);
 		}
 
-		
 		System.out.println("\nFoxes have " + fox.getLegs() + " legs.");
-		
+
 		System.out.println(myAnimal);
 
 		// Overriden equals method.

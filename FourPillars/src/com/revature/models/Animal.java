@@ -25,6 +25,7 @@ public abstract class Animal implements Talkable, Comparable<Animal> {
 		return legs;
 	}
 
+	//throws unchecked exception if the number of legs is less than 0
 	public void setLegs(int legs) {
 		if(legs < 0) {
 			throw new NumLegsException("Invalid number of legs");
