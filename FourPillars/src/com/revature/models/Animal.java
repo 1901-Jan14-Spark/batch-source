@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import com.revature.exceptions.NumLegsException;
 import com.revature.interfaces.Talkable;
 // Abstraction: Animal super class implements interface and is abstracted to push the user to implement subclasses
 public abstract class Animal implements Talkable, Comparable<Animal> {
@@ -25,6 +26,9 @@ public abstract class Animal implements Talkable, Comparable<Animal> {
 	}
 
 	public void setLegs(int legs) {
+		if(legs < 0) {
+			throw new NumLegsException("Invalid number of legs");
+		}
 		this.legs = legs;
 	}
 
