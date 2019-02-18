@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.io.FileNotFoundException;
+import com.revature.exceptions.NegativeLegsValueException;
 
 public class Animal implements Comparable<Animal>{
 
@@ -14,6 +16,22 @@ public class Animal implements Comparable<Animal>{
 	public Animal() {
 		// a reference to the parent class, which would be the object class in this case
 		super();
+	}
+	
+	public Animal(String animalFile) {
+		if(animalFile.equals("Animal.txt")){
+			System.out.println("Animal successfully created!");
+		} else {
+			try {
+				
+			throw new FileNotFoundException("Cannot find Animal.txt");
+			} catch(FileNotFoundException e) {
+				e.printStackTrace();
+				numOfLegs = 4;
+				hasTail = true;
+				name = "Tiny Tom";
+			}
+		}
 	}
 	
 	
@@ -32,6 +50,10 @@ public class Animal implements Comparable<Animal>{
 	}
 
 	public void setNumOfLegs(int numOfLegs) {
+		// here, the NegativeLegsValueException is being thrown to insure that our animals have a valid number of legs.
+		if(numOfLegs < 0){
+			throw new NegativeLegsValueException("Though it would be sad if our animal had no limbs, that is still possible.  However, our animal cannot have a negative number of legs.");	
+			}
 		this.numOfLegs = numOfLegs;
 	}
 	

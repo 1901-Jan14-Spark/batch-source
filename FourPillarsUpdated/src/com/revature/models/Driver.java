@@ -178,6 +178,19 @@ public class Driver {
 		System.out.println("The first two animals are equal: " + firstAnimal.equals(secondAnimal));
 		System.out.println("The first and third animals are equal: " + firstAnimal.equals(thirdAnimal));
 		
+		System.out.println();
+		System.out.println();
+		Animal atest = new Animal();
+		// this should throw a runtime exception, and print the message
+		atest.setNumOfLegs(-5);
+		System.out.println("Set the number of legs to " + atest.getNumOfLegs());
+		System.out.println();
+		Animal atest2 = new Animal("Animal.txt");
+		System.out.println(atest2);
+		System.out.println();
+		Animal atest3 = new Animal("NewAnimal.txt");
+		// this will throw a checked exception because the file will not be able to be found
+		System.out.println(atest3);
 		
 		
 	}
