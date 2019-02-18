@@ -1,5 +1,5 @@
 package com.FourPillars.Model;
-
+import java.io.FileNotFoundException;
 import java.util.Comparator;
 
 //Inheritance example- class inherits from Superclass Animals
@@ -74,10 +74,32 @@ public boolean equals(Object o) {
 	}
 	return true;
 }
-Animals tantor= new Elephant();
-// method for virtual method invocation
-public void findHabitat() {
-	System.out.println("Savanna");
+
+//checked Exception
+public	Elephant(String elephantFile) {
+	if(elephantFile.equals("elephant.txt")) {
+		System.out.println("Elephants found");
+	} else {
+		try {
+			
+			throw new FileNotFoundException("Cannot find Elephants.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			numOfLegs = 4;
+			color = "Grey";
+			hasTusks = false;
+		}
 }
 }
+
+
+
+
+
+//Animals tantor= new Elephant();
+//// method for virtual method invocation
+//public void findHabitat() {
+//	System.out.println("Savanna");
+}
+
 
