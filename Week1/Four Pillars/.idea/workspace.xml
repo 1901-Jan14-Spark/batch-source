@@ -32,83 +32,11 @@
       <change beforePath="$PROJECT_DIR$/../../budgeting-app/src/main/resources/static/view/calculate.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../budgeting-app/src/main/resources/static/view/user.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../budgeting-app/src/test/java/com/revature/spark/BudgetingApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekA/About Me/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekA/About Me/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekA/About Me/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekA/Pair programming - HTML form practice/Login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekA/Pair programming - HTML form practice/Registration.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekA/Pair programming - HTML form practice/SuccessLogin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekA/Pair programming - HTML form practice/stylesheet2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/JS exercise 1/exercise1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/JS exercise 1/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/JS exercise 2/exercise2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/JS exercise 2/exercise2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/css/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/Wordpress.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/css3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/firebase.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/gulp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/home_bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/html5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/javascript.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/jquery.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/landing_bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/landing_bg2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/landing_bg3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/mongodb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/mysql.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/nodejs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/php.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/pogresql.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/react.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/ruby_bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/img/sass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/js/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/js/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/views/experience.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/views/goals.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/views/hobby.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/views/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekB/Presentation/views/skills.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ajax Assessment/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ajax Assessment/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ajax Post Exercise/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Ajax Post Exercise/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Four Pillars Exercise.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Revature/Animal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Revature/Average.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Revature/Calculatable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Revature/Cat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Revature/Dog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/Revature/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JS exercise 3/exercise3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JS exercise 3/exercise3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java exercise 1/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java exercise 1/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java exercise 1/Helper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Java exercise 1/Loops.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/Comparable vs Comparator Exercise.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/src/com/Comparable/CreatorCompare.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/src/com/Comparable/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/src/com/Comparable/RatingCompare.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/src/com/Comparable/TV_Show.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/src/com/Comparable/TitleCompare.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Revature/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Revature/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Revature/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Revature/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Revature/Dog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Revature/Dog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/Revature/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/Revature/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../weekD/Comparable vs Comparator Exercise/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,7 +46,44 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Revature/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-12">
+              <caret line="2" column="10" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/Revature/Animal.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Revature/Cat.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-260">
+              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/Exception/NegativeAgeException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -160,13 +125,41 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Four Pillars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Four Pillars" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Four Pillars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Four Pillars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Four Pillars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Four Pillars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Four Pillars" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Four Pillars" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="Revature" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550521245142" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550520791039" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -215,6 +208,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="772" y="0" width="767" height="871" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.042432815" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -225,7 +219,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49944258" weight="0.32882273" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49944258" visible="true" weight="0.32882273" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -317,8 +311,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/Revature/Animal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="22" column="51" lean-forward="true" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+        <state relative-caret-position="268">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
         </state>
       </provider>
     </entry>
