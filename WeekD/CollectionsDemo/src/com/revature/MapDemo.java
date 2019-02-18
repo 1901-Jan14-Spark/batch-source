@@ -1,6 +1,8 @@
 package com.revature;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -83,6 +85,9 @@ public class MapDemo {
 		for(IceCream iceCream : iceCreamSet) {
 			System.out.println(iceCream+" got "+iceCreamMap.get(iceCream)+" votes");
 		}
+		
+		LinkedList<String> ll = new LinkedList<String>();
+		ll.add("hello");
 		
 	}
 	
