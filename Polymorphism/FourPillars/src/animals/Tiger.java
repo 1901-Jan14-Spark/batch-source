@@ -1,5 +1,7 @@
 package animals;
 
+import java.io.FileNotFoundException;
+
 public class Tiger extends AnimalTypes{
 
 	private String species;
@@ -80,9 +82,25 @@ public class Tiger extends AnimalTypes{
 		
 	}
 
+	public Tiger(String tigeFile) {
+		if(tigeFile.equals("tigerFile.txt")) {
+			System.out.println("Successfully Accessed Giraffe File");
+		} else {
+			try {
+				throw new FileNotFoundException("Cannot Find GiraffeFile.txt");
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+				animalName="boby";
+				System.out.println(e.toString());
+			}
+		}
+	}
+	//This generates a checked exception, code will not compile
+public static void main(String[] args) {
+	Tiger bobby = new Tiger(tigerFile);
+	System.out.println(bobby);
 
-	
-
+}
 	
 
 }

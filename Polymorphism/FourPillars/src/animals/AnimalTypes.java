@@ -47,6 +47,9 @@ public abstract class AnimalTypes implements Huntable{
 
 
 	public void setNumOfLegs(int numOfLegs) {
+		if(numOfLegs < 0 || numOfLegs > 4) {
+			throw new ValidNumberOfLegsExeption("Animal Must Have Ideally 4 legs but no Less than 0");
+		}
 		this.numOfLegs = numOfLegs;
 	}
 

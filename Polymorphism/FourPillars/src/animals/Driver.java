@@ -8,25 +8,25 @@ public abstract class Driver implements Comparable<LegsComparator>{
 	public static void main(String [] args) {
 		
 		
-		Tiger white= new Tiger();
-		white.setAnimalName("White Tiger");
-//		white.setSpecies("Pantera tigris");
-//		white.setEatsMeat(true);
-		white.setNumOfLegs(3);
-//		white.setEndangered(true);
-		white.setHuntable(true);
-		white.setHunted(true);
-//		Tiger.printNotice(); //method hiding
-		System.out.println(white.toString());
-	
+//		Tiger white= new Tiger();
+//		white.setAnimalName("White Tiger");
+////		white.setSpecies("Pantera tigris");
+////		white.setEatsMeat(true);
+//		white.setNumOfLegs(3);
+////		white.setEndangered(true);
+//		white.setHuntable(true);
+//		white.setHunted(true);
+////		Tiger.printNotice(); //method hiding
+//		System.out.println(white.toString());
 //	
-		Giraffe bob = new Giraffe();
-		bob.setAnimalName("Bob");
-		bob.huntable(true);
-		bob.setHunted(false);
-		bob.setNumOfLegs(4);
-		System.out.println(bob.toString());
-//		Giraffe.printNotice(); //method hiding
+////	
+//		Giraffe bob = new Giraffe();
+//		bob.setAnimalName("Bob");
+//		bob.huntable(true);
+//		bob.setHunted(false);
+//		bob.setNumOfLegs(4);
+//		System.out.println(bob.toString());
+////		Giraffe.printNotice(); //method hiding
 	
 //	
 //	AnimalTypes tig= new Tiger(); // VMI
@@ -48,12 +48,26 @@ public abstract class Driver implements Comparable<LegsComparator>{
 //		System.out.println(tig3.equals(tig4));
 		
 		//trying to configure Comparable/comparators
-	LinkedList<Tiger> tigerslist = new LinkedList<Tiger>();
-	tigerslist.add(new Tiger());
-	tigerslist.add(new Tiger());
+//	LinkedList<Tiger> tigerslist = new LinkedList<Tiger>();
+//	tigerslist.add(new Tiger());
+//	tigerslist.add(new Tiger());
+//	
+//	 LegsComparator comparator = new LegsComparator();
+//	 //Collections.sort(tigerslist, comparator);
+		
+	//This provides us with an unchecked exception
+//		Tiger o1 = new Tiger();
+//	o1.setNumOfLegs(5);
+//	System.out.println(o1);
+//	
+//	Tiger o2 = new Tiger();
+//	o2.setNumOfLegs(0);
 	
-	 LegsComparator comparator = new LegsComparator();
-	 Collections.sort(tigerslist, comparator);
+		//this is another unchecked exception
+	int numOfTigers = 4;
+	int numOfGiraffes = 0;
+	
+	System.out.println(numOfTigers/numOfGiraffes);
 		
 	}
 
