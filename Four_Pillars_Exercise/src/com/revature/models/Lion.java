@@ -3,53 +3,41 @@ package com.revature.models;
 //Inheritance is the process wherein characteristics are inherited from ancestors. 
 //Inheritance in java can be defined as a mechanism where a new class is derived from an existing class.
 // Lion derived from mammals
-public class Lion extends Mamals{
-	public Lion() {
-	}
-
-
+public class Lion extends Mamals implements Predator{
 	private boolean groupHunter;
-	private Object isGroupHunter;
-
-	//polymorphism. allows you to implement multiple methods within the same class that use the same name
+	private String hasFur;
+	public Lion() {
+		super();
+	}
+	// here we overload our constructor, providing constructors with different sets of parameters
+		// this is polymorphism -- overloading
+		public Lion(boolean groupHunter, String name, String genus,boolean canHunt,String hasFur) {
+			super(name, genus, canHunt);
+			this.groupHunter = groupHunter;
+			this.hasFur = hasFur;
+		}
+		
+		public Lion(String hasFur) {
+			if(hasFur.equals("Furry")) {
+				System.out.println("Yes,Mostly Lions are furry");
+			} else {
+				try {
+					throw  new FurValidityException("lions are furry");
+				} catch (FurValidityException e) {
+					e.printStackTrace();
+					this.setGroupHunter(true);
+				}
+			}
+		}
+		
+    //polymorphism. allows you to implement multiple methods within the same class that use the same name
 	// but a different set of parameters. 
 	//That is called method overloading and represents a static form of polymorphism.
 
 	@Override
 	public void huntingSkill(){
-	System.out.println("chase is on. A period of time during which the tiger relentlessly pursues its terrified prey with an astonishing speed of around 65");}
+	System.out.println("chase is on. A period of time during which the lion relentlessly pursues its terrified prey");}
 
-
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String getGenus() {
-		
-		return genus;
-}
-	
-	public void setGenus(String genus) {
-		this.genus = genus;
-	}
-	
-	public boolean getCanHunt() {
-		if (canHunt == true) {
-		System.out.println("This Animal can hunt");
-	} else {
-		System.out.println("This animal cannot hunt");
-	}
-		return groupHunter;}
-
-	public boolean setCanHunt(boolean canHunt) {
-		return this.canHunt = canHunt;
-	}
 	
 	public boolean isGroupHunter() {
 		return groupHunter;
@@ -58,13 +46,19 @@ public class Lion extends Mamals{
 	public void setGroupHunter(boolean groupHunter) {
 		this.groupHunter = groupHunter;
 	}
-
-
-	@Override
-	protected void groupHunter() {
-		System.out.println("Lion are group hunters");
+	public String getHasFur() {
+		return hasFur;
+	}
+	public void setHasFur(String hasFur) {
+		this.hasFur = hasFur;
 	}
 	
+	@Override
+	public String toString() {
+		return "Lion [groupHunter=" + groupHunter + ", hasFur=" + hasFur + ", isGroupHunter()=" + isGroupHunter()
+				+ ", getHasFur()=" + getHasFur() + ", getName()=" + getName() + ", getGenus()=" + getGenus()
+				+ ", isCanHunt()=" + isCanHunt() + "]";
+	}
 	//Equals method
 	@Override
 	public boolean equals(Object o) {
@@ -72,10 +66,10 @@ public class Lion extends Mamals{
 			return false;
 		}
 		Lion v = (Lion) o;
-		if(v.isGroupHunter!=this.isGroupHunter) {
+		if(v.groupHunter!=this.groupHunter) {
 			return false;
 		}
-		if(v.genus!=this.genus) {
+		if(v.getGenus()!=this.getGenus()) {
 			return false;
 		}
 		return true;

@@ -1,10 +1,10 @@
 package com.revature.models;
 
 //abstract class to define some common behavior that can be inherited by multiple subclasses like Lion class
-public abstract class Mamals implements Predator{
-	protected String name;
-	protected String genus;
-	protected boolean canHunt;
+public class Mamals {
+	private String name;
+	private String genus;
+	private boolean canHunt;
 
 	public Mamals() {
 		
@@ -15,11 +15,9 @@ public abstract class Mamals implements Predator{
 		this.genus= genus;
 		this.canHunt = canHunt;
 	}
-
-
 	//Encapsulation can be achieved by: Declaring all the variables in the class 
 	//as private and writing public methods in the class to set and get the values of variables.
-	
+
 	public String getName() {
 		return name;
 	}
@@ -36,13 +34,12 @@ public abstract class Mamals implements Predator{
 		this.genus = genus;
 	}
 
-	public boolean CanHunt() {
+	public boolean isCanHunt() {
 		return canHunt;
 	}
 
-	public void CanHunt(boolean canHunt) {
+	public void setCanHunt(boolean canHunt) {
 		this.canHunt = canHunt;
 	}
 
-	protected abstract void groupHunter();
 }

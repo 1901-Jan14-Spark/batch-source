@@ -5,16 +5,19 @@ public class Driver {
 	}
 	public static void main(String[] args) {
 		Lion l = new Lion();
-		l.setName("Lion");
+		l.setName("Atlas");
 		l.setGenus("Pantera");
 		l.setCanHunt(true);
-		l.getIsGroubHunter();
-		l.setIsGroupHunter(true);
+		l.setGroupHunter(true);
+		l.isGroupHunter();
 		System.out.println(l.getName());
 		System.out.println(l.getGenus());
 
-		Mamals Li = new Lion();
-		Li.groupHunter();
+		//Mamals Mm = new Mamals();
+		Lion alex = new Lion(true,"Alex","Pantera",false,"Furry");
+		System.out.println(alex);
+
+		
 	}
 
 }
