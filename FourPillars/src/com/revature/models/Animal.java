@@ -1,11 +1,28 @@
 package com.revature.models;
+import java.io.FileNotFoundException;
 
+import com.revature.exceptions.NotValidAnimalTypeException;
+import com.revature.exceptions.NumberOfFeetNotValidException;
 public class Animal implements Comparable<Animal> {
 	protected String type = "omnivore";
 	protected int legs = 0;
 	
 	public Animal() {
 		super();
+	}
+	//Example of Checked exception 
+	public Animal(String animalBehaviorsFile) {
+		if(animalBehaviorsFile.contentEquals("AnimalBehaviors.txt")) {
+			System.out.println("Animal Behaviors where accessed");
+		}
+		else {
+			try {
+				throw new FileNotFoundException("Animal Behaviors from AnimalBehaviors.txt was not found");
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+				this.legs = 2;
+			}
+		}
 	}
 	public Animal(int legs) {
 		this.legs = legs;
@@ -20,11 +37,23 @@ public class Animal implements Comparable<Animal> {
 	public int getLegs() {
 		return legs;
 	}
+	//Example of Unchecked exception for negative legs
 	public void setLegs(int legs) {
+		if(legs < 0) {
+			throw new NumberOfFeetNotValidException("Animals need 0 or more feet");
+		}
+		else {
 		this.legs = legs;
+		}
 	}
+	//second example of checked exception
 	public void setType(String type) {
-		this.type = type;
+		if(type != "omnivore" || type != "herbivore"|| type !="carnivore") {
+			throw new NotValidAnimalTypeException("this is not a proper type of animal");
+		}
+		else {
+			this.type = type;
+		}
 	}
 	public String getType() {
 		return type;

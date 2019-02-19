@@ -18,7 +18,7 @@ public class Driver {
 		
 		Dog d2 = new Dog(true, 4);
 		System.out.println(d2.isHappy());
-		d2.setType("Carnivore");
+		d2.setType("carnivore");
 		System.out.println(d2.getType());
 		
 		Eagle e = new Eagle();
@@ -33,7 +33,7 @@ public class Driver {
 		System.out.println(d.equals(d2));
 		
 		Dog d3 = new Dog();
-		d3.setType("Carnivore");
+		d3.setType("carnivore");
 		System.out.println(d2.equals(d2));
 		
 		LinkedList<Animal> animalList = new LinkedList<Animal>();
@@ -46,5 +46,8 @@ public class Driver {
 			Animal currentElement = i.next();
 			System.out.println(currentElement);
 		}
+		
+		Dog d4 = new Dog(true, -1);
+		Animal a3 = new Animal("NotAnimalBehaviors.txt");
 	}
 }
