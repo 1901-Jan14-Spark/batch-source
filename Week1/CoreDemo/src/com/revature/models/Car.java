@@ -1,11 +1,14 @@
 package com.revature.models;
 
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 
 import com.revature.exceptions.NegativeWheelValueException;
 
-public class Car {
+public class Car implements Serializable, Cloneable {
 
+	private static final long serialVersionUID = 1L;
+	
 	private int numOfWheels;
 	private int speed;
 	private String color;
