@@ -1,0 +1,4 @@
+Leader Board:
+
+User: Hello Tries:8 Wrong guesses: 7
+User: Iwon123	Tries:7	Wrong guesses: 7
