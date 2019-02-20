@@ -27,7 +27,7 @@ public class Hangman
 	static String winnersFilePath = "src/com/revature/io/game/winners.txt";
 	static ArrayList<String> words = new ArrayList<>();
 	static Scanner scan = new Scanner(System.in);
-	static int difficulty;
+	static int difficulty = 0;
 	
 	public static void main(String[] args)
 	{
@@ -36,24 +36,22 @@ public class Hangman
 	
 	static void setDifficulty()
 	{
-		try{
-			System.out.println("Welcome to Java Hangman! Please input your desired level of difficulty. 1 for Easy Mode, 2 for Hard Mode. If you input anything else you will begin on the default -- easy mode.");
-			difficulty = scan.nextInt();
-			if(difficulty > 2) {
-				setDifficulty();
-			}
-			initializeGame(difficulty);
-		} catch (InputMismatchException e)
-		{
-			System.out.println("You did not select a valid difficulty... Please try again.");
-		}
+			try{
+				System.out.println("Welcome to Java Hangman! Please input your desired level of difficulty. 1 for Easy Mode, 2 for Hard Mode.");
+				String diffInput = scan.next();
+				if (diffInput.matches("[1-2]"))
+				{
+					difficulty = Integer.parseInt(diffInput);
+					initializeGame(difficulty);
+				} else {
+					setDifficulty();
+				}
+			} catch (InputMismatchException e)
+			{
+				System.out.println("You did not select a valid difficulty... Please restart the application.");
+			} 
 	}
-	
-	static void runDefault()
-	{
-		initializeGame(1);
-	}
-	
+
 	static void initializeGame(int difficulty)
 	{
 		guess(getWord(difficulty));
@@ -81,7 +79,7 @@ public class Hangman
 				String[] wrongCheck = wrong.split(" ");
 				if (wrongCheck.length == 6)
 				{
-					System.out.println("You LOSE. THE GAME IS OVER.");
+					System.out.println("You LOSE. THE GAME IS OVER. Your word was: "+word);
 					replayGameOption();
 				}
 			} else 
@@ -129,9 +127,10 @@ public class Hangman
 		}
 			//If successfully beaten the game -- write the winner to the winner list.
 			System.out.println(">>>>>>> SUCCESS! Your word was '"+word+"' <<<<<<<");
-			System.out.println("Enter your name below, we'll add you to our winners list!");
+			System.out.println("Enter your first name below, we'll add you to our winners list!");
 			String playerName = scan.next();
 			writeWinners(playerName);
+			replayGameOption();
 	}
 	
 	//A method to restart the game if player loses or wins. Gives them the option to input Yy to keep going. 
@@ -164,9 +163,9 @@ public class Hangman
 		{
 			out.println(name);
 			System.out.println("You have been added to our winners list!");
-			replayGameOption();
 			return true;
-		} catch (IOException e) {
+		} catch (IOException e) 
+		{
 			e.printStackTrace();
 		}
 		return false;
