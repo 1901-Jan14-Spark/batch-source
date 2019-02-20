@@ -1,0 +1,3 @@
+Word: invent
+Guessed: ___e_t
+Wrong guesses: a d f b c g 
