@@ -11,6 +11,7 @@
 - when we use a bytestream to read/write to a file, data is transfered by single bytes
 
 > FileInputStream
+
 > FileOutputStream
 
 ### CharacterStream
@@ -18,12 +19,14 @@
 - includes encoding of characters (this must be specified with a bytestream)
 
 > FileReader 
+
 > FileWriter
 
 ### Buffering ByteStreams and CharacterStreams
 - going by one byte or character at a time can be pretty costly, so we read/write in larger chunks using buffered streams
 
 > BufferedInputStream / BufferedOutputStream -> buffered bytestreams
+
 > BufferedReader / BufferedWriter -> buffered character streams
 
 #### BufferedWriter
@@ -49,6 +52,7 @@ BufferedReader br = new BufferedReader(fr);
 - **transient** keyword indicates that a particular instance variable will not be serialized
 
 > ObjectOutputStream
+
 > ObjectInputStream
 
 #### Serialization with ObjectOutputStream
