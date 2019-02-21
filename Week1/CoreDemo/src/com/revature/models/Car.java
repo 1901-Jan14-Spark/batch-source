@@ -135,6 +135,8 @@ public class Car implements Serializable, Cloneable {
 		return "Car [numOfWheels=" + numOfWheels + ", speed=" + speed + ", color=" + color + ", isTruck=" + isTruck
 				+ "]";
 	}
+
+
 	
 	
 }
