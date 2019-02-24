@@ -24,5 +24,10 @@ public class Square extends Rectangle {
 		this.height = width;
 		this.width = width;
 	}
+	
+	@Override
+	public Square returnRect() throws NullPointerException{
+		return new Square();
+	}
 
 }

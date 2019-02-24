@@ -1,0 +1,22 @@
+ What is the difference between a compiled and an interpreted language?
+ What is the Internet? What is the World Wide Web?
+ What are the different levels of programming languages?
+ What is HTTP? Why is it important?
+ What are the different ranges of HTTP status codes?
+ What are the different HTTP methods?
+ What makes up an HTTP Request?
+ What makes up an HTTP Response?
+ What is the general structure of an HTML page?
+ What is the use of the <meta> HTML tag? What are attributes you'd find in it?
+ What is the <ol> tag used for? How is that different than a <ul>?
+ Explain the CSS box model.
+ What are the CSS selectors for applying styling by tagname, class, and id?
+ How would I select image tags that have a height attribute with CSS?
+ What command can I use to edit the contents of a file in the command line?
+ What command can I use to print the contents of a file to the command line?
+ How can I show the files in my current directory, including hidden files, using the command line?
+ How can I find out what the current directory is in the command line?
+ What do "~" and "/" represent while working in the command line?
+ Why do we say our style sheets are "cascading"?
+ What are semantic element in HTML?
+ List and explain the values for the position property in CSS. 

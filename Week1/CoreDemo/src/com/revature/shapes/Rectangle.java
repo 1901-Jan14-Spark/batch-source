@@ -51,4 +51,8 @@ public class Rectangle extends Shape {
 		return 2*(height+width);
 	}
 
+	protected Rectangle returnRect() throws RuntimeException {
+		return new Rectangle();
+	}
+	
 }

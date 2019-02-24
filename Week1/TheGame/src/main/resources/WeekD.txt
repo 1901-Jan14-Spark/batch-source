@@ -1,0 +1,21 @@
+What is a generic? How does it help us with Collections?
+What are the important interfaces in the Collections Framework?
+What are methods found in Collection?
+What is the difference between Comparable and Comparator?
+Why is overriding the hashcode important? How should it relate to the equals method?
+What is the difference between Collection and Collections?
+Explain polymorphism.
+What is the difference between an interface and an abstract class?
+Explain encapsulation.
+Explain the difference between linear and binary search. How does that impact their time complexity?
+How would I implement a binary search tree? How would I traverse over it?
+How would implement a merge sort?
+What is the difference between a TreeSet, a HashSet, and a LinkedHashSet.
+Explain how a HashSet is implemented.
+Explain how to implement selection sort.
+Explain how to implement a linked list. How does it compare to an array or an array list?
+What is the significance of the Iterable interface?
+What is recursion? Give an example of how you have implemented it.
+Explain the AJAX workflow.
+What makes up an HTTP Request? An HTTP Response?
+What are the primitive types in Java. What are wrapper classes?

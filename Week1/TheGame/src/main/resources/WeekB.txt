@@ -1,0 +1,22 @@
+What are the truthy and falsy values?
+Explain the difference between let, var, and const.
+What's a callback function? Where have you seen them used?
+Explain the AJAX workflow.
+What is AJAX? Why do we use it?
+Explain type coercion.
+What are the three ways I can handle events with JavaScript?
+Name some of the types of events we can work with.
+Explain the guard operator.
+Explain the default operator.
+What are the different scopes in JavaScript?
+What are the primitive types in JavaScript?
+In what ways can I select elements from the DOM?
+What is the DOM? Explain its structure.
+What is JSON? Why is it important?
+Name some methods and properties we can work with with DOM elements.
+What are the different ready states of an XHR object?
+What types of information can we get from an Event object?
+What are some methods which are provided by a String object in JavaScript?
+Describe different ways we can create JavaScript objects.
+Describe flow of control statements available for use with JavaScript.
+What are the use of the continue and break keywords?
