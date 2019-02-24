@@ -29,6 +29,10 @@ public class User {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
+	public String getAccountNumber() {
+		return accountNumber;
+	}
 
 	public String setAccountNumber() {
 		//randomly generate a unique account number for each new user
