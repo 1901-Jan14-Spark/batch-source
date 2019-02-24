@@ -105,8 +105,8 @@ public class FileEdit {
 	
 	//write user to users file and create balance of $0 in AccountBalance file
 	public static void saveUser(String userName, String password) {
-		try(BufferedWriter usersWrite = new BufferedWriter(new FileWriter(userFilePath, true));
-				BufferedWriter accWrite = new BufferedWriter(new FileWriter(accBalFilePath, true))){
+		try(BufferedWriter usersWrite = new BufferedWriter(new FileWriter(userFilePath));
+				BufferedWriter accWrite = new BufferedWriter(new FileWriter(accBalFilePath))){
 			
 			if(doesUserExist(userName))
 				System.out.println("\nUser already exists\n");
