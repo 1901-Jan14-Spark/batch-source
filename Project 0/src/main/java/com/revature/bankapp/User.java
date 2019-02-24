@@ -32,25 +32,41 @@ public class User implements BankLogic, ReadWriteManager {
 		return name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		if (!name.matches("[A-Za-z]+")) {
+			this.name = null;
+		} else {
+			this.name = name;
+		}
 	}
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
-		this.username = username;
+		if (username.matches("[A-Za-z0-9]+") && (username.length() > 4) && (username.length() < 12)) {
+			this.username = username;
+		} else {
+			this.username = null;
+		}
 	}
 	public String getEmail() {
 		return email;
 	}
 	public void setEmail(String email) {
-		this.email = email;
-	}
+		if (email.matches("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")) {
+			this.email = email;
+		} else {
+		this.email = null;
+		}
+	}	
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
-		this.password = password;
+		if (password.matches("^(?=.*\\d).{4,10}$")) {
+			this.password = password;
+		} else {
+			this.password = null;
+		}
 	}
 	public double getBalance() {
 		return balance;

@@ -6,10 +6,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.InputMismatchException;
+//import java.nio.file.Paths;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 import com.revature.bankapp.exceptions.OverdraftException;
 
@@ -30,9 +30,6 @@ final class BankDriver extends User implements ReadWriteManager {
 	
 	public static void main(String[] args) {
 		appStart();
-//		Stream<String> userArr1 = bankDr.readUnproccessed();
-//		userArr1.
-
 	}
 	
 	public static void appStart()
@@ -41,21 +38,27 @@ final class BankDriver extends User implements ReadWriteManager {
 		System.out.println("[1] -- Login");
 		System.out.println("[2] -- Create an account");
 		System.out.println("[3] -- Quit");
-		int menuSelect = userInput.nextInt();
-		if(menuSelect <= 0 || menuSelect > 3) {
+		String menuSelect = userInput.next();
+		try {
+			if(Integer.parseInt(menuSelect) <= 0 || Integer.parseInt(menuSelect) > 3) {
+				appStart();
+			}
+			if(Integer.parseInt(menuSelect) == 1) {
+				userLogin();
+			}
+			if(Integer.parseInt(menuSelect) == 2) {
+				createAccount();
+			}
+			if(Integer.parseInt(menuSelect) == 3) {
+				System.out.println("Goodbye. Thank you for using revBanking.");
+				System.exit(0);
+			}
+			if (menuSelect.matches("[^1-3]") ){
+				throw new NumberFormatException();
+			}
+		}  catch (NumberFormatException e) {
 			appStart();
 		}
-		if(menuSelect == 1) {
-			userLogin();
-		}
-		if(menuSelect == 2) {
-			createAccount();
-		}
-		if(menuSelect == 3) {
-			System.out.println("Goodbye. Thank you for using revBanking.");
-			System.exit(0);
-		}
-		
 	}
 	
 	private static void userLogin() {
@@ -87,21 +90,33 @@ final class BankDriver extends User implements ReadWriteManager {
 			System.out.println("Since this is the first time using our app, you will have to create your account. We'll have you set up in a few quick steps."); 
 			System.out.println("Please enter your name below.");
 			newUser.setName(userInput.next());
-			System.out.println("Hi "+newUser.getName()+"! Please choose your username.");
-			newUser.setUsername(userInput.next());
-			System.out.println("NOW WE'RE TALKING "+newUser.getUsername()+"!!! Please also provide your e-mail and password!");
-			System.out.println("E-Mail: ");
-			newUser.setEmail(userInput.next());
-			System.out.println(newUser.getUsername());
-			System.out.println("Password: ");
-			newUser.setPassword(userInput.next());
-			System.out.println(newUser.getPassword());
-			System.out.println("Please input your starting balance.");
-			newUser.setBalance(userInput.nextDouble());
-			System.out.println("Your account was created! You are being returned to the homescreen. You may choose to log-in there.");
-			bankDr.writeUser(newUser.getName(), newUser.getUsername(), newUser.getEmail(), newUser.getPassword(), newUser.getBalance());
-			appStart();
-			
+			if(newUser.getName() == null) {
+				System.out.println("You have input an invalid entry for name. Please try again.");
+				createAccount();
+			} else {
+				do 	{
+					System.out.println("Hi "+newUser.getName()+"! Please choose your username.");
+					System.out.println("Your username must contain a letter and must contain 4-12 characters. No symbols are allowed.");
+					newUser.setUsername(userInput.next());
+				} while (newUser.getUsername() == null);
+					do {
+						System.out.println("Awesome choice, "+newUser.getUsername()+"! Please also provide your e-mail and password!");
+						System.out.println("Remember, your e-mail must contain an @ symbol and must end with a .com!");
+						System.out.println("E-Mail: ");
+						newUser.setEmail(userInput.next());
+					} while (newUser.getEmail() == null);
+					do {
+						System.out.println("E-mail input accepted. Please provide a password that is between 4-10 characters long and contains at least one numeric digit.");
+						System.out.println("Password: ");
+						newUser.setPassword(userInput.next());
+					}	while (newUser.getPassword() == null);
+					System.out.println("Please input your starting balance. You must start with a balance greater than 0.");
+					newUser.setBalance(userInput.nextDouble());
+
+					System.out.println("Your account was created! You are being returned to the homescreen. You may choose to log-in there.");
+					bankDr.writeUser(newUser.getName(), newUser.getUsername(), newUser.getEmail(), newUser.getPassword(), newUser.getBalance());
+					appStart();
+			}	
 		} catch (Exception e)
 		{
 			
@@ -121,26 +136,39 @@ final class BankDriver extends User implements ReadWriteManager {
 		System.out.println("[3] -- Make a withdrawal.");
 		System.out.println("[4] -- Change my account information.");
 		System.out.println("[5] -- Logout.");
-		int theirChoice = userInput.nextInt();
-		if(theirChoice == 1) {
+		String theirChoice = userInput.next();
+		if(!theirChoice.matches("[1-5]")) {
+			System.out.println("Did you input the correct command? We can't process that request.");
+			bankRun();
+		}
+		if(Integer.parseInt(theirChoice) == 1) {
 			System.out.println("Your current account balance is $"+loggedInArr[4]);
 			returnHome();
 			bankRun();
 		}
-		if(theirChoice == 2) {
+		if(Integer.parseInt(theirChoice) == 2) {
 			depositUI();
 		}
-		if(theirChoice == 3) {
+		if(Integer.parseInt(theirChoice) == 3) {
 			withdrawUI();
 		}
-		if(theirChoice == 4) {
+		if(Integer.parseInt(theirChoice) == 4) {
 			System.out.println("This feature is currently still being implemented.");
+			returnHome();
+			bankRun();
 		}
-		if(theirChoice == 5) {
+		if(Integer.parseInt(theirChoice) == 5) {
 			System.out.println("Are you sure you wish to log-out? You will have to log-back in if you wish you do. Enter 'Yes' to confirm logout. Press any other button and enter to keep working.");
 			String logoutChoice = userInput.next();
-			if (logoutChoice.equals("Yes")) {
+			if (!logoutChoice.toLowerCase().equals("yes")) {
+				System.out.println("You did not enter the correct command to logout.");
+				returnHome();
+				bankRun();
+			}
+			if (logoutChoice.toLowerCase().equals("yes")) {
 				System.out.println("You are being logged out...... Thank you for choosing revBanking.");
+				System.out.println();
+				System.out.println();
 				System.out.println();
 				System.out.println();
 				System.out.println();
@@ -218,10 +246,8 @@ final class BankDriver extends User implements ReadWriteManager {
 				catch (OverdraftException e) {
 			}
 		}
-
 		returnHome();
 		bankRun();
-		
 	}
 
 	public void writeUser(String nameInput, String usernameInput, String emailInput, String passwordInput,
@@ -239,29 +265,33 @@ final class BankDriver extends User implements ReadWriteManager {
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(userFilePath))) {
 			bw.write(nameInput+","+usernameInput+","+emailInput+","+passwordInput+","+newBalance);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	@Override
 	public String[] readUser() {
 		try (BufferedReader br = new BufferedReader(new FileReader(userFilePath))) {
-			String userInfo = br.readLine();
-			String[] userInfoArr = userInfo.split(",");
+			String line;
+			while ((line = br.readLine()) != null) {
+			String[] userInfoArr = line.split(",");
 			return userInfoArr;
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
+}
+
 	
-	public Stream<String> readUnproccessed() {
-		try(Stream<String> stream = Files.lines(Paths.get(userFilePath))) {
-			stream.forEach(System.out::println);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-}	
+//	public Stream<String> readUnproccessed() {
+//		try(Stream<String> stream = Files.lines(Paths.get(userFilePath))) {
+//			stream.forEach(System.out::println);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		Stream<String> stream = 
+//		return ;
+//	}
+	
