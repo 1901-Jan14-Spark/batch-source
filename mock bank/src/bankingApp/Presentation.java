@@ -24,6 +24,7 @@ public class Presentation {
 			//TODO Auto-generated method stub
 						welcome();
 				}
+				
 		    static String textPath = "src/bankingApp/accounts.txt";
 	        static Scanner input = new Scanner(System.in);
 
@@ -42,7 +43,7 @@ public class Presentation {
 	    			login();
 	    		if (choice== 3) {
 		    		System.out.println("\nThank you for visiting, See you other time ");
-	    		   input.close();
+	    		   System.exit(0);
 	    		}
 	    		else welcome();
 	    	}
@@ -77,9 +78,10 @@ public class Presentation {
 	    			bw.append(str+ " ");
 	    			}
 	    			bw.append("\n");
-		    		System.out.println("\033[32;2mCongratulations! Your Account Was Successfully Created \033[0m" );
-		    		welcome();
+		    		System.out.println("\n\033[32;2mCongratulations! Your Account Was Successfully Created \033[0m\n" );
 	    			bw.close();
+		    		welcome();
+
 	    		} catch (IOException e) {
 	    			e.printStackTrace();
 	    		}
@@ -156,17 +158,21 @@ public class Presentation {
 		    		    System.out.print("$ ");
 		    		    double remove = input.nextDouble();
 		    		    double removing = money - remove;
-//			    		    if (removing >= 0) {
+			    		    if (removing >= 0) {
 			    		    bw.write(content[0]+" "+content[1]+" "+content[2]+" "+content[3]+" "+content[4]+" "+String.valueOf(removing));
 			    		    bw.close();
 				    		System.out.println("\nYour withdrawal Has Been Proccessed, thank you\n ");
 	           				System.out.println("Your Curent Balance is $" + removing + "\n");
 				    		accountInfo();
-//			    		    }
-//		    		    else {
-//	           				System.out.println("\n\033[31;1mTransaction is declined..insufficient funds!\033[0m"+"\n");
-//		    		    	 }
-//			    		    accountInfo();
+			    		    }
+		    		    else {
+		    		    	bw.write(content[0]+" "+content[1]+" "+content[2]+" "+content[3]+" "+content[4]+" "+String.valueOf(222));
+			    		    bw.close();
+	           				System.out.println("\n\033[31;1mTransaction is declined..insufficient funds!\033[0m"+"\n");
+	           				System.out.println("Your Curent Balance is $" + money + "\n");
+
+		    		    	 }
+			    		    accountInfo();
 			    		}
 			    		if (choice== 3) {
 				    		System.out.println("\nThank you for visiting, See you other time ");
