@@ -1,22 +1,25 @@
 package com.revature.bank;
 
-public class User {
+public class Member {
 	
 	// the instance variables that make up a user's account
 	public String userName;
+	public String email;
 	public String password;
 	public String accountNumber;
 	public double accountBalance;
 	
 	// no arguments constructor
-	public User() {
+	public Member() {
 		super();
 	}
 	
 	// new user constructor
-	public User(String userName, String password, double accountBalance) {
+	public Member(String userName, String email, String password, double accountBalance) {
 		this.userName = userName;
+		this.email = email;
 		this.password = password;
+		this.accountNumber = setAccountNumber();
 		this.accountBalance = accountBalance;
 		
 	}
@@ -28,6 +31,14 @@ public class User {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+	
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	public String getAccountNumber() {
@@ -80,7 +91,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Member other = (Member) obj;
 		if (Double.doubleToLongBits(accountBalance) != Double.doubleToLongBits(other.accountBalance))
 			return false;
 		if (accountNumber == null) {
@@ -104,12 +115,8 @@ public class User {
 	// toString method which only prints the user's name, account, and balance
 	@Override
 	public String toString() {
-		return "User: " + userName + "\nAccount Number: " + accountNumber
-				+ "\nBalance: " + accountBalance;
+		return "Username: " + userName + "\nEmail: " + email + "\nAccount Number: " + accountNumber
+				+ "\nBalance: $" + accountBalance;
 	}
 	
-	
-	
-	
-
 }
