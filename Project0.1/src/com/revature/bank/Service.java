@@ -36,6 +36,9 @@ public class Service extends Persistence {
 							if(answer.equals("Y")) {
 								System.out.println("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
 								option = sc.nextInt();
+							} else if (!answer.equalsIgnoreCase("Y") || !answer.equalsIgnoreCase("N")) {
+								System.out.println("Invalid Input! Please select a valid option: (Y/N)");
+								answer = sc.next();
 							} else {
 								logOut();
 							}
@@ -48,6 +51,9 @@ public class Service extends Persistence {
 							if(answer.equals("Y")) {
 								System.out.println("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
 								option = sc.nextInt();
+							} else if (!answer.equalsIgnoreCase("Y") || !answer.equalsIgnoreCase("N")) {
+								System.out.println("Invalid Input! Please select a valid option: (Y/N)");
+								answer = sc.next();
 							} else {
 								logOut();
 							}
@@ -58,11 +64,16 @@ public class Service extends Persistence {
 							if(answer.equals("Y")) {
 								System.out.println("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
 								option = sc.nextInt();
+							} else if (!answer.equalsIgnoreCase("Y") || !answer.equalsIgnoreCase("N")) {
+								System.out.println("Invalid Input! Please select a valid option: (Y/N)");
+								answer = sc.next();
 							} else {
 								logOut();
 							}
 						}else {
 							System.out.println("Please select a valid option!");
+							System.out.println("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
+							option = sc.nextInt();						
 						}
 					}
 					if (option == 4) {
@@ -75,7 +86,8 @@ public class Service extends Persistence {
 	
 	// log out method
 	public static void logOut() {
-		System.out.println("Have a great day!");		
+		System.out.println("Have a great day!");
+		
 	}
 	
 	// add money to a user's account
@@ -107,15 +119,20 @@ public class Service extends Persistence {
 			if(currentBalance >= amount) {
 				// change the balance to reflect the withdrawal, and let the user know
 				newBalance = (currentBalance - amount);
-				System.out.println("Withdrawal Amount: $" + amount + "\nAccount Balance: $" + newBalance);
-				// adjust the balance amount within the text file
-				adjustAccountBalance(newBalance);
+				if(amount > currentBalance) {
+					System.out.println("Insufficient Funds.  Please enter a valid ammount: ");
+					amount = sc.nextDouble();
+				} else {
+					System.out.println("Withdrawal Amount: $" + amount + "\nAccount Balance: $" + newBalance);
+					// adjust the balance amount within the text file
+					adjustAccountBalance(newBalance);
+				}
 			} else {
 				// the user is trying to take out more money than they have
 				System.out.println("Insufficient Funds");
 			}
 		}
-		if(currentBalance == 0.0){
+		if(currentBalance <= 0.0){
 			// notify the user if they don't have any money in their account
 			System.out.println("There are no funds in this account");
 		}

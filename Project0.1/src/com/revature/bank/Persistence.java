@@ -93,7 +93,25 @@ public class Persistence {
 			e.printStackTrace();
 		}
 		return accountNum;
-		
+	}
+	
+	public static String getAccountEmail() {
+		String accountEmail = "";
+		try(FileReader fr = new FileReader(accountPath);
+				BufferedReader br = new BufferedReader(fr);){
+			for(int i = 0; i < 4; ++i) {
+				if(i != 1) {
+					br.readLine();
+				} else {
+					accountEmail = br.readLine().substring(7);
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return accountEmail;
 	}
 	
 	// get the user's account number and balance from he text file
@@ -102,7 +120,7 @@ public class Persistence {
 		try(FileReader fr = new FileReader(accountPath);
 				BufferedReader br = new BufferedReader(fr);){
 			for(int i = 0; i < 4; ++i) {
-				if(i < 3 || i > 3) {  
+				if(i != 3) {  
 					br.readLine();
 				} else {
 					String accountBalance = br.readLine();
@@ -118,50 +136,25 @@ public class Persistence {
 		return balance;
 	}
 	
-	public static void adjustAccountBalance(double amount) {	
-		try(FileWriter fw = new FileWriter(balancePath); 
+	public static void adjustAccountBalance(double amount) {
+		String username = getAccountUsername();
+		String email = getAccountEmail();
+		String accountNum = getAccountNumber();
+		String password = getAccountPassword();
+		
+		try(FileWriter fw = new FileWriter(accountPath, false); 
 				BufferedWriter bw = new BufferedWriter(fw)){
 			String newBalance = Double.toString(amount);
-			bw.append("$" + newBalance);			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public static void adjustAccountBalance2(double amount) {
-		try(FileReader fr = new FileReader(accountPath);
-				BufferedReader br = new BufferedReader(fr);){			
-			String accountInfo = br.readLine();
-			while(accountInfo != null) {
-				System.out.println(accountInfo);
-				accountInfo = br.readLine();
-			}			
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		
-		try(FileWriter fw = new FileWriter(accountPath); 
-				BufferedWriter bw = new BufferedWriter(fw)){
-			String newBalance = Double.toString(amount);
-			for(int i = 0; i < 3; i++) {
-				bw.append("info");
-			}
-			bw.append("Balance: $" + newBalance);			
+			String newInfo = "Username: " + username + "\nEmail: " + email + "\nAccount Number: " + accountNum + "\nBalance: $" + newBalance + "\nPassword: " + password + "\n";	
+			bw.append(newInfo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public static void main(String[] args) {
-		getAccountInfo();
-		System.out.println();
-		System.out.println(getAccountUsername());
-		System.out.println(getAccountNumber());
-		System.out.println(retrieveAccountBalance());
-		System.out.println(getAccountPassword());
+		
+		adjustAccountBalance(3456.26);
 		
 		
 	}
