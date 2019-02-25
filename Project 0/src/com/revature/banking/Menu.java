@@ -136,7 +136,7 @@ public class Menu {
 		}
 		Customer customer = new Customer(userName, password, account);
 		bank.addCustomer(customer);
-		writeCustomerToDatabase(userName, password, account);
+		writeCustomerToDatabase(userName, password, accountType, initialDeposit, account);
 	}
 	
 	private void makeADeposit() {
@@ -201,12 +201,14 @@ public class Menu {
 		return account;
 	}
 
-	public static void writeCustomerToDatabase(String userName, String password, Account account) {
+	public static void writeCustomerToDatabase(String userName, String password, String AccountType, double initialDeposit, Account account) {
 
 		try(BufferedWriter bw = new BufferedWriter(new FileWriter(dbPath));){
-			bw.write("Username: " + userName);
+			bw.write(" Username: " + userName);
 			bw.write("\n Password: " + password);
-//			bw.append("\n Account: " + account);
+			bw.write("\n Account Type: " + AccountType);
+			bw.write("\n Initial Deposit: $" + initialDeposit);
+			bw.write("\n" + account);
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

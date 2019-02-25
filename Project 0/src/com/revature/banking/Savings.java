@@ -10,7 +10,7 @@ public class Savings extends Account {
 
 	@Override
 	public String toString() {
-		return " Your current balance is: " + getBalance();
+		return " Your current balance is: $" + getBalance();
 	}
 	
 	
