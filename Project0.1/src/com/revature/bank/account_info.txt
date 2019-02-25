@@ -1,5 +1,5 @@
-Username: user3
-Email: email@gmail.com
-Account Number: 33615784
-Balance: $343.45
-Password: password
+Username: newUser4
+Email: random@email.com
+Account Number: 47900015
+Balance: $34.32
+Password: password1

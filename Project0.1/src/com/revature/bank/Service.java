@@ -45,22 +45,38 @@ public class Service extends Persistence {
 			System.out.println();
 			logIn();	
 		} else if (option == 2) {
-			System.out.println();
-			System.out.println();
-			// create a new member object
-			System.out.println("Username: ");
-			String newUsername = sc.next();
-			System.out.println("Email: ");
-			String newUserEmail = sc.next();
+			createNewMember();				
+		}
+	}
+	
+	public static void createNewMember() {
+		System.out.println();
+		System.out.println("New Member Info\n---------------");
+		System.out.println();
+		// create a new member object
+		System.out.println("Username: ");
+		String newUsername = sc.next();
+		System.out.println("Email: ");
+		String newUserEmail = sc.next();
+		System.out.println("Password: ");
+		String newUserPassword1 = sc.next();
+		System.out.println("Re-enter Password: ");
+		String newUserPassword2 = sc.next();
+		if(!newUserPassword1.equals(newUserPassword2)) {
+			System.out.println("Passwords don't match!");
 			System.out.println("Password: ");
-			String newUserPassword = sc.next();
+			newUserPassword1 = sc.next();
+			System.out.println("Re-enter Password: ");
+			newUserPassword2 = sc.next();			
+		} 
+		if(newUserPassword1.equals(newUserPassword2)) {
 			System.out.println("Deposit Amount: ");
 			double newUserDeposit = sc.nextDouble();
-			Member newMember = new Member(newUsername, newUserEmail, newUserPassword, newUserDeposit);
+			Member newMember = new Member(newUsername, newUserEmail, newUserPassword1, newUserDeposit);
 			System.out.println();
 			System.out.println("Account successfully created!");
 			adjustAccountBalance(newMember.accountBalance);	
-			addNewBankMember(newMember);		
+			addNewBankMember(newMember);
 		}
 	}
 	
