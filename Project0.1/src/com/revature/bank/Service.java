@@ -168,7 +168,7 @@ public class Service extends Persistence {
 		System.out.println("Deposit Amount: $" + amount);
 		// display the new account balance
 		System.out.println("Account Balance: $" + newBalance);
-		// adjust the nbalance int the text file to reflect the new balance
+		// adjust the account balance in the text file to reflect the new balance
 		adjustAccountBalance(newBalance);
 		
 	}
@@ -193,12 +193,12 @@ public class Service extends Persistence {
 				}
 			} else {
 				// the user is trying to take out more money than they have
-				System.out.println("Insufficient Funds");
+				System.out.println("Insufficient Funds!");
 			}
 		}
 		if(currentBalance <= 0.0){
 			// notify the user if they don't have any money in their account
-			System.out.println("There are no funds in this account");
+			System.out.println("There are no funds in this account!");
 		}
 		
 	}
