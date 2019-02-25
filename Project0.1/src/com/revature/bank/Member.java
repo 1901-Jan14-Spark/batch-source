@@ -2,7 +2,7 @@ package com.revature.bank;
 
 public class Member {
 	
-	// the instance variables that make up a user's account
+	// the instance variables that make up a member's account
 	public String userName;
 	public String email;
 	public String password;
@@ -19,6 +19,7 @@ public class Member {
 		this.userName = userName;
 		this.email = email;
 		this.password = password;
+		// setAccountNumber will method to ranndomly generate a new member's account number
 		this.accountNumber = setAccountNumber();
 		this.accountBalance = accountBalance;
 		

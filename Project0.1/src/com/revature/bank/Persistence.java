@@ -8,14 +8,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Persistence {
-
+	
+	// where the member information is stored
 	static String accountPath = "src/com/revature/bank/account_info.txt";
-	static String balancePath = "src/com/revature/bank/account_balance.txt";
 
-	public static void addNewBankMember(Member m) {
-		try(FileWriter fw = new FileWriter(accountPath); 
+	// add a new member
+	public static void addNewBankMember(Member m) {		
+		try(FileWriter fw = new FileWriter(accountPath, false); 
 				BufferedWriter bw = new BufferedWriter(fw)){
-			bw.append(m.toString());			
+			String newInfo = "Username: " + m.getUserName() + "\nEmail: " + m.getEmail() + "\nAccount Number: " + m.getAccountNumber() + "\nBalance: $" + m.getAccountBalance() + "\nPassword: " + m.getPassword() + "\n";	
+			bw.append(newInfo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

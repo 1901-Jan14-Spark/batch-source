@@ -58,12 +58,10 @@ public class Service extends Persistence {
 			double newUserDeposit = sc.nextDouble();
 			Member newMember = new Member(newUsername, newUserEmail, newUserPassword, newUserDeposit);
 			System.out.println();
-			System.out.println();
 			System.out.println("Account successfully created!");
-			addNewBankMember(newMember);
 			adjustAccountBalance(newMember.accountBalance);	
+			addNewBankMember(newMember);		
 		}
-		
 	}
 	
 	public static void transactions() {
