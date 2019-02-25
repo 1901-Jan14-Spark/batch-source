@@ -1,2 +1,0 @@
-UserName: jared
-Password: pass

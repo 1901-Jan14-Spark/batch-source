@@ -19,7 +19,7 @@ public class MyFileWriter implements Serializable{
 	static String path= "src/ioStuff/bankdata.txt/";
 	static String message = "Successful Login";
 	static String path3 = "src/ioStuff/data.txt";
-	
+	static int balance;
 	
 //	public static boolean readerTest() {
 //		try (FileReader fr1 = new FileReader(path3);
@@ -91,6 +91,11 @@ public class MyFileWriter implements Serializable{
 			System.out.println();
 					
 
+			System.out.println("Please Enter Starting Amount");
+			input.hasNextLine();
+			 balance = input.nextInt();
+			bw.append("Password: "+balance+"\n");
+		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -103,6 +108,7 @@ public class MyFileWriter implements Serializable{
 		try(FileWriter fw = new FileWriter(path1,true); 
 				BufferedWriter bw = new BufferedWriter(fw)){
 			System.out.println("Please Provide Username");
+			input.nextLine();
 			String words = input.nextLine();
 
 			bw.append("UserName: "+words+"\n");
@@ -112,15 +118,13 @@ public class MyFileWriter implements Serializable{
 			input.hasNextLine();
 			String password = input.nextLine();
 			bw.append("Password: "+password+"\n");
-			System.out.println();
-			System.out.println();
-			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
 			if(readerCompare()==true) {
 				System.out.println("Login Success");
-				logOut();
+				System.out.println();
+				logedIn();
 			}
 			else if(readerCompare() == false) {
 				System.out.println("Login Fail");
@@ -131,15 +135,41 @@ public class MyFileWriter implements Serializable{
 	}
 	
 	public static void logOut() {
-		System.out.println("To Log Out type Y");
-		String logout = input.nextLine().toUpperCase();
-		if("Y"==logout) {
 			System.exit(0);
-		}
 	}
-
+	
+	public static void logedIn() {
+		System.out.println("Your Available Balance is: "+balance);
+		System.out.println();
+		System.out.println("To Deposit Press 1,\n to Withdraw press 2");
+		System.out.println("To Log Out Press 3");
+		int choice = input.nextInt();
+		if(choice ==1) {
+			deposit();
+		}
+		else if(choice == 2) {
+			withdraw();
+		}
+		else if(choice == 3) {
+			logOut();
+		}
+		
+	}
+	
+	public static void deposit() {
+		System.out.println("How Much Would You Like to Deposit");
+		int amount = input.nextInt();
+		balance = balance +amount;		
+		logedIn();
+	}
+	public static void withdraw() {
+		System.out.println("How Much Would You Like to Withdraw");
+		int amount = input.nextInt();
+		balance = balance-amount;
+		logedIn();
+	}
 	public static void main(String[] args) {
 
-	makeNew();
+	deposit();
 	}
 }
