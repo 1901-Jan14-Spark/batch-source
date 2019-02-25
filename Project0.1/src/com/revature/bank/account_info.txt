@@ -1,5 +1,5 @@
-Username: newUser
-Email: some@email.com
+Username: vanalstinedj
+Email: vanalstinedj@gmail.com
 Account Number: 82359617
-Balance: $34456.34
-Password: randomPass
+Balance: $24063.4
+Password: randomPass1
