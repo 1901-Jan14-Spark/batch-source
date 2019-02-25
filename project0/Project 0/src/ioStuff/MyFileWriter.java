@@ -139,10 +139,10 @@ public class MyFileWriter implements Serializable{
 	}
 	
 	public static void logedIn() {
+		System.out.println();
 		System.out.println("Your Available Balance is: "+balance);
 		System.out.println();
-		System.out.println("To Deposit Press 1,\n to Withdraw press 2");
-		System.out.println("To Log Out Press 3");
+		System.out.println("To Deposit Press 1,\n to Withdraw press 2 \n to Log Out Press 3");
 		int choice = input.nextInt();
 		if(choice ==1) {
 			deposit();
