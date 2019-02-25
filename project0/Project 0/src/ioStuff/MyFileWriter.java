@@ -65,15 +65,18 @@ public class MyFileWriter implements Serializable{
 		return true;		
 
 	}
-//	public static void user() {
-//		boolean scan = input.nextBoolean();
-//		System.out.println("Are You A New User? Please Enter 'true' or 'false;");
-//		if(scan == true) {
-//			makeNew();
-//		}else{
-//			credentials();
-//		}
-//	}
+	public static void menu() {
+		System.out.println("Are You A New User? Please Enter 'true' or 'false;");
+		boolean userChoice = input.nextBoolean();
+		if(userChoice == true) {
+		input.nextLine();
+			makeNew();
+		}
+		else if(userChoice == false) {
+			credentials();
+		}
+	
+	}
 
 	public static void makeNew() {
 		System.out.println("Welcome New User!!!");
@@ -99,7 +102,7 @@ public class MyFileWriter implements Serializable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
-			credentials();
+			menu();
 		}
 	}
 	
@@ -135,12 +138,13 @@ public class MyFileWriter implements Serializable{
 	}
 	
 	public static void logOut() {
-			System.exit(0);
+		System.out.println("User Logged Off");	
+		System.exit(0);
 	}
 	
 	public static void logedIn() {
 		System.out.println();
-		System.out.println("Your Available Balance is: "+balance);
+		System.out.println("Your Available Balance is: $"+balance);
 		System.out.println();
 		System.out.println("To Deposit Press 1,\n to Withdraw press 2 \n to Log Out Press 3");
 		int choice = input.nextInt();
@@ -170,6 +174,6 @@ public class MyFileWriter implements Serializable{
 	}
 	public static void main(String[] args) {
 
-	deposit();
+	menu();
 	}
 }
