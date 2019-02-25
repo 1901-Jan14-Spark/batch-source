@@ -19,7 +19,8 @@ public class Bank{
 		System.out.println("Welcome to my console bank!\n");
 		System.out.println("1) Login");
 		System.out.println("2) Register");
-		System.out.println("3) Exit");
+		System.out.println("3) Clear user");
+		System.out.println("4) Exit");
 		try
 		{
 			option = scan.nextInt();
@@ -39,9 +40,24 @@ public class Bank{
 				break;
 				case 3:
 				{
-					clearConsole();
 					File f = new File("src/Main/user.ser");
-					f.delete();
+					if (f.delete())
+					{
+						clearConsole();
+						System.out.println("User removed successfully\n");
+						mainPage();
+					}
+					else
+					{
+						clearConsole();
+						System.out.println("No user to remove\n");
+						mainPage();
+					}
+				}
+				break;
+				case 4:
+				{
+					clearConsole();
 					System.exit(0);
 				}
 				default:
@@ -101,7 +117,7 @@ public class Bank{
 	private void loginPage()
 	{
 		String username, password;
-		System.out.print("Login: ");
+		System.out.print("Username: ");
 		username = scan.next();
 		System.out.print("Password: ");
 		password = scan.next();
@@ -133,9 +149,11 @@ public class Bank{
 		int option;
 		float amount;
 		System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!\n");
-		System.out.println("Checking: $" + currentUser.getCheckingBalance());
-		System.out.println("Saving: $" + currentUser.getSavingBalance() + "\n");
-		System.out.println("1) Deposit");
+		System.out.print("Checking: $");
+		System.out.printf("%.2f", currentUser.getCheckingBalance());
+		System.out.print("\nSaving: $");
+		System.out.printf("%.2f", currentUser.getSavingBalance());
+		System.out.println("\n1) Deposit");
 		System.out.println("2) Withdraw");
 		System.out.println("3) Exit");
 		try
@@ -191,6 +209,12 @@ public class Bank{
 						clearConsole();
 						System.out.println("Enter withdraw amount: ");
 						amount = scan.nextFloat();
+						while(currentUser.getCheckingBalance() < amount)
+						{
+							System.out.println("\nInvalid amount. Try again.");
+							System.out.println("Enter deposit amount: ");
+							amount = scan.nextFloat();
+						}
 						currentUser.setCheckingBalance(currentUser.getCheckingBalance() - amount);
 						clearConsole();
 						userPage();
@@ -200,6 +224,12 @@ public class Bank{
 						clearConsole();
 						System.out.println("Enter withdraw amount: ");
 						amount = scan.nextFloat();
+						while(currentUser.getSavingBalance() < amount)
+						{
+							System.out.println("\nInvalid amount. Try again.");
+							System.out.println("Enter deposit amount: ");
+							amount = scan.nextFloat();
+						}
 						currentUser.setSavingBalance(currentUser.getSavingBalance() - amount);
 						clearConsole();
 						userPage();
