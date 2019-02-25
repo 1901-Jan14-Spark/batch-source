@@ -2,3 +2,4 @@ Username: newUser
 Email: some@email.com
 Account Number: 82359617
 Balance: $3245.23
+Password: randomPass

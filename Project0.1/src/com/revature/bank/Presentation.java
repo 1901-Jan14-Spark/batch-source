@@ -3,7 +3,7 @@ package com.revature.bank;
 import java.util.Scanner;
 import com.revature.bank.Persistence;
 
-public class Presentation extends Persistence {
+public class Presentation extends Service {
 	
 	public static Scanner scan = new Scanner(System.in);
 	
@@ -14,12 +14,10 @@ public class Presentation extends Persistence {
 		System.out.println("|________________________|");
 		System.out.println();
 		System.out.println();
-		System.out.println("Welcome to the Bank");
-		System.out.println();
 		System.out.println("1: Login\n2: Create Account");
 		int option = scan.nextInt();
 		if(option == 1) {
-			//logIn();
+			logIn();	
 		} else if (option == 2) {
 			// create a new member object
 			System.out.println("Username: ");

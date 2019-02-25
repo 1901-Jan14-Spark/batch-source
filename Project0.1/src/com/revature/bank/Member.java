@@ -116,7 +116,7 @@ public class Member {
 	@Override
 	public String toString() {
 		return "Username: " + userName + "\nEmail: " + email + "\nAccount Number: " + accountNumber
-				+ "\nBalance: $" + accountBalance;
+				+ "\nBalance: $" + accountBalance + "\n";
 	}
 	
 }
