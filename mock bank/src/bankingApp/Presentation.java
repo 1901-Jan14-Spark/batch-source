@@ -4,9 +4,7 @@ package bankingApp;
  */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -46,7 +44,7 @@ public class Presentation {
 		    		System.out.println("\nThank you for visiting, See you other time ");
 	    		   input.close();
 	    		}
-	    		//else welcome();
+	    		else welcome();
 	    	}
 	        
 	        public static void createAccount() {
@@ -94,7 +92,7 @@ public class Presentation {
 	               String userName = input.next();
 	               System.out.println("Enter Your Password: ");
 	               String password = input.next();
-		        	System.out.println("\033[31;1mLoading....!\033[0m, \033[32;1;2m Please wait to check...\033[0m");
+		        	System.out.println("\n\033[31;1mLoading....!\033[0m, \033[32;1;2m Please wait to check...\033[0m\n");
 		        	
 		        	try (BufferedReader br = new BufferedReader(new FileReader(textPath))) {
 		   	
@@ -103,7 +101,7 @@ public class Presentation {
 	           			   {			    			
 			    			String[] content = line.split("\\s+");;
 
-	           			    if (userName.equals(content[3]) || (password.equals(content[4])))
+	           			    if (userName.equals(content[3]) && (password.equals(content[4])))
 	           			    {
 		           				System.out.println("\n\033[33;1;2mHello..\033[0m" + content[1]+" "+content[2]);
 		           				System.out.println("Your Curent Balance is $" + content[5]+ "\n");
@@ -130,10 +128,10 @@ public class Presentation {
 		    		System.out.println("To Deposite Money, Please Enter "+"\033[31;1m1\033[0m");
 		    		System.out.println("To Withdraw Money, Please Enter "+"\033[31;1m2\033[0m");
 		    		System.out.println("To Exit the Application Please Enter "+"\033[31;1m3\033[0m");
+					int choice = input.nextInt();
+
 		    		try (BufferedReader br = new BufferedReader(new FileReader(textPath))) 
 		    		{
-	       
-						int choice = input.nextInt();
 			    		if (choice == 1) {
 			    			String line = br.readLine();
 		           			String[] content = line.split("\\s+");
@@ -158,11 +156,17 @@ public class Presentation {
 		    		    System.out.print("$ ");
 		    		    double remove = input.nextDouble();
 		    		    double removing = money - remove;
-		    		    bw.write(content[0]+" "+content[1]+" "+content[2]+" "+content[3]+" "+content[4]+" "+String.valueOf(removing));
-		    		    bw.close();
-			    		System.out.println("\nYour withdrawal Has Been Proccessed, thank you\n ");
-           				System.out.println("Your Curent Balance is $" + removing + "\n");
-			    		accountInfo();
+//			    		    if (removing >= 0) {
+			    		    bw.write(content[0]+" "+content[1]+" "+content[2]+" "+content[3]+" "+content[4]+" "+String.valueOf(removing));
+			    		    bw.close();
+				    		System.out.println("\nYour withdrawal Has Been Proccessed, thank you\n ");
+	           				System.out.println("Your Curent Balance is $" + removing + "\n");
+				    		accountInfo();
+//			    		    }
+//		    		    else {
+//	           				System.out.println("\n\033[31;1mTransaction is declined..insufficient funds!\033[0m"+"\n");
+//		    		    	 }
+//			    		    accountInfo();
 			    		}
 			    		if (choice== 3) {
 				    		System.out.println("\nThank you for visiting, See you other time ");
