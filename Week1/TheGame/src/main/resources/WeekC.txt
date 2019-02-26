@@ -1,0 +1,22 @@
+What are the benefits of using Java?
+What are some methods of the Object class?
+What is fall through in reference to a switch statement?
+Explain inheritance.
+Explain polymorphism.
+Explain abstraction.
+Explain encapsulation.
+What is the JVM?
+What is the JRE?
+What is the JDK?
+What are the scopes of a variable in Java?
+What are the access modifiers?
+Explain the implications of strict typing.
+What is autoboxing and autounboxing?
+What is the difference between compile time and runtime polymorphism.
+What are the differences between an abstract class and interface?
+What is the difference between a static member and an instance member in a class?
+What is the entrypoint of a Java application? Explain the method signature.
+Under what conditions will a class have a default constructor?
+What is a dynamic for loop? What is its syntax?
+What is an array? How can I initialize one?
+What is the difference between the stack and heap?
