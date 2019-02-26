@@ -8,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 /**
  * @author Youness
@@ -49,35 +48,37 @@ public class Presentation {
 	    	}
 	        
 	        public static void createAccount() {
-		        ArrayList<String> arr = new ArrayList<>();
+		       // ArrayList<String> arr = new ArrayList<>();
 
 	        	System.out.println("\033[31;1mWelcome To the Club!\033[0m, \033[32;1;2m Please Fill Out the Registration Form!\033[0m");
 	        	System.out.println("Email: ");
 	    		String email = input.next();
-	    		arr.add(email);
+	    		//arr.add(email);
 	    		System.out.println("First Name: ");
 	    		String fname = input.next();
-	    		arr.add(fname);
+	    		//arr.add(fname);
 	    		System.out.println("Last Name: ");
 	    		String lname = input.next();
-	    		arr.add(lname);
+	    		//arr.add(lname);
 	    		System.out.println("User Name: ");
 	    		String userName = input.next();
-	    		arr.add(userName);
+	    		//arr.add(userName);
 	    		System.out.println("\033[31;1mPassword\033[0m");
 	    		String password = input.next();
-	    		arr.add(password);
+	    		//arr.add(password);
 	    		System.out.println("Please make a deposite , $20 minimum");
-	    		String deposit = input.next();
-	    		arr.add(deposit);
+	    		while (!input.hasNextDouble())
+	    		{
+	    		    System.out.println("\033[31;1mInvalid input\\n Please Type in the double-type number:\033[0m");
+	    		    input.next();
+	    		}
+	    		double deposit = input.nextDouble();
+	    		//arr.add(deposit);
 //	    		System.out.println("\033[31;1mConfirm Password\033[0m");
 //	    		String password2 = input.next();
 	    		
 	    		try(FileWriter fw = new FileWriter(textPath,true); BufferedWriter bw = new BufferedWriter(fw)){
-	    			for(String str: arr) {
-	    			bw.append(str+ " ");
-	    			}
-	    			bw.append("\n");
+	    			bw.append(email+" "+fname+" "+lname+" "+userName+" "+password+" "+deposit+"\n");
 		    		System.out.println("\n\033[32;2mCongratulations! Your Account Was Successfully Created \033[0m\n" );
 	    			bw.close();
 		    		welcome();
@@ -141,6 +142,11 @@ public class Presentation {
 							double money = Double.parseDouble(content[5]);
 				    		System.out.println("\nHow Much would you like to deposite: ");
 			    		    System.out.print("$ ");
+			    		    while (!input.hasNextDouble())
+				    		{
+				    		    System.out.println("\033[31;1mInvalid input\\n Please Type in the double-type number:\033[0m");
+				    		    input.next();
+				    		}
 			    		    double add = input.nextDouble();
 			    		    double adding = add+ money;
 			    		    bw.write(content[0]+" "+content[1]+" "+content[2]+" "+content[3]+" "+content[4]+" "+String.valueOf(adding));
@@ -156,6 +162,11 @@ public class Presentation {
 						double money = Double.parseDouble(content[5]);
 			    		System.out.println("\nHow Much would you like to withdraw: ");
 		    		    System.out.print("$ ");
+		    		    while (!input.hasNextDouble())
+			    		{
+			    		    System.out.println("\033[31;1mInvalid input\\n Please Type in the double-type number:\033[0m");
+			    		    input.next();
+			    		}
 		    		    double remove = input.nextDouble();
 		    		    double removing = money - remove;
 			    		    if (removing >= 0) {
