@@ -1,1 +1,1 @@
-email:1,password:1,balance:20.0
+email:peyton@gmail.com,password:pass,balance:10.0
