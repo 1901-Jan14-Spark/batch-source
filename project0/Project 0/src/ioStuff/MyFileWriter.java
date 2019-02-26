@@ -21,7 +21,8 @@ public class MyFileWriter implements Serializable{
 	static String path3 = "src/ioStuff/data.txt";
 	static int balance;
 	
-//	public static boolean readerTest() {
+	//could try to use array list to target numbers or index 3 atm
+//	public static void readerTest() {
 //		try (FileReader fr1 = new FileReader(path3);
 //				BufferedReader test = new BufferedReader(fr1); ){
 //			int num = input.nextInt();
@@ -33,10 +34,9 @@ public class MyFileWriter implements Serializable{
 //			e.printStackTrace();
 //		} catch (IOException e) {
 //			e.printStackTrace();
-//		}
-//		return false;
-//		
+//		}	
 //	}
+	
 	public static boolean readerCompare() {
 		try (FileReader fr = new FileReader(path);
 				BufferedReader br = new BufferedReader(fr);
@@ -108,6 +108,7 @@ public class MyFileWriter implements Serializable{
 	
 	public static void credentials() {
 		System.out.println("Welcome Please Log In");
+		System.out.println();
 		try(FileWriter fw = new FileWriter(path1,true); 
 				BufferedWriter bw = new BufferedWriter(fw)){
 			System.out.println("Please Provide Username");
