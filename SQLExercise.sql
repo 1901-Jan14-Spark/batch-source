@@ -70,28 +70,39 @@ WHERE S_ID = 1;
 DELETE INVOICE
 WHERE S_ID = 7;
 
+--Purchases made on 2-26-2019
 SELECT *
 FROM INVOICE
 WHERE S_DT = TRUNC (CURRENT_TIMESTAMP);
 
+SELECT *
+FROM INVOICE
+WHERE S_DT = TRUNC (CURRENT_DATE);
+
+--Finding the sum of all invoice amounts by customers id
 SELECT SUM(S_AMT) INVOICE_SUM_BY_ID
 FROM INVOICE
 GROUP BY S_CUST_ID;
 
+--Listing all purchases made in the last month (1-26-2019 --> 2-26-2019) in descending order of invoice amount
 SELECT *
 FROM INVOICE
 WHERE S_DT > to_date('2019-01-26', 'YYYY-MM-DD')
 ORDER BY S_AMT DESC
 
+--Ordered invoice amount in descending order to display if working correctly
 SELECT *
 FROM INVOICE
 ORDER BY S_AMT DESC
 
+-- two different queries to order invoice amount in descending order and pulling the top 3 values
 SELECT *
 FROM INVOICE
 ORDER BY S_AMT DESC
 FETCH FIRST 3 ROWS ONLY;
 
+-- inner queue is selecting everything from invoice and ordering them by descending invoice amount and then the other 
+-- queue grabs the top 3 rows.
 SELECT * FROM (
     SELECT *
     FROM INVOICE
