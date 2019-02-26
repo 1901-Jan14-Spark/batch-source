@@ -153,7 +153,7 @@ public class Bank{
 		System.out.printf("%.2f", currentUser.getCheckingBalance());
 		System.out.print("\nSaving: $");
 		System.out.printf("%.2f", currentUser.getSavingBalance());
-		System.out.println("\n1) Deposit");
+		System.out.println("\n\n1) Deposit");
 		System.out.println("2) Withdraw");
 		System.out.println("3) Exit");
 		try
@@ -167,33 +167,42 @@ public class Bank{
 					System.out.println("Choose account type\n");
 					System.out.println("1) Checking");
 					System.out.println("2) Saving");
+					System.out.println("3) Exit");
 					option = scan.nextInt();
-					if (option == 1)
+					switch(option)
 					{
-						clearConsole();
-						System.out.println("Enter deposit amount: ");
-						amount = scan.nextFloat();
-						currentUser.setCheckingBalance(currentUser.getCheckingBalance() + amount);
-						clearConsole();
-						userPage();
-					}
-					else if (option == 2)
-					{
-						clearConsole();
-						System.out.println("Enter deposit amount: ");
-						amount = scan.nextFloat();
-						currentUser.setSavingBalance(currentUser.getSavingBalance() + amount);
-						clearConsole();
-						userPage();
-					}
-					else
-					{
-						clearConsole();
-						System.out.println("Invalid input. Try again.\n");
-						System.out.println("Choose account type\n");
-						System.out.println("1) Checking");
-						System.out.println("2) Saving");
-						option = scan.nextInt();
+						case 1:
+						{
+							clearConsole();
+							System.out.println("Enter deposit amount: ");
+							amount = scan.nextFloat();
+							currentUser.setCheckingBalance(currentUser.getCheckingBalance() + amount);
+							clearConsole();
+							userPage();
+						}
+						break;
+						case 2:
+						{
+							clearConsole();
+							System.out.println("Enter deposit amount: ");
+							amount = scan.nextFloat();
+							currentUser.setSavingBalance(currentUser.getSavingBalance() + amount);
+							clearConsole();
+							userPage();
+						}
+						break;
+						case 3:
+						{
+							clearConsole();
+							userPage();
+						}
+						break;
+						default:
+						{
+							clearConsole();
+							System.out.println("Invalid input. Try again.\n");
+							userPage();
+						}
 					}
 				}
 				break;
@@ -203,45 +212,55 @@ public class Bank{
 					System.out.println("Choose account type\n");
 					System.out.println("1) Checking");
 					System.out.println("2) Saving");
+					System.out.println("3) Exit");
 					option = scan.nextInt();
-					if (option == 1)
+					switch(option)
 					{
-						clearConsole();
-						System.out.println("Enter withdraw amount: ");
-						amount = scan.nextFloat();
-						while(currentUser.getCheckingBalance() < amount)
+						case 1:
 						{
-							System.out.println("\nInvalid amount. Try again.");
-							System.out.println("Enter deposit amount: ");
+							clearConsole();
+							System.out.println("Enter withdraw amount: ");
 							amount = scan.nextFloat();
+							while(currentUser.getCheckingBalance() < amount)
+							{
+								System.out.println("\nInvalid amount. Try again.");
+								System.out.println("Enter deposit amount: ");
+								amount = scan.nextFloat();
+							}
+							currentUser.setCheckingBalance(currentUser.getCheckingBalance() - amount);
+							clearConsole();
+							userPage();
 						}
-						currentUser.setCheckingBalance(currentUser.getCheckingBalance() - amount);
-						clearConsole();
-						userPage();
-					}
-					else if (option == 2)
-					{
-						clearConsole();
-						System.out.println("Enter withdraw amount: ");
-						amount = scan.nextFloat();
-						while(currentUser.getSavingBalance() < amount)
+						break;
+						case 2:
 						{
-							System.out.println("\nInvalid amount. Try again.");
-							System.out.println("Enter deposit amount: ");
+							clearConsole();
+							System.out.println("Enter withdraw amount: ");
 							amount = scan.nextFloat();
+							while(currentUser.getSavingBalance() < amount)
+							{
+								System.out.println("\nInvalid amount. Try again.");
+								System.out.println("Enter deposit amount: ");
+								amount = scan.nextFloat();
+							}
+							currentUser.setSavingBalance(currentUser.getSavingBalance() - amount);
+							clearConsole();
+							userPage();
 						}
-						currentUser.setSavingBalance(currentUser.getSavingBalance() - amount);
-						clearConsole();
-						userPage();
-					}
-					else
-					{
-						clearConsole();
-						System.out.println("Invalid input. Try again.\n");
-						System.out.println("Choose account type\n");
-						System.out.println("1) Checking");
-						System.out.println("2) Saving");
-						option = scan.nextInt();
+						break;
+						case 3:
+						{
+							clearConsole();
+							userPage();
+						}
+						break;
+						default:
+						{
+							clearConsole();
+							System.out.println("Invalid input. Try again.\n");
+							userPage();
+						}
+						break;
 					}
 				}
 				break;
