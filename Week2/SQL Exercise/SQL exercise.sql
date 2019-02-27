@@ -56,7 +56,7 @@ ORDER BY SUM(INVOICE.I_AMOUNT) DESC;
 
 
 -- query to return all the purchases which took place in the last month, dipslay in desc order
-SELECT I_DATE
+SELECT i_amount
 FROM INVOICE
 WHERE I_DATE BETWEEN DATE '2019-01-01' AND DATE '2019-01-31'
 ORDER BY I_DATE DESC;
