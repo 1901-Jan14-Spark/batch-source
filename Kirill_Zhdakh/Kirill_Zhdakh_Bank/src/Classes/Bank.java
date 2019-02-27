@@ -176,8 +176,15 @@ public class Bank{
 							clearConsole();
 							System.out.println("Enter deposit amount: ");
 							amount = scan.nextFloat();
+							if (amount < 0)
+							{
+								clearConsole();
+								System.out.println("Invalid input. Try again.\n");
+								userPage();
+							}
 							currentUser.setCheckingBalance(currentUser.getCheckingBalance() + amount);
 							clearConsole();
+							FileIO.writeUserData(currentUser);
 							userPage();
 						}
 						break;
@@ -186,8 +193,15 @@ public class Bank{
 							clearConsole();
 							System.out.println("Enter deposit amount: ");
 							amount = scan.nextFloat();
+							if (amount < 0)
+							{
+								clearConsole();
+								System.out.println("Invalid input. Try again.\n");
+								userPage();
+							}
 							currentUser.setSavingBalance(currentUser.getSavingBalance() + amount);
 							clearConsole();
+							FileIO.writeUserData(currentUser);
 							userPage();
 						}
 						break;
@@ -221,14 +235,21 @@ public class Bank{
 							clearConsole();
 							System.out.println("Enter withdraw amount: ");
 							amount = scan.nextFloat();
-							while(currentUser.getCheckingBalance() < amount)
+							if (amount < 0)
 							{
+								clearConsole();
+								System.out.println("Invalid input. Try again.\n");
+								userPage();
+							}
+							if (currentUser.getCheckingBalance() < amount)
+							{
+								clearConsole();
 								System.out.println("\nInvalid amount. Try again.");
-								System.out.println("Enter deposit amount: ");
-								amount = scan.nextFloat();
+								userPage();
 							}
 							currentUser.setCheckingBalance(currentUser.getCheckingBalance() - amount);
 							clearConsole();
+							FileIO.writeUserData(currentUser);
 							userPage();
 						}
 						break;
@@ -237,14 +258,21 @@ public class Bank{
 							clearConsole();
 							System.out.println("Enter withdraw amount: ");
 							amount = scan.nextFloat();
-							while(currentUser.getSavingBalance() < amount)
+							if (amount < 0)
 							{
+								clearConsole();
+								System.out.println("Invalid input. Try again.\n");
+								userPage();
+							}
+							if (currentUser.getSavingBalance() < amount)
+							{
+								clearConsole();
 								System.out.println("\nInvalid amount. Try again.");
-								System.out.println("Enter deposit amount: ");
-								amount = scan.nextFloat();
+								userPage();
 							}
 							currentUser.setSavingBalance(currentUser.getSavingBalance() - amount);
 							clearConsole();
+							FileIO.writeUserData(currentUser);
 							userPage();
 						}
 						break;
