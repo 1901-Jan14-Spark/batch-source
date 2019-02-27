@@ -1,5 +1,0 @@
- Username: dtran07
- Password: revature1234
- Account Type: checking
- Initial Deposit: $450.32
- Your current balance is: $450.32
