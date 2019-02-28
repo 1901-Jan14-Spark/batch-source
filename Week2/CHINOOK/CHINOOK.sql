@@ -101,8 +101,38 @@
 -- group by chinook.CUSTOMER.FIRSTNAME, chinook.CUSTOMER.LASTNAME;
  
  
+--b Create a query that shows the employee that has made the highest total value of sales (total of all invoices).
+--select CHINOOK.invoiceline.invoiceid,CHINOOK.invoice.invoiceid, SUM(CHINOOK.invoice.total)as total, CHINOOK.customer.SUPPORTREPID
+--from CHINOOK.invoiceline
+--inner join CHINOOK.invoice
+--on  CHINOOK.invoiceline.invoiceid = CHINOOK.invoice.invoiceid
+--inner join CHINOOK.customer
+--on  CHINOOK.invoice.invoiceid = CHINOOK.customer.SUPPORTREPID
+--group by CHINOOK.invoiceline.invoiceid,CHINOOK.invoice.invoiceid,CHINOOK.customer.SUPPORTREPID
+--order by CHINOOK.invoice.invoiceid desc; -- the biggest is the top 
+
+--Create a query which shows the number of purchases per each genre. Display the name of each genre and number of purchases. Show the most popular genre first.
+select CHINOOK.genre.GENREID, SUM(CHINOOK.INVOICELINE.quantity)
+from CHINOOK.genre
+ join chinook.track
+on CHINOOK.track.GENREID = CHINOOK.genre.GENREID
+ join CHINOOK.INVOICELINE
+ on CHINOOK.track.GENREID = CHINOOK.invoiceline.TRACKID
+group by CHINOOK.genre.GENREID
+order by CHINOOK.genre.GENREID  ASC;
+--4.0 SQL Functions
+--In this section you will be using the Oracle system functions, as well as your own functions, to perform various actions against the database
+
+--4.1 System Defined Functions
+ --Create a function that returns the current time.
  
+-- BEGIN 
+--    DBMS_OUTPUT.PUT_LINE(CURRENT_TIMESTAMP);
+--END;
+--/
 
 
-
+--b create a function that returns the length of name in MEDIATYPE table
+--create or replace function mediaType
+--return NUMBER
 
