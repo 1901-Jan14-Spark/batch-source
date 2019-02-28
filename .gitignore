@@ -94,3 +94,4 @@ Servers/
 .sonarlint/
 
 **/target/
+*.ser

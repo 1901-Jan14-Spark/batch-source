@@ -5,15 +5,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Bank{
-	private Scanner scan;
-	private User currentUser;
+	final private static Scanner scan = new Scanner(System.in);
+	private static User currentUser;
 	
-	public Bank(Scanner scan)
-	{
-		this.scan = scan;
-	}
-	
-	public void mainPage()
+	public static void mainPage()
 	{
 		int option;
 		System.out.println("Welcome to my console bank!\n");
@@ -78,7 +73,7 @@ public class Bank{
 		}
 	}
 	
-	private void registerPage()
+	private static void registerPage()
 	{
 		String username, password, password2, firstname, lastname;
 		System.out.println("Thank you for choosing our bank! Please fill out the form below to register.");
@@ -114,7 +109,7 @@ public class Bank{
 		}
 	}
 	
-	private void loginPage()
+	private static void loginPage()
 	{
 		String username, password;
 		System.out.print("Username: ");
@@ -144,7 +139,7 @@ public class Bank{
 		}
 	}
 	
-	private void userPage()
+	private static void userPage()
 	{
 		int option;
 		float amount;
@@ -317,7 +312,7 @@ public class Bank{
 		}
 	}
 	
-	private void clearConsole()
+	private static void clearConsole()
 	{
 		for (int i = 0; i < 50; ++i) {
 			System.out.println();

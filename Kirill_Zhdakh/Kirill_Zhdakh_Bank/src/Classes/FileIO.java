@@ -14,7 +14,7 @@ public class FileIO {
 			fOut.close();
 			return true;
 		} 
-		catch (IOException e1)
+		catch (IOException e)
 		{
 			return false;
 		}
