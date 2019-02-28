@@ -75,9 +75,9 @@ CROSS JOIN CHINOOK.ARTIST ART
 ORDER BY ART.NAME ASC;
 
 -- Perform a self-join on the employee table, joining on the reportsto column.
-SELECT REPORTSTO
-FROM CHINOOK.EMPLOYEE;
-
+SELECT A.REPORTSTO AS "SUPERVISOR_ID", B.FIRSTNAME AS "SUPERVISOR_NAME"
+FROM CHINOOK.EMPLOYEE A, CHINOOK.EMPLOYEE B
+WHERE A.REPORTSTO = B.EMPLOYEEID;
 
 -- Create a query that shows the customer name with the total amount of money they have spent.
 SELECT C.FIRSTNAME, I.TOTAL
