@@ -15,6 +15,20 @@ public class Location implements Serializable {
 	public Location() {
 		super();
 	}
+	
+	public Location(int id) {
+		super();
+		this.id = id;
+	}
+
+	public Location(int id, String street, String city, String state, int zipcode) {
+		super();
+		this.id = id;
+		this.street = street;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+	}
 
 	public int getId() {
 		return id;

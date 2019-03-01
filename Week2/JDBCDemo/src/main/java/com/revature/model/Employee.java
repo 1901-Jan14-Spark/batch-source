@@ -14,8 +14,10 @@ public class Employee implements Serializable {
 	private String position;
 	private int managerId;
 	private Date hireDate;
-	private int departmentId;
-	private int locationId;
+	//private int departmentId;
+	private Department department;
+	//private int locationId;
+	private Location location;
 	
 	public Employee() {
 		super();
@@ -77,20 +79,20 @@ public class Employee implements Serializable {
 		this.hireDate = hireDate;
 	}
 
-	public int getDepartmentId() {
-		return departmentId;
+	public Department getDepartment() {
+		return department;
 	}
 
-	public void setDepartmentId(int departmentId) {
-		this.departmentId = departmentId;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
-	public int getLocationId() {
-		return locationId;
+	public Location getLocation() {
+		return location;
 	}
 
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 
 	@Override
@@ -98,10 +100,10 @@ public class Employee implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
-		result = prime * result + departmentId;
+		result = prime * result + ((department == null) ? 0 : department.hashCode());
 		result = prime * result + ((hireDate == null) ? 0 : hireDate.hashCode());
 		result = prime * result + id;
-		result = prime * result + locationId;
+		result = prime * result + ((location == null) ? 0 : location.hashCode());
 		result = prime * result + managerId;
 		long temp;
 		temp = Double.doubleToLongBits(monthlySalary);
@@ -125,7 +127,10 @@ public class Employee implements Serializable {
 				return false;
 		} else if (!birthday.equals(other.birthday))
 			return false;
-		if (departmentId != other.departmentId)
+		if (department == null) {
+			if (other.department != null)
+				return false;
+		} else if (!department.equals(other.department))
 			return false;
 		if (hireDate == null) {
 			if (other.hireDate != null)
@@ -134,7 +139,10 @@ public class Employee implements Serializable {
 			return false;
 		if (id != other.id)
 			return false;
-		if (locationId != other.locationId)
+		if (location == null) {
+			if (other.location != null)
+				return false;
+		} else if (!location.equals(other.location))
 			return false;
 		if (managerId != other.managerId)
 			return false;
@@ -156,10 +164,9 @@ public class Employee implements Serializable {
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", birthday=" + birthday + ", monthlySalary=" + monthlySalary
-				+ ", position=" + position + ", managerId=" + managerId + ", hireDate=" + hireDate + ", departmentId="
-				+ departmentId + ", locationId=" + locationId + "]";
+				+ ", position=" + position + ", managerId=" + managerId + ", hireDate=" + hireDate + ", department="
+				+ department + ", location=" + location + "]";
 	}
-	
 	
 	
 	

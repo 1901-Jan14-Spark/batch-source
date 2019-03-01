@@ -20,7 +20,18 @@ public class Department implements Serializable {
 		this.name = name;
 		this.monthlyBudget = monthlyBudget;
 	}
+	
+	public Department(String name, double monthlyBudget) {
+		super();
+		this.name = name;
+		this.monthlyBudget = monthlyBudget;
+	}
 
+	public Department(int id) {
+		super();
+		this.id = id;
+	}
+	
 	public int getId() {
 		return id;
 	}
