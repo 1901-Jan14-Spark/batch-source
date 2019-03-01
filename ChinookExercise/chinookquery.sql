@@ -188,11 +188,11 @@ SVAR SYS_REFCURSOR;
 TEMP_NAME  MEDIATYPE.NAME%TYPE;
 TEMP_LENGTH NUMBER(20);
 BEGIN
-SVAR := LENGTHOFNAME();
-LOOP
-FETCH SVAR INTO TEMP_NAME,TEMP_LENGTH;
-EXIT WHEN SVAR%NOTFOUND;
-DBMS_OUTPUT.PUT_LINE(TEMP_NAME||': '||TEMP_LENGTH);
+    SVAR := LENGTHOFNAME();
+    LOOP
+        FETCH SVAR INTO TEMP_NAME,TEMP_LENGTH;
+    EXIT WHEN SVAR%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(TEMP_NAME||': '||TEMP_LENGTH);
 END LOOP;
 CLOSE SVAR;
 END;
@@ -205,15 +205,14 @@ RETURN NUMBER
 IS
 TEMP_AVERAGE NUMBER;
 BEGIN
-SELECT AVG(TOTAL) INTO TEMP_AVERAGE
-FROM INVOICE;
-
+    SELECT AVG(TOTAL) INTO TEMP_AVERAGE
+    FROM INVOICE;
 RETURN TEMP_AVERAGE;
 END;
 /
 
 BEGIN
-DBMS_OUTPUT.PUT_LINE(AVERAGEINVOICE());
+    DBMS_OUTPUT.PUT_LINE(AVERAGEINVOICE());
 END;
 /
 
@@ -224,13 +223,13 @@ RETURN SYS_REFCURSOR
 IS
 l_RETURN SYS_REFCURSOR;
 BEGIN
-OPEN l_RETURN FOR
-SELECT NAME,unitprice
-FROM TRACK
-WHERE(
-SELECT MAX(UNITPRICE)
-FROM TRACK) = unitprice;
-RETURN l_RETURN;
+    OPEN l_RETURN FOR
+    SELECT NAME,unitprice
+    FROM TRACK
+    WHERE(
+    SELECT MAX(UNITPRICE)
+    FROM TRACK) = unitprice;
+    RETURN l_RETURN;
 END;
 /
 
@@ -240,47 +239,39 @@ SVAR SYS_REFCURSOR;
 TEMP_NAME  MEDIATYPE.NAME%TYPE;
 TEMP_PRICE NUMBER(20);
 BEGIN
-SVAR := RETURNTRACK();
-LOOP
-FETCH SVAR INTO TEMP_NAME,TEMP_PRICE;
-EXIT WHEN SVAR%NOTFOUND;
-DBMS_OUTPUT.PUT_LINE(TEMP_NAME||': '||TEMP_PRICE);
+    SVAR := RETURNTRACK();
+    LOOP
+        FETCH SVAR INTO TEMP_NAME,TEMP_PRICE;
+        EXIT WHEN SVAR%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(TEMP_NAME||': '||TEMP_PRICE);
 END LOOP;
 CLOSE SVAR;
 END;
 /
 
--- 4.3 Defined scalar functions
 
+
+-- 4.3 Defined scalar functions
+-- Create a function that returns the average price of invoiceline items in the invoiceline
 CREATE OR REPLACE FUNCTION AVERAGE
-RETURN SYS_REFCURSOR
+RETURN Number
 IS
-SVAR SYS_REFCURSOR;
+TEMP_SUM NUMBER := 0;
+TEMP_COUNTER NUMBER := 0;
 BEGIN
-Open svar for
-select unitprice
-from invoiceline;
-return svar;
+FOR PRICE IN (SELECT UNITPRICE FROM INVOICELINE)
+  LOOP
+    temp_sum := temp_sum + price.unitprice;
+    temp_counter := temp_counter +1;
+  END LOOP;
+return temp_sum/temp_counter;
+END;
+/
+
+begin
+    dbms_output.put_line(average());
 end;
 /
 
-DECLARE
-SVAR SYS_REFCURSOR;
-TEMP_AVERAGE NUMBER;
-TEMP_PRICE NUMBER;
-TEMP_COUNTER NUMBER;
-BEGIN
-SVAR := AVERAGE();
-TEMP_AVERAGE := 0;
-temp_counter := 0;
-LOOP
-FETCH SVAR INTO TEMP_PRICE;
-EXIT WHEN SVAR%NOTFOUND;
-Temp_average := temp_average + temp_price;
-Temp_counter := temp_counter + 1;
-END LOOP;
-Temp_average := temp_average / temp_counter;
-DBMS_OUTPUT.PUT_LINE('The average is '||temp_average);
-CLOSE SVAR;
-END;
-/
+-- 4.4 User defined table valued functions
+-- create a function that returns all employees
