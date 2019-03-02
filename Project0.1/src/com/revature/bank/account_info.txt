@@ -1,5 +1,5 @@
-Username: newUser4
-Email: random@email.com
-Account Number: 47900015
-Balance: $34.32
-Password: password1
+Username: crehm
+Email: crehm@gmail.com
+Account Number: 27277061
+Balance: $300.0
+Password: pass
