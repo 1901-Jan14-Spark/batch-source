@@ -337,5 +337,192 @@ end;
 
 -- Stored procedure that updates the personal information of an employee
 
-Create or replace procedure updateEmployee ( firstname in employee.firstname%type, lastname in employee.lastname%type,
-    birthdate in employee.birthdate%type, address in employee.address
+Create or replace procedure updateEmployee ( 
+    eid in employee.employeeid%type, 
+    fname in employee.firstname%type default null, 
+    lname in employee.lastname%type default null,
+    ebirthdate in employee.birthdate%type default null, 
+    eaddress in employee.address%type default null, 
+    ecity in employee.city%type default null,
+    estate in employee.state%type default null, 
+    ecountry in employee.country%type default null, 
+   epostalcode in employee.postalcode%type default null, 
+    ephone in employee.phone%type default null,
+    efax in employee.fax%type default null, 
+    empemail in employee.email%type default null)
+    is
+    begin
+    update employee
+    set 
+        firstname = NVL(fname,firstname), 
+        lastname =nvl(lname,lastname),
+        birthdate = nvl(ebirthdate, birthdate), 
+        address = nvl(eaddress, address), 
+        city = nvl(ecity, city),
+        state  = nvl(estate, state), 
+        country  = nvl(ecountry, country), 
+        postalcode = nvl(epostalcode, postalcode), 
+        phone  = nvl(ephone, phone),
+        fax  = nvl(efax, fax), 
+        email  = nvl(empemail, email)
+    where employeeid = eid;
+    end;
+    /
+    
+    begin
+    updateemployee(eid => 10, lname => 'hi');
+    end;
+    
+    -- Tester
+    Select *
+    from employee;
+    
+-- Create stored procedure that returns the manager of an employee
+Create or replace procedure getManager(eid in employee.employeeid%type, mcursor out sys_refcursor)
+is
+begin
+open mcursor for
+SELECT E1.employeeid, E2.employeeid as managerid, e2.firstname || '  ' ||e2.lastname as fullname
+FROM EMPLOYEE E1
+JOIN EMPLOYEE E2
+ON E1.REPORTSTO = E2.EMPLOYEEID
+where eid = e1.employeeid;
+end;
+/
+
+set serveroutput on;
+
+declare 
+vcurs sys_refcursor;
+temp_empid employee.employeeid%type;
+temp_manid employee.employeeid%type;
+temp_manName varchar2(100);
+begin
+getManager(eid => 2, mcursor => vcurs);
+loop
+    fetch vcurs into temp_empid, temp_manid, temp_Manname;
+    exit when vcurs%notfound;
+    dbms_output.put_line('Employee '|| temp_empid ||' reports to: '||temp_manid|| ' '||temp_manname);
+end loop;
+close vcurs;
+end;
+/
+
+-- 5.3 Stored output parameter
+
+-- Stored procedure that returns the name and company of a customer
+
+Create or replace procedure getCompany(cid in customer.customerID%type, fullname out varchar2, comp_name out customer.company%type)
+is
+begin
+    Select firstname || ' ' || lastname, company into fullname, comp_name
+    from Customer
+    where cid = customerID;
+    comp_name := nvl (comp_name, 'Not Provided');
+end;
+/
+
+declare
+fname varchar2(100);
+company varchar2(100);
+begin
+getCompany(2,fname,company);
+dbms_output.put_line('Customer name: ' || fname||' Company name: '|| company);
+end;
+/
+
+-- 6.0 Transactions
+
+-- Transaction that deletes an invoice given its id
+
+commit;
+
+Create or replace procedure deleteinvoice(inid in invoice.invoiceid%type)
+is
+begin
+-- Oracle has implicit rollbacks when exception occur
+delete from invoiceline
+where invoiceid = inid;
+delete from invoice
+where invoiceid = inid;
+commit;
+end;
+/
+
+begin
+deleteinvoice(216);
+end;
+/
+
+Select *
+from invoice
+where invoiceid =216;
+
+Select * 
+from invoiceline 
+where invoiceid = 216;
+
+-- Transaction that inserts a new record into the Customer table
+CREATE SEQUENCE customers_seq
+ START WITH     63
+ INCREMENT BY   1;
+
+Create or replace procedure createCustomer(
+    cfname in customer.firstname%type default null,
+    clname in customer.lastname%type default null,
+    ccompany in customer.company%type default null,
+    caddress in customer.address%type default null,
+    ccity in customer.city%type default null,
+    cstate in customer.state%type default null,
+    ccountry in customer.country%type default null,
+    cpostalcode in customer.postalcode%type default null,
+    cphone in customer.phone%type default null,
+    cfax in customer.fax%type default null,
+    cemail in customer.email%type default null,
+    csupportrepid customer.email%type default null
+    )
+    is
+    begin
+    insert into customer (customerid, firstname, lastname, company, address,city, state, country, postalcode, phone,
+    fax, email, supportrepid) values(CUSTOMERS_SEQ.nextval, cfname, clname, ccompany, caddress, ccity, cstate, ccountry, cpostalcode, cphone, cfax, cemail, csupportrepid);
+    end;
+    /
+    
+    begin
+    createCustomer(cfname => 'kevin', clname => 'tran', cemail => 'hello@gmail.com');
+    end;
+    /
+
+-- 7.0 Triggers
+
+-- After insert trigger on employee table
+Set serveroutput on;
+
+CREATE OR REPLACE TRIGGER Print_New_Employee
+  AFTER INSERT ON Employee
+  FOR EACH ROW
+BEGIN
+    dbms_output.put_line('New employee added');
+END;
+/
+
+INSERT INTO EMPLOYEE VALUES(11, 'Mack', 'Mick', 'Web Browser', 2, DATE '1978-05-15', DATE '2018-02-25', '123 Road St', 'SomeCity', 'AB', 'Canada', 'T3P 5M5', '+1 (123) 456 7890', '+1 (123) 456 7891', 'miik@chinookcorp.com'); 
+
+-- After update trigger album table
+CREATE OR REPLACE TRIGGER Print_Update_Album
+  AFTER UPDATE ON ALBUM
+  FOR EACH ROW
+BEGIN
+    dbms_output.put_line('Album updated');
+END;
+/
+
+-- After delete trigger on Customer table
+
+CREATE OR REPLACE TRIGGER Print_Delete_Customer
+  AFTER delete ON Customer
+  FOR EACH ROW
+BEGIN
+    dbms_output.put_line('Customer deleted');
+END;
+/
