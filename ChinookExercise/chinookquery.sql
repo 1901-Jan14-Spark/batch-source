@@ -274,4 +274,68 @@ end;
 /
 
 -- 4.4 User defined table valued functions
--- create a function that returns all employees
+-- create a function that returns all employees born after 1968
+
+CREATE OR REPLACE FUNCTION RETURNEMPLOYEE
+RETURN SYS_REFCURSOR
+IS
+RetCursor SYS_REFCURSOR;
+BEGIN
+OPEN RetCursor FOR
+SELECT FIRSTNAME||LASTNAME AS FULLNAME, BIRTHDATE
+FROM EMPLOYEE
+WHERE BIRTHDATE > DATE '1968-12-31';
+Return retcursor;
+END;
+/
+
+DECLARE
+SVAR SYS_REFCURSOR;
+EMP_NAME VARCHAR2(20);
+EMP_BIRTHDAY DATE;
+BEGIN
+    svar := returnemployee();
+    LOOP
+        FETCH SVAR INTO EMP_NAME,EMP_BIRTHDAY;
+        EXIT WHEN SVAR%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(EMP_NAME||'is born on: '||EMP_BIRTHDAY);
+    END LOOP;
+    CLOSE SVAR;
+END;
+/   
+
+-- 5.0 Stored procedure
+
+-- 5.1 Procedure that selects the first and last names of all of the employees
+Create or replace procedure getemployeename (s out sys_refcursor)
+is
+begin
+    open s for
+        SELECT FIRSTNAME, LASTNAME
+        FROM EMPLOYEE;
+end;
+/
+
+set serveroutput on;
+
+declare
+sout sys_refcursor;
+temp_fname employee.firstname%type;
+temp_lname employee.lastname%type;
+begin
+    getemployeename(sout);
+    loop
+        fetch sout into temp_fname, temp_lname;
+        exit when sout%notfound;
+        dbms_output.put_line(temp_fname||' '|| temp_lname);
+    end loop;
+    close sout;
+end;
+/
+    
+-- 5.2 Stored Procedure Input parameters
+
+-- Stored procedure that updates the personal information of an employee
+
+Create or replace procedure updateEmployee ( firstname in employee.firstname%type, lastname in employee.lastname%type,
+    birthdate in employee.birthdate%type, address in employee.address
