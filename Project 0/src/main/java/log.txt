@@ -1,2 +1,6 @@
-2019-02-22 11:40:34 ERROR ProjectDriver:50 - Incorrect input. Exception thrown.
-2019-02-22 11:52:46 ERROR ProjectDriver:60 - Incorrect user input. Exception thrown.
+2019-02-26 21:46:04 WARN  BankDriver:60 - User improper input.
+2019-02-26 21:47:42 ERROR BankDriver:60 - User improper input.
+2019-02-26 21:48:00 ERROR BankDriver:60 - User improper input.
+2019-02-26 21:48:00 ERROR BankDriver:60 - User improper input.
+2019-02-26 21:48:01 ERROR BankDriver:60 - User improper input.
+2019-02-26 21:50:24 WARN  BankDriver:60 - User improper input.

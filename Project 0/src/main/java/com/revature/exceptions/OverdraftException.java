@@ -1,4 +1,4 @@
-package com.revature.bankapp.exceptions;
+package com.revature.exceptions;
 
 public class OverdraftException extends Exception{
 
