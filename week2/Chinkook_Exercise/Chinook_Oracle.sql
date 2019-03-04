@@ -28,6 +28,12 @@ GRANT create session TO chinook;
 GRANT create table TO chinook;
 GRANT create view TO chinook;
 
+GRANT connect to shimjay1;
+GRANT resource to shimjay1;
+GRANT create session TO shimjay1;
+GRANT create table TO shimjay1;
+GRANT create view TO shimjay1;
+
 
 
 conn chinook/p4ssw0rd

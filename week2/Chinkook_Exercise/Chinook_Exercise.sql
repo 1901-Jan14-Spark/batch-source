@@ -1,3 +1,5 @@
+set serveroutput on;
+
 --2.0 Queries and DML
 
 --2.1 SELECT
@@ -125,3 +127,281 @@ from chinook.customer c, chinook.invoice inv, chinook.invoiceline invl, chinook.
 where c.customerid = inv.invoiceid and inv.invoiceid = invl.invoiceid and invl.trackid = t.trackid and t.genreid = g.genreid
 group by g.name
 order by sum(inv.invoiceid) desc;
+
+--4.0 SQL Functions
+--In this section you will be using the Oracle system functions, as well as your own functions, to perform various actions against the database
+
+--4.1 System Defined Functions
+-- Create a function that returns the current time.
+create or replace function print_date
+return date
+is
+begin
+    return sysdate;
+end;
+/
+
+begin
+    dbms_output.put_line(print_date);
+end;
+/
+
+--create a function that returns the length of name in MEDIATYPE table
+create or replace function name_length(x varchar2)
+return number
+is
+begin
+    return length(x);
+end;
+/
+
+select m.name, name_length(m.name)
+from chinook.mediatype m;
+
+--4.2 System Defined Aggregate Functions
+--Create a function that returns the average total of all invoices 
+create or replace function total_average
+return number
+is
+average number;
+begin
+    select avg(i.total)
+    into average
+    from chinook.invoice i;
+    return average;
+end;
+/
+
+begin
+    dbms_output.put_line(total_average);
+end;
+/
+
+--Create a function that returns the most expensive track
+create or replace function most_expensive
+return number
+is
+trackid number;
+begin
+    select t.unitprice
+    into trackid
+    from chinook.track t
+    order by unitprice desc
+    fetch first 1 rows only;
+    return trackid;
+end;
+/
+
+begin
+    dbms_output.put_line(most_expensive);
+end;
+/
+
+--4.3 User Defined Scalar Functions
+-- Create a function that returns the average price of invoiceline items in the invoiceline table
+create or replace function average_price_invocieline
+return number
+is
+average number;
+begin
+    select avg(i.unitprice)
+    into average
+    from chinook.invoiceline i;
+    return average; 
+end;
+/
+
+begin
+    dbms_output.put_line(average_price_invocieline);
+end;
+/
+
+--4.4 User Defined Table Valued Functions
+--Create a function that returns all employees who are born after 1968.
+
+create or replace function born_after_1968
+return sys_refcursor
+is
+motal sys_refcursor;
+begin
+    open motal for
+    select e.employeeid, e.firstname, e.lastname
+    from chinook.employee e
+    where e.birthdate > '31-DEC-68';
+    return motal;
+end;
+/
+
+declare
+    svar sys_refcursor := born_after_1968;
+    temp_id chinook.employee.employeeid%type;
+    temp_first chinook.employee.firstname%type;
+    temp_last chinook.employee.lastname%type;
+begin
+    loop
+        fetch svar into temp_id, temp_first, temp_last;
+        exit when svar%notfound;
+        dbms_output.put_line('Employee '||temp_id||': '||temp_first||' '||temp_last);
+    end loop;
+    close svar;
+end;
+/
+
+--5.0 Stored Procedures
+-- In this section you will be creating and executing stored procedures. You will be creating various types of stored procedures that take input and output parameters.
+--5.1 Basic Stored Procedure
+--Create a stored procedure that selects the first and last names of all the employees
+create or replace procedure first_last(s out sys_refcursor)
+is
+begin
+    open s for
+    select e.firstname, e.lastname from chinook.employee e;
+end;
+/
+
+declare
+    svar sys_refcursor;
+    temp_first chinook.employee.firstname%type;
+    temp_last chinook.employee.lastname%type;
+begin
+    first_last(svar);
+    loop
+        fetch svar into temp_first, temp_last;
+        exit when svar%notfound;
+        dbms_output.put_line('Employee: '||temp_first||' '||temp_last);
+    end loop;
+    close svar;
+end;
+/
+
+--5.2 Stored Procedure Input Parameters
+--Create a stored procedure that updates the personal information of an employee.
+create or replace procedure update_lastname_employee(employeeid chinook.employee.employeeid%type, newname chinook.employee.lastname%type)
+is
+begin
+    update chinook.employee e
+    set e.lastname = newname
+    where e.employeeid = employeeid;
+    commit;
+end;
+/
+
+begin
+    update_lastname_employee(1, 'Adurms');
+end;
+/
+
+--Create a stored procedure that returns the managers of an employee.
+create or replace procedure manager_of_employee(employee in number, s out sys_refcursor)
+is
+begin
+    open s for
+        select e.reportsto
+        from chinook.employee e
+        where e.employeeid = employee;
+end;
+/
+
+declare
+    svar sys_refcursor;
+    temp_reportsto chinook.employee.reportsto%type;
+    employeeid number := 2;
+begin
+    manager_of_employee(employeeid, svar);
+    loop
+        fetch svar into temp_reportsto;
+        exit when svar%notfound;
+        dbms_output.put_line('Employee: '||employeeid||' reports to '||temp_reportsto);
+    end loop;
+    close svar;
+end;
+/
+
+--5.3 Stored Procedure Output Parameters
+--Create a stored procedure that returns the name and company of a customer.
+create or replace procedure name_company(customer in number, s out sys_refcursor)
+is
+begin
+    open s for
+        select (c.firstname||' '||c.lastname), c.company
+        from chinook.customer c
+        where c.customerid = customer;
+end;
+/
+
+declare
+    svar sys_refcursor;
+    temp_name chinook.customer.firstname%type;
+    temp_company chinook.customer.company%type;
+    customerid number := 1;
+begin
+    name_company(customerid, svar);
+    loop
+        fetch svar into temp_name, temp_company;
+        exit when svar%notfound;
+        dbms_output.put_line('Customer: '||customerid||' has name '||temp_name||' and Company: '||temp_company);
+    end loop;
+    close svar;
+end;
+/
+
+--6.0 Transactions
+--In this section you will be working with transactions. Transactions are usually nested within a stored procedure.
+--Create a transaction that given a invoiceId will delete that invoice (There may be constraints that rely on this, find out how to resolve them).
+
+alter table chinook.invoice
+    drop constraint invoiceid;
+
+create or replace procedure drop_invoice(invoiceid in number)
+is
+begin
+    delete
+    from chinook.invoice i
+    where i.invoiceid = invoiceid;
+    commit;
+end;
+/
+
+
+--Create a transaction nested within a stored procedure that inserts a new record in the Customer table
+
+create or replace procedure insert_customer(s out sys_refcursor)
+as
+begin
+    open s for
+    select c.customerid, c.firstname, c.lastname, c.email
+    from chinook.customer c;
+end;
+/
+
+--7.0 Triggers
+--In this section you will create various kinds of triggers that work when certain DML statements are executed on a table.
+--7.1 AFTER/FOR
+--Create an after insert trigger on the employee table fired after a new record is inserted into the table.
+create or replace trigger tr_insert_employee
+after insert on chinook.employee
+for each row
+begin
+    dbms_output.put_line('Employee Successfully Inserted');
+end;
+/
+
+
+--Create an after update trigger on the album table that fires after a row is inserted in the table.
+create or replace trigger tr_update_album
+after update on chinook.album
+for each row
+begin
+    dbms_output.put_line('Album Successfully Updated');
+end;
+/
+
+--Create an after delete trigger on the customer table that fires after a row is deleted from the table.
+create or replace trigger on tr_delete_customer
+after delete on chinook.customer
+for each row
+begin
+    dbms_output.put_line('Customer Successfully Deleted');
+end;
+/
+
