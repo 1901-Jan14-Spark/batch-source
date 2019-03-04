@@ -211,64 +211,64 @@ END;
 
 --4.4 User Defined Table Valued Functions
 -- Create a function that returns all employees who are born after 1968.
---
---CREATE OR REPLACE function GET_ALL_EMPLOYEES return SYS_REFCURSOR
---IS
---S  SYS_REFCURSOR;
---BEGIN 
---    OPEN S FOR
---    SELECT  chinook.employee.lastname, chinook.employee.firstname,chinook.employee.employeeid
---from chinook.employee
---where chinook.employee.BIRTHDATE > DATE '1968-01-01';
---return s;
---END;
---/
---
---DECLARE
---    SVAR SYS_REFCURSOR := GET_ALL_EMPLOYEES() ;
---    TEMP_ID chinook.employee.EMPLOYEEID%TYPE;
---    TEMP_NAME chinook.employee.firstname%TYPE;
---    TEMP_BDAY chinook.employee.BIRTHDATE%TYPE;
---BEGIN 
---   
---    LOOP
---        FETCH SVAR INTO TEMP_ID, TEMP_NAME,TEMP_BDAY;
---        EXIT WHEN SVAR%NOTFOUND;
---        DBMS_OUTPUT.PUT_LINE(TEMP_ID||' IS CURRENT ID, '||TEMP_NAME||' IS CURRENT NAME');
---    END LOOP;
---    CLOSE SVAR;
---END;
---/
+
+CREATE OR REPLACE function GET_ALL_EMPLOYEES return SYS_REFCURSOR
+IS
+S  SYS_REFCURSOR;
+BEGIN 
+    OPEN S FOR
+    SELECT  chinook.employee.employeeid,chinook.employee.firstname,chinook.employee.lastname
+from chinook.employee
+where chinook.employee.BIRTHDATE > DATE '1968-01-01';
+return s;
+END;
+/
+
+DECLARE
+    SVAR SYS_REFCURSOR := GET_ALL_EMPLOYEES() ;
+    TEMP_ID chinook.employee.EMPLOYEEID%TYPE;
+    TEMP_NAME chinook.employee.firstname%TYPE;
+    TEMP_LNAME chinook.employee.lastname%TYPE;
+BEGIN 
+   
+    LOOP
+        FETCH SVAR INTO TEMP_ID, TEMP_NAME,TEMP_LNAME;
+        EXIT WHEN SVAR%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(TEMP_ID||' = ID, '||TEMP_NAME||' = First NAME '||TEMP_LNAME || ' = Last Name, ' );
+    END LOOP;
+    CLOSE SVAR;
+END;
+/
 
 
 --5.0 Stored Procedures
  --In this section you will be creating and executing stored procedures. You will be creating various types of stored procedures that take input and output parameters.
 --5.1 Basic Stored Procedure Create a stored procedure that selects the first and last names of all the employees.
 
---
---cREATE OR REPLACE PROCEDURE first_Last_EMPLOYEES(S OUT SYS_REFCURSOR)
---IS
---BEGIN 
---    OPEN S FOR
---    SELECT chinook.employee.EMPLOYEEID, chinook.employee.FIRSTNAME , chinook.employee.LASTNAME FROM chinook.employee ORDER BY chinook.employee.EMPLOYEEID;
---END;
---/
---
---DECLARE
---    SVAR SYS_REFCURSOR;
---    TEMP_ID chinook.employee.EMPLOYEEID%TYPE;
---    TEMP_FNAME chinook.employee.FIRSTNAME%TYPE;
---    TEMP_LNAME chinook.employee.LASTNAME%TYPE;
---BEGIN 
---    first_Last_EMPLOYEES(SVAR);
---    LOOP
---        FETCH SVAR INTO TEMP_ID,  TEMP_FNAME,TEMP_LNAME  ;
---        EXIT WHEN SVAR%NOTFOUND;
---        DBMS_OUTPUT.PUT_LINE(TEMP_ID||' IS CURRENT ID, '||TEMP_FNAME||' IS CURRENT NAME'||TEMP_LNAME||' IS CURRENT NAME');
---    END LOOP;
---    CLOSE SVAR;
---END;
---/
+
+CREATE OR REPLACE PROCEDURE first_Last_EMPLOYEES(S OUT SYS_REFCURSOR)
+IS
+BEGIN 
+    OPEN S FOR
+    SELECT chinook.employee.EMPLOYEEID, chinook.employee.FIRSTNAME , chinook.employee.LASTNAME FROM chinook.employee ORDER BY chinook.employee.EMPLOYEEID;
+END;
+/
+
+DECLARE
+    SVAR SYS_REFCURSOR;
+    TEMP_ID chinook.employee.EMPLOYEEID%TYPE;
+    TEMP_FNAME chinook.employee.FIRSTNAME%TYPE;
+    TEMP_LNAME chinook.employee.LASTNAME%TYPE;
+BEGIN 
+    first_Last_EMPLOYEES(SVAR);
+    LOOP
+        FETCH SVAR INTO TEMP_ID,  TEMP_FNAME,TEMP_LNAME  ;
+        EXIT WHEN SVAR%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(TEMP_ID||' IS CURRENT ID, '||TEMP_FNAME||' IS CURRENT NAME'||TEMP_LNAME||' IS CURRENT NAME');
+    END LOOP;
+    CLOSE SVAR;
+END;
+/
 
 
 -- 5.2 Stored Procedure Input Parameters
