@@ -13,6 +13,8 @@ import java.util.Scanner;
 
 import com.revature.bankapp.models.User;
 import com.revature.exceptions.OverdraftException;
+import com.revature.bankapp.dao.AccountDao;
+import com.revature.bankapp.dao.AccountDaoImpl;
 import com.revature.bankapp.dao.UserDao;
 import com.revature.bankapp.dao.UserDaoImpl;
 import com.revature.bankapp.models.Account;
@@ -25,7 +27,8 @@ public class BankImpl implements ReadWriteManager{
 	static Scanner userInput = new Scanner(System.in);
 	static String userFilePath = "src/main/java/com/revature/bankapp/users.txt";
 	static UserDao userDao = new UserDaoImpl();
-
+	static AccountDao accDao = new AccountDaoImpl();
+	
 	public static void appStart()
 	{
 		System.out.println("Welcome to the revBanking app! Please input a number 1-3 to begin.");
@@ -56,25 +59,40 @@ public class BankImpl implements ReadWriteManager{
 	}
 	
 	private static void userLogin() {
+		User testLogin = new User();
 		System.out.println("Welcome to the login page! Please input your username.");
 		String enteredUsername = userInput.next();
+		System.out.println("Please input your password:");
+		String enteredPassword = userInput.next();
 		String[] userArr = bank.readUser();
-		if(enteredUsername.equals(userArr[1])) {
-			System.out.println("Hello, "+enteredUsername+" -- Please enter your password.");
-			String enteredPassword = userInput.next();
-			if(enteredPassword.equals(userArr[3])) {
+		testLogin = userDao.verifyUser(enteredUsername);
+		System.out.println(testLogin);
+		try {
+			if(testLogin.getUsername().matches(enteredUsername) && testLogin.getPassword().matches(enteredPassword)){
 				bankRun();
-			} else {
-				System.out.println("You have entered an incorrect password. Please try again.");
-				userLogin();
 			}
-		} else {
-			System.out.println("This username does not match any existing username in our database. Please try again.");
+		} catch(NullPointerException e) {
+			System.out.println("You have entered an incorrect username or password. Please try again.");
 			userLogin();
 		}
 		
-		
 	}
+//		if(enteredUsername.equals(userArr[1])) {
+//			System.out.println("Hello, "+enteredUsername+" -- Please enter your password.");
+//			String enteredPassword = userInput.next();
+//			if(enteredPassword.equals(userArr[3])) {
+//				bankRun();
+//			} else {
+//				System.out.println("You have entered an incorrect password. Please try again.");
+//				userLogin();
+//			}
+//		} else {
+//			System.out.println("This username does not match any existing username in our database. Please try again.");
+//			userLogin();
+//		}
+//		
+//		
+//	}
 
 	public static void createAccount() 
 	{
@@ -109,10 +127,10 @@ public class BankImpl implements ReadWriteManager{
 					Account newAcc = new Account(newUser.getBalance());
 					System.out.println("Your account was created! You are being returned to the homescreen. You may choose to log-in there.");
 					newUser.writeUser(newUser.getName(), newUser.getUsername(), newUser.getEmail(), newUser.getPassword(), newAcc);
+					int test2 = accDao.createAccount(newAcc, newUser);
 					int test = userDao.createUser(newUser);
 					System.out.println(test);
-//					System.out.println(newUser.getAccountId());
-//					System.out.println(newAcc.getAccountId());
+					System.out.println("Accounts created: "+test2);
 					appStart();
 			}	
 		} catch (Exception e)

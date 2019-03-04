@@ -20,6 +20,13 @@ public class User implements ReadWriteManager {
 		this.accountId = accountNumber++;
 	}
 	
+	public User (int accountId, String name, String username, String password) {
+		this.accountId = accountId;
+		this.name = name;
+		this.username = username;
+		this.password = password;
+	}
+	
 	public User(String name, String username, String email, String password, BigDecimal balance) {
 		super();
 		this.name = name;
@@ -87,6 +94,14 @@ public class User implements ReadWriteManager {
 		} else {
 			this.password = null;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "User [accountId=" + accountId + ", name=" + name + ", username=" + username + ", email=" + email
+				+ ", password=" + password + ", account=" + account + ", balance=" + balance + "]";
 	}	
+	
+	
 	
 }
