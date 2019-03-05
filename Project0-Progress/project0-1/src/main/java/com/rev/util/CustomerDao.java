@@ -15,6 +15,7 @@ public interface CustomerDao {
 	public double getBalance(int id);
 	public int getIdByname(String name);
 	public int getIdByUser(String username);
+	public void withdraw(int id, double bal);
 	
 	
 }

@@ -8,8 +8,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
+
+import org.apache.log4j.Logger;
 
 public class CustomerDaoImpl implements CustomerDao {
+	private static Logger log = Logger.getRootLogger();
+	static Scanner scan2 = new Scanner(System.in);
 	static int id = 0;
 	static HashMap<String,String> creds= new HashMap<String, String>();
 	public List<Customer> getCustomers() {
@@ -182,17 +187,21 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 		
 	}
+	
+	
+	
 
 	@Override
 	public int getIdByUser(String username) {
-		int id = 0;
-		String sql ="SELECT CUSTOMER_ID FROM C_USERS WHERE CUSTOMER_NAME = ?";
+		int cId =0;
+		String sql ="SELECT CUSTOMER_ID FROM C_USERS WHERE USERNAME = ?";
 		try(Connection con = ConnectionSrc.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)){
 			 	ps.setString(1,username);
 			 	ResultSet rs = ps.executeQuery();
 			 	while(rs.next()) {
-			 		id = rs.getInt("CUSTOMER_ID");
+			 		cId = rs.getInt("CUSTOMER_ID");
+			 		System.out.println(cId);
 			 	}
 			
 		} catch (SQLException e) {
@@ -201,8 +210,42 @@ public class CustomerDaoImpl implements CustomerDao {
 		}
 				
 		
-		return id;
+		return cId;
 		
 	}
 
-}
+	@Override
+	public void withdraw(int id, double bal) {
+		log.info("How much would you like to withdraw?");
+		String subtract = scan2.nextLine();
+		if(subtract.matches(".*[a-z].*")) {
+			log.info("Numbers Only please");
+			withdraw(id,bal);
+		}else{
+			double minus= Double.parseDouble(subtract);
+			if(minus>bal) {
+				log.info("Insuffiecent Funds");
+			}else {
+		CustomerDao cus2 = new CustomerDaoImpl();
+		double plus=cus2.getBalance(id);
+		CustomerDao cus1 = new CustomerDaoImpl();
+		String sql= "UPDATE C_USERS SET BALANCE = ? WHERE CUSTOMER_ID = ?";
+		try(Connection con = ConnectionSrc.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql)){
+				
+				ps.setDouble(1, bal-plus);
+				ps.setInt(2, id);
+				ps.executeUpdate();
+				
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+		}
+	}	
+	}
+
+
