@@ -89,7 +89,8 @@ public class BankingDriver {
 			log.info("Credentials have been approved!");
 			double balance = EnterBalance();
 			BankingAccount newbankAccount = new BankingAccount(listSize+1, "Checking" , balance);
-			User u = new User(listSize + 1, userName, password, newbankAccount);
+			User u = new User(listSize + 1 , userName, password, newbankAccount);
+			log.info(u.getAccount().getAccountId());
 			userDao.createUser(u);
 			log.info("----------------------------------------------------");
 			log.info("Account Created!");
@@ -130,6 +131,9 @@ public class BankingDriver {
 			log.error("Invalid Username or Password");
 			log.info("----------------------------------------------------");
 			Login();
+		}
+		else {
+			log.info("");
 		}
 		//
 		Navigation(currentUser);
@@ -197,19 +201,21 @@ public class BankingDriver {
 	}
 	
 	public static void Balance(User currentUser) {
-		log.info("Current Balance Is: ");
+		double balance = currentUser.getAccount().getBalance();
+		log.info("Current Balance Is: $" + balance);
 		log.info("----------------------------------------------------");
+		
 	}
 	
 	public static double EnterBalance() {
 		log.info("----------------------------------------------------");
-		log.info("Enter in the New Account Balance to Finalize Account: ");
+		log.info("Enter in the New Account Balance to Finalize Account: (or (-1) to Logout)");
 		log.info("----------------------------------------------------");
-		String input = scanner.nextLine().toLowerCase();
-		if(input.equals("x")) {
+		double input = scanner.nextDouble();
+		if(input == -1) {
 			Logout();
 		}
-		double balance = (double) Integer.parseInt(input);
+		double balance = input;
 		if(balance >= 0) {
 			log.info("New Balance for the Account is: " + balance);
 			log.info("----------------------------------------------------");
@@ -223,17 +229,13 @@ public class BankingDriver {
 	}
 	
 	public static double EnterAmount() {
-		String input = scanner.nextLine().toLowerCase();
-		if(input.equals("x")) {
-			Logout();
-		}
-		double amount = (double) Integer.parseInt(input);
-		if(amount < 0) {
+		double input = scanner.nextDouble();
+		if(input < 0) {
 			log.error("Please Enter a Non-Negative Number.");
 			log.info("----------------------------------------------------");
 			EnterBalance();
 		}
-		return amount;
+		return input;
 		
 	}
 }

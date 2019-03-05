@@ -4,3 +4,15 @@
 2019-03-04 19:51:58 ERROR BankingDriver:30 method: Start - Incorrect Input, Please Enter in One of the Given Characters
 2019-03-04 19:52:01 ERROR BankingDriver:30 method: Start - Incorrect Input, Please Enter in One of the Given Characters
 2019-03-04 20:04:09 ERROR BankingDriver:35 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 09:11:52 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 09:18:07 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 09:20:03 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 10:23:34 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 11:03:55 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 11:13:14 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 12:51:02 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 12:55:11 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 12:59:25 ERROR BankingDriver:100 method: Create - There is Already a User with that Account, Please enter a different Account
+2019-03-05 13:00:17 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-05 13:02:03 ERROR BankingDriver:100 method: Create - There is Already a User with that Account, Please enter a different Account
+2019-03-05 13:02:36 ERROR BankingDriver:131 method: Login - Invalid Username or Password

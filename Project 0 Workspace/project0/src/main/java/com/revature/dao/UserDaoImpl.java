@@ -32,7 +32,7 @@ public class UserDaoImpl implements UserDao{
 				int userId = rs.getInt("USER_ID");
 				u.setId(userId);
 				
-				String userName = rs.getString("USER_NAME");
+				String userName = rs.getString("USERNAME");
 				u.setUserName(userName);
 				
 				String password = rs.getString("USER_PW");
@@ -90,14 +90,14 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public int createUser(User u) {
 		int userCreated = 0;
-		String sql = "INSERT INTO USER (USER_ID, USERNAME, PASSWORD, ACCOUNT_ID) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO USERS_TABLE (USER_ID, USERNAME, USER_PW, ACCOUNT_ID) VALUES (?,?,?,?)";
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)){
 			
 			ps.setInt(1, u.getId());
 			ps.setString(2, u.getUserName());
 			ps.setString(3, u.getPassword());
-			ps.setInt(3, u.getAccount().getAccountId());
+			ps.setInt(4, u.getAccount().getAccountId());
 			userCreated = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
