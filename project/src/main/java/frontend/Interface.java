@@ -8,6 +8,10 @@ import java.util.regex.Pattern;
 
 import dao.AccountDao;
 import dao.AccountDaoImpl;
+import dao.AccountHolderDao;
+import dao.AccountHolderDaoImpl;
+import dao.AccountManagerDao;
+import dao.AccountManagerDaoImpl;
 import dao.TransactionDao;
 import dao.TransactionDaoImpl;
 import models.Account;
@@ -21,6 +25,8 @@ public class Interface {
 	private static AccountHandler ah = new AccountHandler();
 	private static TransactionDao td = new TransactionDaoImpl();
 	private static AccountDao ad = new AccountDaoImpl();
+	private static AccountManagerDao amd = new AccountManagerDaoImpl();
+	private static AccountHolderDao ahd = new AccountHolderDaoImpl();
 
 	public static void start() {
 		boolean go = true;
@@ -57,11 +63,22 @@ public class Interface {
 		String password = sc.nextLine();
 		System.out.println("Please re-enter your password.");
 		String password2 = sc.nextLine();
+		System.out.println("Please press 1 to select a Checking account or press 2 for a Savings account.");
+		String accountChoice = sc.nextLine();
 		if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0 && username != null
-				&& username.length() > 0 && password != null && password.length() > 0) {
+				&& username.length() > 0 && password != null && password.length() > 0 && (accountChoice.equals("1") || accountChoice.equals("2"))) {
 			if (password.equals(password2)) {
 				if (ah.createAccountHolder(username, password, firstName, lastName)) {
-					System.out.println("Account Created.\n");
+					int tempId = ad.getAccSeq();
+					System.out.println("\nRetrieving account associated with user.");
+					if (Integer.parseInt(accountChoice) == 1) {
+					ad.createAccount(new Account(0));
+					} else {
+						ad.createAccount(new Account(1));
+					}
+					System.out.println("\nAssociating account with user.");
+					amd.assignAccount(ad.getAccountByID(tempId), ahd.getAccountHolderByUsername(username));
+					System.out.println("Account set up.\n");
 				} else {
 					System.out.println("Username is already present, unable to create account.\n");
 				}
@@ -78,9 +95,12 @@ public class Interface {
 		String userName = sc.nextLine();
 		System.out.println("Please enter your password.");
 		String password = sc.nextLine();
+		System.out.println("Retrieving account...");
 		AccountManager2 am = ah.login(userName, password);
 		if (am != null) {
+			System.out.println("Successfully logged in.");
 			boolean loggedIn = true;
+			List<Account> list;
 			while (loggedIn == true) {
 				System.out.println("\nWelcome back " + am.getAccountHolder().getFirstname()
 						+ ".\nTo make a deposit press: 1.     To make a withdrawal press: 2.     To view your accounts press: 3.     To access an existing account press: 4.	To view previous transactions press: 5.	To logout press 6.	To make a transfer press: 7.");
@@ -93,7 +113,7 @@ public class Interface {
 					makeWithdrawal(am);
 					break;
 				case "3":
-					List<Account> list = am.getAccounts();
+					list = am.getAccounts();
 					for (Account a : list) {
 
 						if (a.getType() == 0) {
@@ -117,6 +137,7 @@ public class Interface {
 				case "6":
 					loggedIn = false;
 					am.logout();
+					System.out.println("Successfully logged out!\n\n");
 					break;
 				case "7":
 					makeTransfer(am);
@@ -135,7 +156,7 @@ public class Interface {
 	public static void makeDeposit(AccountManager2 am) {
 		am.printAccounts();
 		String accIds = sc.nextLine();
-		if (Pattern.matches("[1-9]", accIds)) {
+		if (accIds.matches("[0-9]+")) {
 			Account temp = null;
 			for (Account a : am.getAccounts()) {
 				if (a.getId() == Integer.parseInt(accIds)) {
@@ -167,7 +188,7 @@ public class Interface {
 	public static void makeWithdrawal(AccountManager2 am) {
 		am.printAccounts();
 		String accIds = sc.nextLine();
-		if (Pattern.matches("[1-9]", accIds)) {
+		if (Pattern.matches("[0-9]+", accIds)) {
 			Account temp = null;
 			for (Account a : am.getAccounts()) {
 				if (a.getId() == Integer.parseInt(accIds)) {
@@ -196,7 +217,7 @@ public class Interface {
 		am.printAccounts();
 		System.out.println("Press c to cancel.");
 		String accIds = sc.nextLine();
-		if (Pattern.matches("[1-9]", accIds)) {
+		if (Pattern.matches("[0-9]+", accIds)) {
 			Account temp = null;
 			for (Account a : am.getAccounts()) {
 				if (a.getId() == Integer.parseInt(accIds)) {
@@ -217,7 +238,7 @@ public class Interface {
 	public static boolean makeTransfer(AccountManager2 am) {
 		am.printAccounts();
 		String accIds = sc.nextLine();
-		if (Pattern.matches("[1-9]", accIds)) {
+		if (Pattern.matches("[0-9]+", accIds)) {
 			Account temp = null;
 			for (Account a : am.getAccounts()) {
 				if (a.getId() == Integer.parseInt(accIds)) {
@@ -226,7 +247,7 @@ public class Interface {
 			}
 			System.out.println("Please enter the id of the account for the transfer:");
 			String accIds1 = sc.nextLine();
-			if (Pattern.matches("[1-9]", accIds1)) {
+			if (Pattern.matches("[0-9]+", accIds1)) {
 				Account temp1 = null;
 				temp1 = ad.getAccountByID(Integer.parseInt(accIds1));
 				if (temp1 == null) {

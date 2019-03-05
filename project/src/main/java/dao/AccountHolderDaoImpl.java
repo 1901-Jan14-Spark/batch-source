@@ -78,12 +78,8 @@ public class AccountHolderDaoImpl implements AccountHolderDao{
 				PreparedStatement ps = con.prepareStatement(sql)) {
 			int tempLogged;
 			if(ah.isLoggedIn()) {
-				System.out.println(ah);
-				System.out.println("Setting to Logged Out");
 				tempLogged = 1;
 			}else {
-				System.out.println(ah);
-				System.out.println("Setting to Logged in");
 				tempLogged = 0;
 			}
 			ps.setInt(1, tempLogged);

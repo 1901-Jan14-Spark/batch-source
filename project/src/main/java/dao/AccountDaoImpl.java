@@ -85,12 +85,14 @@ public class AccountDaoImpl implements AccountDao{
 
 
 	@Override
-	public void createAccount(Account a) {
+	public Account createAccount(Account a) {
 		String sql = "{call CREATEACCOUNT(?)}";
+		Account temp = null;
 		try (Connection con = ConnectionUtil.getConnectionFromFile();
 				CallableStatement cs = con.prepareCall(sql)) {
 			cs.setInt(1, a.getType());
 			cs.execute();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -98,6 +100,26 @@ public class AccountDaoImpl implements AccountDao{
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		return temp;
 	}
 	
+	public int getAccSeq() {
+		String sql = "SELECT Last_number from user_sequences where sequence_name = 'SQ_ACCOUNT_PK'";
+		int result = 0;
+		try (Connection con = ConnectionUtil.getConnectionFromFile();
+				Statement s = con.createStatement();
+				ResultSet rs = s.executeQuery(sql)) {
+			
+			while (rs.next()) {
+				result = rs.getInt("Last_Number");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return result;
+	}
 }

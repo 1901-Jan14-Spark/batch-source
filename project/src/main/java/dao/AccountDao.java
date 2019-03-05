@@ -10,9 +10,11 @@ public interface AccountDao {
 
 	public Account getAccountByID(int id);
 
-	public void createAccount(Account a);
+	public Account createAccount(Account a);
 
 	public int updateAccountBalance(Account a);
+	
+	public int getAccSeq();
 
 
 }

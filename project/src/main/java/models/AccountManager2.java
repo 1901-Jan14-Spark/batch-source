@@ -87,7 +87,7 @@ public boolean transfer(BigDecimal amount, Account b, Account c) {
 		return true;
 	}
 	public void printAccounts() {
-		System.out.println("Please select an account by id.");
+		System.out.println("Please select an account by id.\n");
 	for(Account a : accounts) {
 		System.out.println(a);
 	}
@@ -111,6 +111,7 @@ public boolean transfer(BigDecimal amount, Account b, Account c) {
 
 
 	public List<Account> getAccounts() {
+		this.accounts = amd.getAccountsAssociated(accountHolder);
 		return accounts;
 	}
 

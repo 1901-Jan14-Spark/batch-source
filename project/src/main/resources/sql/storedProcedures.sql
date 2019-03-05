@@ -54,3 +54,25 @@ Create or replace procedure createAccount(
     values(i_aid, i_hid);
     end;
     /
+    
+    Create or replace procedure AssignAccount(
+        i_aid in accountmanager.a_id%type,
+        i_hid in accountmanager.h_id%type
+    )
+    is
+    begin
+        insert into accountmanager (a_ID, h_ID) 
+    values(i_aid, i_hid);
+    end;
+    /
+    
+    Create or replace procedure getSeqCurr
+    is
+    temp number;
+    begin
+    SELECT SQ_ACCOUNT_PK.Last_Number into temp FROM DUAL;
+        return temp;
+    end;
+    /
+    
+    SELECT curr_value from user_sequences where sequence_name = 'SQ_ACCOUNT_PK';

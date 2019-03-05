@@ -25,6 +25,9 @@ public class Account implements Serializable {
 		this.balance = balance;
 	}
 
+	public Account(int type) {
+		this.type = type;
+	}
 	private int id;
 	private int type;
 	private BigDecimal balance;
