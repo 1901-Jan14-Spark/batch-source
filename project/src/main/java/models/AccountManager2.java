@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import dao.AccountDao;
 import dao.AccountDaoImpl;
 import dao.AccountHolderDao;
@@ -25,6 +27,7 @@ public class AccountManager2 implements Serializable{
 	private AccountHolderDao ahd = new AccountHolderDaoImpl();
 	private AccountDao ad = new AccountDaoImpl();
 	private TransactionDao td =new TransactionDaoImpl();
+	static Logger log = Logger.getRootLogger();
 
 	public AccountManager2() {
 		super();
@@ -87,9 +90,9 @@ public boolean transfer(BigDecimal amount, Account b, Account c) {
 		return true;
 	}
 	public void printAccounts() {
-		System.out.println("Please select an account by id.\n");
+		log.info("Please select an account by id.\n");
 	for(Account a : accounts) {
-		System.out.println(a);
+		log.info("\t- " + a);
 	}
 	}
 	
@@ -174,6 +177,7 @@ public boolean transfer(BigDecimal amount, Account b, Account c) {
 		if(tempAccount == null) {
 			return false;
 		}
+		
 		amd.assignAccount(tempAccount, accountHolder);
 		this.accounts = amd.getAccountsAssociated(accountHolder);
 		return true;

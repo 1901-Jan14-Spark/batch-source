@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
+import org.apache.log4j.Logger;
+
 import dao.AccountDao;
 import dao.AccountDaoImpl;
 import dao.AccountHolderDao;
@@ -27,12 +29,13 @@ public class Interface {
 	private static AccountDao ad = new AccountDaoImpl();
 	private static AccountManagerDao amd = new AccountManagerDaoImpl();
 	private static AccountHolderDao ahd = new AccountHolderDaoImpl();
+	static Logger log = Logger.getRootLogger();
 
 	public static void start() {
 		boolean go = true;
 		while (go) {
-			String welcomeMessage = "Welcome to the terminal banking application! \nTo login press: 1.     To create an account press: 2.     To exit press: 3.";
-			System.out.println(welcomeMessage);
+			String welcomeMessage = "Welcome to the terminal banking application!\n----------------------------------------------------------------- \n\t- To login press: 1.\n\t- To create an account press: 2.\n\t- To exit press: 3.";
+			log.info(welcomeMessage);
 			String input = sc.nextLine();
 			switch (input) {
 			case "1":
@@ -45,72 +48,120 @@ public class Interface {
 				go = false;
 				break;
 			default:
-				System.out.println("Operation not recognized.\n");
+				log.info("Operation not recognized.\n");
 				break;
 			}
 		}
-		System.out.println("\nThank you for using our services!");
+		log.info("\n-----------------------------------------------------------------\nThank you for using our services!");
 	}
 
 	public static void createAccount() {
-		System.out.println("\nPlease enter your first name.");
+		log.info("\n - Please enter your first name.");
 		String firstName = sc.nextLine();
-		System.out.println("Please enter your last name.");
+		log.info(" - Please enter your last name.");
 		String lastName = sc.nextLine();
-		System.out.println("Please enter your username.");
+		log.info(" - Please enter your username.");
 		String username = sc.nextLine();
-		System.out.println("Please enter your password.");
+		log.info(" - Please enter your password.(Must be longer than 8 characters.)");
 		String password = sc.nextLine();
-		System.out.println("Please re-enter your password.");
+		log.info(" - Please re-enter your password.");
 		String password2 = sc.nextLine();
-		System.out.println("Please press 1 to select a Checking account or press 2 for a Savings account.");
+		log.info(" - Please press 1 to create a Checking account or press 2 for a Savings account.");
 		String accountChoice = sc.nextLine();
 		if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0 && username != null
-				&& username.length() > 0 && password != null && password.length() > 0 && (accountChoice.equals("1") || accountChoice.equals("2"))) {
+				&& username.length() > 0 && password != null && password.length() > 8
+				&& (accountChoice.equals("1") || accountChoice.equals("2"))) {
 			if (password.equals(password2)) {
 				if (ah.createAccountHolder(username, password, firstName, lastName)) {
 					int tempId = ad.getAccSeq();
-					System.out.println("\nRetrieving account associated with user.");
+					log.info("\n... Retrieving account associated with user.");
 					if (Integer.parseInt(accountChoice) == 1) {
-					ad.createAccount(new Account(0));
+						ad.createAccount(new Account(0));
 					} else {
 						ad.createAccount(new Account(1));
 					}
-					System.out.println("\nAssociating account with user.");
+					log.info("... Associating account with user.");
 					amd.assignAccount(ad.getAccountByID(tempId), ahd.getAccountHolderByUsername(username));
-					System.out.println("Account set up.\n");
+					log.info("... Account set up.\n");
 				} else {
-					System.out.println("Username is already present, unable to create account.\n");
+					log.info("Username is already present, unable to create account.\n");
 				}
 			} else {
-				System.out.println("Passwords do not match.\n");
+				log.info("Passwords do not match.\n");
 			}
 		} else {
-			System.out.println("Invalid input.\n");
+			log.info("Invalid input.\n");
 		}
 	}
 
 	public static void login() {
-		System.out.println("\nPlease enter your username.");
+		log.info("\n - Please enter your username.");
 		String userName = sc.nextLine();
-		System.out.println("Please enter your password.");
+		log.info(" - Please enter your password.");
 		String password = sc.nextLine();
-		System.out.println("Retrieving account...");
+		log.info("Retrieving account...");
 		AccountManager2 am = ah.login(userName, password);
 		if (am != null) {
-			System.out.println("Successfully logged in.");
+			log.info("Successfully logged in.");
 			boolean loggedIn = true;
 			List<Account> list;
 			while (loggedIn == true) {
-				System.out.println("\nWelcome back " + am.getAccountHolder().getFirstname()
-						+ ".\nTo make a deposit press: 1.     To make a withdrawal press: 2.     To view your accounts press: 3.     To access an existing account press: 4.	To view previous transactions press: 5.	To logout press 6.	To make a transfer press: 7.");
+				log.info("\nWelcome back " + am.getAccountHolder().getFirstname()
+						+ ".\n-----------------------------------------------------------------\n\t- To make a transaction press: 1.\n\t- For account operations press: 2.\n\t- To view your accounts press: 3.\n\t- To log out press: 4.");
 				String input = sc.nextLine();
 				switch (input) {
 				case "1":
-					makeDeposit(am);
+					log.info(
+							"\n\t- To make a deposit press: 1.\n\t- To make a withdrawal press: 2.\n\t- To make a transfer press: 3.\n\t- To go back, press: 4.\n");
+					String input2 = sc.nextLine();
+					switch (input2) {
+					case "1":
+						makeDeposit(am);
+						break;
+					case "2":
+						makeWithdrawal(am);
+						break;
+					case "3":
+						makeTransfer(am);
+						break;
+					default:
+						break;
+					}
 					break;
 				case "2":
-					makeWithdrawal(am);
+					log.info(
+							"\n\t- To create a separate account press: 1.\n\t- To join an account press: 2.\n\t- To view your previews transactions press: 3.\n\t- To go back, press: 4.\n");
+					String input3 = sc.nextLine();
+					switch (input3) {
+					case "1":
+						log.info(" - Please press 1 to create a Checking account or press 2 for a Savings account.");
+						String accountChoice1 = sc.nextLine();
+						int tempId = ad.getAccSeq();
+						log.info("\n... Retrieving account associated with user.");
+						if (Integer.parseInt(accountChoice1) == 1) {
+							ad.createAccount(new Account(0));
+						} else {
+							ad.createAccount(new Account(1));
+						}
+						log.info("... Associating account with user.");
+						amd.assignAccount(ad.getAccountByID(tempId), ahd.getAccountHolderByUsername(am.getAccountHolder().getUsername()));
+						log.info("... Account set up.\n");
+						break;
+					case "2":
+						log.info("Please enter the account id of the account to be joined.");
+						String accId = sc.nextLine();
+						if (am.accessAccount(Integer.parseInt(accId))) {
+							log.info("Account Successfully added.");
+						} else {
+							log.warn("Unable to add account.");
+						}
+						break;
+					case "3":
+						getTransactions(am);
+						break;
+					default:
+						break;
+					}
 					break;
 				case "3":
 					list = am.getAccounts();
@@ -119,41 +170,26 @@ public class Interface {
 						if (a.getType() == 0) {
 
 						}
-						System.out.println(a);
+						log.info(a);
 					}
 					break;
 				case "4":
-					System.out.println("Please enter the account id you are trying to access.");
-					String accId = sc.nextLine();
-					if (am.accessAccount(Integer.parseInt(accId))) {
-						System.out.println("Account Successfully added.");
-					} else {
-						System.out.println("Unable to add account.");
-					}
-					break;
-				case "5":
-					getTransactions(am);
-					break;
-				case "6":
 					loggedIn = false;
 					am.logout();
-					System.out.println("Successfully logged out!\n\n");
-					break;
-				case "7":
-					makeTransfer(am);
+					log.info("Successfully logged out!\n\n");
 					break;
 				default:
-					System.out.println("Invalid Input.");
+					log.info("Invalid Input.\n");
 					break;
 
 				}
 			}
 		} else {
-			System.out.println("Unable to login.\n");
+			log.warn("Unable to login.\n");
 		}
 	}
 
-	public static void makeDeposit(AccountManager2 am) {
+	public static boolean makeDeposit(AccountManager2 am) {
 		am.printAccounts();
 		String accIds = sc.nextLine();
 		if (accIds.matches("[0-9]+")) {
@@ -163,29 +199,33 @@ public class Interface {
 					temp = a;
 				}
 			}
-
-			System.out.println("Please enter an amount. Press 'c' to cancel.");
+			if(temp == null) {
+				log.warn("Unable to retrieve account.");
+				return false;
+			}
+			log.info("Please enter an amount. Press 'c' to cancel.");
 			System.out.print("$");
 			String input = sc.nextLine();
 			if (Pattern.matches("\\d+(\\.\\d{1,2})?+", input)) {
 
 				if (am.deposit(new BigDecimal(Double.parseDouble(input)), temp)) {
-					System.out.println("Deposit completed, your new balance is: $"
+					log.info("Deposit completed, your new balance is: $"
 							+ temp.getBalance().setScale(2, RoundingMode.CEILING) + ".\n");
 				}
 			} else if (input.equals("c")) {
-				System.out.println("Transaction canceled.");
+				log.info("Transaction canceled.");
 			} else {
-				System.out.println("Invalid input.\n");
+				log.warn("Invalid input.\n");
 			}
 
 		} else {
-			System.out.println("Invalid input.\n");
+			log.warn("Invalid input.\n");
 		}
 
+		return true;
 	}
 
-	public static void makeWithdrawal(AccountManager2 am) {
+	public static boolean makeWithdrawal(AccountManager2 am) {
 		am.printAccounts();
 		String accIds = sc.nextLine();
 		if (Pattern.matches("[0-9]+", accIds)) {
@@ -195,27 +235,32 @@ public class Interface {
 					temp = a;
 				}
 			}
-			System.out.println("Please enter an amount. Press 'c' to cancel.");
+			if(temp == null) {
+				log.warn("Unable to retrieve account.");
+				return false;
+			}
+			log.info("Please enter an amount. Press 'c' to cancel.");
 			System.out.print("$");
 			String input = sc.nextLine();
 			if (Pattern.matches("\\d+(\\.\\d{1,2})?+", input)) {
 				if (am.withdraw(new BigDecimal(Double.parseDouble(input)), temp)) {
-					System.out.println("Withdrawal completed, your new balance is: $"
+					log.info("Withdrawal completed, your new balance is: $"
 							+ temp.getBalance().setScale(2, RoundingMode.CEILING) + ".\n");
 				} else {
-					System.out.println("Unable to complete transaction: insufficient funds.\n");
+					log.info("Unable to complete transaction: insufficient funds.\n");
 				}
 			} else if (input.equals("c")) {
-				System.out.println("Transaction canceled.");
+				log.info("Transaction canceled.");
 			} else {
-				System.out.println("Invalid input.\n");
+				log.warn("Invalid input.\n");
 			}
 		}
+		return true;
 	}
 
 	public static void getTransactions(AccountManager2 am) {
 		am.printAccounts();
-		System.out.println("Press c to cancel.");
+		log.info("Press c to cancel.");
 		String accIds = sc.nextLine();
 		if (Pattern.matches("[0-9]+", accIds)) {
 			Account temp = null;
@@ -226,12 +271,12 @@ public class Interface {
 			}
 			List<Transaction> list = td.getTransactionForAccount(temp);
 			for (Transaction t : list) {
-				System.out.println(t);
+				log.info(t);
 			}
 		} else if (accIds.equals("c")) {
-			System.out.println("Transaction canceled.");
+			log.info("Transaction canceled.");
 		} else {
-			System.out.println("Invalid input.\n");
+			log.warn("Invalid input.\n");
 		}
 	}
 
@@ -245,29 +290,33 @@ public class Interface {
 					temp = a;
 				}
 			}
-			System.out.println("Please enter the id of the account for the transfer:");
+			if(temp == null) {
+				log.info("Unable to retrieve account.");
+				return false;
+			}
+			log.info("Please enter the id of the account for the transfer:");
 			String accIds1 = sc.nextLine();
 			if (Pattern.matches("[0-9]+", accIds1)) {
 				Account temp1 = null;
 				temp1 = ad.getAccountByID(Integer.parseInt(accIds1));
 				if (temp1 == null) {
-					System.out.println("Account not found.");
+					log.warn("Account not found.");
 					return false;
 				}
-				System.out.println("Please enter an amount. Press 'c' to cancel.");
+				log.info("Please enter an amount. Press 'c' to cancel.");
 				System.out.print("$");
 				String input = sc.nextLine();
 				if (Pattern.matches("\\d+(\\.\\d{1,2})?+", input)) {
 					if (am.transfer(new BigDecimal(Double.parseDouble(input)), temp, temp1)) {
-						System.out.println("Transfer completed, your new balance is: $"
+						log.info("Transfer completed, your new balance is: $"
 								+ temp.getBalance().setScale(2, RoundingMode.CEILING) + ".\n");
 					} else {
-						System.out.println("Unable to complete transaction: insufficient funds.\n");
+						log.fatal("Unable to complete transaction: insufficient funds.\n");
 					}
 				} else if (input.equals("c")) {
-					System.out.println("Transaction canceled.");
+					log.info("Transaction canceled.");
 				} else {
-					System.out.println("Invalid input.\n");
+					log.warn("Invalid input.\n");
 				}
 			}
 		}
