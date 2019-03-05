@@ -1,2 +1,3 @@
 - Inputs can throw NoSuchElementExceptions, need to handle that
 - Password matcher is not matching properly
+- Username validation continues to password without retrying
