@@ -2,6 +2,7 @@ package models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Date;
 import java.sql.Timestamp;
 
@@ -109,8 +110,9 @@ public class Transaction implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Transaction [id=" + id + ", accid=" + accid + ", amount=" + amount + ", date=" + date + ", description="
-				+ description + "]";
+		return "Transaction Id= " + id + ", Account Id=" + accid + ", amount= $" + amount.setScale(2, RoundingMode.CEILING) + ", date= " + date + ", description= "
+				+ description + ".";
+
 	}
 	
 	

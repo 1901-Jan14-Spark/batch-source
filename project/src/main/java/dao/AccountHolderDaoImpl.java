@@ -71,9 +71,32 @@ public class AccountHolderDaoImpl implements AccountHolderDao{
 	}
 
 	@Override
-	public int updateAccountHolder(AccountHolder ah) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateAccountHolderLogin(AccountHolder ah) {
+		String sql = "Update accountholder set h_loggedin = ? where H_Id = ?";
+		int accUpdated = 0;
+		try (Connection con = ConnectionUtil.getConnectionFromFile();
+				PreparedStatement ps = con.prepareStatement(sql)) {
+			int tempLogged;
+			if(ah.isLoggedIn()) {
+				System.out.println(ah);
+				System.out.println("Setting to Logged Out");
+				tempLogged = 1;
+			}else {
+				System.out.println(ah);
+				System.out.println("Setting to Logged in");
+				tempLogged = 0;
+			}
+			ps.setInt(1, tempLogged);
+			ps.setInt(2, ah.getId());
+			accUpdated = ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return accUpdated;
 	}
 
 	@Override

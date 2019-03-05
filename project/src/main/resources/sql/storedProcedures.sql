@@ -17,7 +17,7 @@ Create or replace procedure createAccount(
     insert into Account (A_TYPE) values(i_type);
     end;
     /
-    
+
     Create or replace procedure createAccountHolder(
     i_username in accountholder.H_username%type,
     i_password in accountholder.h_password%type,
@@ -54,11 +54,3 @@ Create or replace procedure createAccount(
     values(i_aid, i_hid);
     end;
     /
-    
-    Create or replace procedure getAccountAssociated(
-        
-    )
-    Select A_ID, A_TYPE, A_Balance
-    from AccountManager
-    natural join Account
-    where H_ID = 1000000001;

@@ -28,7 +28,14 @@ public class AccountHolder implements Serializable{
 		this.isLoggedIn = isLoggedIn;
 	}
 
-
+	public AccountHolder(String username, String password, String firstname, String lastname) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.isLoggedIn = false;
+	}
 
 	public AccountHolder(int id, String username, String password, String firstname, String lastname,
 			boolean isLoggedIn) {

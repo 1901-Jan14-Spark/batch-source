@@ -2,6 +2,7 @@ package models;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Account implements Serializable {
 
@@ -47,7 +48,13 @@ public class Account implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Account [id=" + id + ", type=" + type + ", balance=" + balance + "]";
+		String t;
+		if(type == 0) {
+			t = "Checking";
+		} else {
+			t = "Savings";
+		}
+		return t + " Account: id= " + id + ", balance= $" + balance.setScale(2, RoundingMode.CEILING) + ".";
 	}
 	@Override
 	public int hashCode() {

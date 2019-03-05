@@ -43,6 +43,9 @@ CREATE TABLE Account(
     Constraint A_VALIDINPUT check (A_BALANCE >= 0 AND (A_TYPE = 0 OR A_TYPE = 1))
 );
 
+Alter Table AccountHolder
+drop constraint SYS_C005341;
+
 CREATE TABLE AccountHolder
 (
     H_ID NUMBER(10) NOT NULL,
