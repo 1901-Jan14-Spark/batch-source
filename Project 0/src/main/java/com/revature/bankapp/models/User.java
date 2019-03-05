@@ -21,6 +21,10 @@ public class User implements ReadWriteManager {
 //		this.accountId = accountNumber++;
 	}
 	
+	public User(Account account) {
+		this.account = account;
+	}
+	
 	public User (int userId, String name, String username, String password) {
 		this.userId = userId;
 		this.name = name;

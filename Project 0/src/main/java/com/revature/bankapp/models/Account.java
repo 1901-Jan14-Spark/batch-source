@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Account{
 
 	private int accountId;
-	static private int accountNumber = 1;
+//	static private int accountNumber = 1;
 	private BigDecimal balance;
 	
 	public Account() {
@@ -14,7 +14,6 @@ public class Account{
 	
 	public Account(BigDecimal balance) {
 		super();
-		this.accountId = accountNumber++;
 		this.balance = balance;
 	}
 

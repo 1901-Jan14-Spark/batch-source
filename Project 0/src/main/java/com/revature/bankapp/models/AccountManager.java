@@ -35,4 +35,10 @@ public class AccountManager {
 				} 
 		return newBalance;
 	}
+	
+	//J-Unit test methods using the same logic as logic above
+//	public static BigDecimal addDepositJUnit(BigDecimal currentBal, BigDecimal entry) {
+//		BigDecimal newBalance = currentBal.add(entry);
+//		return newBalance;
+//	}
 }

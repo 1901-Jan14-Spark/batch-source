@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -159,7 +160,7 @@ public class BankImpl implements ReadWriteManager{
 	public static void bankRun(int accountId) {
 		User temp = userDao.getUserById(accountId);
 		
-		log.info("Welcome back "+temp.getUsername()+"! Your current balance is: $"+temp.getAccount().getBalance().setScale(2,BigDecimal.ROUND_UNNECESSARY)+". How can revBanking serve you today?");
+		log.info("Welcome back "+temp.getUsername()+"! Your current balance is: $"+temp.getAccount().getBalance().setScale(2, RoundingMode.CEILING)+". How can revBanking serve you today?");
 		log.info("[1] -- View account balance.");
 		log.info("[2] -- Make a deposit.");
 		log.info("[3] -- Make a withdrawal.");
@@ -229,10 +230,14 @@ public class BankImpl implements ReadWriteManager{
 			try 
 			{ 
 				BigDecimal depositBD = new BigDecimal(entry);
+				if(depositBD.compareTo(BigDecimal.ZERO) < 0) {
+					System.out.println("You cannot enter a negative value for your deposit.");
+					depositUI(temp.getAccount().getAccountId());
+				}
 				BigDecimal newBalance = AccountManager.addDeposit(temp.getAccount().getAccountId(), depositBD);
 				int updateCount = accDao.updateAccount(newBalance, temp.getAccount().getAccountId());
 				log.info(updateCount);
-				log.info("Your deposit of $"+depositBD+" has been added. Your updated bank balance is: $"+newBalance);
+				log.info("Your deposit of $"+depositBD+" has been added. Your updated bank balance is: $"+newBalance.setScale(2, RoundingMode.CEILING));
 				if (entry.matches("A-Za-z") && !entry.toLowerCase().equals("menu")){
 					throw new NumberFormatException();
 				}
@@ -261,6 +266,10 @@ public class BankImpl implements ReadWriteManager{
 			try 
 			{ 
 				BigDecimal withdrawalAmount = new BigDecimal(entry);
+				if(withdrawalAmount.compareTo(BigDecimal.ZERO) < 0) {
+					System.out.println("You cannot enter a negative value for your withdrawal.");
+					withdrawUI(temp.getAccount().getAccountId());
+				}
 				if (entry.matches("A-Za-z") && !entry.toLowerCase().equals("menu")) {
 					throw new NumberFormatException();
 				}
@@ -270,7 +279,7 @@ public class BankImpl implements ReadWriteManager{
 				}
 				int updateCount = accDao.updateAccount(newBalance, temp.getAccount().getAccountId());
 				log.info(updateCount);
-				log.info("Your withdrawal of $"+withdrawalAmount+" has been processed. Your updated bank balance is: $"+newBalance);
+				log.info("Your withdrawal of $"+withdrawalAmount+" has been processed. Your updated bank balance is: $"+newBalance.setScale(2, RoundingMode.CEILING));
 			} catch (NumberFormatException e) 
 				{
 					log.info("Did you input the correct command? We can't process that request.");
