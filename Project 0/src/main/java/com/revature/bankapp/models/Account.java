@@ -18,6 +18,11 @@ public class Account{
 		this.balance = balance;
 	}
 
+	public Account(int accId, BigDecimal balance2) {
+		this.accountId = accId;
+		this.balance = balance2;
+	}
+
 	public int getAccountId() {
 		return accountId;
 	}

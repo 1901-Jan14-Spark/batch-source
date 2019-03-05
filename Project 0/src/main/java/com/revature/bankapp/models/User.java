@@ -6,8 +6,9 @@ import com.revature.bankapp.ReadWriteManager;
 
 public class User implements ReadWriteManager {
 
-	private int accountId;
-	static private int accountNumber = 1;
+//	private int accountId;
+////	static private int accountNumber = 1;
+	private int userId;
 	private String name;
 	private String username;
 	private String email;
@@ -17,14 +18,20 @@ public class User implements ReadWriteManager {
 	
 	public User() {
 		super();
-		this.accountId = accountNumber++;
+//		this.accountId = accountNumber++;
 	}
 	
-	public User (int accountId, String name, String username, String password) {
-		this.accountId = accountId;
+	public User (int userId, String name, String username, String password) {
+		this.userId = userId;
 		this.name = name;
 		this.username = username;
 		this.password = password;
+	}
+	
+	public User (String name, String username, Account account) {
+		this.name = name;
+		this.username = username;
+		this.account = account;
 	}
 	
 	public User(String name, String username, String email, String password, BigDecimal balance) {
@@ -36,6 +43,18 @@ public class User implements ReadWriteManager {
 		this.balance = balance;
 	}
 	
+	public User(String username2, Account tempAcc) {
+		this.username = username2;
+		this.account = tempAcc;
+	}
+
+	public User(int accId, String name2, String username2, BigDecimal balance2) {
+		this.userId = accId;
+		this.name = name2;
+		this.username = username2;
+		this.balance = balance;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -45,15 +64,6 @@ public class User implements ReadWriteManager {
 		} else {
 			this.name = name;
 		}
-	}
-	
-	
-	public int getAccountId() {
-		return accountId;
-	}
-
-	public void setAccountId(int accountId) {
-		this.accountId = accountId;
 	}
 
 	public BigDecimal getBalance() {
@@ -96,9 +106,26 @@ public class User implements ReadWriteManager {
 		}
 	}
 
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
 	@Override
 	public String toString() {
-		return "User [accountId=" + accountId + ", name=" + name + ", username=" + username + ", email=" + email
+		return "User [userId=" + userId + ", name=" + name + ", username=" + username + ", email=" + email
 				+ ", password=" + password + ", account=" + account + ", balance=" + balance + "]";
 	}	
 	

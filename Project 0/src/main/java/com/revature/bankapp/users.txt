@@ -1,4 +1,0 @@
-Vijay,vijay1,vijay@gmail.com,123123,Account [accountId=1, balance=105]
-Vijay,vijay1,vijay@gmail.com,123123,Account [accountId=1, balance=1005]
-Vijay,vijay1,vijay@gmail.com,123123,Account [accountId=1, balance=2000]
-Shirley,Shirley1,shirley@gmail.com,sh1rley,Account [accountId=2, balance=5000]
