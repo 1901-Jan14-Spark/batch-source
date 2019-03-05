@@ -7,21 +7,21 @@
 -- SECTION 2 QUERIES AND DML --
 
 -- 2.1 SELECT --
--- a
+-- a Select all records from the Employee table
 SELECT * 
 FROM EMPLOYEE;
 
--- b 
+-- b Select all records from the Employee table where last name is King
 SELECT *
 FROM EMPLOYEE
 WHERE EMPLOYEE.LASTNAME = 'King';
 
--- c
+-- c Select all records from the Employee table where first name is Andrew and REPORTSTO is NULL
 SELECT * 
 FROM EMPLOYEE
 WHERE EMPLOYER.FIRSTNAME = 'Andrew' AND EMPLOYEE.REPORTSTO IS NULL;
 
--- d
+-- d Select all 
 SELECT *
 FROM ALBUM
 ORDER BY ALBUM.TITLE DESC;

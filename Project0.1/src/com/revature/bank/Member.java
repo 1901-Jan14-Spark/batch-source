@@ -55,6 +55,7 @@ public class Member {
 		}
 		return randomNum;
 	}
+	
 	public String getPassword() {
 		return password;
 	}

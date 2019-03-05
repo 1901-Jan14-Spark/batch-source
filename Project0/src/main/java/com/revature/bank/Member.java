@@ -16,28 +16,28 @@ public class Member {
 			super();
 		}
 
-		public Member(String userName, String firstName, String lastName, String email, String password,
-				String accountNumber, Account accountBalance) {
+		public Member(String accountNumber, String firstName, String lastName, String userName, String password, String email, Account accountBalance) {
 			super();
-			this.userName = userName;
+			this.accountNumber = accountNumber;
+//			this.accountNumber = setAccountNumber();
 			this.firstName = firstName;
 			this.lastName = lastName;
-			this.email = email;
+			this.userName = userName;
 			this.password = password;
-			this.accountNumber = accountNumber;
+			this.email = email;
 			this.accountBalance = accountBalance;
 		}
 
-		public Member(String userName, String firstName, String lastName, String email, String password,
-				String accountNumber) {
+		public Member(String accountNumber, String firstName, String lastName, String userName, String password, String email) {
 			super();
-			this.userName = userName;
+//			this.accountNumber = setAccountNumber();
+			this.accountNumber = accountNumber;
 			this.firstName = firstName;
 			this.lastName = lastName;
-			this.email = email;
+			this.userName = userName;
 			this.password = password;
-			this.accountNumber = accountNumber;
-			this.accountBalance = accountBalance;
+			this.email = email;
+			
 		}
 
 		public String getUserName() {
@@ -84,10 +84,21 @@ public class Member {
 			return accountNumber;
 		}
 
+//		public String setAccountNumber() {
+//			//randomly generate a unique account number for each new user
+//			String randomNum = "";
+//			for(int i = 0; i < 8; i++) {
+//				// randomly generate 8 digits and append them together to create the account number String
+//				randomNum = randomNum + ((int)(Math.random()*10));
+//			}
+//			return randomNum;
+//		}
+
 		public void setAccountNumber(String accountNumber) {
 			this.accountNumber = accountNumber;
+			
 		}
-
+			
 		public Account getAccountBalance() {
 			return accountBalance;
 		}
@@ -159,7 +170,7 @@ public class Member {
 
 		@Override
 		public String toString() {
-			return "Hello " + firstName + " " + lastName + "!\n\n" + " Account Number: " + accountNumber + "\n Balance: "
+			return "Hello " + firstName + " " + lastName + "!\n\n" + "Account Number: " + accountNumber + "\nBalance: "
 					+ accountBalance;
 		}
 

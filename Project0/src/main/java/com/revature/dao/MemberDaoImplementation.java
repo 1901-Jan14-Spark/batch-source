@@ -30,7 +30,7 @@ public class MemberDaoImplementation implements MemberDao {
 				String memberAccountNumber = rs.getString("ACCOUNT_NUMBER");
 				String firstName = rs.getString("USER_FIRSTNAME");
 				String lastName = rs.getString("USER_LASTNAME");
-				String username = rs.getString("USERNAME");
+				String username = rs.getString("USER_USERNAME");
 				String email = rs.getString("USER_EMAIL");
 				String password = rs.getString("USER_PASSWORD");
 				m = new Member(memberAccountNumber, firstName, lastName, username, email, password, new Account(memberAccountNumber));
@@ -73,7 +73,7 @@ public class MemberDaoImplementation implements MemberDao {
 	@Override
 	public int updateMemberInfo(Member m) {
 		int membersUpdated = 0;
-		String sql = "UPDATE MEMBER "
+		String sql = "UPDATE MEMBER_ACCOUNT "
 				+ "SET USER_FIRSTNAME = ?, USER_LASTNAME = ?, USER_USERNAME = ?, USER_PASSWORD = ?, USER_EMAIL = ? "
 				+ "WHERE ACCOUNT_NUMBER = ?";
 		
@@ -85,6 +85,7 @@ public class MemberDaoImplementation implements MemberDao {
 			ps.setString(3,  m.getUserName());
 			ps.setString(4, m.getPassword());
 			ps.setString(5,  m.getEmail());
+			ps.setString(6, m.getAccountNumber());
 			membersUpdated = ps.executeUpdate();
 			
 		} catch (SQLException e) {

@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,24 +43,23 @@ public class AccountDaoImplementation implements AccountDao {
 
 	
 	@Override
-	public Account getAccountByType(String accountNumber, String accountType) {
+	public Account getAccount(String accountNumber) {
 	
-		String sql = "SELECT * FROM ACCOUNTS"
-				+ "WHERE USER_ACCOUNT = ?, ACCOUNT_TYPE = ?";
+		String sql = "SELECT * FROM ACCOUNT_TABLE"
+				+ "WHERE ACCOUNT_NUMBER = ?";
 		Account a = null;
 		
 		try(Connection c = ConnectionUtil.getConnection();
 				PreparedStatement ps = c.prepareStatement(sql)){
 			
 			ps.setString(1, accountNumber);
-			ps.setString(2,  accountType);
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				
-				String memAccountNumber = rs.getString("USER_ACCOUNT");
-				double memAccountBalance = rs.getDouble("ACCOUNT_BALANCE");
+				String memAccountNumber = rs.getString("ACCOUNT_NUMBER");
 				String memAccountType = rs.getString("ACCOUNT_TYPE");
+				double memAccountBalance = rs.getDouble("ACCOUNT_BALANCE");
 				a =new Account(memAccountNumber, memAccountType, memAccountBalance);
 			}	
 		} catch (SQLException e) {
@@ -69,34 +69,61 @@ public class AccountDaoImplementation implements AccountDao {
 	}
 
 	@Override
-	public void makeDeposit(String accountNumber, String accountType, double depositAmount) {
+	public void makeDeposit(Account a, double depositAmount) {
+		String sql = "{CALL MAKE_DEPOSIT(?,?)}";
+		
+		try(Connection c = ConnectionUtil.getConnection();
+				CallableStatement cs = c.prepareCall(sql)){
+			
+			cs.setString(1, a.getAccountNumber());
+			cs.setDouble(2, depositAmount);
+			cs.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+
+	@Override
+	public void makeWithdrawal(Account a, double withdrawalAmount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void makeWithdrawal(String accountNumber, String accountType, double withdrawalAmount) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void viewBalance(String accountNumber, String accountType) {
+	public void viewBalance(String accountNumber) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 	@Override
-	public void addNewAccount(Member m, String accountType, double newBalance) {
-		// TODO Auto-generated method stub
+	public int addNewAccount(Account a) {
+		int accountsCreated = 0;
+		String sql = "INSERT INTO ACCOUNT_TABLE ("
+				+ "ACCOUNT_NUMBER, "
+				+ "ACCOUNT_TYPE, ACCOUNT_BALANCE) VALUES (?, ?, ?)";
 		
+		try(Connection c = ConnectionUtil.getConnection();
+				PreparedStatement ps = c.prepareStatement(sql)){
+			
+			ps.setString(1, a.getAccountNumber());
+			ps.setString(2, a.getAccountType());
+			ps.setDouble(3, a.getAccountBalance());
+			accountsCreated = ps.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return accountsCreated;
 	}
 
 	@Override
-	public void deleteAccount(Member m, String AccountType) {
-		// TODO Auto-generated method stub
+	public int deleteAccount(String accountNumber, String accountType) {
+		int accountsDeleted = 0;
 		
+		
+		return accountsDeleted;	
 	}
 
 
