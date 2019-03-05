@@ -126,12 +126,21 @@ public class Driver {
 		if(op.equals("d")||op.equals("D")||op.equals("deposit")||op.equals("Deposit")){
 			log.info("How much would you like to deposit?");
 			String dep = scan1.nextLine();
-			double deposit = Integer.parseInt(dep);
+			if(dep.matches(".*[a-z].*")) {
+				log.info("The depoite cannot contain letters");
+				operations(id);
+			}
+			double deposit = Double.parseDouble(dep);
+			if(deposit>0) {
 			double balance = deposit + cus1.getBalance(id);
 			cus1.changeCustomerBalance(id,deposit);
 			
 			log.info("You've Deposited "+dep+". Your Balance is "+balance+".");
 			operations(id);
+			}else {
+				log.info("Deposite must be a number greater than 0. Duh.");
+				operations(id);
+			}
 		}
 		if(op.equals("bal")||op.equals("balance")||op.equals("Bal")||op.equals("Balance")||op.equals("B")||op.equals("b")||op.equals("v")||op.equals("V")||op.equals("view")||op.equals("View")) {
 			//viewBalance();

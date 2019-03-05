@@ -164,11 +164,14 @@ public class CustomerDaoImpl implements CustomerDao {
 
 	@Override
 	public void changeCustomerBalance(int id, double changeAmount) {
-		
+		CustomerDao cus2 = new CustomerDaoImpl();
+		double plus=cus2.getBalance(id);
+		CustomerDao cus1 = new CustomerDaoImpl();
 		String sql= "UPDATE C_USERS SET BALANCE = ? WHERE CUSTOMER_ID = ?";
 		try(Connection con = ConnectionSrc.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql)){
-				ps.setDouble(1, changeAmount);
+				
+				ps.setDouble(1, changeAmount+plus);
 				ps.setInt(2, id);
 				ps.executeUpdate();
 				
