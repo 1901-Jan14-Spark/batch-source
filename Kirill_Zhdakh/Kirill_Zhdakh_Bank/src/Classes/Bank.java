@@ -4,18 +4,21 @@ import java.io.File;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 public class Bank{
 	final private static Scanner scan = new Scanner(System.in);
 	private static User currentUser;
+	private static Logger log = Logger.getRootLogger();
 	
 	public static void mainPage()
 	{
 		int option;
-		System.out.println("Welcome to my console bank!\n");
-		System.out.println("1) Login");
-		System.out.println("2) Register");
-		System.out.println("3) Clear user");
-		System.out.println("4) Exit");
+		log.info("Welcome to my console bank!\n");
+		log.info("1) Login");
+		log.info("2) Register");
+		log.info("3) Clear user");
+		log.info("4) Exit");
 		try
 		{
 			option = scan.nextInt();
@@ -39,13 +42,13 @@ public class Bank{
 					if (f.delete())
 					{
 						clearConsole();
-						System.out.println("User removed successfully\n");
+						log.info("User removed successfully\n");
 						mainPage();
 					}
 					else
 					{
 						clearConsole();
-						System.out.println("No user to remove\n");
+						log.info("No user to remove\n");
 						mainPage();
 					}
 				}
@@ -58,7 +61,7 @@ public class Bank{
 				default:
 				{
 					clearConsole();
-					System.out.println("Invalid input. Please try again.\n");
+					log.info("Please chose options 1-4. Please try again.\n");
 					mainPage();
 				}
 				break;
@@ -68,7 +71,7 @@ public class Bank{
 		{
 			scan.nextLine();
 			clearConsole();
-			System.out.println("Invalid input. Please try again.\n");
+			log.info("Input was not an integer value. Please try again.\n");
 			mainPage();
 		}
 	}
@@ -76,7 +79,7 @@ public class Bank{
 	private static void registerPage()
 	{
 		String username, password, password2, firstname, lastname;
-		System.out.println("Thank you for choosing our bank! Please fill out the form below to register.");
+		log.info("Thank you for choosing our bank! Please fill out the form below to register.");
 		System.out.print("First Name: ");
 		firstname = scan.next();
 		System.out.print("Last Name: ");
@@ -89,7 +92,7 @@ public class Bank{
 		password2 = scan.next();
 		while(!password2.equals(password))
 		{
-			System.out.println("Password does not match. Try again.\n");
+			log.info("Password does not match. Try again.\n");
 			System.out.print("Password: ");
 			password = scan.next();
 			System.out.print("Confirm Password: ");
@@ -99,12 +102,12 @@ public class Bank{
 		if (FileIO.writeUserData(currentUser))
 		{
 			clearConsole();
-			System.out.println("User added successfully!\n");
+			log.info("User added successfully!\n");
 			mainPage();
 		}
 		else
 		{
-			System.out.println("User add failed! Try again.\n");
+			log.info("User add failed! Try again.\n");
 			registerPage();
 		}
 	}
@@ -120,7 +123,7 @@ public class Bank{
 		if (currentUser == null)
 		{
 			clearConsole();
-			System.out.println("There are no users registered. Please register a user.\n");
+			log.info("There are no users registered. Please register a user.\n");
 			registerPage();
 		}
 		else
@@ -133,7 +136,7 @@ public class Bank{
 			else
 			{
 				clearConsole();
-				System.out.println("Username or password is invalid. Please try again.\n");
+				log.info("Username or password is invalid. Please try again.\n");
 				mainPage();
 			}
 		}
@@ -143,14 +146,14 @@ public class Bank{
 	{
 		int option;
 		float amount;
-		System.out.println("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!\n");
+		log.info("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!\n");
 		System.out.print("Checking: $");
 		System.out.printf("%.2f", currentUser.getCheckingBalance());
 		System.out.print("\nSaving: $");
 		System.out.printf("%.2f", currentUser.getSavingBalance());
-		System.out.println("\n\n1) Deposit");
-		System.out.println("2) Withdraw");
-		System.out.println("3) Exit");
+		log.info("\n\n1) Deposit");
+		log.info("2) Withdraw");
+		log.info("3) Exit");
 		try
 		{
 			option = scan.nextInt();
@@ -159,22 +162,22 @@ public class Bank{
 				case 1:
 				{
 					clearConsole();
-					System.out.println("Choose account type\n");
-					System.out.println("1) Checking");
-					System.out.println("2) Saving");
-					System.out.println("3) Exit");
+					log.info("Choose account type\n");
+					log.info("1) Checking");
+					log.info("2) Saving");
+					log.info("3) Exit");
 					option = scan.nextInt();
 					switch(option)
 					{
 						case 1:
 						{
 							clearConsole();
-							System.out.println("Enter deposit amount: ");
+							log.info("Enter deposit amount: ");
 							amount = scan.nextFloat();
 							if (amount < 0)
 							{
 								clearConsole();
-								System.out.println("Invalid input. Try again.\n");
+								log.info("Negative values not allowed. Try again.\n");
 								userPage();
 							}
 							currentUser.setCheckingBalance(currentUser.getCheckingBalance() + amount);
@@ -186,12 +189,12 @@ public class Bank{
 						case 2:
 						{
 							clearConsole();
-							System.out.println("Enter deposit amount: ");
+							log.info("Enter deposit amount: ");
 							amount = scan.nextFloat();
 							if (amount < 0)
 							{
 								clearConsole();
-								System.out.println("Invalid input. Try again.\n");
+								log.info("Negative values not allowed. Try again.\n");
 								userPage();
 							}
 							currentUser.setSavingBalance(currentUser.getSavingBalance() + amount);
@@ -209,7 +212,7 @@ public class Bank{
 						default:
 						{
 							clearConsole();
-							System.out.println("Invalid input. Try again.\n");
+							log.info("Please chose option 1-3. Try again.\n");
 							userPage();
 						}
 					}
@@ -218,28 +221,28 @@ public class Bank{
 				case 2:
 				{
 					clearConsole();
-					System.out.println("Choose account type\n");
-					System.out.println("1) Checking");
-					System.out.println("2) Saving");
-					System.out.println("3) Exit");
+					log.info("Choose account type\n");
+					log.info("1) Checking");
+					log.info("2) Saving");
+					log.info("3) Exit");
 					option = scan.nextInt();
 					switch(option)
 					{
 						case 1:
 						{
 							clearConsole();
-							System.out.println("Enter withdraw amount: ");
+							log.info("Enter withdraw amount: ");
 							amount = scan.nextFloat();
 							if (amount < 0)
 							{
 								clearConsole();
-								System.out.println("Invalid input. Try again.\n");
+								log.info("Negative values not allowed. Try again.\n");
 								userPage();
 							}
 							if (currentUser.getCheckingBalance() < amount)
 							{
 								clearConsole();
-								System.out.println("\nInvalid amount. Try again.");
+								log.info("Insufficient funds. Try again.\n");
 								userPage();
 							}
 							currentUser.setCheckingBalance(currentUser.getCheckingBalance() - amount);
@@ -251,18 +254,24 @@ public class Bank{
 						case 2:
 						{
 							clearConsole();
-							System.out.println("Enter withdraw amount: ");
+							log.info("Enter withdraw amount: ");
 							amount = scan.nextFloat();
 							if (amount < 0)
 							{
 								clearConsole();
-								System.out.println("Invalid input. Try again.\n");
+								log.info("Negative values not allowed. Try again.\n");
 								userPage();
 							}
 							if (currentUser.getSavingBalance() < amount)
 							{
 								clearConsole();
-								System.out.println("\nInvalid amount. Try again.");
+								log.info("Insufficient funds. Try again.\n");
+								userPage();
+							}
+							if (currentUser.getSavingBalance() - amount < 5)
+							{
+								clearConsole();
+								log.info("Cannot withdraw below initial saving balance. Try again.\n");
 								userPage();
 							}
 							currentUser.setSavingBalance(currentUser.getSavingBalance() - amount);
@@ -280,7 +289,7 @@ public class Bank{
 						default:
 						{
 							clearConsole();
-							System.out.println("Invalid input. Try again.\n");
+							log.info("Please chose option 1-3. Try again.\n");
 							userPage();
 						}
 						break;
@@ -297,7 +306,7 @@ public class Bank{
 				default:
 				{
 					clearConsole();
-					System.out.println("Invalid input. Try Again\n");
+					log.info("Please chose option 1-3. Try Again\n");
 					userPage();
 				}
 				break;
@@ -307,7 +316,7 @@ public class Bank{
 		{
 			scan.nextLine();
 			clearConsole();
-			System.out.println("Invalid input. Try Again\n");
+			log.info("Input was not an integer value. Try Again\n");
 			userPage();
 		}
 	}
@@ -315,7 +324,7 @@ public class Bank{
 	private static void clearConsole()
 	{
 		for (int i = 0; i < 50; ++i) {
-			System.out.println();
+			log.info("");
 		}
 	}
 }
