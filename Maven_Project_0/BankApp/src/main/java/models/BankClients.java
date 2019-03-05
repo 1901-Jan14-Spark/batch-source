@@ -101,9 +101,8 @@ public String toString() {
 	return "BankClients [accID=" + accID + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 			+ ", username=" + username + ", password=" + password + "]";
 }
-public BankClients(int accID, String firstName, String lastName, String email, String username, String password) {
+public BankClients(String firstName, String lastName, String email, String username, String password) {
 	super();
-	this.accID = accID;
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.email = email;
@@ -112,6 +111,7 @@ public BankClients(int accID, String firstName, String lastName, String email, S
 }
 public BankClients() {
 	super();
+	// TODO Auto-generated constructor stub
 }
 public BankClients(int accID, String firstName, String lastName, String email) {
 	this.accID = accID;

@@ -59,16 +59,15 @@ public class BankClientsDaoImpl implements BankClientsDao {
 
 	@Override
 	public int createClient(BankClients bc) {
-		String sql = "INSERT INTO BANK_CLIENTS VALUES(?,?,?,?,?,?)";
+		String sql = "INSERT INTO BANK_CLIENTS VALUES(null,?,?,?,?,?)";
 		int clientsCreated = 0;
 		try(Connection con = ConnectionUtil.sysVar();
 				PreparedStatement ps = con.prepareStatement(sql)){
-			ps.setInt(1, bc.getAccID());
-			ps.setString(2, bc.getFirstName());
-			ps.setString(3, bc.getLastName());
-			ps.setString(4, bc.getEmail());
-			ps.setString(5, bc.getUsername());
-			ps.setString(6, bc.getPassword());
+			ps.setString(1, bc.getFirstName());
+			ps.setString(2, bc.getLastName());
+			ps.setString(3, bc.getEmail());
+			ps.setString(4, bc.getUsername());
+			ps.setString(5, bc.getPassword());
 			clientsCreated = ps.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -110,7 +109,7 @@ public class BankClientsDaoImpl implements BankClientsDao {
 
 	@Override
 	public boolean validation(String userName, String passWord) {
-		boolean match = false;
+        boolean match = false;
 		String sql = "SELECT USERNAME, PASSWORD FROM BANK_CLIENTS";
 		try(Connection con = ConnectionUtil.sysVar(); 
 				PreparedStatement ps = con.prepareStatement(sql);){
@@ -121,7 +120,8 @@ public class BankClientsDaoImpl implements BankClientsDao {
 				String username = rs.getString("USERNAME");
 				String password = rs.getString("PASSWORD");
 				if(username.equals(userName) && password.equals(passWord)) {
-						match = true;
+						match= true;
+						return match;
 }
 				}
 		} catch (SQLException e) {
