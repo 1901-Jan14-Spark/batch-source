@@ -89,14 +89,14 @@ public class Driver {
 		if(ans.equals("yes")||ans.equals("Yes")||ans.equals("y")||ans.equals("Y")||ans.equals("yea")||ans.equals("yep")) {
 			log.info("Alright "+username+". Your username is set. Please Enter your password.");
 			cId=cus1.getIdByname(username);
-			System.out.println(cId);
+			//System.out.println(cId);
 			
 		}else{log.info("Well, what would you like your username to be?");
 				username = scan1.nextLine();
 				log.info("You're right. That is better");
 				log.info("Alright "+username+". Your username is set. Please Enter your password.");
 				cId = cus1.getIdByname(username);
-				System.out.println(cId);
+				
 		}
 		String password = scan1.nextLine();
 		
@@ -109,16 +109,21 @@ public class Driver {
 		log.info("");
 		log.info("");
 		log.info("");
-		System.out.print("Ok "+username+" your password: ");
+		log.info("Great. Lastly, what's your first name?");
+		log.info("First name: " );
+		String name1 = scan1.nextLine();
+		System.out.print("Ok "+name1+" your password: ");
 		for(int i = 0; i<password.length(); i++) {
 			System.out.print("x");
 		}
-		log.info(" and username are both set and will be saved.");
-		int creat = cus1.addCustomer(new Customer("George",0,username,password));
+		System.out.print(" and usernmae are both set and will be saved.");
+		
+		
+		int creat = cus1.addCustomer(new Customer(name1,0,username,password));
 		//log.info();log.info();log.info();log.info();log.info();log.info();log.info();log.info();log.info();log.info();
 		cId =cus1.getIdByUser(username);
 		operations(cId);
-		//return userId;
+		
 	}
 	public static void operations(int id) {
 		CustomerDao cus1 = new CustomerDaoImpl();
@@ -129,7 +134,7 @@ public class Driver {
 			log.info("How much would you like to deposit?");
 			String dep = scan1.nextLine();
 			if(dep.matches(".*[a-z].*")) {
-				log.info("The depoite cannot contain letters");
+				log.info("The deposite cannot contain letters");
 				operations(id);
 			}
 			double deposit = Double.parseDouble(dep);
@@ -145,7 +150,7 @@ public class Driver {
 			}
 		}
 		if(op.equals("bal")||op.equals("balance")||op.equals("Bal")||op.equals("Balance")||op.equals("B")||op.equals("b")||op.equals("v")||op.equals("V")||op.equals("view")||op.equals("View")) {
-			//viewBalance();
+			log.info("Current balance is "+cus1.getBalance(id));
 			operations(id);
 		}
 		if(op.equals("w")||op.equals("W")||op.equals("Withdrawl")||op.equals("withdraw")) {

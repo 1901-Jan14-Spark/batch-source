@@ -16,6 +16,7 @@ public interface CustomerDao {
 	public int getIdByname(String name);
 	public int getIdByUser(String username);
 	public void withdraw(int id, double bal);
+	public Double view(int id);
 	
 	
 }

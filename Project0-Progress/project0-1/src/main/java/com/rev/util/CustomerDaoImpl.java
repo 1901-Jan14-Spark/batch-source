@@ -213,10 +213,13 @@ public class CustomerDaoImpl implements CustomerDao {
 		return cId;
 		
 	}
+	
 
 	@Override
 	public void withdraw(int id, double bal) {
+		log.info("Current Balance is: "+bal);
 		log.info("How much would you like to withdraw?");
+		
 		String subtract = scan2.nextLine();
 		if(subtract.matches(".*[a-z].*")) {
 			log.info("Numbers Only please");
@@ -225,6 +228,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			double minus= Double.parseDouble(subtract);
 			if(minus>bal) {
 				log.info("Insuffiecent Funds");
+				withdraw(id,bal);
 			}else {
 		CustomerDao cus2 = new CustomerDaoImpl();
 		double plus=cus2.getBalance(id);
@@ -233,7 +237,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		try(Connection con = ConnectionSrc.getConnection();
 			PreparedStatement ps = con.prepareStatement(sql)){
 				
-				ps.setDouble(1, bal-plus);
+				ps.setDouble(1, bal-minus);
 				ps.setInt(2, id);
 				ps.executeUpdate();
 				
@@ -245,6 +249,12 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 	}
 		}
+	}
+
+	@Override
+	public Double view(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}	
 	}
 
