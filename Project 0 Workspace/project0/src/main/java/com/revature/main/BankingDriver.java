@@ -70,10 +70,9 @@ public class BankingDriver {
 			Logout();
 		}
 		else if(password.length()< 8 || password.length() > 16) {
-			
+			log.error("Password Length Not Within Constraints");
+			log.info("----------------------------------------------------");
 		};
-		
-		
 		
 		//Will Validate that a account with the name does not exist
 		UserDaoImpl userDao = new UserDaoImpl();
@@ -87,6 +86,7 @@ public class BankingDriver {
 			}
 		}
 		if(matches == false) {
+			log.info("Credentials have been approved!");
 			double balance = EnterBalance();
 			BankingAccount newbankAccount = new BankingAccount(listSize+1, "Checking" , balance);
 			User u = new User(listSize + 1, userName, password, newbankAccount);
@@ -96,11 +96,10 @@ public class BankingDriver {
 			Start();
 		}
 		else {
-			
+			log.error("There is Already a User with that Account, Please enter a different Account");
+			log.info("----------------------------------------------------");
+			Create();
 		}
-		
-		
-		
 	}
 	
 	public static void Login() {
@@ -117,9 +116,23 @@ public class BankingDriver {
 			Logout();
 		}
 		//Account Verification Step - will check to see if a user with account and password exist
-		
+		UserDaoImpl userDao = new UserDaoImpl();
+		List<User> userList = userDao.getUsers();
+		User currentUser = null;
+		boolean matches = false;
+		for(User u:userList) {
+			if(u.getUserName().equals(userName) && u.getPassword().equals(password)) {
+				matches = true;
+				currentUser = u;
+			}
+		}
+		if(matches == false) {
+			log.error("Invalid Username or Password");
+			log.info("----------------------------------------------------");
+			Login();
+		}
 		//
-		Navigation();
+		Navigation(currentUser);
 	}
 	
 	public static void Logout() {
@@ -127,7 +140,7 @@ public class BankingDriver {
 		Start();
 	}
 	
-	public static void Navigation() {
+	public static void Navigation(User currentUser) {
 		log.info("Account Navigation:");
 		log.info("----------------------------------------------------");
 		log.info("Enter (D) to Deposit, (W) to Withdraw, (B) to View Balance, and (X) to Logout.");
@@ -136,16 +149,16 @@ public class BankingDriver {
 
 		String navInput = scanner.nextLine().toLowerCase();
 		if(navInput.equals("d")) {
-			Deposit();
-			Navigation();
+			Deposit(currentUser);
+			Navigation(currentUser);
 		}
 		else if(navInput.equals("w")) {
-			Withdraw();
-			Navigation();
+			Withdraw(currentUser);
+			Navigation(currentUser);
 		}
 		else if(navInput.equals("b")) {
-			Balance();
-			Navigation();
+			Balance(currentUser);
+			Navigation(currentUser);
 		}
 		else if(navInput.equals("x")) {
 			Logout();
@@ -153,29 +166,44 @@ public class BankingDriver {
 		else {
 			log.error("Invalid Input Please Enter a Character Given Below.");
 			log.info("----------------------------------------------------");
-			Navigation();
+			Navigation(currentUser);
 		}
 	}
 	
-	public static void Deposit() {
+	public static void Deposit(User currentUser) {
 		log.info("Enter in a Value to Deposit: ");
 		log.info("----------------------------------------------------");
+		double amount = EnterAmount();
+		BankingAccountDaoImpl bad = new BankingAccountDaoImpl();
+		bad.changeAccountBalance(currentUser.getAccount(), amount);
 	}
 	
-	public static void Withdraw(){
+	public static void Withdraw(User currentUser){
 		log.info("Enter in a Value to Withdraw: ");
 		log.info("----------------------------------------------------");
+		double amount = EnterAmount();
+		BankingAccountDaoImpl bad = new BankingAccountDaoImpl();
+		double balance = currentUser.getAccount().getBalance();
+		if(amount - balance < 0) {
+			log.error("Withdraw Error, Cannot Withdraw More than the Balance of the Account");
+			log.info("----------------------------------------------------");
+			Withdraw(currentUser);
+		}
+		else {
+			bad.changeAccountBalance(currentUser.getAccount(), amount);
+		}
+		
+		
 	}
 	
-	public static void Balance() {
+	public static void Balance(User currentUser) {
 		log.info("Current Balance Is: ");
 		log.info("----------------------------------------------------");
 	}
 	
 	public static double EnterBalance() {
-		log.info("Credentials have been approved!");
 		log.info("----------------------------------------------------");
-		log.info("Enter in the New Account Balance");
+		log.info("Enter in the New Account Balance to Finalize Account: ");
 		log.info("----------------------------------------------------");
 		String input = scanner.nextLine().toLowerCase();
 		if(input.equals("x")) {
@@ -187,9 +215,25 @@ public class BankingDriver {
 			log.info("----------------------------------------------------");
 		}
 		else if(balance < 0) {
+			log.error("Please Enter a Non-Negative Number.");
 			EnterBalance();
 		}
 		return balance;
+		
+	}
+	
+	public static double EnterAmount() {
+		String input = scanner.nextLine().toLowerCase();
+		if(input.equals("x")) {
+			Logout();
+		}
+		double amount = (double) Integer.parseInt(input);
+		if(amount < 0) {
+			log.error("Please Enter a Non-Negative Number.");
+			log.info("----------------------------------------------------");
+			EnterBalance();
+		}
+		return amount;
 		
 	}
 }
