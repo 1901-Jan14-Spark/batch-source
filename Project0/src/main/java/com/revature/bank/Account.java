@@ -10,26 +10,11 @@ public class Account {
 		super();
 	}
 	
-	public Account(String accountNumber) {
+	public Account(Member m, String accountType, double accountBalance) {
 		super();
-		this.accountNumber = accountNumber;
-
-	}
-
-
-	public Account(String accountNumber, String accountType, double accountBalance) {
-		super();
-		this.accountNumber = accountNumber;
+		this.accountNumber = m.getAccountNumber();
 		this.accountType = accountType;
 		this.accountBalance = accountBalance;
-	}
-
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
 	}
 
 	public String getAccountType() {
@@ -48,6 +33,7 @@ public class Account {
 		this.accountBalance = accountBalance;
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

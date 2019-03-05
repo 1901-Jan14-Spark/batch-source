@@ -12,35 +12,30 @@ import com.revature.util.ConnectionUtil;
 public class BankPresentation {
 
 	public static void main(String[] args) {
-		
-//		Connection c;
-//		try {
-//			c = ConnectionUtil.getConnection();
-//			//System.out.println(c.getMetaData().getDriverName());
-//
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
 
-		MemberDao ed = new MemberDaoImplementation();
-//		int created = ed.addNewMember(new Member("David", "Van Alstine", "VanalstineDJ", "r4ndomP4ss1", "flamehrow3r@2kgod.com"));
+		MemberDao md = new MemberDaoImplementation();
+//		int created = md.addNewMember(new Member("David", "Van Alstine", "VanalstineDJ", "r4ndomP4ss1", "flamehrow3r@2kgod.com"));
 //		System.out.println(created);
 		
-		Member m = ed.getMemberByAccountNumber("74873389"); 		
+//		Member m = md.getMemberByAccountNumber("17263238");
+//		m.setAccountNumber("17263238");
 //		m.setFirstName("D.J.");
 //		m.setLastName("Valentine");
 //		m.setUserName("buck4ts");
 //		m.setPassword("str4ightF!re");
-//		m.setEmail("2kfl4megod@splash.com");
-//		int updatedMember = ed.updateMemberInfo(m);
+//		m.setEmail("2kfl4megod@splash.com");	
+//		int updatedMember = md.updateMemberInfo(m);
 //		System.out.println(updatedMember);
 		
+//		int newMember = md.addNewMember(new Member("David", "Van Alstine", "VanalstineDJ", "r4ndomP4ss1", "flamehrow3r@2kgod.com"));
+//		System.out.println(newMember);
+		
 		AccountDao ad = new AccountDaoImplementation();
-		Account a = ad.getAccount("74873389");
-		System.out.println(a);
-//		int savings = ad.addNewAccount(new Account("74873389", "Savings", 25000.00));
-//		System.out.println(savings);
-		ad.makeDeposit(a, 2575.50);
+//		int checkings = ad.addNewAccount(new Account("17263238", "Checkings", 3500.00));
+//		System.out.println(checkings);
+		int savings = ad.addNewAccount(new Account("17263238", "Savings", 25000.00));
+		System.out.println(savings);
+//		ad.makeDeposit(a, 2575.50);
 		
 		
 	}

@@ -43,7 +43,7 @@ public class AccountDaoImplementation implements AccountDao {
 
 	
 	@Override
-	public Account getAccount(String accountNumber) {
+	public Account getAccountByAccountNumber(String accountNumber) {
 	
 		String sql = "SELECT * FROM ACCOUNT_TABLE"
 				+ "WHERE ACCOUNT_NUMBER = ?";
@@ -56,11 +56,13 @@ public class AccountDaoImplementation implements AccountDao {
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
-				
 				String memAccountNumber = rs.getString("ACCOUNT_NUMBER");
+				System.out.println(memAccountNumber);
 				String memAccountType = rs.getString("ACCOUNT_TYPE");
+				System.out.println(memAccountType);
 				double memAccountBalance = rs.getDouble("ACCOUNT_BALANCE");
-				a =new Account(memAccountNumber, memAccountType, memAccountBalance);
+				System.out.println(memAccountBalance);
+				a = new Account(memAccountType, memAccountBalance);
 			}	
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -69,14 +71,16 @@ public class AccountDaoImplementation implements AccountDao {
 	}
 
 	@Override
-	public void makeDeposit(Account a, double depositAmount) {
-		String sql = "{CALL MAKE_DEPOSIT(?,?)}";
+	public void makeDeposit(String accountNumber, String accountType, double depositAmount) {
+		
+		String sql = "{CALL MAKE_DEPOSIT(?,?,?)}";
 		
 		try(Connection c = ConnectionUtil.getConnection();
 				CallableStatement cs = c.prepareCall(sql)){
 			
-			cs.setString(1, a.getAccountNumber());
-			cs.setDouble(2, depositAmount);
+			cs.setString(1, accountNumber);
+			cs.setString(2, accountType);
+			cs.setDouble(3, depositAmount);
 			cs.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();

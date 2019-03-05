@@ -1,177 +1,178 @@
 package com.revature.bank;
 
 public class Member {
-	
+
 	// the instance variables that make up a member's account
-		public String userName;
-		public String firstName;
-		public String lastName;
-		public String email;
-		public String password;
-		public String accountNumber;
-		public Account accountBalance;
-		
-		// no arguments constructor
-		public Member() {
-			super();
-		}
+	public String accountNumber;
 
-		public Member(String accountNumber, String firstName, String lastName, String userName, String password, String email, Account accountBalance) {
-			super();
-			this.accountNumber = accountNumber;
-//			this.accountNumber = setAccountNumber();
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.userName = userName;
-			this.password = password;
-			this.email = email;
-			this.accountBalance = accountBalance;
-		}
+	public String firstName;
+	public String lastName;
+	public String userName;
+	public String email;
+	public String password;
+	public Account account;
 
-		public Member(String accountNumber, String firstName, String lastName, String userName, String password, String email) {
-			super();
-//			this.accountNumber = setAccountNumber();
-			this.accountNumber = accountNumber;
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.userName = userName;
-			this.password = password;
-			this.email = email;
-			
-		}
+	// no arguments constructor
+	public Member() {
+		super();
+	}
+	
+	public Member(String firstName, String lastName, String userName, String password, String email) {
+		super();
+		this.accountNumber = setNewAccountNumber();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+	}
 
-		public String getUserName() {
-			return userName;
-		}
+	public Member(String accountNumber, String firstName, String lastName, String userName, String password, String email) {
+		super();
+		this.accountNumber = accountNumber;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+	}
 
-		public void setUserName(String userName) {
-			this.userName = userName;
-		}
+	public Member(String firstName, String lastName, String userName, String password, String email, Account account) {
+		super();
+		this.accountNumber = setNewAccountNumber();
+//		this.accountNumber = accountNumber;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.userName = userName;
+		this.password = password;
+		this.email = email;
+		this.account = account;
+	}
 
-		public String getFirstName() {
-			return firstName;
-		}
+	public String getUserName() {
+		return userName;
+	}
 
-		public void setFirstName(String firstName) {
-			this.firstName = firstName;
-		}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-		public String getLastName() {
-			return lastName;
-		}
+	public String getFirstName() {
+		return firstName;
+	}
 
-		public void setLastName(String lastName) {
-			this.lastName = lastName;
-		}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-		public String getEmail() {
-			return email;
-		}
+	public String getLastName() {
+		return lastName;
+	}
 
-		public void setEmail(String email) {
-			this.email = email;
-		}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-		public String getPassword() {
-			return password;
-		}
+	public String getEmail() {
+		return email;
+	}
 
-		public void setPassword(String password) {
-			this.password = password;
-		}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-		public String getAccountNumber() {
-			return accountNumber;
-		}
+	public String getPassword() {
+		return password;
+	}
 
-//		public String setAccountNumber() {
-//			//randomly generate a unique account number for each new user
-//			String randomNum = "";
-//			for(int i = 0; i < 8; i++) {
-//				// randomly generate 8 digits and append them together to create the account number String
-//				randomNum = randomNum + ((int)(Math.random()*10));
-//			}
-//			return randomNum;
-//		}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-		public void setAccountNumber(String accountNumber) {
-			this.accountNumber = accountNumber;
-			
-		}
-			
-		public Account getAccountBalance() {
-			return accountBalance;
-		}
+	public String getAccountNumber() {
+		return accountNumber;
+	}
 
-		public void setAccountBalance(Account accountBalance) {
-			this.accountBalance = accountBalance;
+	public String setNewAccountNumber() {
+		//randomly generate a unique account number for each new user
+		String randomNum = "";
+		for(int i = 0; i < 8; i++) {
+			// randomly generate 8 digits and append them together to create the account number String
+			randomNum = randomNum + ((int)(Math.random()*10));
 		}
-		
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + ((accountBalance == null) ? 0 : accountBalance.hashCode());
-			result = prime * result + ((accountNumber == null) ? 0 : accountNumber.hashCode());
-			result = prime * result + ((email == null) ? 0 : email.hashCode());
-			result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-			result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-			result = prime * result + ((password == null) ? 0 : password.hashCode());
-			result = prime * result + ((userName == null) ? 0 : userName.hashCode());
-			return result;
-		}
+		return randomNum;
+	}
 
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			Member other = (Member) obj;
-			if (accountBalance == null) {
-				if (other.accountBalance != null)
-					return false;
-			} else if (!accountBalance.equals(other.accountBalance))
-				return false;
-			if (accountNumber == null) {
-				if (other.accountNumber != null)
-					return false;
-			} else if (!accountNumber.equals(other.accountNumber))
-				return false;
-			if (email == null) {
-				if (other.email != null)
-					return false;
-			} else if (!email.equals(other.email))
-				return false;
-			if (firstName == null) {
-				if (other.firstName != null)
-					return false;
-			} else if (!firstName.equals(other.firstName))
-				return false;
-			if (lastName == null) {
-				if (other.lastName != null)
-					return false;
-			} else if (!lastName.equals(other.lastName))
-				return false;
-			if (password == null) {
-				if (other.password != null)
-					return false;
-			} else if (!password.equals(other.password))
-				return false;
-			if (userName == null) {
-				if (other.userName != null)
-					return false;
-			} else if (!userName.equals(other.userName))
-				return false;
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+
+	}
+
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((account == null) ? 0 : account.hashCode());
+		result = prime * result + ((accountNumber == null) ? 0 : accountNumber.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
 			return true;
-		}
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Member other = (Member) obj;
+		if (account == null) {
+			if (other.account != null)
+				return false;
+		} else if (!account.equals(other.account))
+			return false;
+		if (accountNumber == null) {
+			if (other.accountNumber != null)
+				return false;
+		} else if (!accountNumber.equals(other.accountNumber))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (firstName == null) {
+			if (other.firstName != null)
+				return false;
+		} else if (!firstName.equals(other.firstName))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (password == null) {
+			if (other.password != null)
+				return false;
+		} else if (!password.equals(other.password))
+			return false;
+		if (userName == null) {
+			if (other.userName != null)
+				return false;
+		} else if (!userName.equals(other.userName))
+			return false;
+		return true;
+	}
 
-		@Override
-		public String toString() {
-			return "Hello " + firstName + " " + lastName + "!\n\n" + "Account Number: " + accountNumber + "\nBalance: "
-					+ accountBalance;
-		}
+	@Override
+	public String toString() {
+		return "Hello " + firstName + " " + lastName + "!\n\n" + "Account Number: " + accountNumber;
+	}
 
 }

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import com.revature.bank.Account;
 import com.revature.bank.Member;
@@ -33,7 +34,7 @@ public class MemberDaoImplementation implements MemberDao {
 				String username = rs.getString("USER_USERNAME");
 				String email = rs.getString("USER_EMAIL");
 				String password = rs.getString("USER_PASSWORD");
-				m = new Member(memberAccountNumber, firstName, lastName, username, email, password, new Account(memberAccountNumber));
+				m = new Member(firstName, lastName, username, email, password, new Account(memberAccountNumber));
 				
 			}		
 		} catch (SQLException e) {
@@ -111,6 +112,12 @@ public class MemberDaoImplementation implements MemberDao {
 			e.printStackTrace();
 		}
 		return membersDeleted;
+	}
+
+	@Override
+	public List<Member> getAllMembers(String accountNumber) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
