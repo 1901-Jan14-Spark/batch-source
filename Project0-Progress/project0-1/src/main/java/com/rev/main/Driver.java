@@ -19,20 +19,7 @@ public class Driver {
 	
 	
 	public static void main(String[] args) {
-		
-		//CustomerDao cus1 = new CustomerDaoImpl();
-		
-//		int creat = cus1.addCustomer(new Customer(1,"George",200.01,"GG","fancypants1"));
-//		log.info(creat);
 		Login();
-		
-		
-		
-//		List<Customer> customers = cus1.getCustomers();
-//		for(Customer c: customers) {
-//			log.info(c);
-//		}
-		
 	}
 	
 	
@@ -149,22 +136,28 @@ public class Driver {
 				operations(id);
 			}
 		}
-		if(op.equals("bal")||op.equals("balance")||op.equals("Bal")||op.equals("Balance")||op.equals("B")||op.equals("b")||op.equals("v")||op.equals("V")||op.equals("view")||op.equals("View")) {
+		else if(op.equals("bal")||op.equals("balance")||op.equals("Bal")||op.equals("Balance")||op.equals("B")||op.equals("b")||op.equals("v")||op.equals("V")||op.equals("view")||op.equals("View")) {
 			log.info("Current balance is "+cus1.getBalance(id));
 			operations(id);
 		}
-		if(op.equals("w")||op.equals("W")||op.equals("Withdrawl")||op.equals("withdraw")) {
+		else if(op.equals("w")||op.equals("W")||op.equals("Withdrawl")||op.equals("withdraw")) {
 			
 			cus1.withdraw(id,cus1.getBalance(id));
+			operations(id);
 		}
-		if(op.equals("exit")||op.equals("logout")||op.equals("l")||op.equals("e")||op.equals("E")||op.equals("Logout"));
+		else if(op.equals("exit")||op.equals("logout")||op.equals("l")||op.equals("e")||op.equals("E")||op.equals("Logout")) {
 			log.info("Logout Successful. Goodbye.");
 			log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");log.info("");
 			Login();
 			return;
-		}
+		}else{
+			log.info("Didn't quite get that.");
+			operations(id);
+		} 
+		
+	}
 	
-
+		
 	
 	
 	

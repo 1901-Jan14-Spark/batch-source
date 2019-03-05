@@ -1,5 +1,6 @@
 package com.rev.util;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -201,7 +202,7 @@ public class CustomerDaoImpl implements CustomerDao {
 			 	ResultSet rs = ps.executeQuery();
 			 	while(rs.next()) {
 			 		cId = rs.getInt("CUSTOMER_ID");
-			 		System.out.println(cId);
+			 		//System.out.println(cId);
 			 	}
 			
 		} catch (SQLException e) {
@@ -233,15 +234,15 @@ public class CustomerDaoImpl implements CustomerDao {
 		CustomerDao cus2 = new CustomerDaoImpl();
 		double plus=cus2.getBalance(id);
 		CustomerDao cus1 = new CustomerDaoImpl();
-		String sql= "UPDATE C_USERS SET BALANCE = ? WHERE CUSTOMER_ID = ?";
+		String sql= "{call WITHDRAW(?,?)";
 		try(Connection con = ConnectionSrc.getConnection();
-			PreparedStatement ps = con.prepareStatement(sql)){
+			CallableStatement cs = con.prepareCall(sql)){
 				
-				ps.setDouble(1, bal-minus);
-				ps.setInt(2, id);
-				ps.executeUpdate();
+				cs.setDouble(2, bal-minus);
+				cs.setInt(1, id);
+				cs.execute();
 				
-			
+		log.info("Withdraw successful. "+cus2.getBalance(id)+" remaining");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
