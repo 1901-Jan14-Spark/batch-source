@@ -1,10 +1,15 @@
 package com.rev.bank;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
+import com.rev.main.Amap;
+import com.rev.util.CustomerDao;
+import com.rev.util.CustomerDaoImpl;
+//import CustomerDaoImpl.java;
 public class Bank {
 
-	
+	CustomerDao cc = new CustomerDaoImpl();
 
 	
 		static Scanner scan1= new Scanner(System.in);
@@ -15,6 +20,7 @@ public class Bank {
 
 	public static void main(String[] args) {
 		//CreateAccount();
+		//CustomerDao cc = new CustomerDaoImpl();
 		Login();
 		//operations();
 		//getBalance();
@@ -34,12 +40,13 @@ public class Bank {
 			CreateAccount();
 		}
 		
+		
 		System.out.println("Username: ");
 		String ans2 = scan1.nextLine();
-		if(getInfo().containsKey(ans2)) {
+		if(CustomerDaoImpl.getCustomerCredentials().containsKey(ans2)) {
 			System.out.println("Password: ");
 			String ans3 = scan1.nextLine();
-			if(getInfo().get(ans2).equals(ans3)) {
+			if(getCustomerCredentials().get(ans2).equals(ans3)) {
 				System.out.println("You're Login Has Been Succesful");
 				operations();
 				return;

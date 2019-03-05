@@ -14,20 +14,20 @@ public class Customer implements Serializable{
 	private String password;
 	private String username;
 	
-	public Customer(int iD, String name, double balance, String username) {
+	public Customer( String name, double balance, String username) {
 		super();
 		this.name = name;
-		ID = iD;
+		
 		this.balance = balance;
 		this.username = username;
 		
 	}
 	
 	
-	public Customer( int iD,String name, double balance, String username, String password) {
+	public Customer(String name, double balance, String username, String password) {
 		super();
 		this.name = name;
-		ID = iD;
+		
 		this.balance = balance;
 		this.password = password;
 		this.username = username;
