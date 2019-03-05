@@ -1,0 +1,2 @@
+- Inputs can throw NoSuchElementExceptions, need to handle that
+- Password matcher is not matching properly

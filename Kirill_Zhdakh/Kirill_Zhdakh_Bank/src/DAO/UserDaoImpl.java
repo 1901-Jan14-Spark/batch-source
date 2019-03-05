@@ -9,11 +9,13 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import Classes.User;
 import Util.ConnectionUtil;
 
 public class UserDaoImpl implements UserDao {
-
+	final private static Logger log = Logger.getRootLogger();
 	@Override
 	public List<User> getUsers() {
 		List<User> userList = new ArrayList<>();
@@ -40,8 +42,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int createUser(User u) {
-		int usersCreated = 0;
+	public boolean createUser(User u) {
 		String sql = "INSERT INTO USER_TABLE (USER_FIRSTNAME,"
 					+"USER_LASTNAME,USER_USERNAME,USER_PASSWORD)"
 					+"VALUES (?,?,?,?)";
@@ -53,17 +54,17 @@ public class UserDaoImpl implements UserDao {
 			ps.setString(2, u.getLastName());
 			ps.setString(3, u.getUsername());
 			ps.setString(4, u.getPassword());
-			usersCreated = ps.executeUpdate();
+			ps.executeUpdate();
+			return true;
 		} 
 		catch (IOException e)
 		{
-			e.printStackTrace();
+			return false;
 		}
 		catch (SQLException e) 
 		{
-			e.printStackTrace();
+			return false;
 		}
-		return usersCreated;
 	}
 
 	@Override

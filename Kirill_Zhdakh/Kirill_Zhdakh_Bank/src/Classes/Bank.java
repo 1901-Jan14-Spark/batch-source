@@ -1,24 +1,38 @@
 package Classes;
 
-import java.io.File;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
+import DAO.UserDaoImpl;
+
 public class Bank{
+	//Bank necessities 
 	final private static Scanner scan = new Scanner(System.in);
 	private static User currentUser;
-	private static Logger log = Logger.getRootLogger();
+	final private static Logger log = Logger.getRootLogger();
+	
+	//DB
+	final private static UserDaoImpl udl = new UserDaoImpl();
+	private static List<User> userList;
+	
+	//Regex
+	final private static String pwd_ptrn = "^((?=\\S*?[A-Z])(?=\\S*?[a-z])(?=\\S*?[0-9])(?=\\S*?[!@#$%^&*]).{8,})\\S$";
+	private static Matcher match;
+	private static Pattern pattern;
 	
 	public static void mainPage()
 	{
+		userList = udl.getUsers();
 		int option;
 		log.info("Welcome to my console bank!\n");
 		log.info("1) Login");
 		log.info("2) Register");
-		log.info("3) Clear user");
-		log.info("4) Exit");
+		log.info("3) Exit");
 		try
 		{
 			option = scan.nextInt();
@@ -38,30 +52,13 @@ public class Bank{
 				break;
 				case 3:
 				{
-					File f = new File("src/Main/user.ser");
-					if (f.delete())
-					{
-						clearConsole();
-						log.info("User removed successfully\n");
-						mainPage();
-					}
-					else
-					{
-						clearConsole();
-						log.info("No user to remove\n");
-						mainPage();
-					}
-				}
-				break;
-				case 4:
-				{
 					clearConsole();
 					System.exit(0);
 				}
 				default:
 				{
 					clearConsole();
-					log.info("Please chose options 1-4. Please try again.\n");
+					log.info("Please chose options 1-3. Please try again.\n");
 					mainPage();
 				}
 				break;
@@ -77,29 +74,66 @@ public class Bank{
 	}
 	
 	private static void registerPage()
-	{
+	{		
 		String username, password, password2, firstname, lastname;
-		log.info("Thank you for choosing our bank! Please fill out the form below to register.");
-		System.out.print("First Name: ");
+		log.info("Thank you for choosing our bank! Please fill out the form below to register.\n");
+		log.info("Password Rules");
+		log.info("- Password must be at least 8 characters long");
+		log.info("- Password must contain at least 1 number");
+		log.info("- Password must contain at least 1 capital letter");
+		log.info("- Password must contain at least 1 lower case letter");
+		log.info("- Password must contain at least 1 special character (!, @, #, $, %, ^, &, *)\n");
+		log.info("First Name: ");
 		firstname = scan.next();
-		System.out.print("Last Name: ");
+		log.info("Last Name: ");
 		lastname = scan.next();
-		System.out.print("Username: ");
-		username = scan.next();
-		System.out.print("Password: ");
+		while(true)
+		{
+			log.info("Username: ");
+			username = scan.next();
+			for(User u : userList)
+			{
+				if (u.getUsername().equals(username))
+				{
+					clearConsole();
+					log.info("User already taken. Try again.\n");
+					continue;
+				}
+			}
+			break;
+		}
+		log.info("Password: ");
 		password = scan.next();
-		System.out.print("Confirm Password: ");
+		pattern = Pattern.compile(pwd_ptrn);
+		match = pattern.matcher(password);
+		while(!match.matches())
+		{
+			clearConsole();
+			log.info("Password Rules");
+			log.info("- Password must be at least 8 characters long");
+			log.info("- Password must contain at least 1 number");
+			log.info("- Password must contain at least 1 capital letter");
+			log.info("- Password must contain at least 1 lower case letter");
+			log.info("- Password must contain at least 1 special character (!, @, #, $, %, ^, &, *)\n");
+			log.info("Password: ");
+			password = scan.next();
+			match = pattern.matcher(password);
+		}
+		log.info("Confirm Password: ");
 		password2 = scan.next();
 		while(!password2.equals(password))
 		{
 			log.info("Password does not match. Try again.\n");
-			System.out.print("Password: ");
+			log.info("Password: ");
 			password = scan.next();
-			System.out.print("Confirm Password: ");
+			log.info("Confirm Password: ");
 			password2 = scan.next();
-		}
-		currentUser = new User(username, password, firstname, lastname);
-		if (FileIO.writeUserData(currentUser))
+		}	
+		
+		firstname = firstname.substring(0, 1).toUpperCase() + firstname.substring(1).toLowerCase();
+		lastname = lastname.substring(0, 1).toUpperCase() + lastname.substring(1).toLowerCase();
+		
+		if (udl.createUser(new User(firstname, lastname, username, password)))
 		{
 			clearConsole();
 			log.info("User added successfully!\n");
@@ -108,16 +142,16 @@ public class Bank{
 		else
 		{
 			log.info("User add failed! Try again.\n");
-			registerPage();
+			mainPage();
 		}
 	}
 	
 	private static void loginPage()
 	{
 		String username, password;
-		System.out.print("Username: ");
+		log.info("Username: ");
 		username = scan.next();
-		System.out.print("Password: ");
+		log.info("Password: ");
 		password = scan.next();
 		currentUser = FileIO.readUserData();
 		if (currentUser == null)
@@ -147,10 +181,10 @@ public class Bank{
 		int option;
 		float amount;
 		log.info("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!\n");
-		System.out.print("Checking: $");
-		System.out.printf("%.2f", currentUser.getCheckingBalance());
-		System.out.print("\nSaving: $");
-		System.out.printf("%.2f", currentUser.getSavingBalance());
+		log.info("Checking: $");
+		log.info(currentUser.getCheckingBalance());
+		log.info("\nSaving: $");
+		log.info(currentUser.getSavingBalance());
 		log.info("\n\n1) Deposit");
 		log.info("2) Withdraw");
 		log.info("3) Exit");
@@ -299,7 +333,7 @@ public class Bank{
 				case 3:
 				{
 					clearConsole();
-					FileIO.writeUserData(currentUser);
+					currentUser = null;
 					mainPage();
 				}
 				break;
