@@ -109,8 +109,10 @@ public class UserDaoImpl implements UserDao {
 				int accId = rs.getInt("USER_ID");
 				String name = rs.getString("NAME");
 				String username = rs.getString("USERNAME");
+				String email = rs.getString("EMAIL");
+				String password = rs.getString("PASSWORD");
 				BigDecimal balance = rs.getBigDecimal("BALANCE");
-				User listUser = new User(accId, name, username, balance);
+				User listUser = new User(accId, name, username, email, password, balance);
 				users.add(listUser);
 				
 			}

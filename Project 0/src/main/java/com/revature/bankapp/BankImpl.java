@@ -94,12 +94,15 @@ public class BankImpl implements ReadWriteManager{
 			appStart();
 		}
 		if(Integer.parseInt(option) == 1) {
-			List<Account> ourList = new ArrayList<Account>();
+			List<User> ourList = new ArrayList<User>();
 			UserDao userDao = new UserDaoImpl();
 			ourList = userDao.fetchAccount();
-			for(Account acc : ourList) {
-				System.out.println(acc);
+			for(User user : ourList) {
+				System.out.println(user);
 			}
+			System.out.println();
+			System.out.println();
+			adminAccess();
 		}
 	}
 

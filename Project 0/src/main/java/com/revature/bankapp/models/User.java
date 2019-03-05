@@ -48,11 +48,13 @@ public class User implements ReadWriteManager {
 		this.account = tempAcc;
 	}
 
-	public User(int accId, String name2, String username2, BigDecimal balance2) {
+	public User(int accId, String name, String username, String email, String password, BigDecimal balance2) {
 		this.userId = accId;
-		this.name = name2;
-		this.username = username2;
-		this.balance = balance;
+		this.name = name;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.balance = balance2;
 	}
 
 	public String getName() {
@@ -126,9 +128,8 @@ public class User implements ReadWriteManager {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", name=" + name + ", username=" + username + ", email=" + email
-				+ ", password=" + password + ", account=" + account + ", balance=" + balance + "]";
+				+ ", password=" + password + ", balance=" + balance + "]";
 	}	
-	
 	
 	
 }
