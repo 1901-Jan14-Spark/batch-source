@@ -95,3 +95,4 @@ Servers/
 
 **/target/
 *.ser
+*.properties

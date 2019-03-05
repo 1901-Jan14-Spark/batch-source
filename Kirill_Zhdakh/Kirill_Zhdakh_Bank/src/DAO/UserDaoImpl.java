@@ -45,10 +45,10 @@ public class UserDaoImpl implements UserDao {
 	public boolean createUser(User u) {
 		String sql = "INSERT INTO USER_TABLE (USER_FIRSTNAME,"
 					+"USER_LASTNAME,USER_USERNAME,USER_PASSWORD)"
-					+"VALUES (?,?,?,?)";
+					+" VALUES (?,?,?,?)";
 		
-		try(Connection con = ConnectionUtil.getConnectionFromFile();
-			PreparedStatement ps = con.prepareStatement(sql))
+		try(Connection c = ConnectionUtil.getConnectionFromFile();
+			PreparedStatement ps = c.prepareStatement(sql))
 		{		
 			ps.setString(1, u.getFirstName());
 			ps.setString(2, u.getLastName());
@@ -59,18 +59,39 @@ public class UserDaoImpl implements UserDao {
 		} 
 		catch (IOException e)
 		{
-			return false;
+			e.printStackTrace();
 		}
 		catch (SQLException e) 
 		{
-			return false;
+			e.printStackTrace();
 		}
+		return false;
 	}
 
 	@Override
-	public int updateUser(User u) {
-		// TODO Auto-generated method stub
-		return 0;
+	public boolean updateUser(User u) {
+		String sql = "UPDATE USER_TABLE"
+					+" SET USER_CHECKING = ?,"
+					+" USER_SAVING = ?"
+					+" WHERE USER_USERNAME = ?";
+		try(Connection c = ConnectionUtil.getConnectionFromFile();
+			PreparedStatement ps = c.prepareStatement(sql))
+		{
+			ps.setFloat(1, u.getCheckingBalance());
+			ps.setFloat(2, u.getSavingBalance());
+			ps.setString(3, u.getUsername());
+			ps.executeUpdate();
+			return true;
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	@Override

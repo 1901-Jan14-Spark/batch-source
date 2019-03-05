@@ -20,14 +20,8 @@ public class Bank{
 	final private static UserDaoImpl udl = new UserDaoImpl();
 	private static List<User> userList;
 	
-	//Regex
-	final private static String pwd_ptrn = "^((?=\\S*?[A-Z])(?=\\S*?[a-z])(?=\\S*?[0-9])(?=\\S*?[!@#$%^&*]).{8,})\\S$";
-	private static Matcher match;
-	private static Pattern pattern;
-	
 	public static void mainPage()
 	{
-		userList = udl.getUsers();
 		int option;
 		log.info("Welcome to my console bank!\n");
 		log.info("1) Login");
@@ -75,6 +69,7 @@ public class Bank{
 	
 	private static void registerPage()
 	{		
+		userList = udl.getUsers();
 		String username, password, password2, firstname, lastname;
 		log.info("Thank you for choosing our bank! Please fill out the form below to register.\n");
 		log.info("Password Rules");
@@ -83,30 +78,79 @@ public class Bank{
 		log.info("- Password must contain at least 1 capital letter");
 		log.info("- Password must contain at least 1 lower case letter");
 		log.info("- Password must contain at least 1 special character (!, @, #, $, %, ^, &, *)\n");
-		log.info("First Name: ");
+		log.info("First Name: (type \"refresh\" to reset form, \"exit\" to exit)");
+		
+		//First name, last name
 		firstname = scan.next();
-		log.info("Last Name: ");
+		if (firstname.toLowerCase().equals("refresh"))
+		{
+			clearConsole();
+			registerPage();
+		}
+		if (firstname.toLowerCase().equals("exit"))
+		{
+			clearConsole();
+			mainPage();
+		}
+		log.info("Last Name: (type \"refresh\" to reset form, \"exit\" to exit)");
 		lastname = scan.next();
+		if (lastname.toLowerCase().equals("refresh"))
+		{
+			clearConsole();
+			registerPage();
+		}
+		if (lastname.toLowerCase().equals("exit"))
+		{
+			clearConsole();
+			mainPage();
+		}
+		
+		//Username
+		username = "";
 		while(true)
 		{
-			log.info("Username: ");
+			boolean userTaken = false;
+			log.info("Username: (type \"refresh\" to reset form, \"exit\" to exit)");
 			username = scan.next();
+			if (username.toLowerCase().equals("refresh"))
+			{
+				clearConsole();
+				registerPage();
+			}
+			if (username.toLowerCase().equals("exit"))
+			{
+				clearConsole();
+				mainPage();
+			}
 			for(User u : userList)
 			{
 				if (u.getUsername().equals(username))
 				{
-					clearConsole();
-					log.info("User already taken. Try again.\n");
-					continue;
+					log.info("\nUser already taken. Try again.");
+					userTaken = true;
+					break;
 				}
 			}
-			break;
+			if (userTaken)
+				continue;
+			else
+				break;
 		}
-		log.info("Password: ");
+		
+		//Password
+		log.info("Password: (type \"refresh\" to reset form, \"exit\" to exit)");
 		password = scan.next();
-		pattern = Pattern.compile(pwd_ptrn);
-		match = pattern.matcher(password);
-		while(!match.matches())
+		if (password.toLowerCase().equals("refresh"))
+		{
+			clearConsole();
+			registerPage();
+		}
+		if (password.toLowerCase().equals("exit"))
+		{
+			clearConsole();
+			mainPage();
+		}
+		while(!password.matches("^((?=\\S*?[A-Z])(?=\\S*?[a-z])(?=\\S*?[0-9])(?=\\S*?[!@#$%^&*]).{8,})\\S$"))
 		{
 			clearConsole();
 			log.info("Password Rules");
@@ -115,12 +159,31 @@ public class Bank{
 			log.info("- Password must contain at least 1 capital letter");
 			log.info("- Password must contain at least 1 lower case letter");
 			log.info("- Password must contain at least 1 special character (!, @, #, $, %, ^, &, *)\n");
-			log.info("Password: ");
+			log.info("Password: (type \"refresh\" to reset form, \"exit\" to exit)");
 			password = scan.next();
-			match = pattern.matcher(password);
+			if (password.toLowerCase().equals("refresh"))
+			{
+				clearConsole();
+				registerPage();
+			}
+			if (password.toLowerCase().equals("exit"))
+			{
+				clearConsole();
+				mainPage();
+			}
 		}
-		log.info("Confirm Password: ");
+		log.info("Confirm Password: (type \"refresh\" to reset form, \"exit\" to exit)");
 		password2 = scan.next();
+		if (password2.toLowerCase().equals("refresh"))
+		{
+			clearConsole();
+			registerPage();
+		}
+		if (password2.toLowerCase().equals("exit"))
+		{
+			clearConsole();
+			mainPage();
+		}
 		while(!password2.equals(password))
 		{
 			log.info("Password does not match. Try again.\n");
@@ -130,9 +193,9 @@ public class Bank{
 			password2 = scan.next();
 		}	
 		
+		//Adding user
 		firstname = firstname.substring(0, 1).toUpperCase() + firstname.substring(1).toLowerCase();
-		lastname = lastname.substring(0, 1).toUpperCase() + lastname.substring(1).toLowerCase();
-		
+		lastname = lastname.substring(0, 1).toUpperCase() + lastname.substring(1).toLowerCase();		
 		if (udl.createUser(new User(firstname, lastname, username, password)))
 		{
 			clearConsole();
@@ -148,31 +211,36 @@ public class Bank{
 	
 	private static void loginPage()
 	{
+		userList = udl.getUsers();
+		if (userList.size() == 0)
+		{
+			clearConsole();
+			log.info("There are no users registered. Please register a user.\n");
+			mainPage();
+		}
 		String username, password;
 		log.info("Username: ");
 		username = scan.next();
 		log.info("Password: ");
 		password = scan.next();
-		currentUser = FileIO.readUserData();
+		for (User u : userList)
+		{
+			if (u.getUsername().equals(username) && u.getPassword().equals(password))
+			{
+				currentUser = u;
+				break;
+			}
+		}
 		if (currentUser == null)
 		{
 			clearConsole();
-			log.info("There are no users registered. Please register a user.\n");
-			registerPage();
+			log.info("No user with that username and password combination. Please try again.\n");
+			mainPage();
 		}
 		else
 		{
-			if (currentUser.getUsername().equals(username) && currentUser.getPassword().equals(password))
-			{
-				clearConsole();
-				userPage();
-			}
-			else
-			{
-				clearConsole();
-				log.info("Username or password is invalid. Please try again.\n");
-				mainPage();
-			}
+			clearConsole();
+			userPage();
 		}
 	}
 	
@@ -181,11 +249,9 @@ public class Bank{
 		int option;
 		float amount;
 		log.info("Welcome, " + currentUser.getFirstName() + " " + currentUser.getLastName() + "!\n");
-		log.info("Checking: $");
-		log.info(currentUser.getCheckingBalance());
-		log.info("\nSaving: $");
-		log.info(currentUser.getSavingBalance());
-		log.info("\n\n1) Deposit");
+		log.info("Checking: $" + currentUser.getCheckingBalance());
+		log.info("Saving: $" + currentUser.getSavingBalance());
+		log.info("\n1) Deposit");
 		log.info("2) Withdraw");
 		log.info("3) Exit");
 		try
@@ -207,7 +273,7 @@ public class Bank{
 						{
 							clearConsole();
 							log.info("Enter deposit amount: ");
-							amount = scan.nextFloat();
+							amount = Float.parseFloat(String.format("%.2f", scan.nextFloat()));
 							if (amount < 0)
 							{
 								clearConsole();
@@ -216,7 +282,8 @@ public class Bank{
 							}
 							currentUser.setCheckingBalance(currentUser.getCheckingBalance() + amount);
 							clearConsole();
-							FileIO.writeUserData(currentUser);
+							if (!udl.updateUser(currentUser))
+								log.info("Transaction failed.\n");
 							userPage();
 						}
 						break;
@@ -224,7 +291,7 @@ public class Bank{
 						{
 							clearConsole();
 							log.info("Enter deposit amount: ");
-							amount = scan.nextFloat();
+							amount = Float.parseFloat(String.format("%.2f", scan.nextFloat()));
 							if (amount < 0)
 							{
 								clearConsole();
@@ -233,7 +300,8 @@ public class Bank{
 							}
 							currentUser.setSavingBalance(currentUser.getSavingBalance() + amount);
 							clearConsole();
-							FileIO.writeUserData(currentUser);
+							if (!udl.updateUser(currentUser))
+								log.info("Transaction failed.\n");
 							userPage();
 						}
 						break;
@@ -266,7 +334,7 @@ public class Bank{
 						{
 							clearConsole();
 							log.info("Enter withdraw amount: ");
-							amount = scan.nextFloat();
+							amount = Float.parseFloat(String.format("%.2f", scan.nextFloat()));
 							if (amount < 0)
 							{
 								clearConsole();
@@ -281,7 +349,8 @@ public class Bank{
 							}
 							currentUser.setCheckingBalance(currentUser.getCheckingBalance() - amount);
 							clearConsole();
-							FileIO.writeUserData(currentUser);
+							if (!udl.updateUser(currentUser))
+								log.info("Transaction failed.\n");
 							userPage();
 						}
 						break;
@@ -289,7 +358,7 @@ public class Bank{
 						{
 							clearConsole();
 							log.info("Enter withdraw amount: ");
-							amount = scan.nextFloat();
+							amount = Float.parseFloat(String.format("%.2f", scan.nextFloat()));
 							if (amount < 0)
 							{
 								clearConsole();
@@ -310,7 +379,8 @@ public class Bank{
 							}
 							currentUser.setSavingBalance(currentUser.getSavingBalance() - amount);
 							clearConsole();
-							FileIO.writeUserData(currentUser);
+							if (!udl.updateUser(currentUser))
+								log.info("Transaction failed.\n");
 							userPage();
 						}
 						break;
