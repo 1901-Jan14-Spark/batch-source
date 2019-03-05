@@ -1,6 +1,7 @@
 package com.revature.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,7 +14,7 @@ import com.revature.util.ConnectionUtil;
 
 public class UserDaoImpl implements UserDao{
 	
-	BankingAccountDao bad = new BankingAccountDaoImpl();
+	BankingAccountDaoImpl bad = new BankingAccountDaoImpl();
 	
 	@Override
 	public List<User> getUsers() {
@@ -65,25 +66,54 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public User getUserById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM USERS_TABLE WHERE USER_ID = ?";
+		User u = null;
+		
+		try(Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				int userId = rs.getInt("USER_ID");
+				String userName = rs.getString("USERNAME");
+				String password = rs.getString("USER_PW");
+				int accountId = rs.getInt("ACCOUNT_ID");
+				u = new User(userId, userName, password, bad.getBankingAccountById(accountId));
+			}			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return u;
 	}
 
 	@Override
 	public int createUser(User u) {
-		// TODO Auto-generated method stub
-		return 0;
+		int userCreated = 0;
+		String sql = "INSERT INTO USER (USER_ID, USERNAME, PASSWORD, ACCOUNT_ID) VALUES (?,?,?,?)";
+		try(Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			
+			ps.setInt(1, u.getId());
+			ps.setString(2, u.getUserName());
+			ps.setString(3, u.getPassword());
+			ps.setInt(3, u.getAccount().getAccountId());
+			userCreated = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		bad.createAccount(u.getAccount());
+		return userCreated;
 	}
 
 	@Override
 	public int updateUser(User u) {
-		// TODO Auto-generated method stub
-		return 0;
+		int userUpdated = 0;
+		return userUpdated;
 	}
 
 	@Override
 	public int deleteUser(int id) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
