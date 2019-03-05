@@ -8,6 +8,8 @@ private int accID;
 private String firstName;
 private String lastName;
 private String email;
+private String username;
+private String password;
 public int getAccID() {
 	return accID;
 }
@@ -32,8 +34,17 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
-public static long getSerialversionuid() {
-	return serialVersionUID;
+public String getUsername() {
+	return username;
+}
+public void setUsername(String username) {
+	this.username = username;
+}
+public String getPassword() {
+	return password;
+}
+public void setPassword(String password) {
+	this.password = password;
 }
 @Override
 public int hashCode() {
@@ -43,6 +54,8 @@ public int hashCode() {
 	result = prime * result + ((email == null) ? 0 : email.hashCode());
 	result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 	result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+	result = prime * result + ((password == null) ? 0 : password.hashCode());
+	result = prime * result + ((username == null) ? 0 : username.hashCode());
 	return result;
 }
 @Override
@@ -71,23 +84,45 @@ public boolean equals(Object obj) {
 			return false;
 	} else if (!lastName.equals(other.lastName))
 		return false;
+	if (password == null) {
+		if (other.password != null)
+			return false;
+	} else if (!password.equals(other.password))
+		return false;
+	if (username == null) {
+		if (other.username != null)
+			return false;
+	} else if (!username.equals(other.username))
+		return false;
 	return true;
 }
 @Override
 public String toString() {
-	return "Accounts [accID=" + accID + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-			+ "]";
+	return "BankClients [accID=" + accID + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+			+ ", username=" + username + ", password=" + password + "]";
 }
-public BankClients(int accID, String firstName, String lastName, String email) {
+public BankClients(int accID, String firstName, String lastName, String email, String username, String password) {
 	super();
 	this.accID = accID;
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.email = email;
+	this.username = username;
+	this.password = password;
 }
 public BankClients() {
 	super();
-	// TODO Auto-generated constructor stub
 }
+public BankClients(int accID, String firstName, String lastName, String email) {
+	this.accID = accID;
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.email = email; 
+}
+
+public BankClients(String username, String password) {
+	this.username = username;
+	this.password = password;
+	}
 
 }

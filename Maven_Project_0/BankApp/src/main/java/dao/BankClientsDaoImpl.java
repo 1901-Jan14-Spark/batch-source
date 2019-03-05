@@ -59,7 +59,7 @@ public class BankClientsDaoImpl implements BankClientsDao {
 
 	@Override
 	public int createClient(BankClients bc) {
-		String sql = "INSERT INTO BANK_CLIENTS VALUES(?,?,?,?)";
+		String sql = "INSERT INTO BANK_CLIENTS VALUES(?,?,?,?,?,?)";
 		int clientsCreated = 0;
 		try(Connection con = ConnectionUtil.sysVar();
 				PreparedStatement ps = con.prepareStatement(sql)){
@@ -67,6 +67,8 @@ public class BankClientsDaoImpl implements BankClientsDao {
 			ps.setString(2, bc.getFirstName());
 			ps.setString(3, bc.getLastName());
 			ps.setString(4, bc.getEmail());
+			ps.setString(5, bc.getUsername());
+			ps.setString(6, bc.getPassword());
 			clientsCreated = ps.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -106,5 +108,29 @@ public class BankClientsDaoImpl implements BankClientsDao {
 		return rowsDeleted;
 	}
 
+	@Override
+	public boolean validation(String userName, String passWord) {
+		boolean match = false;
+		String sql = "SELECT USERNAME, PASSWORD FROM BANK_CLIENTS";
+		try(Connection con = ConnectionUtil.sysVar(); 
+				PreparedStatement ps = con.prepareStatement(sql);){
+			ps.setString(1, userName);
+			ps.setString(2, passWord);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				String username = rs.getString("USERNAME");
+				String password = rs.getString("PASSWORD");
+				if(username.equals(userName) && password.equals(passWord)) {
+						match = true;
+}
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return match;
+		
+	}
+
+	
 
 }

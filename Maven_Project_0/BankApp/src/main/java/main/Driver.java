@@ -1,46 +1,59 @@
-//package main;
-//
-//import dao.AccountsDao;
-//import dao.AccountsDaoImpl;
-//import dao.BankClientsDao;
-//import dao.BankClientsDaoImpl;
-//import models.Accounts;
-//
-//public class Driver {
-//	public static void main(String[] args) {
-//		AccountsDao ad = new AccountsDaoImpl();
-////		List<Accounts> accounts = ad.getAccounts();
-////		for(Accounts a:accounts) {
-////			System.out.println(a);
-////		}
-////		
-//		BankClientsDao bcd = new BankClientsDaoImpl();
-//////		List<BankClients> clients = bcd.getClients();
-//////		for(BankClients c: clients) {
-//////			System.out.println(c);		
-//////		}
-////		
-////		BankClients client = bcd.getClientById(1);
-////		System.out.println(client);
-//		
-//		//bcd.createClient(new BankClients(2, "Rogers", "peterson", "p.rogers@gmail.com"));
-//		
-////		BankClients client1 = bcd.getClientById(2);
-////		client1.setFirstName("Jorge");
-////		client1.setLastName("Lopez");
-////		client1.setEmail("G.Lopez@gmail.com");
-////		int update = bcd.updateClient(client1);
-////		System.out.println(update);
-//		
-//		Accounts a = ad.getAccountByID(1);
-//		a.setBalance(45);
-//		int update = ad.updateAccount(a);
-//		
-//		
-//		
-////		int delete = bcd.deleteClient(2);
-//		
-//	
-//	}
-//	
-//}
+package main;
+
+import java.util.Scanner;
+
+import org.apache.log4j.Logger;
+
+import dao.AccountsDao;
+import dao.AccountsDaoImpl;
+import dao.BankClientsDao;
+import dao.BankClientsDaoImpl;
+import models.BankClients;
+
+public class Driver {
+	public final static Logger log = Logger.getRootLogger();
+	public static Scanner input = new Scanner(System.in);
+	static BankClientsDao bcd = new BankClientsDaoImpl();
+
+	
+	public static void main(String[] args) {
+		menu();
+	
+	}
+	public static void makeNew() {
+		
+		log.info("WELCOME NEW MEMBER");
+		
+		log.info("Please Enter First Name: ");
+		String firstname = input.nextLine() ;
+		
+		log.info("Please Enter Last Name: ");
+		String lastname = input.nextLine();
+		
+		log.info("Please Enter Email: ");
+		String email = input.nextLine();
+		
+		log.info("Please Enter Username: ");
+		String username = input.nextLine();
+		
+		log.info("Please Enter Password: ");
+		String password = input.nextLine();
+		
+		bcd.createClient(new BankClients(4, firstname, lastname, email, username,password));
+		
+		log.info("USER CREATED");
+		}
+	public static void menu() {
+		log.info("Welcome To Coders Bank");
+		log.info("Please Select One of the Following Options: ");
+		log.info("To Create a New User Please Type 'New'. To Login Into an Existing Account Please Type 'Login'.");
+		String choice = input.nextLine();
+		if(choice.matches("New")) {
+			makeNew();
+		}else {
+			log.error("INVAID INPUT PLEASE TRY AGAIN");
+			menu();
+		}
+		
+	}
+}

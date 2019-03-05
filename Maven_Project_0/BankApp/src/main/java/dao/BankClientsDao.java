@@ -10,4 +10,5 @@ public interface BankClientsDao {
  public int createClient(BankClients bc);
  public int updateClient(BankClients bc);
  public int deleteClient(int accID);
+ public boolean validation(String userName, String passWord);
 }
