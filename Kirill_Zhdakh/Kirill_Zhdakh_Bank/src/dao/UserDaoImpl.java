@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import java.io.IOException;
 import java.sql.CallableStatement;
@@ -10,8 +10,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import Classes.User;
-import Util.ConnectionUtil;
+import classes.User;
+import util.ConnectionUtil;
+import util.PasswordEncryption;
 
 public class UserDaoImpl implements UserDao {
 	@Override
@@ -51,7 +52,7 @@ public class UserDaoImpl implements UserDao {
 			ps.setString(1, u.getFirstName());
 			ps.setString(2, u.getLastName());
 			ps.setString(3, u.getUsername());
-			ps.setString(4, u.getPassword());
+			ps.setString(4, PasswordEncryption.encodePassword(u.getPassword()));
 			ps.executeUpdate();
 			return true;
 		} 

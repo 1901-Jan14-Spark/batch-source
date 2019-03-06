@@ -1,8 +1,8 @@
-package DAO;
+package dao;
 
 import java.util.List;
 
-import Classes.User;
+import classes.User;
 
 public interface UserDao {
 	public List<User> getUsers();

@@ -1,4 +1,4 @@
-package Classes;
+package classes;
 
 import java.util.InputMismatchException;
 import java.util.List;
@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import DAO.UserDaoImpl;
+import dao.UserDaoImpl;
+import util.PasswordEncryption;
 
 public class Bank{
 	//Bank necessities 
@@ -242,7 +243,8 @@ public class Bank{
 		password = scan.nextLine();
 		for (User u : userList)
 		{
-			if (u.getUsername().equals(username) && u.getPassword().equals(password))
+			String decodedPass = PasswordEncryption.decodePassword((u.getPassword()));
+			if (u.getUsername().equals(username) && decodedPass.equals(password))
 			{
 				currentUser = u;
 				break;
