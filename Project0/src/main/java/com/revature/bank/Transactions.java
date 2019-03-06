@@ -1,6 +1,12 @@
 package com.revature.bank;
 
+import java.util.List;
 import java.util.Scanner;
+
+import com.revature.dao.AccountDao;
+import com.revature.dao.AccountDaoImplementation;
+import com.revature.dao.MemberDao;
+import com.revature.dao.MemberDaoImplementation;
 
 public class Transactions {
 	
@@ -10,8 +16,10 @@ public static Scanner sc = new Scanner(System.in);
 	
 	// login in method
 	public static void logIn() {
-		List<Memeber> = getAllMembers();
+		MemberDao md = new MemberDaoImplementation();		
+		AccountDao ad = new AccountDaoImplementation();
 		
+		List<Member> members = md.getAllMembers();
 		
 		System.out.println("Login\n-----");
 		System.out.print("Username: ");

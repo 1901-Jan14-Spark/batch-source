@@ -68,7 +68,7 @@ public class AccountDaoImplementation implements AccountDao {
 
 	@Override
 	public void makeDeposit(String accountNumber, String accountType, double depositAmount) {
-		String sql = "{CALL MAKE_DEPOSIT(?,?,?)}";
+		String sql = "{call MAKE_DEPOSIT(?,?,?)}";
 		
 		try(Connection c = ConnectionUtil.getConnection();
 				CallableStatement cs = c.prepareCall(sql)){
@@ -84,7 +84,7 @@ public class AccountDaoImplementation implements AccountDao {
 
 	@Override
 	public void makeWithdrawal(String accountNumber, String accountType, double withdrawalAmount) {
-		String sql = "{CALL MAKE_WITHDRAWAL(?,?,?)}";
+		String sql = "{call MAKE_WITHDRAWAL(?,?,?)}";
 
 		try(Connection c = ConnectionUtil.getConnection();
 				CallableStatement cs = c.prepareCall(sql)){

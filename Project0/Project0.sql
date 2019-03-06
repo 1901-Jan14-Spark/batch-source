@@ -36,7 +36,7 @@ END;
 COMMIT;
 
 BEGIN
-    MAKE_DEPOSIT(17263238, 'Savings', 99.00);
+    MAKE_DEPOSIT(17263238, 'Savings', 99.99);
     MAKE_DEPOSIT(17263238, 'Checkings', 150.75); 
 END;
 /
