@@ -23,11 +23,16 @@ public class UserDaoImpl implements UserDao{
 			ps.setString(1, userName);
 			ResultSet rs = ps.executeQuery();
 			
-			rs.next();
-			String uName = rs.getString("USER_NAME");
-			uo.setUsername(uName);
-			String pass = rs.getString("USER_PASS");
-			uo.setPassword(pass);
+			if(rs.next()) {
+				String uName = rs.getString("USER_NAME");
+				uo.setUsername(uName);
+				String pass = rs.getString("USER_PASS");
+				uo.setPassword(pass);
+			}
+			else {
+				uo.setUsername("");
+				uo.setPassword("");
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -22,6 +22,7 @@ public class Transaction {
 		log.info("\nConfirm deposit amount: "+amount+" (y/n)?");
 		confirm = scan.nextLine();
 		if(confirm.equals("y")||confirm.equals("yes")) {
+			log.info("Processing, please wait.");
 			String sql = "{call DEPOSIT(?,?,?)}";
 			try(Connection con = ConnectionUtil.getConnection();
 					CallableStatement cs = con.prepareCall(sql)){
@@ -54,6 +55,7 @@ public class Transaction {
 		log.info("\nConfirm withdraw amount: "+amount+" (y/n)?");
 		confirm = scan.nextLine();
 		if(confirm.equals("y")||confirm.equals("yes")) {
+			log.info("Processing, please wait.");
 			String sql = "{call WITHDRAW(?,?,?)}";
 			try(Connection con = ConnectionUtil.getConnection();
 					CallableStatement cs = con.prepareCall(sql)){

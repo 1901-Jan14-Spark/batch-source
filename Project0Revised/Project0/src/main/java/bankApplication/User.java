@@ -28,6 +28,7 @@ public class User {
 		log.info("\nEnter password: ");
 		password1 = scan.nextLine();
 		
+		log.info("Processing, please wait.");
 		//ensure correct password is associated with each user
 		if(confirmLogin(userName, password1)) {
 			UserAccount(userName);
@@ -37,19 +38,39 @@ public class User {
 		}
 	}
 	
+	//ensures user input at least contains letters
+	public static boolean validateString(String input) {
+		//lower case letter occurs at least once, no whitespace, must have at least 1 character
+		if(input.matches("^(?=.*[a-z])(?=\\S+$).{1,}$"))
+			return true;
+		
+		return false;
+	}
+	
+	public static boolean validatePassword(String input) {
+		//digit occurs at least once, lower case letter occurs at least once, no whitespace allowed, must have at least 3 characters/numbers
+		if(input.matches("^(?=.*[0-9])(?=.*[a-z])(?=\\S+$).{3,}$"))
+			return true;
+			
+		return false;
+	}
+	
 	public static void createUser() {
 		//allows user to choose another user name if first choice already exists
 		do {
 			log.info("\nEnter user name: ");
 			userName = scan.nextLine().toLowerCase();
+			if(validateString(userName))
+				log.info("Searching, please wait.");
+			
 			//check if user already exists in DB
 			if(doesUserExist(userName))
 				log.info("User name already exists.");
-		}while(doesUserExist(userName));
+		}while(doesUserExist(userName) || !validateString(userName));
 		
 		//if passwords don't match allow user to try again
 		do {
-			log.info("\nEnter password: ");
+			log.info("\nEnter password (must contain at least one letter, one number, and have at least 3 characters): ");
 			password1 = scan.nextLine();
 			
 			log.info("\nConfirm password: ");
@@ -57,7 +78,7 @@ public class User {
 			
 			if(!password1.equals(password2))
 				log.info("\nPasswords do not match.");
-		}while(!password1.equals(password2));
+		}while(!(password1.equals(password2)) || !validatePassword(password1));
 		store(userName, password1);
 	}
 	
@@ -99,10 +120,10 @@ public class User {
 		UserDao ud = new UserDaoImpl();
 		boolean created = ud.createUser(new UserObj(userName, encriptedPass));
 		if(created)
-			log.info("User created.");
+			log.info("\nUser created.");
 		
 		else
-			log.error("User could not be created.");
+			log.error("\nUser could not be created.");
 	}
 	
 	public static void UserAccount(String userName) {

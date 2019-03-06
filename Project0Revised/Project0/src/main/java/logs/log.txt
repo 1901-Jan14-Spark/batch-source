@@ -1570,3 +1570,1411 @@ Successfully logged out.
 2019-03-04 23:44:21 INFO  UserMenu:36 method: main - 
 Goodbye.
 
+2019-03-05 18:38:36 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 18:38:37 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 18:38:37 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 18:38:37 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 18:38:37 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 18:38:56 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 18:38:56 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 18:38:56 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 18:38:56 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 18:38:56 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 18:39:01 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 18:39:01 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 18:39:01 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 18:39:01 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 18:39:01 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 18:39:08 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 18:39:08 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 18:39:08 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 18:39:08 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 18:39:08 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 18:39:11 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 18:39:11 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 18:39:11 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 18:39:11 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 18:39:11 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 18:39:12 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 18:39:12 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 18:39:25 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 18:43:20 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 18:43:20 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 18:43:20 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 18:43:20 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 18:43:20 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:00:45 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:00:45 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:00:45 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:00:45 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:00:45 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:00:47 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 19:00:47 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 19:00:49 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 19:01:13 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:01:13 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:01:13 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:01:13 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:01:13 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:01:15 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 19:01:15 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 19:01:16 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 19:01:21 INFO  User:109 method: UserAccount - 
+Successfully logged in.
+2019-03-05 19:01:21 INFO  User:112 method: UserAccount - Welcome andy
+2019-03-05 19:01:21 INFO  User:114 method: UserAccount - Current balance: $53.42
+2019-03-05 19:01:21 INFO  User:116 method: UserAccount - 
+Please select an option:
+2019-03-05 19:01:21 INFO  User:117 method: UserAccount - (d) Deposit.
+2019-03-05 19:01:21 INFO  User:118 method: UserAccount - (w) Withdraw.
+2019-03-05 19:01:21 INFO  User:119 method: UserAccount - (l) Log out.
+2019-03-05 19:01:23 INFO  User:133 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 19:01:23 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:01:23 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:01:23 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:01:23 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:01:25 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 19:01:34 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:01:34 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:01:34 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:01:34 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:01:34 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:01:36 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 19:01:36 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 19:01:39 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 19:07:39 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:07:39 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:07:39 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:07:39 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:07:39 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:07:41 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 19:07:41 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 19:07:43 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 19:07:51 INFO  User:36 method: verifyUser - 
+User name and/or password is incorrect.
+2019-03-05 19:07:51 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:07:51 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:07:51 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:07:51 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:07:55 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 19:09:59 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:09:59 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:09:59 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:09:59 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:09:59 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:10:01 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 19:10:01 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:11:31 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:11:31 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:11:31 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:11:31 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:11:31 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:11:33 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 19:11:33 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:11:52 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:12:00 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:12:04 INFO  User:102 method: store - User created.
+2019-03-05 19:12:04 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:12:04 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:12:04 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:12:04 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:12:06 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 19:12:06 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 19:12:08 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 19:12:10 INFO  User:109 method: UserAccount - 
+Successfully logged in.
+2019-03-05 19:12:10 INFO  User:112 method: UserAccount - Welcome 432
+2019-03-05 19:12:10 INFO  User:114 method: UserAccount - Current balance: $0.0
+2019-03-05 19:12:10 INFO  User:116 method: UserAccount - 
+Please select an option:
+2019-03-05 19:12:10 INFO  User:117 method: UserAccount - (d) Deposit.
+2019-03-05 19:12:10 INFO  User:118 method: UserAccount - (w) Withdraw.
+2019-03-05 19:12:10 INFO  User:119 method: UserAccount - (l) Log out.
+2019-03-05 19:12:14 INFO  User:133 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 19:12:14 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:12:14 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:12:14 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:12:14 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:12:15 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 19:13:29 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:13:29 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:13:29 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:13:29 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:13:29 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:13:33 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 19:13:33 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:13:37 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:13:41 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:13:42 ERROR User:105 method: store - User could not be created.
+2019-03-05 19:13:42 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:13:42 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:13:42 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:13:42 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:18:01 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:18:01 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:18:01 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:18:01 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:18:01 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:18:03 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 19:18:03 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:18:08 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:18:09 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:18:11 ERROR User:105 method: store - User could not be created.
+2019-03-05 19:18:11 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:18:11 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:18:11 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:18:11 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:20:00 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:20:00 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:20:00 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:20:00 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:20:00 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:20:02 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 19:20:02 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:20:06 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:20:08 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:20:13 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:20:23 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:20:27 INFO  User:102 method: store - User created.
+2019-03-05 19:20:27 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:20:27 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:20:27 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:20:27 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:20:30 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 19:20:30 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 19:20:33 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 19:20:37 INFO  User:36 method: verifyUser - 
+User name and/or password is incorrect.
+2019-03-05 19:20:37 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:20:37 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:20:37 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:20:37 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:20:41 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 19:20:41 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:20:45 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:20:46 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:20:47 INFO  User:102 method: store - User created.
+2019-03-05 19:20:47 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:20:47 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:20:47 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:20:47 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:20:49 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 19:29:29 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:29:29 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:29:29 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:29:29 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:29:29 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:29:31 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 19:29:31 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:29:40 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:29:43 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:29:46 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:29:48 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:29:49 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:29:50 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:29:52 INFO  User:102 method: store - User created.
+2019-03-05 19:29:52 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:29:52 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:29:52 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:29:52 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:29:54 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 19:31:00 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:31:00 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:31:00 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:31:00 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:31:00 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:31:02 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 19:31:02 INFO  User:43 method: createUser - 
+Enter user name: 
+2019-03-05 19:31:08 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:31:14 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:31:15 INFO  User:59 method: createUser - 
+Passwords do not match.
+2019-03-05 19:31:15 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:31:18 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:31:18 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:31:22 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:31:23 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:31:24 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:31:25 INFO  User:52 method: createUser - 
+Enter password: 
+2019-03-05 19:31:29 INFO  User:55 method: createUser - 
+Confirm password: 
+2019-03-05 19:31:32 INFO  User:102 method: store - User created.
+2019-03-05 19:31:32 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:31:32 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:31:32 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:31:32 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:31:33 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 19:34:51 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 19:34:51 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 19:34:51 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 19:34:51 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 19:34:51 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 19:48:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:48:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:48:43 INFO  Transaction:96 method: validateDouble - Enter a positive number: 
+2019-03-05 19:48:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:48:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:48:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:48:43 INFO  Transaction:90 method: validateDouble - Invalid input.
+2019-03-05 19:48:43 INFO  Transaction:91 method: validateDouble - Enter a number: 
+2019-03-05 19:48:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:10 INFO  Transaction:96 method: validateDouble - Enter a positive number: 
+2019-03-05 19:49:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:10 INFO  Transaction:90 method: validateDouble - Invalid input.
+2019-03-05 19:49:10 INFO  Transaction:91 method: validateDouble - Enter a number: 
+2019-03-05 19:49:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:21 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:21 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:21 INFO  Transaction:96 method: validateDouble - Enter a positive number: 
+2019-03-05 19:49:21 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:21 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:21 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:49:21 INFO  Transaction:90 method: validateDouble - Invalid input.
+2019-03-05 19:49:21 INFO  Transaction:91 method: validateDouble - Enter a number: 
+2019-03-05 19:49:21 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:56:58 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:56:58 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:56:58 INFO  Transaction:96 method: validateDouble - Enter a positive number: 
+2019-03-05 19:56:58 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:56:58 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:56:58 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:56:58 INFO  Transaction:90 method: validateDouble - Invalid input.
+2019-03-05 19:56:58 INFO  Transaction:91 method: validateDouble - Enter a number: 
+2019-03-05 19:56:58 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:17 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:18 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:18 INFO  Transaction:96 method: validateDouble - Enter a positive number: 
+2019-03-05 19:57:18 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:18 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:18 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:18 INFO  Transaction:90 method: validateDouble - Invalid input.
+2019-03-05 19:57:18 INFO  Transaction:91 method: validateDouble - Enter a number: 
+2019-03-05 19:57:18 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:40 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:40 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:40 INFO  Transaction:96 method: validateDouble - Enter a positive number: 
+2019-03-05 19:57:40 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:40 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:40 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:57:40 INFO  Transaction:90 method: validateDouble - Invalid input.
+2019-03-05 19:57:40 INFO  Transaction:91 method: validateDouble - Enter a number: 
+2019-03-05 19:57:40 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:58:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:58:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:58:43 INFO  Transaction:96 method: validateDouble - Enter a positive number: 
+2019-03-05 19:58:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:58:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:58:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 19:58:43 INFO  Transaction:90 method: validateDouble - Invalid input.
+2019-03-05 19:58:43 INFO  Transaction:91 method: validateDouble - Enter a number: 
+2019-03-05 19:58:43 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:01:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:01:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:01:10 INFO  Transaction:96 method: validateDouble - Enter a positive number: 
+2019-03-05 20:01:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:01:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:01:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:01:10 INFO  Transaction:90 method: validateDouble - Invalid input.
+2019-03-05 20:01:10 INFO  Transaction:91 method: validateDouble - Enter a number: 
+2019-03-05 20:01:10 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:02:42 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:02:42 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:02:42 INFO  Transaction:96 method: validateDouble - Enter a positive number: 
+2019-03-05 20:02:42 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:02:42 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:02:42 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:02:42 INFO  Transaction:90 method: validateDouble - Invalid input.
+2019-03-05 20:02:42 INFO  Transaction:91 method: validateDouble - Enter a number: 
+2019-03-05 20:02:42 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:05:00 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:05:00 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:05:00 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:05:00 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:05:00 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:05:03 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:05:03 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:05:08 INFO  User:60 method: createUser - 
+Enter password: 
+2019-03-05 20:05:09 INFO  User:63 method: createUser - 
+Confirm password: 
+2019-03-05 20:05:10 INFO  User:60 method: createUser - 
+Enter password: 
+2019-03-05 20:05:12 INFO  User:63 method: createUser - 
+Confirm password: 
+2019-03-05 20:05:13 INFO  User:60 method: createUser - 
+Enter password: 
+2019-03-05 20:05:31 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:05:31 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:05:31 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:05:31 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:05:31 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:05:32 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:05:32 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:05:44 INFO  User:60 method: createUser - 
+Enter password: 
+2019-03-05 20:06:17 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:06:17 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:06:17 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:06:17 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:06:17 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:06:19 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:06:19 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:06:23 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:06:27 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:06:29 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:06:30 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:08:17 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:08:17 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:08:17 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:08:17 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:08:17 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:08:20 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:08:20 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:08:27 INFO  User:60 method: createUser - 
+Enter password: 
+2019-03-05 20:08:28 INFO  User:63 method: createUser - 
+Confirm password: 
+2019-03-05 20:08:29 INFO  User:60 method: createUser - 
+Enter password: 
+2019-03-05 20:08:31 INFO  User:63 method: createUser - 
+Confirm password: 
+2019-03-05 20:08:32 INFO  User:67 method: createUser - 
+Passwords do not match.
+2019-03-05 20:08:32 INFO  User:60 method: createUser - 
+Enter password: 
+2019-03-05 20:08:34 INFO  User:63 method: createUser - 
+Confirm password: 
+2019-03-05 20:08:34 INFO  User:60 method: createUser - 
+Enter password: 
+2019-03-05 20:09:17 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:09:17 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:09:17 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:09:17 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:09:17 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:09:18 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:09:18 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:09:27 INFO  User:60 method: createUser - 
+Enter password (must contain at least one letter: 
+2019-03-05 20:09:44 INFO  User:63 method: createUser - 
+Confirm password: 
+2019-03-05 20:09:46 INFO  User:110 method: store - User created.
+2019-03-05 20:09:46 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:09:46 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:09:46 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:09:46 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:09:51 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 20:09:51 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 20:09:52 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 20:09:54 INFO  User:117 method: UserAccount - 
+Successfully logged in.
+2019-03-05 20:09:54 INFO  User:120 method: UserAccount - Welcome freddy
+2019-03-05 20:09:55 INFO  User:122 method: UserAccount - Current balance: $0.0
+2019-03-05 20:09:55 INFO  User:124 method: UserAccount - 
+Please select an option:
+2019-03-05 20:09:55 INFO  User:125 method: UserAccount - (d) Deposit.
+2019-03-05 20:09:55 INFO  User:126 method: UserAccount - (w) Withdraw.
+2019-03-05 20:09:55 INFO  User:127 method: UserAccount - (l) Log out.
+2019-03-05 20:09:59 INFO  User:141 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 20:09:59 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:09:59 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:09:59 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:09:59 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:10:00 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 20:10:41 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:10:41 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:10:41 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:10:41 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:10:41 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:10:43 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:10:43 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:10:48 INFO  User:60 method: createUser - 
+Enter password (must contain at least one letter): 
+2019-03-05 20:10:48 INFO  User:63 method: createUser - 
+Confirm password: 
+2019-03-05 20:10:57 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:10:57 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:10:57 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:10:57 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:10:57 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:11:00 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:11:00 INFO  User:51 method: createUser - 
+Enter user name: 
+2019-03-05 20:11:04 INFO  User:60 method: createUser - 
+Enter password (must contain at least one letter): 
+2019-03-05 20:11:07 INFO  User:63 method: createUser - 
+Confirm password: 
+2019-03-05 20:11:10 INFO  User:110 method: store - User created.
+2019-03-05 20:11:10 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:11:10 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:11:10 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:11:10 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:11:13 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 20:11:13 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 20:11:14 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 20:11:17 INFO  User:117 method: UserAccount - 
+Successfully logged in.
+2019-03-05 20:11:17 INFO  User:120 method: UserAccount - Welcome andy
+2019-03-05 20:11:17 INFO  User:122 method: UserAccount - Current balance: $0.0
+2019-03-05 20:11:17 INFO  User:124 method: UserAccount - 
+Please select an option:
+2019-03-05 20:11:17 INFO  User:125 method: UserAccount - (d) Deposit.
+2019-03-05 20:11:17 INFO  User:126 method: UserAccount - (w) Withdraw.
+2019-03-05 20:11:17 INFO  User:127 method: UserAccount - (l) Log out.
+2019-03-05 20:11:20 INFO  User:131 method: UserAccount - 
+Deposit option selected.
+2019-03-05 20:11:20 INFO  Transaction:85 method: validateDouble - Enter amount: 
+2019-03-05 20:11:22 INFO  Transaction:22 method: deposit - 
+Confirm deposit amount: 83.0 (y/n)?
+2019-03-05 20:11:24 INFO  Transaction:42 method: deposit - 
+83.0 Successfully deposited.
+2019-03-05 20:11:24 INFO  User:120 method: UserAccount - Welcome andy
+2019-03-05 20:11:25 INFO  User:122 method: UserAccount - Current balance: $83.0
+2019-03-05 20:11:25 INFO  User:124 method: UserAccount - 
+Please select an option:
+2019-03-05 20:11:25 INFO  User:125 method: UserAccount - (d) Deposit.
+2019-03-05 20:11:25 INFO  User:126 method: UserAccount - (w) Withdraw.
+2019-03-05 20:11:25 INFO  User:127 method: UserAccount - (l) Log out.
+2019-03-05 20:11:28 INFO  User:141 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 20:11:28 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:11:28 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:11:28 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:11:28 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:11:28 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 20:14:05 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:14:05 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:14:05 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:14:05 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:14:05 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:14:08 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 20:14:08 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 20:14:11 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 20:14:16 INFO  User:118 method: UserAccount - 
+Successfully logged in.
+2019-03-05 20:14:16 INFO  User:121 method: UserAccount - Welcome freddy
+2019-03-05 20:14:17 INFO  User:123 method: UserAccount - Current balance: $0.0
+2019-03-05 20:14:17 INFO  User:125 method: UserAccount - 
+Please select an option:
+2019-03-05 20:14:17 INFO  User:126 method: UserAccount - (d) Deposit.
+2019-03-05 20:14:17 INFO  User:127 method: UserAccount - (w) Withdraw.
+2019-03-05 20:14:17 INFO  User:128 method: UserAccount - (l) Log out.
+2019-03-05 20:14:23 INFO  User:132 method: UserAccount - 
+Deposit option selected.
+2019-03-05 20:14:23 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:14:28 INFO  Transaction:22 method: deposit - 
+Confirm deposit amount: 100.0 (y/n)?
+2019-03-05 20:14:29 INFO  Transaction:25 method: deposit - Processing, please wait.
+2019-03-05 20:14:30 INFO  Transaction:43 method: deposit - 
+100.0 Successfully deposited.
+2019-03-05 20:14:30 INFO  User:121 method: UserAccount - Welcome freddy
+2019-03-05 20:14:30 INFO  User:123 method: UserAccount - Current balance: $100.0
+2019-03-05 20:14:30 INFO  User:125 method: UserAccount - 
+Please select an option:
+2019-03-05 20:14:30 INFO  User:126 method: UserAccount - (d) Deposit.
+2019-03-05 20:14:30 INFO  User:127 method: UserAccount - (w) Withdraw.
+2019-03-05 20:14:30 INFO  User:128 method: UserAccount - (l) Log out.
+2019-03-05 20:14:36 INFO  User:137 method: UserAccount - 
+Withdraw option selected.
+2019-03-05 20:14:36 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:14:39 INFO  Transaction:55 method: withdraw - 
+Confirm withdraw amount: 37.0 (y/n)?
+2019-03-05 20:14:41 INFO  Transaction:58 method: withdraw - Processing, please wait.
+2019-03-05 20:14:41 INFO  Transaction:77 method: withdraw - 
+37.0 Successfully withdrawn.
+2019-03-05 20:14:41 INFO  User:121 method: UserAccount - Welcome freddy
+2019-03-05 20:14:42 INFO  User:123 method: UserAccount - Current balance: $63.0
+2019-03-05 20:14:42 INFO  User:125 method: UserAccount - 
+Please select an option:
+2019-03-05 20:14:42 INFO  User:126 method: UserAccount - (d) Deposit.
+2019-03-05 20:14:42 INFO  User:127 method: UserAccount - (w) Withdraw.
+2019-03-05 20:14:42 INFO  User:128 method: UserAccount - (l) Log out.
+2019-03-05 20:14:44 INFO  User:142 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 20:14:44 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:14:44 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:14:44 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:14:44 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:14:46 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 20:15:27 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:15:27 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:15:27 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:15:27 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:15:27 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:15:28 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 20:15:28 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 20:15:30 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 20:15:31 INFO  User:31 method: verifyUser - Loading, please wait.
+2019-03-05 20:15:34 INFO  User:119 method: UserAccount - 
+Successfully logged in.
+2019-03-05 20:15:34 INFO  User:122 method: UserAccount - Welcome andy
+2019-03-05 20:15:34 INFO  User:124 method: UserAccount - Current balance: $83.0
+2019-03-05 20:15:34 INFO  User:126 method: UserAccount - 
+Please select an option:
+2019-03-05 20:15:34 INFO  User:127 method: UserAccount - (d) Deposit.
+2019-03-05 20:15:34 INFO  User:128 method: UserAccount - (w) Withdraw.
+2019-03-05 20:15:34 INFO  User:129 method: UserAccount - (l) Log out.
+2019-03-05 20:15:37 INFO  User:143 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 20:15:37 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:15:37 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:15:37 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:15:37 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:15:38 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 20:15:57 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:15:57 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:15:57 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:15:57 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:15:57 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:15:59 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:15:59 INFO  User:52 method: createUser - 
+Enter user name: 
+2019-03-05 20:16:04 INFO  User:54 method: createUser - Searching, please wait.
+2019-03-05 20:16:07 INFO  User:62 method: createUser - 
+Enter password (must contain at least one letter): 
+2019-03-05 20:16:15 INFO  User:65 method: createUser - 
+Confirm password: 
+2019-03-05 20:16:20 INFO  User:112 method: store - User created.
+2019-03-05 20:16:20 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:16:20 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:16:20 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:16:20 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:16:26 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 20:16:26 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 20:16:38 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 20:16:42 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 20:16:42 INFO  User:119 method: UserAccount - 
+Successfully logged in.
+2019-03-05 20:16:42 INFO  User:122 method: UserAccount - Welcome sally
+2019-03-05 20:16:42 INFO  User:124 method: UserAccount - Current balance: $0.0
+2019-03-05 20:16:42 INFO  User:126 method: UserAccount - 
+Please select an option:
+2019-03-05 20:16:42 INFO  User:127 method: UserAccount - (d) Deposit.
+2019-03-05 20:16:42 INFO  User:128 method: UserAccount - (w) Withdraw.
+2019-03-05 20:16:42 INFO  User:129 method: UserAccount - (l) Log out.
+2019-03-05 20:16:44 INFO  User:133 method: UserAccount - 
+Deposit option selected.
+2019-03-05 20:16:44 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:16:50 INFO  Transaction:22 method: deposit - 
+Confirm deposit amount: 34.55 (y/n)?
+2019-03-05 20:16:51 INFO  Transaction:25 method: deposit - Processing, please wait.
+2019-03-05 20:16:52 INFO  Transaction:43 method: deposit - 
+34.55 Successfully deposited.
+2019-03-05 20:16:52 INFO  User:122 method: UserAccount - Welcome sally
+2019-03-05 20:16:52 INFO  User:124 method: UserAccount - Current balance: $34.55
+2019-03-05 20:16:52 INFO  User:126 method: UserAccount - 
+Please select an option:
+2019-03-05 20:16:52 INFO  User:127 method: UserAccount - (d) Deposit.
+2019-03-05 20:16:52 INFO  User:128 method: UserAccount - (w) Withdraw.
+2019-03-05 20:16:52 INFO  User:129 method: UserAccount - (l) Log out.
+2019-03-05 20:16:55 INFO  User:138 method: UserAccount - 
+Withdraw option selected.
+2019-03-05 20:16:55 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:17:03 INFO  Transaction:55 method: withdraw - 
+Confirm withdraw amount: 5.99 (y/n)?
+2019-03-05 20:17:05 INFO  Transaction:58 method: withdraw - Processing, please wait.
+2019-03-05 20:17:05 INFO  Transaction:77 method: withdraw - 
+5.99 Successfully withdrawn.
+2019-03-05 20:17:05 INFO  User:122 method: UserAccount - Welcome sally
+2019-03-05 20:17:05 INFO  User:124 method: UserAccount - Current balance: $28.56
+2019-03-05 20:17:05 INFO  User:126 method: UserAccount - 
+Please select an option:
+2019-03-05 20:17:05 INFO  User:127 method: UserAccount - (d) Deposit.
+2019-03-05 20:17:05 INFO  User:128 method: UserAccount - (w) Withdraw.
+2019-03-05 20:17:05 INFO  User:129 method: UserAccount - (l) Log out.
+2019-03-05 20:17:10 INFO  User:143 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 20:17:10 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:17:10 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:17:10 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:17:10 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:17:11 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 20:18:49 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:18:49 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:18:49 INFO  Transaction:98 method: validateDouble - Enter a positive number: 
+2019-03-05 20:18:49 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:18:49 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:18:49 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:18:49 INFO  Transaction:92 method: validateDouble - Invalid input.
+2019-03-05 20:18:49 INFO  Transaction:93 method: validateDouble - Enter a number: 
+2019-03-05 20:18:49 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:34:31 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:34:31 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:34:31 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:34:31 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:34:31 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:34:40 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 20:34:40 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:34:40 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:34:40 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:34:40 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:34:45 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 20:34:45 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:34:45 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:34:45 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:34:45 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:34:51 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 20:34:51 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:34:51 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:34:51 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:34:51 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:35:21 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 20:35:21 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:35:21 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:35:21 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:35:21 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:35:22 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 20:35:22 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:35:22 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:35:22 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:35:22 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:35:22 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 20:35:36 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:35:36 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:35:36 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:35:36 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:35:36 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:35:51 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 20:35:51 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:35:51 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:35:51 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:35:51 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:35:57 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:35:57 INFO  User:52 method: createUser - 
+Enter user name: 
+2019-03-05 20:36:02 INFO  User:54 method: createUser - Searching, please wait.
+2019-03-05 20:36:06 INFO  User:62 method: createUser - 
+Enter password (must contain at least one letter): 
+2019-03-05 20:36:18 INFO  User:65 method: createUser - 
+Confirm password: 
+2019-03-05 20:36:24 INFO  User:69 method: createUser - 
+Passwords do not match.
+2019-03-05 20:36:24 INFO  User:62 method: createUser - 
+Enter password (must contain at least one letter): 
+2019-03-05 20:36:34 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 20:36:34 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:36:34 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:36:34 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:36:34 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:36:40 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 20:36:40 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:36:40 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:36:40 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:36:40 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:36:47 INFO  UserMenu:40 method: main - Invalid selection.
+2019-03-05 20:36:47 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:36:47 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:36:47 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:36:47 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:36:56 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 20:36:56 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 20:37:06 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 20:37:11 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 20:37:15 INFO  User:37 method: verifyUser - 
+User name and/or password is incorrect.
+2019-03-05 20:37:15 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:37:15 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:37:15 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:37:15 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:37:18 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 20:37:18 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 20:37:19 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 20:37:22 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 20:37:22 INFO  User:37 method: verifyUser - 
+User name and/or password is incorrect.
+2019-03-05 20:37:22 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:37:22 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:37:22 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:37:22 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:37:29 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 20:37:29 INFO  User:52 method: createUser - 
+Enter user name: 
+2019-03-05 20:38:17 INFO  User:54 method: createUser - Searching, please wait.
+2019-03-05 20:38:18 INFO  User:62 method: createUser - 
+Enter password (must contain at least one letter): 
+2019-03-05 20:38:22 INFO  User:65 method: createUser - 
+Confirm password: 
+2019-03-05 20:38:24 INFO  User:112 method: store - 
+User created.
+2019-03-05 20:38:24 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 20:38:24 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 20:38:24 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 20:38:24 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 20:38:29 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 20:38:29 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 20:38:32 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 20:38:34 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 20:38:34 INFO  User:119 method: UserAccount - 
+Successfully logged in.
+2019-03-05 20:38:34 INFO  User:122 method: UserAccount - Welcome username
+2019-03-05 20:38:35 INFO  User:124 method: UserAccount - Current balance: $0.0
+2019-03-05 20:38:35 INFO  User:126 method: UserAccount - 
+Please select an option:
+2019-03-05 20:38:35 INFO  User:127 method: UserAccount - (d) Deposit.
+2019-03-05 20:38:35 INFO  User:128 method: UserAccount - (w) Withdraw.
+2019-03-05 20:38:35 INFO  User:129 method: UserAccount - (l) Log out.
+2019-03-05 20:38:46 INFO  User:133 method: UserAccount - 
+Deposit option selected.
+2019-03-05 20:38:46 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:39:03 INFO  Transaction:22 method: deposit - 
+Confirm deposit amount: 32.0 (y/n)?
+2019-03-05 20:39:08 INFO  User:122 method: UserAccount - Welcome username
+2019-03-05 20:39:08 INFO  User:124 method: UserAccount - Current balance: $0.0
+2019-03-05 20:39:08 INFO  User:126 method: UserAccount - 
+Please select an option:
+2019-03-05 20:39:08 INFO  User:127 method: UserAccount - (d) Deposit.
+2019-03-05 20:39:08 INFO  User:128 method: UserAccount - (w) Withdraw.
+2019-03-05 20:39:08 INFO  User:129 method: UserAccount - (l) Log out.
+2019-03-05 20:39:15 INFO  User:138 method: UserAccount - 
+Withdraw option selected.
+2019-03-05 20:39:15 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:39:28 INFO  Transaction:92 method: validateDouble - Invalid input.
+2019-03-05 20:39:28 INFO  Transaction:93 method: validateDouble - Enter a number: 
+2019-03-05 20:42:02 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:42:02 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:42:02 INFO  Transaction:98 method: validateDouble - Enter a positive number: 
+2019-03-05 20:42:02 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:42:02 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:42:02 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 20:42:02 INFO  Transaction:92 method: validateDouble - Invalid input.
+2019-03-05 20:42:02 INFO  Transaction:93 method: validateDouble - Enter a number: 
+2019-03-05 20:42:02 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:29:32 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:29:32 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:29:32 INFO  Transaction:98 method: validateDouble - Enter a positive number: 
+2019-03-05 21:29:32 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:29:32 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:29:32 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:29:32 INFO  Transaction:92 method: validateDouble - Invalid input.
+2019-03-05 21:29:32 INFO  Transaction:93 method: validateDouble - Enter a number: 
+2019-03-05 21:29:32 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:41:26 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:41:26 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:41:26 INFO  Transaction:98 method: validateDouble - Enter a positive number: 
+2019-03-05 21:41:26 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:41:26 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:41:27 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:41:27 INFO  Transaction:92 method: validateDouble - Invalid input.
+2019-03-05 21:41:27 INFO  Transaction:93 method: validateDouble - Enter a number: 
+2019-03-05 21:41:27 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:41:33 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 21:41:33 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:41:33 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:41:33 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:41:33 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:41:35 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 21:41:35 INFO  User:62 method: createUser - 
+Enter user name: 
+2019-03-05 21:41:36 INFO  User:64 method: createUser - Searching, please wait.
+2019-03-05 21:41:42 INFO  User:62 method: createUser - 
+Enter user name: 
+2019-03-05 21:41:44 INFO  User:64 method: createUser - Searching, please wait.
+2019-03-05 21:41:45 INFO  User:62 method: createUser - 
+Enter user name: 
+2019-03-05 21:42:55 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 21:42:55 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:42:55 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:42:55 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:42:55 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:42:56 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 21:42:56 INFO  User:62 method: createUser - 
+Enter user name: 
+2019-03-05 21:43:00 INFO  User:62 method: createUser - 
+Enter user name: 
+2019-03-05 21:43:03 INFO  User:62 method: createUser - 
+Enter user name: 
+2019-03-05 21:43:09 INFO  User:65 method: createUser - Searching, please wait.
+2019-03-05 21:43:10 INFO  User:74 method: createUser - 
+Enter password (must contain at least one letter, one capital letter, one number, and have at least 3 characters): 
+2019-03-05 21:43:21 INFO  User:77 method: createUser - 
+Confirm password: 
+2019-03-05 21:43:24 INFO  User:74 method: createUser - 
+Enter password (must contain at least one letter, one capital letter, one number, and have at least 3 characters): 
+2019-03-05 21:43:33 INFO  User:77 method: createUser - 
+Confirm password: 
+2019-03-05 21:43:39 INFO  User:124 method: store - 
+User created.
+2019-03-05 21:43:39 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:43:39 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:43:39 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:43:39 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:43:42 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 21:44:07 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 21:44:07 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:44:07 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:44:07 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:44:07 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:44:09 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 21:44:09 INFO  User:62 method: createUser - 
+Enter user name: 
+2019-03-05 21:44:11 INFO  User:65 method: createUser - Searching, please wait.
+2019-03-05 21:44:14 INFO  User:74 method: createUser - 
+Enter password (must contain at least one letter, one capital letter, one number, and have at least 3 characters): 
+2019-03-05 21:44:29 INFO  User:77 method: createUser - 
+Confirm password: 
+2019-03-05 21:44:34 INFO  User:124 method: store - 
+User created.
+2019-03-05 21:44:34 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:44:34 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:44:34 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:44:34 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:44:37 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 21:44:37 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 21:44:41 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 21:44:45 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 21:44:46 INFO  User:37 method: verifyUser - 
+User name and/or password is incorrect.
+2019-03-05 21:44:46 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:44:46 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:44:46 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:44:46 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:46:34 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 21:46:34 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 21:46:36 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 21:46:39 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 21:46:40 INFO  User:131 method: UserAccount - 
+Successfully logged in.
+2019-03-05 21:46:40 INFO  User:134 method: UserAccount - Welcome freddy
+2019-03-05 21:46:40 INFO  User:136 method: UserAccount - Current balance: $0.0
+2019-03-05 21:46:40 INFO  User:138 method: UserAccount - 
+Please select an option:
+2019-03-05 21:46:40 INFO  User:139 method: UserAccount - (d) Deposit.
+2019-03-05 21:46:40 INFO  User:140 method: UserAccount - (w) Withdraw.
+2019-03-05 21:46:40 INFO  User:141 method: UserAccount - (l) Log out.
+2019-03-05 21:46:43 INFO  User:145 method: UserAccount - 
+Deposit option selected.
+2019-03-05 21:46:43 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:46:46 INFO  Transaction:22 method: deposit - 
+Confirm deposit amount: 34.55 (y/n)?
+2019-03-05 21:46:48 INFO  Transaction:25 method: deposit - Processing, please wait.
+2019-03-05 21:46:48 INFO  Transaction:43 method: deposit - 
+34.55 Successfully deposited.
+2019-03-05 21:46:48 INFO  User:134 method: UserAccount - Welcome freddy
+2019-03-05 21:46:48 INFO  User:136 method: UserAccount - Current balance: $34.55
+2019-03-05 21:46:48 INFO  User:138 method: UserAccount - 
+Please select an option:
+2019-03-05 21:46:48 INFO  User:139 method: UserAccount - (d) Deposit.
+2019-03-05 21:46:48 INFO  User:140 method: UserAccount - (w) Withdraw.
+2019-03-05 21:46:48 INFO  User:141 method: UserAccount - (l) Log out.
+2019-03-05 21:46:56 INFO  User:150 method: UserAccount - 
+Withdraw option selected.
+2019-03-05 21:46:56 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:47:04 INFO  Transaction:55 method: withdraw - 
+Confirm withdraw amount: 3.5 (y/n)?
+2019-03-05 21:47:05 INFO  Transaction:58 method: withdraw - Processing, please wait.
+2019-03-05 21:47:05 INFO  Transaction:77 method: withdraw - 
+3.5 Successfully withdrawn.
+2019-03-05 21:47:05 INFO  User:134 method: UserAccount - Welcome freddy
+2019-03-05 21:47:06 INFO  User:136 method: UserAccount - Current balance: $31.05
+2019-03-05 21:47:06 INFO  User:138 method: UserAccount - 
+Please select an option:
+2019-03-05 21:47:06 INFO  User:139 method: UserAccount - (d) Deposit.
+2019-03-05 21:47:06 INFO  User:140 method: UserAccount - (w) Withdraw.
+2019-03-05 21:47:06 INFO  User:141 method: UserAccount - (l) Log out.
+2019-03-05 21:47:10 INFO  User:155 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 21:47:10 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:47:10 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:47:10 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:47:10 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:47:11 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 21:47:20 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 21:47:20 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:47:20 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:47:20 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:47:20 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:47:25 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 21:47:25 INFO  User:61 method: createUser - 
+Enter user name: 
+2019-03-05 21:47:27 INFO  User:64 method: createUser - Searching, please wait.
+2019-03-05 21:47:30 INFO  User:73 method: createUser - 
+Enter password (must contain at least one letter, one capital letter, one number, and have at least 3 characters): 
+2019-03-05 21:47:34 INFO  User:76 method: createUser - 
+Confirm password: 
+2019-03-05 21:47:47 INFO  User:123 method: store - 
+User created.
+2019-03-05 21:47:47 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:47:47 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:47:47 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:47:47 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:47:52 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 21:48:51 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 21:48:51 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:48:51 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:48:51 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:48:51 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:48:53 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 21:48:53 INFO  User:61 method: createUser - 
+Enter user name: 
+2019-03-05 21:48:57 INFO  User:64 method: createUser - Searching, please wait.
+2019-03-05 21:49:00 INFO  User:73 method: createUser - 
+Enter password (must contain at least one letter, one number, and have at least 3 characters): 
+2019-03-05 21:49:08 INFO  User:76 method: createUser - 
+Confirm password: 
+2019-03-05 21:49:12 INFO  User:123 method: store - 
+User created.
+2019-03-05 21:49:12 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:49:12 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:49:12 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:49:12 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:49:15 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 21:49:15 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 21:49:19 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 21:49:22 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 21:49:23 INFO  User:130 method: UserAccount - 
+Successfully logged in.
+2019-03-05 21:49:23 INFO  User:133 method: UserAccount - Welcome sally
+2019-03-05 21:49:23 INFO  User:135 method: UserAccount - Current balance: $0.0
+2019-03-05 21:49:23 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:49:23 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:49:23 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:49:23 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:49:26 INFO  User:154 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 21:49:26 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:49:26 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:49:26 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:49:26 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:49:26 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 21:50:24 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:50:24 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:50:24 INFO  Transaction:98 method: validateDouble - Enter a positive number: 
+2019-03-05 21:50:24 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:50:24 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:50:24 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:50:24 INFO  Transaction:92 method: validateDouble - Invalid input.
+2019-03-05 21:50:24 INFO  Transaction:93 method: validateDouble - Enter a number: 
+2019-03-05 21:50:24 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:50:40 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 21:50:40 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:50:40 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:50:40 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:50:40 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:50:42 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 21:50:42 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 21:50:44 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 21:50:46 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 21:50:49 INFO  User:130 method: UserAccount - 
+Successfully logged in.
+2019-03-05 21:50:49 INFO  User:133 method: UserAccount - Welcome andy
+2019-03-05 21:50:49 INFO  User:135 method: UserAccount - Current balance: $0.0
+2019-03-05 21:50:49 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:50:49 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:50:49 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:50:49 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:50:54 INFO  User:144 method: UserAccount - 
+Deposit option selected.
+2019-03-05 21:50:54 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:50:56 INFO  Transaction:22 method: deposit - 
+Confirm deposit amount: 83.0 (y/n)?
+2019-03-05 21:50:58 INFO  Transaction:25 method: deposit - Processing, please wait.
+2019-03-05 21:50:58 INFO  Transaction:43 method: deposit - 
+83.0 Successfully deposited.
+2019-03-05 21:50:58 INFO  User:133 method: UserAccount - Welcome andy
+2019-03-05 21:50:59 INFO  User:135 method: UserAccount - Current balance: $83.0
+2019-03-05 21:50:59 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:50:59 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:50:59 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:50:59 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:51:02 INFO  User:149 method: UserAccount - 
+Withdraw option selected.
+2019-03-05 21:51:02 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:51:06 INFO  Transaction:98 method: validateDouble - Enter a positive number: 
+2019-03-05 21:51:06 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:51:07 INFO  Transaction:55 method: withdraw - 
+Confirm withdraw amount: 44.0 (y/n)?
+2019-03-05 21:51:09 INFO  Transaction:58 method: withdraw - Processing, please wait.
+2019-03-05 21:51:09 INFO  Transaction:77 method: withdraw - 
+44.0 Successfully withdrawn.
+2019-03-05 21:51:09 INFO  User:133 method: UserAccount - Welcome andy
+2019-03-05 21:51:10 INFO  User:135 method: UserAccount - Current balance: $39.0
+2019-03-05 21:51:10 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:51:10 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:51:10 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:51:10 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:51:12 INFO  User:149 method: UserAccount - 
+Withdraw option selected.
+2019-03-05 21:51:12 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:51:14 INFO  Transaction:55 method: withdraw - 
+Confirm withdraw amount: 100.0 (y/n)?
+2019-03-05 21:51:15 INFO  Transaction:58 method: withdraw - Processing, please wait.
+2019-03-05 21:51:16 INFO  Transaction:74 method: withdraw - 
+Unable to process: withdraw amount exceeds current balance.
+2019-03-05 21:51:16 INFO  User:133 method: UserAccount - Welcome andy
+2019-03-05 21:51:16 INFO  User:135 method: UserAccount - Current balance: $39.0
+2019-03-05 21:51:16 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:51:16 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:51:16 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:51:16 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:51:20 INFO  User:154 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 21:51:20 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:51:20 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:51:20 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:51:20 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:51:21 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 21:51:57 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 21:51:57 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:51:57 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:51:57 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:51:57 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:51:59 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 21:51:59 INFO  User:61 method: createUser - 
+Enter user name: 
+2019-03-05 21:52:09 INFO  User:61 method: createUser - 
+Enter user name: 
+2019-03-05 21:52:24 INFO  User:61 method: createUser - 
+Enter user name: 
+2019-03-05 21:52:25 INFO  User:61 method: createUser - 
+Enter user name: 
+2019-03-05 21:52:51 INFO  User:64 method: createUser - Searching, please wait.
+2019-03-05 21:52:52 INFO  User:73 method: createUser - 
+Enter password (must contain at least one letter, one number, and have at least 3 characters): 
+2019-03-05 21:53:41 INFO  User:76 method: createUser - 
+Confirm password: 
+2019-03-05 21:53:44 INFO  User:73 method: createUser - 
+Enter password (must contain at least one letter, one number, and have at least 3 characters): 
+2019-03-05 21:53:56 INFO  User:76 method: createUser - 
+Confirm password: 
+2019-03-05 21:54:00 INFO  User:123 method: store - 
+User created.
+2019-03-05 21:54:00 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:54:00 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:54:00 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:54:00 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:54:06 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 21:54:06 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 21:54:09 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 21:54:13 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 21:54:13 INFO  User:130 method: UserAccount - 
+Successfully logged in.
+2019-03-05 21:54:13 INFO  User:133 method: UserAccount - Welcome tina
+2019-03-05 21:54:13 INFO  User:135 method: UserAccount - Current balance: $0.0
+2019-03-05 21:54:13 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:54:13 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:54:13 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:54:13 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:54:16 INFO  User:144 method: UserAccount - 
+Deposit option selected.
+2019-03-05 21:54:16 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:54:30 INFO  Transaction:22 method: deposit - 
+Confirm deposit amount: 83.48 (y/n)?
+2019-03-05 21:54:33 INFO  Transaction:25 method: deposit - Processing, please wait.
+2019-03-05 21:54:34 INFO  Transaction:43 method: deposit - 
+83.48 Successfully deposited.
+2019-03-05 21:54:34 INFO  User:133 method: UserAccount - Welcome tina
+2019-03-05 21:54:34 INFO  User:135 method: UserAccount - Current balance: $83.48
+2019-03-05 21:54:34 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:54:34 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:54:34 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:54:34 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:54:37 INFO  User:154 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 21:54:37 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:54:37 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:54:37 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:54:37 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:54:38 INFO  UserMenu:36 method: main - 
+Goodbye.
+
+2019-03-05 21:54:43 INFO  UserMenu:15 method: main - Welcome.
+2019-03-05 21:54:43 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:54:43 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:54:43 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:54:43 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:54:44 INFO  UserMenu:26 method: main - 
+Create user option selected:
+2019-03-05 21:54:44 INFO  User:61 method: createUser - 
+Enter user name: 
+2019-03-05 21:54:45 INFO  User:64 method: createUser - Searching, please wait.
+2019-03-05 21:54:48 INFO  User:68 method: createUser - User name already exists.
+2019-03-05 21:54:49 INFO  User:61 method: createUser - 
+Enter user name: 
+2019-03-05 21:55:00 INFO  User:64 method: createUser - Searching, please wait.
+2019-03-05 21:55:01 INFO  User:73 method: createUser - 
+Enter password (must contain at least one letter, one number, and have at least 3 characters): 
+2019-03-05 21:55:06 INFO  User:76 method: createUser - 
+Confirm password: 
+2019-03-05 21:55:10 INFO  User:80 method: createUser - 
+Passwords do not match.
+2019-03-05 21:55:10 INFO  User:73 method: createUser - 
+Enter password (must contain at least one letter, one number, and have at least 3 characters): 
+2019-03-05 21:55:15 INFO  User:76 method: createUser - 
+Confirm password: 
+2019-03-05 21:55:18 INFO  User:123 method: store - 
+User created.
+2019-03-05 21:55:18 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:55:18 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:55:18 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:55:18 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:55:22 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 21:55:22 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 21:55:27 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 21:55:30 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 21:55:30 INFO  User:37 method: verifyUser - 
+User name and/or password is incorrect.
+2019-03-05 21:55:30 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:55:30 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:55:30 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:55:30 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:55:40 INFO  UserMenu:31 method: main - 
+Log in option selected.
+2019-03-05 21:55:40 INFO  User:26 method: verifyUser - 
+Enter user name: 
+2019-03-05 21:55:42 INFO  User:28 method: verifyUser - 
+Enter password: 
+2019-03-05 21:55:46 INFO  User:31 method: verifyUser - Processing, please wait.
+2019-03-05 21:55:46 INFO  User:130 method: UserAccount - 
+Successfully logged in.
+2019-03-05 21:55:46 INFO  User:133 method: UserAccount - Welcome calvin
+2019-03-05 21:55:46 INFO  User:135 method: UserAccount - Current balance: $0.0
+2019-03-05 21:55:46 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:55:46 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:55:47 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:55:47 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:55:49 INFO  User:144 method: UserAccount - 
+Deposit option selected.
+2019-03-05 21:55:49 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:55:54 INFO  Transaction:22 method: deposit - 
+Confirm deposit amount: 0.02 (y/n)?
+2019-03-05 21:55:55 INFO  Transaction:25 method: deposit - Processing, please wait.
+2019-03-05 21:55:55 INFO  Transaction:43 method: deposit - 
+0.02 Successfully deposited.
+2019-03-05 21:55:55 INFO  User:133 method: UserAccount - Welcome calvin
+2019-03-05 21:55:56 INFO  User:135 method: UserAccount - Current balance: $0.02
+2019-03-05 21:55:56 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:55:56 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:55:56 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:55:56 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:55:59 INFO  User:144 method: UserAccount - 
+Deposit option selected.
+2019-03-05 21:55:59 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:56:02 INFO  Transaction:22 method: deposit - 
+Confirm deposit amount: 0.5 (y/n)?
+2019-03-05 21:56:04 INFO  Transaction:25 method: deposit - Processing, please wait.
+2019-03-05 21:56:04 INFO  Transaction:43 method: deposit - 
+0.5 Successfully deposited.
+2019-03-05 21:56:04 INFO  User:133 method: UserAccount - Welcome calvin
+2019-03-05 21:56:05 INFO  User:135 method: UserAccount - Current balance: $0.52
+2019-03-05 21:56:05 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:56:05 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:56:05 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:56:05 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:56:09 INFO  User:149 method: UserAccount - 
+Withdraw option selected.
+2019-03-05 21:56:09 INFO  Transaction:87 method: validateDouble - Enter amount: 
+2019-03-05 21:56:12 INFO  Transaction:55 method: withdraw - 
+Confirm withdraw amount: 0.2 (y/n)?
+2019-03-05 21:56:14 INFO  Transaction:58 method: withdraw - Processing, please wait.
+2019-03-05 21:56:14 INFO  Transaction:77 method: withdraw - 
+0.2 Successfully withdrawn.
+2019-03-05 21:56:14 INFO  User:133 method: UserAccount - Welcome calvin
+2019-03-05 21:56:14 INFO  User:135 method: UserAccount - Current balance: $0.32
+2019-03-05 21:56:14 INFO  User:137 method: UserAccount - 
+Please select an option:
+2019-03-05 21:56:14 INFO  User:138 method: UserAccount - (d) Deposit.
+2019-03-05 21:56:14 INFO  User:139 method: UserAccount - (w) Withdraw.
+2019-03-05 21:56:14 INFO  User:140 method: UserAccount - (l) Log out.
+2019-03-05 21:56:17 INFO  User:154 method: UserAccount - 
+Successfully logged out.
+
+2019-03-05 21:56:17 INFO  UserMenu:19 method: main - Please select an option:
+2019-03-05 21:56:17 INFO  UserMenu:20 method: main - (c) Create an account.
+2019-03-05 21:56:17 INFO  UserMenu:21 method: main - (l) Log in.
+2019-03-05 21:56:17 INFO  UserMenu:22 method: main - (e) Exit.
+2019-03-05 21:56:18 INFO  UserMenu:36 method: main - 
+Goodbye.
+

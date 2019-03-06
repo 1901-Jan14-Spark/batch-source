@@ -9,6 +9,7 @@ import org.junit.*;
 import org.junit.runners.MethodSorters;
 
 import bankApplication.Transaction;
+import bankApplication.User;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TransactionTests {
@@ -67,5 +68,60 @@ public class TransactionTests {
 		assertEquals(2.0, Transaction.validateDouble(),0.01);
 		//reset "standard" input stream to default
 		System.setIn(System.in);
+	}
+	
+	@Test
+	public void testOnlyCharactersInputforValidateString() {
+		assertTrue(User.validateString("ascdfgh"));
+	}
+	
+	@Test
+	public void testOnlyNumbersInputForValidateString() {
+		assertFalse(User.validateString("019284"));
+	}
+	
+	@Test
+	public void testStringAndNumberInputForValidateString() {
+		assertTrue(User.validateString("username53"));
+	}
+	
+	@Test
+	public void testEmptyStringInputForValidateString() {
+		assertFalse(User.validateString(""));
+	}
+	
+	@Test
+	public void testOnlySpaceInputForValidateString() {
+		assertFalse(User.validateString(" "));
+	}
+	
+	@Test
+	public void testValidPotentialPasswordForValidatePassword() {
+		assertTrue(User.validatePassword("p4ssw0rd"));
+	}
+	
+	@Test
+	public void testOnlyCharactersInputForValidatePassword() {
+		assertFalse(User.validatePassword("aksldkng"));
+	}
+	
+	@Test
+	public void testOnlyNumbersInputForValidatePassword() {
+		assertFalse(User.validatePassword("93924854"));
+	}
+	
+	@Test
+	public void testTooShortInputForValidatePassword() {
+		assertFalse(User.validatePassword("A1"));
+	}
+	
+	@Test
+	public void testEmptyStringInputForValidatePassword() {
+		assertFalse(User.validatePassword(""));
+	}
+	
+	@Test
+	public void testOnlySpaceInputForValidatePassword() {
+		assertFalse(User.validatePassword(" "));
 	}
 }
