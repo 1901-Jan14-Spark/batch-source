@@ -94,7 +94,7 @@ public class Interface {
 		}
 	}
 
-	public static void login() {
+	public static boolean login() {
 		log.info("\n - Please enter your username.");
 		String userName = sc.nextLine();
 		log.info(" - Please enter your password.");
@@ -186,7 +186,9 @@ public class Interface {
 			}
 		} else {
 			log.warn("Unable to login.\n");
+			return false;
 		}
+		return true;
 	}
 
 	public static boolean makeDeposit(AccountManager2 am) {
@@ -258,7 +260,7 @@ public class Interface {
 		return true;
 	}
 
-	public static void getTransactions(AccountManager2 am) {
+	public static boolean getTransactions(AccountManager2 am) {
 		am.printAccounts();
 		log.info("Press c to cancel.");
 		String accIds = sc.nextLine();
@@ -277,7 +279,9 @@ public class Interface {
 			log.info("Transaction canceled.");
 		} else {
 			log.warn("Invalid input.\n");
+			return false;
 		}
+		return true;
 	}
 
 	public static boolean makeTransfer(AccountManager2 am) {
