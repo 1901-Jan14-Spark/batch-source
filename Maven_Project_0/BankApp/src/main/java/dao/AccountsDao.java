@@ -7,6 +7,7 @@ import models.Accounts;
 public interface AccountsDao {
 	public List<Accounts> getAccounts();
 	public Accounts getAccountByID(int id);
+	public Accounts getBalance(int id);
 	public void deposit(int a, double deposit);
 	public void withdraw(int a, double withdraw);
 	public int deleteAccount(int id);

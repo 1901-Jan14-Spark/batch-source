@@ -182,3 +182,20 @@
 2019-03-06 08:59:05 ERROR Driver:77 method: makeNew - Invalid Input Please Try Again
 2019-03-06 08:59:17 ERROR Driver:77 method: makeNew - Invalid Input Please Try Again
 2019-03-06 09:02:02 ERROR Driver:77 method: makeNew - Invalid Input Please Try Again
+2019-03-06 09:29:38 ERROR Driver:112 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-06 09:30:40 ERROR Driver:112 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-06 09:31:57 ERROR Driver:112 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-06 09:39:36 ERROR Driver:112 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-06 09:59:22 ERROR Driver:172 method: login - Username/Password Don't Match Please Try Again
+2019-03-06 09:59:29 ERROR Driver:172 method: login - Username/Password Don't Match Please Try Again
+2019-03-06 10:02:10 ERROR Driver:112 method: menu - INVALID INPUT PLEASE TRY AGAIN
+2019-03-06 10:02:25 ERROR Driver:172 method: login - Username/Password Don't Match Please Try Again
+2019-03-06 10:03:24 ERROR Driver:112 method: menu - INVALID INPUT PLEASE TRY AGAIN
+2019-03-06 10:03:46 ERROR Driver:172 method: login - Username/Password Don't Match Please Try Again
+2019-03-06 11:12:56 ERROR Driver:112 method: menu - INVALID INPUT PLEASE TRY AGAIN
+2019-03-06 11:12:58 ERROR Driver:112 method: menu - INVALID INPUT PLEASE TRY AGAIN
+2019-03-06 11:13:21 ERROR Driver:172 method: login - Username/Password Don't Match Please Try Again
+2019-03-06 11:15:35 ERROR Driver:65 method: makeNew - Invalid Input Please Try Again
+2019-03-06 11:15:43 ERROR Driver:77 method: makeNew - Invalid Input Please Try Again
+2019-03-06 11:15:55 ERROR Driver:83 method: makeNew - Invalid Input Please Try Again
+2019-03-06 11:16:38 ERROR Driver:112 method: menu - INVALID INPUT PLEASE TRY AGAIN

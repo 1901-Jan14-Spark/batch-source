@@ -20,9 +20,9 @@ public class Driver {
 	static AccountsDao ad = new AccountsDaoImpl();
 	static List<String> content = new ArrayList<>();
 	public static void main(String[] args) {
-//		menu();
+		menu();
 //		newAccount();		
-			makeNew();
+//			makeNew();
 //		withdraw();
 	}
 	public static void newAccount() {
@@ -109,7 +109,7 @@ log.info("WELCOME TO ACCOUNT CREATION");
 			login();
 		}
 			else {
-			log.error("INVAID INPUT PLEASE TRY AGAIN");
+			log.error("INVALID INPUT PLEASE TRY AGAIN");
 			menu();
 		}
 		
@@ -119,6 +119,7 @@ log.info("WELCOME TO ACCOUNT CREATION");
 		try {
 			log.info("Please Enter Your MemberID");
 			int memberId = input.nextInt();
+			log.info("Your Available Balace is: "+ad.getBalance(memberId));
 			log.info("How Much Would You Like To Withdraw?");
 			double withdraw = input.nextDouble();
 			ad.withdraw(memberId, withdraw);
@@ -130,6 +131,7 @@ log.info("WELCOME TO ACCOUNT CREATION");
 	public static void deposit() {
 		log.info("Please Enter Your MemberID");
 		int memberId = input.nextInt();
+		log.info("Your Available Balace is: "+ad.getBalance(memberId));
 		log.info("How Much Would You Like To Deposit ?");
 		double deposit = input.nextDouble();
 		ad.deposit(memberId, deposit);
@@ -137,6 +139,7 @@ log.info("WELCOME TO ACCOUNT CREATION");
 		loggedIn();
 	}
 	public static void loggedIn() {
+		
 		log.info("Welcome User");
 		log.info("To Do A Withdrawal Please Type 'Withdraw', To Make a Deposit Please Type 'Deposit'.");
 		log.info("To Log Out Please Type 'Logout'");

@@ -88,5 +88,9 @@ public Accounts(int memNum, String accType, double balance) {
 	this.balance=balance;
 	
 }
+public Accounts(double balance) {
+	this.balance=balance;
+	// TODO Auto-generated constructor stub
+}
 
 }

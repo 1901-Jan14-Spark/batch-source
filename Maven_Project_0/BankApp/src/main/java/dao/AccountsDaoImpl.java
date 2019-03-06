@@ -108,8 +108,26 @@ public class AccountsDaoImpl implements AccountsDao{
 			cs.setDouble(2, withdraw);
 			cs.execute();
 		} catch (SQLException e) {
+//			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Accounts getBalance(int id) {
+		String sql = "SELECT BALANCE FROM ACCOUNTS WHERE MEM_NUM = ?";
+		Accounts a = null;
+		try(Connection con = ConnectionUtil.sysVar();
+			PreparedStatement ps = con.prepareStatement(sql);){
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				double balance = rs.getDouble("BALANCE");
+				a = new Accounts(balance);
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return a;
 	}
 
 
