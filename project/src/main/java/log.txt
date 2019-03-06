@@ -10,3 +10,24 @@
 2019-03-05 22:19:12 WARN  Interface:275 makeWithdrawal - Unable to retrieve account.
 2019-03-05 22:20:32 WARN  Interface:291 makeWithdrawal - Invalid input.
 
+2019-03-05 22:42:28 WARN  Interface:65 createAccount - Name should only be comprised of characters.
+
+2019-03-05 22:42:44 WARN  Interface:128 login - Unable to login.
+
+2019-03-05 22:43:00 WARN  Interface:128 login - Unable to login.
+
+2019-03-05 22:43:17 WARN  Interface:128 login - Unable to login.
+
+2019-03-05 22:43:33 WARN  Interface:128 login - Unable to login.
+
+2019-03-05 22:44:41 WARN  Interface:96 createAccount - Invalid input, requires either '1' or '2'.
+
+2019-03-05 22:45:39 WARN  Interface:77 createAccount - Username should only be comprised of characters and numbers.(At least 5 characters.)
+
+2019-03-05 22:52:20 WARN  Interface:254 makeDeposit - Invalid input.
+
+2019-03-05 22:54:10 WARN  Interface:128 login - Unable to login.
+
+2019-03-05 22:55:05 WARN  Interface:65 createAccount - Name should only be comprised of characters.
+
+2019-03-05 22:55:44 WARN  Interface:178 login - Unable to add account.
