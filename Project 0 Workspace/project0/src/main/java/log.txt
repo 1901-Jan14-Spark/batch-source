@@ -24,3 +24,11 @@
 2019-03-05 16:52:40 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
 2019-03-05 16:54:03 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
 2019-03-05 16:55:45 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 20:28:43 ERROR BankingDriver:170 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 20:29:04 ERROR BankingDriver:194 method: Withdraw - Withdraw Error, Cannot Withdraw More than the Balance of the Account
+2019-03-05 20:29:12 ERROR BankingDriver:170 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 20:29:54 ERROR BankingDriver:170 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 20:42:52 ERROR BankingDriver:58 method: Create - Invalid Username Input Please Read the Criteria Below to Input a Correct Username
+2019-03-05 20:47:02 ERROR BankingDriver:58 method: Create - Invalid Username Input Please Read the Criteria Below to Input a Correct Username and Password
+2019-03-05 20:47:12 ERROR BankingDriver:58 method: Create - Invalid Username Input Please Read the Criteria Below to Input a Correct Username and Password
+2019-03-05 20:49:43 ERROR BankingDriver:173 method: Navigation - Invalid Input Please Enter a Character Given Below.

@@ -47,31 +47,34 @@ public class BankingDriver {
 		log.info("Create a New UserName!");
 		log.info("----------------------------------------------------");
 		log.info("Username should be between 8 to 16 characters and include alphanumeric values (a-z, 0-9)");
-		log.info("Should Not Include Spaces, or Special Characters besides - ");
+		log.info("Should Not Include Spaces as Well (Enter X to logout)");
 		log.info("----------------------------------------------------");
 		log.info("Username: ");
-		String userName = scanner.nextLine().toLowerCase();
-		if(userName.contentEquals("x")) {
+		String userName = scanner.nextLine();
+		if(userName.toLowerCase().equals("x")) {
 			Logout();
 		}
-		else if(userName.length()< 8 || userName.length() > 16) {
-			
+		else if(userName.length()< 8 || userName.length() > 16 || userName.matches("^[a-zA-Z0-9]*$") == false){
+			log.error("Invalid Username Input Please Read the Criteria Below to Input a Correct Username and Password");
+			log.info("----------------------------------------------------");
+			Create();
 		}
 		log.info("Create a New Password!");
 		log.info("----------------------------------------------------");
 		log.info("Password should be between 8 to 16 characters and include alphanumeric values (a-z, 0-9)");
-		log.info("Should Not Include Spaces, or Special Characters besides - ");
+		log.info("Should Not Include Spaces as Well (Enter X to logout)");
 		log.info("----------------------------------------------------");
 		log.info("Password: ");
 		log.info("----------------------------------------------------");
 		
-		String password = scanner.nextLine().toLowerCase();
-		if(password.contentEquals("x")) {
+		String password = scanner.nextLine();
+		if(password.toLowerCase().equals("x")) {
 			Logout();
 		}
-		else if(password.length()< 8 || password.length() > 16) {
-			log.error("Password Length Not Within Constraints");
+		else if(password.length()< 8 || password.length() > 16 || userName.matches("^[a-zA-Z0-9]*$") == false) {
+			log.error("Invalid Password Input Please Read the Criteria Below to Input a Correct Username and Password");
 			log.info("----------------------------------------------------");
+			Create();
 		};
 		
 		//Will Validate that a account with the name does not exist
@@ -107,13 +110,13 @@ public class BankingDriver {
 		log.info("Enter in Your Account Username: ");
 		log.info("----------------------------------------------------");
 		String userName = scanner.nextLine().toLowerCase();
-		if(userName.contentEquals("x")) {
+		if(userName.equals("x")) {
 			Logout();
 		}
 		log.info("Enter in Your Account Password");
 		log.info("----------------------------------------------------");
 		String password = scanner.nextLine().toLowerCase();
-		if(password.contentEquals("x")) {
+		if(password.equals("x")) {
 			Logout();
 		}
 		//Account Verification Step - will check to see if a user with account and password exist
@@ -158,7 +161,6 @@ public class BankingDriver {
 		}
 		else if(navInput.equals("w")) {
 			Withdraw(currentUser);
-			Navigation(currentUser);
 		}
 		else if(navInput.equals("b")) {
 			Balance(currentUser);
@@ -180,6 +182,9 @@ public class BankingDriver {
 		double amount = EnterAmount();
 		BankingAccountDaoImpl bad = new BankingAccountDaoImpl();
 		bad.changeAccountBalance(currentUser.getAccount().getAccountId(), amount);
+		double balance = currentUser.getAccount().getBalance();
+		currentUser.getAccount().setBalance(balance + amount);
+		Navigation(currentUser);
 	}
 	
 	public static void Withdraw(User currentUser){
@@ -196,6 +201,8 @@ public class BankingDriver {
 		else {
 			amount *= -1;
 			bad.changeAccountBalance(currentUser.getAccount().getAccountId(), amount);
+			currentUser.getAccount().setBalance(balance + amount);
+			Navigation(currentUser);
 		}
 		
 		
@@ -213,6 +220,7 @@ public class BankingDriver {
 		log.info("Enter in the New Account Balance to Finalize Account: (or (-1) to Logout)");
 		log.info("----------------------------------------------------");
 		double input = scanner.nextDouble();
+		scanner.nextLine();
 		if(input == -1) {
 			Logout();
 		}
@@ -231,6 +239,7 @@ public class BankingDriver {
 	
 	public static double EnterAmount() {
 		double input = scanner.nextDouble();
+		scanner.nextLine();
 		if(input < 0) {
 			log.error("Please Enter a Non-Negative Number.");
 			log.info("----------------------------------------------------");
