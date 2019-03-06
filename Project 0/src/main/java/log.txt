@@ -5,3 +5,220 @@
 2019-02-26 21:48:01 ERROR BankDriver:60 - User improper input.
 2019-02-26 21:50:24 WARN  BankDriver:60 - User improper input.
 2019-03-05 23:31:43 WARN  BankImpl:83 - User input error while logging in.
+2019-03-06 09:31:34 WARN  BankImpl:83 - User input error while logging in.
+2019-03-06 09:33:13 INFO  BankImpl:32 - Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:33:13 INFO  BankImpl:33 - [1] -- Login
+2019-03-06 09:33:13 INFO  BankImpl:34 - [2] -- Create an account
+2019-03-06 09:33:13 INFO  BankImpl:35 - [3] -- Admin access
+2019-03-06 09:33:13 INFO  BankImpl:36 - [4] -- Quit
+2019-03-06 09:33:15 INFO  BankImpl:66 - Welcome to the login page! Please input your username. Press 4 to return to the homepage.
+2019-03-06 09:33:16 INFO  BankImpl:69 - Please input your password:
+2019-03-06 09:33:18 INFO  BankImpl:82 - You have entered an incorrect username or password. Please try again.
+2019-03-06 09:33:18 INFO  BankImpl:66 - Welcome to the login page! Please input your username. Press 4 to return to the homepage.
+2019-03-06 09:33:58 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:33:58 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:33:58 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:33:58 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:33:58 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:33:59 INFO  BankImpl:66 - M -- Welcome to the login page! Please input your username. Press 4 to return to the homepage.
+2019-03-06 09:34:00 INFO  BankImpl:69 - M -- Please input your password:
+2019-03-06 09:34:02 INFO  BankImpl:82 - M -- You have entered an incorrect username or password. Please try again.
+2019-03-06 09:34:02 INFO  BankImpl:66 - M -- Welcome to the login page! Please input your username. Press 4 to return to the homepage.
+2019-03-06 09:34:50 ERROR BankImpl:83 - M -- User input error while logging in.
+2019-03-06 09:35:51 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:35:51 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:35:51 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:35:51 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:35:51 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:35:52 INFO  BankImpl:66 - M -- Welcome to the login page! Please input your username. Press 4 to return to the homepage.
+2019-03-06 09:35:53 INFO  BankImpl:69 - M -- Please input your password:
+2019-03-06 09:35:55 INFO  BankImpl:82 - M -- You have entered an incorrect username or password. Please try again.
+2019-03-06 09:35:55 INFO  BankImpl:66 - M -- Welcome to the login page! Please input your username. Press 4 to return to the homepage.
+2019-03-06 09:40:17 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:40:17 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:40:17 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:40:17 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:40:17 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:40:18 INFO  BankImpl:115 - M -- Since this is the first time using our app, you will have to create your account. We'll have you set up in a few quick steps.
+2019-03-06 09:40:18 INFO  BankImpl:116 - M -- Please enter your name below.
+2019-03-06 09:40:20 INFO  BankImpl:123 - M -- Hi Vijay! Please choose your username.
+2019-03-06 09:40:20 INFO  BankImpl:124 - M -- Your username must contain a letter and must contain 4-12 characters. No symbols are allowed.
+2019-03-06 09:40:21 INFO  BankImpl:128 - M -- Awesome choice, vijay1! Please also provide your e-mail and password!
+2019-03-06 09:40:21 INFO  BankImpl:129 - M -- Remember, your e-mail must contain an @ symbol and must end with a .com!
+2019-03-06 09:40:21 INFO  BankImpl:130 - M -- E-Mail: 
+2019-03-06 09:40:22 INFO  BankImpl:128 - M -- Awesome choice, vijay1! Please also provide your e-mail and password!
+2019-03-06 09:40:22 INFO  BankImpl:129 - M -- Remember, your e-mail must contain an @ symbol and must end with a .com!
+2019-03-06 09:40:22 INFO  BankImpl:130 - M -- E-Mail: 
+2019-03-06 09:40:24 INFO  BankImpl:134 - M -- E-mail input accepted. Please provide a password that is between 4-10 characters long and contains at least one numeric digit.
+2019-03-06 09:40:24 INFO  BankImpl:135 - M -- Password: 
+2019-03-06 09:40:26 INFO  BankImpl:139 - M -- Please input your starting balance. You must start with a balance greater than 0.
+2019-03-06 09:40:28 INFO  BankImpl:144 - M -- Your account was created! You are being returned to the homescreen. You may choose to log-in there.
+2019-03-06 09:40:29 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:40:29 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:40:29 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:40:29 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:40:29 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:40:30 INFO  BankImpl:66 - M -- Welcome to the login page! Please input your username. Press 4 to return to the homepage.
+2019-03-06 09:40:31 INFO  BankImpl:69 - M -- Please input your password:
+2019-03-06 09:40:32 INFO  BankImpl:162 - M -- Welcome back vijay1! Your current balance is: $5000.15. How can revBanking serve you today?
+2019-03-06 09:40:32 INFO  BankImpl:163 - M -- [1] -- View account balance.
+2019-03-06 09:40:32 INFO  BankImpl:164 - M -- [2] -- Make a deposit.
+2019-03-06 09:40:32 INFO  BankImpl:165 - M -- [3] -- Make a withdrawal.
+2019-03-06 09:40:32 INFO  BankImpl:166 - M -- [4] -- Change my account information.
+2019-03-06 09:40:32 INFO  BankImpl:167 - M -- [5] -- Logout.
+2019-03-06 09:40:36 INFO  BankImpl:185 - M -- This feature is currently still being implemented.
+2019-03-06 09:40:36 INFO  BankImpl:156 - M -- >>>>>>> RETURNING TO ACCOUNT HOME <<<<<<<<
+2019-03-06 09:40:36 INFO  BankImpl:162 - M -- Welcome back vijay1! Your current balance is: $5000.15. How can revBanking serve you today?
+2019-03-06 09:40:36 INFO  BankImpl:163 - M -- [1] -- View account balance.
+2019-03-06 09:40:36 INFO  BankImpl:164 - M -- [2] -- Make a deposit.
+2019-03-06 09:40:36 INFO  BankImpl:165 - M -- [3] -- Make a withdrawal.
+2019-03-06 09:40:36 INFO  BankImpl:166 - M -- [4] -- Change my account information.
+2019-03-06 09:40:36 INFO  BankImpl:167 - M -- [5] -- Logout.
+2019-03-06 09:40:40 INFO  BankImpl:174 - M -- Your current account balance is $5000.15
+2019-03-06 09:40:40 INFO  BankImpl:156 - M -- >>>>>>> RETURNING TO ACCOUNT HOME <<<<<<<<
+2019-03-06 09:40:40 INFO  BankImpl:162 - M -- Welcome back vijay1! Your current balance is: $5000.15. How can revBanking serve you today?
+2019-03-06 09:40:40 INFO  BankImpl:163 - M -- [1] -- View account balance.
+2019-03-06 09:40:40 INFO  BankImpl:164 - M -- [2] -- Make a deposit.
+2019-03-06 09:40:40 INFO  BankImpl:165 - M -- [3] -- Make a withdrawal.
+2019-03-06 09:40:40 INFO  BankImpl:166 - M -- [4] -- Change my account information.
+2019-03-06 09:40:40 INFO  BankImpl:167 - M -- [5] -- Logout.
+2019-03-06 09:40:42 INFO  BankImpl:220 - M -- Please enter how much you would like to deposit. Must be in $xx.xx format. You do not need to add the $ to your entry. To return to the menu at anytime, enter 'Menu'!
+2019-03-06 09:40:44 INFO  BankImpl:245 - M -- Did you input the correct command? We can't process that request.
+2019-03-06 09:40:44 INFO  BankImpl:220 - M -- Please enter how much you would like to deposit. Must be in $xx.xx format. You do not need to add the $ to your entry. To return to the menu at anytime, enter 'Menu'!
+2019-03-06 09:40:47 INFO  BankImpl:245 - M -- Did you input the correct command? We can't process that request.
+2019-03-06 09:40:47 INFO  BankImpl:220 - M -- Please enter how much you would like to deposit. Must be in $xx.xx format. You do not need to add the $ to your entry. To return to the menu at anytime, enter 'Menu'!
+2019-03-06 09:40:53 INFO  BankImpl:238 - M -- 1
+2019-03-06 09:40:53 INFO  BankImpl:239 - M -- Your deposit of $1235.15 has been added. Your updated bank balance is: $6235.30
+2019-03-06 09:40:53 INFO  BankImpl:156 - M -- >>>>>>> RETURNING TO ACCOUNT HOME <<<<<<<<
+2019-03-06 09:40:54 INFO  BankImpl:162 - M -- Welcome back vijay1! Your current balance is: $6235.30. How can revBanking serve you today?
+2019-03-06 09:40:54 INFO  BankImpl:163 - M -- [1] -- View account balance.
+2019-03-06 09:40:54 INFO  BankImpl:164 - M -- [2] -- Make a deposit.
+2019-03-06 09:40:54 INFO  BankImpl:165 - M -- [3] -- Make a withdrawal.
+2019-03-06 09:40:54 INFO  BankImpl:166 - M -- [4] -- Change my account information.
+2019-03-06 09:40:54 INFO  BankImpl:167 - M -- [5] -- Logout.
+2019-03-06 09:41:11 INFO  BankImpl:256 - M -- Please enter how much you would like to withdraw. Must be in $xx.xx, you do not need to include the $ in your entry. To return to the menu at anytime, enter 'Menu'!
+2019-03-06 09:41:36 INFO  BankImpl:156 - M -- >>>>>>> RETURNING TO ACCOUNT HOME <<<<<<<<
+2019-03-06 09:41:37 INFO  BankImpl:162 - M -- Welcome back vijay1! Your current balance is: $6235.30. How can revBanking serve you today?
+2019-03-06 09:41:37 INFO  BankImpl:163 - M -- [1] -- View account balance.
+2019-03-06 09:41:37 INFO  BankImpl:164 - M -- [2] -- Make a deposit.
+2019-03-06 09:41:37 INFO  BankImpl:165 - M -- [3] -- Make a withdrawal.
+2019-03-06 09:41:37 INFO  BankImpl:166 - M -- [4] -- Change my account information.
+2019-03-06 09:41:37 INFO  BankImpl:167 - M -- [5] -- Logout.
+2019-03-06 09:41:39 INFO  BankImpl:190 - M -- Are you sure you wish to log-out? You will have to log-back in if you wish you do. Enter 'Yes' to confirm logout. Press any other button and enter to keep working.
+2019-03-06 09:41:41 INFO  BankImpl:198 - M -- You are being logged out...... Thank you for choosing revBanking.
+2019-03-06 09:41:41 INFO  BankImpl:199 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:200 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:201 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:202 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:203 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:204 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:205 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:206 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:207 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:208 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:209 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:210 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:211 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:212 - M --  
+2019-03-06 09:41:41 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:41:41 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:41:41 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:41:41 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:41:41 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:41:42 INFO  BankImpl:115 - M -- Since this is the first time using our app, you will have to create your account. We'll have you set up in a few quick steps.
+2019-03-06 09:41:42 INFO  BankImpl:116 - M -- Please enter your name below.
+2019-03-06 09:41:45 INFO  BankImpl:123 - M -- Hi Shirley! Please choose your username.
+2019-03-06 09:41:45 INFO  BankImpl:124 - M -- Your username must contain a letter and must contain 4-12 characters. No symbols are allowed.
+2019-03-06 09:41:48 INFO  BankImpl:128 - M -- Awesome choice, shirley1! Please also provide your e-mail and password!
+2019-03-06 09:41:48 INFO  BankImpl:129 - M -- Remember, your e-mail must contain an @ symbol and must end with a .com!
+2019-03-06 09:41:48 INFO  BankImpl:130 - M -- E-Mail: 
+2019-03-06 09:41:50 INFO  BankImpl:134 - M -- E-mail input accepted. Please provide a password that is between 4-10 characters long and contains at least one numeric digit.
+2019-03-06 09:41:50 INFO  BankImpl:135 - M -- Password: 
+2019-03-06 09:41:59 INFO  BankImpl:134 - M -- E-mail input accepted. Please provide a password that is between 4-10 characters long and contains at least one numeric digit.
+2019-03-06 09:41:59 INFO  BankImpl:135 - M -- Password: 
+2019-03-06 09:42:01 INFO  BankImpl:139 - M -- Please input your starting balance. You must start with a balance greater than 0.
+2019-03-06 09:42:04 INFO  BankImpl:139 - M -- Please input your starting balance. You must start with a balance greater than 0.
+2019-03-06 09:42:35 INFO  BankImpl:144 - M -- Your account was created! You are being returned to the homescreen. You may choose to log-in there.
+2019-03-06 09:42:36 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:42:36 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:42:36 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:42:36 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:42:36 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:42:44 INFO  BankImpl:115 - M -- Since this is the first time using our app, you will have to create your account. We'll have you set up in a few quick steps.
+2019-03-06 09:42:44 INFO  BankImpl:116 - M -- Please enter your name below.
+2019-03-06 09:42:46 INFO  BankImpl:123 - M -- Hi Vijay! Please choose your username.
+2019-03-06 09:42:46 INFO  BankImpl:124 - M -- Your username must contain a letter and must contain 4-12 characters. No symbols are allowed.
+2019-03-06 09:42:47 INFO  BankImpl:128 - M -- Awesome choice, vijay1! Please also provide your e-mail and password!
+2019-03-06 09:42:47 INFO  BankImpl:129 - M -- Remember, your e-mail must contain an @ symbol and must end with a .com!
+2019-03-06 09:42:47 INFO  BankImpl:130 - M -- E-Mail: 
+2019-03-06 09:42:50 INFO  BankImpl:134 - M -- E-mail input accepted. Please provide a password that is between 4-10 characters long and contains at least one numeric digit.
+2019-03-06 09:42:50 INFO  BankImpl:135 - M -- Password: 
+2019-03-06 09:42:51 INFO  BankImpl:139 - M -- Please input your starting balance. You must start with a balance greater than 0.
+2019-03-06 09:42:53 INFO  BankImpl:139 - M -- Please input your starting balance. You must start with a balance greater than 0.
+2019-03-06 09:42:55 INFO  BankImpl:139 - M -- Please input your starting balance. You must start with a balance greater than 0.
+2019-03-06 09:43:39 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:43:39 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:43:39 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:43:39 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:43:39 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:43:40 INFO  BankImpl:114 - M -- Since this is the first time using our app, you will have to create your account. We'll have you set up in a few quick steps.
+2019-03-06 09:43:40 INFO  BankImpl:115 - M -- Please enter your name below.
+2019-03-06 09:43:41 INFO  BankImpl:122 - M -- Hi vijay! Please choose your username.
+2019-03-06 09:43:41 INFO  BankImpl:123 - M -- Your username must contain a letter and must contain 4-12 characters. No symbols are allowed.
+2019-03-06 09:43:42 INFO  BankImpl:127 - M -- Awesome choice, vijay1! Please also provide your e-mail and password!
+2019-03-06 09:43:42 INFO  BankImpl:128 - M -- Remember, your e-mail must contain an @ symbol and must end with a .com!
+2019-03-06 09:43:42 INFO  BankImpl:129 - M -- E-Mail: 
+2019-03-06 09:43:46 INFO  BankImpl:133 - M -- E-mail input accepted. Please provide a password that is between 4-10 characters long and contains at least one numeric digit.
+2019-03-06 09:43:46 INFO  BankImpl:134 - M -- Password: 
+2019-03-06 09:43:48 INFO  BankImpl:138 - M -- Please input your starting balance. Must be $xx.xx format, decimals may be omitted. 
+2019-03-06 09:43:51 INFO  BankImpl:143 - M -- Your account was created! You are being returned to the homescreen. You may choose to log-in there.
+2019-03-06 09:43:52 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:43:52 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:43:52 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:43:52 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:43:52 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:43:54 INFO  BankImpl:66 - M -- Welcome to the login page! Please input your username. Press 4 to return to the homepage.
+2019-03-06 09:43:55 INFO  BankImpl:69 - M -- Please input your password:
+2019-03-06 09:43:56 INFO  BankImpl:161 - M -- Welcome back vijay1! Your current balance is: $1.00. How can revBanking serve you today?
+2019-03-06 09:43:56 INFO  BankImpl:162 - M -- [1] -- View account balance.
+2019-03-06 09:43:56 INFO  BankImpl:163 - M -- [2] -- Make a deposit.
+2019-03-06 09:43:56 INFO  BankImpl:164 - M -- [3] -- Make a withdrawal.
+2019-03-06 09:43:56 INFO  BankImpl:165 - M -- [4] -- Change my account information.
+2019-03-06 09:43:56 INFO  BankImpl:166 - M -- [5] -- Logout.
+2019-03-06 09:45:32 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:45:32 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:45:32 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:45:32 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:45:32 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:45:33 INFO  BankImpl:114 - M -- Since this is the first time using our app, you will have to create your account. We'll have you set up in a few quick steps.
+2019-03-06 09:45:33 INFO  BankImpl:115 - M -- Please enter your name below.
+2019-03-06 09:45:34 INFO  BankImpl:122 - M -- Hi Vijay! Please choose your username.
+2019-03-06 09:45:34 INFO  BankImpl:123 - M -- Your username must contain a letter and must contain 4-12 characters. No symbols are allowed.
+2019-03-06 09:45:35 INFO  BankImpl:127 - M -- Awesome choice, vijay1! Please also provide your e-mail and password!
+2019-03-06 09:45:35 INFO  BankImpl:128 - M -- Remember, your e-mail must contain an @ symbol and must end with a .com!
+2019-03-06 09:45:35 INFO  BankImpl:129 - M -- E-Mail: 
+2019-03-06 09:45:39 INFO  BankImpl:133 - M -- E-mail input accepted. Please provide a password that is between 4-10 characters long and contains at least one numeric digit.
+2019-03-06 09:45:39 INFO  BankImpl:134 - M -- Password: 
+2019-03-06 09:45:40 INFO  BankImpl:138 - M -- Please input your starting balance. Must be $xx.xx format, decimals may be omitted.
+2019-03-06 09:45:42 INFO  BankImpl:143 - M -- Your account was created! You are being returned to the homescreen. You may choose to log-in there.
+2019-03-06 09:45:43 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:45:43 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:45:43 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:45:43 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:45:43 INFO  BankImpl:36 - M -- [4] -- Quit
+2019-03-06 09:45:46 INFO  BankImpl:114 - M -- Since this is the first time using our app, you will have to create your account. We'll have you set up in a few quick steps.
+2019-03-06 09:45:46 INFO  BankImpl:115 - M -- Please enter your name below.
+2019-03-06 09:45:48 INFO  BankImpl:122 - M -- Hi Vijay! Please choose your username.
+2019-03-06 09:45:48 INFO  BankImpl:123 - M -- Your username must contain a letter and must contain 4-12 characters. No symbols are allowed.
+2019-03-06 09:45:49 INFO  BankImpl:127 - M -- Awesome choice, vijay1! Please also provide your e-mail and password!
+2019-03-06 09:45:49 INFO  BankImpl:128 - M -- Remember, your e-mail must contain an @ symbol and must end with a .com!
+2019-03-06 09:45:49 INFO  BankImpl:129 - M -- E-Mail: 
+2019-03-06 09:45:52 INFO  BankImpl:133 - M -- E-mail input accepted. Please provide a password that is between 4-10 characters long and contains at least one numeric digit.
+2019-03-06 09:45:52 INFO  BankImpl:134 - M -- Password: 
+2019-03-06 09:45:53 INFO  BankImpl:138 - M -- Please input your starting balance. Must be $xx.xx format, decimals may be omitted.
+2019-03-06 09:45:54 INFO  BankImpl:143 - M -- Your account was created! You are being returned to the homescreen. You may choose to log-in there.
+2019-03-06 09:45:55 INFO  BankImpl:32 - M -- Welcome to the revBanking app! Please input a number 1-4 to begin.
+2019-03-06 09:45:55 INFO  BankImpl:33 - M -- [1] -- Login
+2019-03-06 09:45:55 INFO  BankImpl:34 - M -- [2] -- Create an account
+2019-03-06 09:45:55 INFO  BankImpl:35 - M -- [3] -- Admin access
+2019-03-06 09:45:55 INFO  BankImpl:36 - M -- [4] -- Quit

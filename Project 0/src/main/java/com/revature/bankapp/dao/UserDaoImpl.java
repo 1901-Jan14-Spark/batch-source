@@ -5,16 +5,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import com.revature.bankapp.BankImpl;
 import com.revature.bankapp.models.Account;
 import com.revature.bankapp.models.User;
 import com.revature.bankapp.util.ConnectionUtil;
 
 public class UserDaoImpl implements UserDao {
 
+	private static Logger log = Logger.getRootLogger();
+	static User newUser = new User();
+	
 	@Override
 	public int createUser(User u) {
 		int usersCreated = 0;
@@ -27,7 +34,12 @@ public class UserDaoImpl implements UserDao {
 			ps.setString(2, u.getUsername());
 			ps.setString(3, u.getEmail());
 			ps.setString(4, u.getPassword());
-			usersCreated = ps.executeUpdate();
+			try {
+				usersCreated = ps.executeUpdate();
+			} catch (SQLIntegrityConstraintViolationException e) {
+				log.info("We're sorry. The username you already provided exists. Please restart the account creation process.");
+				BankImpl.createAccount(newUser);
+			}
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -2,6 +2,7 @@ package com.revature.bankapp;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -80,7 +81,6 @@ public class BankImpl implements ReadWriteManager{
 				}
 			} catch(NullPointerException e) {
 				log.info("You have entered an incorrect username or password. Please try again.");
-				log.warn("User input error while logging in.");
 				userLogin();
 			}
 			} else {
@@ -108,7 +108,7 @@ public class BankImpl implements ReadWriteManager{
 		}
 	}
 
-	public static void createAccount(User newUser) 
+	public static void createAccount(User newUser)
 	{
 		try 
 		{
@@ -136,14 +136,14 @@ public class BankImpl implements ReadWriteManager{
 						newUser.setPassword(userInput.next());
 					}	while (newUser.getPassword() == null);
 						do {
-							log.info("Please input your starting balance. You must start with a balance greater than 0.");
+							log.info("Please input your starting balance. Must be $xx.xx format, decimals may be omitted.");
 							newUser.setBalance(userInput.next());
 						} while(newUser.getBalance() == null);
 										
 					Account newAcc = new Account(newUser.getBalance());
-					log.info("Your account was created! You are being returned to the homescreen. You may choose to log-in there.");
 					int test2 = accDao.createAccount(newAcc);
 					int test = userDao.createUser(newUser);
+					log.info("Your account was created! You are being returned to the homescreen. You may choose to log-in there.");
 					appStart();
 			}	
 		} catch (Exception e)
