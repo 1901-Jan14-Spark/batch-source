@@ -179,7 +179,7 @@ public class BankingDriver {
 		log.info("----------------------------------------------------");
 		double amount = EnterAmount();
 		BankingAccountDaoImpl bad = new BankingAccountDaoImpl();
-		bad.changeAccountBalance(currentUser.getAccount(), amount);
+		bad.changeAccountBalance(currentUser.getAccount().getAccountId(), amount);
 	}
 	
 	public static void Withdraw(User currentUser){
@@ -188,13 +188,14 @@ public class BankingDriver {
 		double amount = EnterAmount();
 		BankingAccountDaoImpl bad = new BankingAccountDaoImpl();
 		double balance = currentUser.getAccount().getBalance();
-		if(amount - balance < 0) {
+		if(balance - amount < 0) {
 			log.error("Withdraw Error, Cannot Withdraw More than the Balance of the Account");
 			log.info("----------------------------------------------------");
 			Withdraw(currentUser);
 		}
 		else {
-			bad.changeAccountBalance(currentUser.getAccount(), amount);
+			amount *= -1;
+			bad.changeAccountBalance(currentUser.getAccount().getAccountId(), amount);
 		}
 		
 		
@@ -233,7 +234,7 @@ public class BankingDriver {
 		if(input < 0) {
 			log.error("Please Enter a Non-Negative Number.");
 			log.info("----------------------------------------------------");
-			EnterBalance();
+			EnterAmount();
 		}
 		return input;
 		

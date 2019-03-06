@@ -117,19 +117,18 @@ public class BankingAccountDaoImpl implements BankingAccountDao{
 	}
 
 	@Override
-	public void changeAccountBalance(BankingAccount b, double changeAmount) {
+	public int changeAccountBalance(int id, double changeAmount) {
 		
 		String sql = "{call CHANGE_BALANCE(?,?)}";
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				CallableStatement cs = con.prepareCall(sql)){
-			cs.setInt(1, b.getAccountId());
-			cs.setDouble(1, changeAmount);
+			cs.setInt(1,id);
+			cs.setDouble(2, changeAmount);
 			cs.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		return 1;
 	}
-	
 }

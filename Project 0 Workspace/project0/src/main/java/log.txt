@@ -16,3 +16,11 @@
 2019-03-05 13:00:17 ERROR BankingDriver:41 method: Start - Incorrect Input, Please Enter in One of the Given Characters
 2019-03-05 13:02:03 ERROR BankingDriver:100 method: Create - There is Already a User with that Account, Please enter a different Account
 2019-03-05 13:02:36 ERROR BankingDriver:131 method: Login - Invalid Username or Password
+2019-03-05 16:07:33 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 16:40:51 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 16:45:11 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 16:48:28 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 16:49:47 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 16:52:40 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 16:54:03 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
+2019-03-05 16:55:45 ERROR BankingDriver:171 method: Navigation - Invalid Input Please Enter a Character Given Below.
