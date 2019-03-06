@@ -1,5 +1,7 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -16,54 +18,68 @@ public class Driver {
 	public static Scanner input = new Scanner(System.in);
 	static BankClientsDao bcd = new BankClientsDaoImpl();
 	static AccountsDao ad = new AccountsDaoImpl();
-	
+	static List<String> content = new ArrayList<>();
 	public static void main(String[] args) {
-		menu();
-		//newAccount();		
-			
+//		menu();
+		newAccount();		
+//			makeNew();
+//		withdraw();
 	}
 	public static void newAccount() {
 log.info("WELCOME TO ACCOUNT CREATION");
 		
 		log.info("Please Enter Member Number: ");
-		int memNum = input.nextInt() ;
+		int memNum = input.nextInt();
 		
 		log.info("Please Enter Account Type: 'Checkings' or 'Savings ");
-		input.nextLine();
-		String accType = input.nextLine();
+		input.nextLine().trim();
+		String accType = input.nextLine().trim();
+		 if(accType.matches("Checkings")) {
+				accType="Checkings";
+			}
+		 else  if(accType.matches("Savings")) {
+			accType="Savings";
+		}else{
+			log.error("Invalid Input Please Try Again");
+			log.info("");
+			log.info("Please Enter Account Type: 'Checkings' or 'Savings ");
+			accType = input.nextLine();
+		}
 		
-		log.info("Please Opening Ammount: ");
+		log.info("Please Provide Opening Amount: ");
 		double balance = input.nextDouble();
 		
 		ad.createAccount(new Accounts(memNum, accType, balance));
 		
 		log.info("Account Created");
 		log.info("");
+		menu();
 	}
 	public static void makeNew() {
 		
 		log.info("WELCOME NEW MEMBER");
 		
 		log.info("Please Enter First Name: ");
-		String firstname = input.nextLine() ;
+		String firstname = input.nextLine().trim();
+		
 		
 		log.info("Please Enter Last Name: ");
-		String lastname = input.nextLine();
+		String lastname = input.nextLine().trim();
 		
 		log.info("Please Enter Email: ");
-		String email = input.nextLine();
+		String email = input.nextLine().trim();
 		
 		log.info("Please Enter Username: ");
-		String username = input.nextLine();
+		String username = input.nextLine().trim();
 		
 		log.info("Please Enter Password: ");
-		String password = input.nextLine();
+		String password = input.nextLine().trim();
 		
 		bcd.createClient(new BankClients(firstname, lastname, email, username,password));
 		
 		log.info("USER CREATED");
 		log.info("");
-		menu();
+		newAccount();
 		}
 	
 	
@@ -71,7 +87,7 @@ log.info("WELCOME TO ACCOUNT CREATION");
 		log.info("Welcome To Coders Bank");
 		log.info("Please Select One of the Following Options: ");
 		log.info("To Create a New User Please Type 'New'. To Login Into an Existing Account Please Type 'Login'.");
-		String choice = input.nextLine();
+		String choice = input.nextLine().trim();
 		if(choice.matches("New")) {
 			makeNew();
 		}
@@ -86,13 +102,16 @@ log.info("WELCOME TO ACCOUNT CREATION");
 	}
 	
 	public static void withdraw() {
-		log.info("Please Enter Your MemberID");
-		int memberId = input.nextInt();
-		log.info("How Much Would You Like To Withdraw?");
-		double withdraw = input.nextDouble();
-		ad.withdraw(memberId, withdraw);
-		log.info("Withdrawal Successful");
-		loggedIn();
+		try {
+			log.info("Please Enter Your MemberID");
+			int memberId = input.nextInt();
+			log.info("How Much Would You Like To Withdraw?");
+			double withdraw = input.nextDouble();
+			ad.withdraw(memberId, withdraw);
+			log.info("Transaction Occured");
+		}finally {
+			loggedIn();
+		}
 	}
 	public static void deposit() {
 		log.info("Please Enter Your MemberID");
@@ -100,14 +119,14 @@ log.info("WELCOME TO ACCOUNT CREATION");
 		log.info("How Much Would You Like To Deposit ?");
 		double deposit = input.nextDouble();
 		ad.deposit(memberId, deposit);
-		log.info("Deposit Success");
+		log.info("Transaction Occured");
 		loggedIn();
 	}
 	public static void loggedIn() {
 		log.info("Welcome User");
-		log.info("To Do A Withdrawal Please Type 'Withdraw', To Make a Depsit Please Type 'Deposit'.");
+		log.info("To Do A Withdrawal Please Type 'Withdraw', To Make a Deposit Please Type 'Deposit'.");
 		log.info("To Log Out Please Type 'Logout'");
-		String choice = input.nextLine();
+		String choice = input.nextLine().trim();
 		if(choice.equals("Logout")) {
 			logout();
 		}
@@ -118,17 +137,8 @@ log.info("WELCOME TO ACCOUNT CREATION");
 			deposit();
 		}
 		else{
-			log.error("Invalid Choice Please Try Again");
 			loggedIn();
 		}
-//		String sql = "SELECT (FIRSTNAME|| ' ' || LASTNAME) FROM BANK_CLIENTS";
-//		try(Connection con = ConnectionUtil.sysVar();
-//				PreparedStatement ps = con.prepareStatement(sql);){
-//			
-//			
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
 	}
 	
 	public static void logout() {
@@ -138,9 +148,9 @@ log.info("WELCOME TO ACCOUNT CREATION");
 	
 	public static void login() {
 		log.info("Please Enter Username");
-			String userName = input.nextLine();
+			String userName = input.nextLine().trim();
 		log.info("Please Enter Password");
-			String passWord = input.nextLine();
+			String passWord = input.nextLine().trim();
 			while(bcd.validation(userName, passWord)==false) {
 				log.error("Username/Password Don't Match Please Try Again");
 				login();

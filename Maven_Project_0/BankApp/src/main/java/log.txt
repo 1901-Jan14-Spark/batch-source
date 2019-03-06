@@ -45,3 +45,65 @@
 2019-03-05 16:32:19 ERROR Driver:66 method: menu - INVAID INPUT PLEASE TRY AGAIN
 2019-03-05 16:58:30 ERROR Driver:66 method: menu - INVAID INPUT PLEASE TRY AGAIN
 2019-03-05 23:41:15 ERROR Driver:121 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 00:15:59 ERROR Driver:126 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 00:16:00 ERROR Driver:126 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 00:16:01 ERROR Driver:126 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 00:16:01 ERROR Driver:126 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 00:16:02 ERROR Driver:126 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 00:16:03 ERROR Driver:126 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 00:16:05 ERROR Driver:126 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 00:29:44 ERROR Driver:37 method: newAccount - Please Prvide Valid Input
+2019-03-06 00:29:46 ERROR Driver:37 method: newAccount - Please Prvide Valid Input
+2019-03-06 00:29:47 ERROR Driver:37 method: newAccount - Please Prvide Valid Input
+2019-03-06 00:29:48 ERROR Driver:37 method: newAccount - Please Prvide Valid Input
+2019-03-06 00:29:48 ERROR Driver:37 method: newAccount - Please Prvide Valid Input
+2019-03-06 00:29:49 ERROR Driver:37 method: newAccount - Please Prvide Valid Input
+2019-03-06 00:29:50 ERROR Driver:37 method: newAccount - Please Prvide Valid Input
+2019-03-06 00:29:51 ERROR Driver:37 method: newAccount - Please Prvide Valid Input
+2019-03-06 00:34:16 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:34:19 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:34:21 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:34:22 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:34:23 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:34:23 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:34:28 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:34:31 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:34:33 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:34:35 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:35:11 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:35:13 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:35:16 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:35:20 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:35:59 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:36:08 WARN  Driver:64 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:36:12 WARN  Driver:64 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:38:03 WARN  Driver:56 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:38:11 WARN  Driver:64 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:38:13 WARN  Driver:64 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:38:14 WARN  Driver:64 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:38:15 WARN  Driver:64 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:38:16 WARN  Driver:64 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:38:17 WARN  Driver:64 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:38:47 WARN  Driver:64 method: makeNew - Invalid Input Please Enter Only Letters A-Z ONLY
+2019-03-06 00:45:02 ERROR Driver:37 method: newAccount - Please Provide Valid Input
+2019-03-06 00:45:03 ERROR Driver:37 method: newAccount - Please Provide Valid Input
+2019-03-06 00:45:07 ERROR Driver:37 method: newAccount - Please Provide Valid Input
+2019-03-06 01:06:01 ERROR Driver:33 method: newAccount - Please Provide Valid Input
+2019-03-06 01:08:02 ERROR Driver:132 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 01:10:44 ERROR Driver:132 method: loggedIn - Invalid Choice Please Try Again
+2019-03-06 01:19:27 ERROR Driver:91 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-06 01:20:11 ERROR Driver:38 method: newAccount - Please Provide Valid Input
+2019-03-06 01:20:28 ERROR Driver:38 method: newAccount - Please Provide Valid Input
+2019-03-06 01:20:39 ERROR Driver:91 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-06 01:27:11 ERROR Driver:91 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-06 01:28:32 ERROR Driver:38 method: newAccount - Please Provide Valid Input
+2019-03-06 01:28:36 ERROR Driver:38 method: newAccount - Please Provide Valid Input
+2019-03-06 01:34:22 ERROR Driver:44 method: newAccount - Invalid Input Please Try Again
+2019-03-06 01:36:55 ERROR Driver:38 method: newAccount - Invalid Input Please Try Again
+2019-03-06 01:36:59 ERROR Driver:38 method: newAccount - Invalid Input Please Try Again
+2019-03-06 01:38:26 ERROR Driver:38 method: newAccount - Invalid Input Please Try Again
+2019-03-06 01:38:28 ERROR Driver:38 method: newAccount - Invalid Input Please Try Again
+2019-03-06 01:38:28 ERROR Driver:38 method: newAccount - Invalid Input Please Try Again
+2019-03-06 01:38:29 ERROR Driver:38 method: newAccount - Invalid Input Please Try Again
+2019-03-06 01:39:21 ERROR Driver:43 method: newAccount - Invalid Input Please Try Again
+2019-03-06 01:39:34 ERROR Driver:98 method: menu - INVAID INPUT PLEASE TRY AGAIN

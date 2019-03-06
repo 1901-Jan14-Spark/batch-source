@@ -130,19 +130,6 @@ public class BankClientsDaoImpl implements BankClientsDao {
 		
 	}
 
-	@Override
-	public String user(String firstname, String Lastname) {
-		String sql = "SELECT (FIRSTNAME|| ' ' || LASTNAME) FROM BANK_CLIENTS";
-		try(Connection con = ConnectionUtil.sysVar();
-				PreparedStatement ps = con.prepareStatement(sql);){
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return sql;
-	}
-
 	
 
 }
