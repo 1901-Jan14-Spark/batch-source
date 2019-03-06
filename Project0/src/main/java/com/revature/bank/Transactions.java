@@ -25,6 +25,7 @@ public class Transactions {
 		List<Member> members = md.getAllMembers();
 		log.info("Login\n-----");
 		log.info("Username: ");
+		System.out.println();
 		String username = sc.next();
 		for(Member m : members) {
 			if(username.equals(m.userName)) {
@@ -48,7 +49,7 @@ public class Transactions {
 	}
 
 	public static void homeScreen() {
-		log.info("__________________________");
+		log.info(" __________________________");
 		log.info("|                        |");
 		log.info("|       THE BANK         |");
 		log.info("|________________________|");
@@ -66,7 +67,6 @@ public class Transactions {
 
 	public static void createNewMember() {
 		List<Member> members = md.getAllMembers();
-
 		System.out.println();
 		log.info("New Member Info\n---------------");
 		System.out.println();
@@ -95,9 +95,34 @@ public class Transactions {
 				newUserPassword2 = sc.next();			
 			} 
 			if(newUserPassword1.equals(newUserPassword2)) {
-				int newMember = md.addNewMember(new Member(newUserFirst, newUserLast, newUsername, newUserPassword1, newUserEmail));
+				Member newUser = new Member(newUserFirst, newUserLast, newUsername, newUserPassword1, newUserEmail);
+				int newMember = md.addNewMember(newUser);
 				if(newMember == 1) {
-					log.info("Account successfully created!");
+					log.info("How much would you like to deposit to your new account?");
+					log.info("Amount: ");;
+					double depAmount = sc.nextDouble();
+					Account newUserAccount = new Account(newUser.accountNumber, "Checkings", depAmount);
+					int newChecking = ad.addNewAccount(newUserAccount);
+					if(newChecking == 1) {
+						log.info("Checking account successfully created!");
+						log.info("Your new account number is: " + newUser.accountNumber);
+						System.out.println();
+						log.info("Would you like to additionally open a Savings account? (Y/N)");
+						String response = sc.next();
+						if(response.equalsIgnoreCase("Y")){
+							log.info("How much would you like to deposit to your new account?");
+							log.info("Amount");
+							depAmount = sc.nextDouble();
+							Account newUserSavings = new Account(newUser.accountNumber, "Savings", depAmount);
+							int newSavings = ad.addNewAccount(newUserSavings);
+							if(newSavings == 1) {
+								log.info("Savings account successfully created!");
+								transactions(newUser.accountNumber);
+							}
+						} else {
+							transactions(newUser.accountNumber);			
+						}
+					}		
 				} 
 			}
 		}
@@ -110,11 +135,11 @@ public class Transactions {
 		Account checkings = ad.getAccountByAccountType(accountNumber, "Checkings");
 		// their individual savings
 		Account savings = ad.getAccountByAccountType(accountNumber, "Savings");
-
 		// once the user has been validated, enter the transactions menu
-		log.info("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
+		System.out.println();
+		log.info("\n1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Add New Account\n5: Log Out\n6: Exit");
 		int option = sc.nextInt();
-		while (option != 4) {
+		while (option != 5) {
 			if(option == 2) {
 				System.out.println();
 				// show the balance of each account
@@ -127,74 +152,172 @@ public class Transactions {
 				log.info("Deposit to (1)Checking or (2)Savings?");
 				int accountChoice = sc.nextInt();
 				if(accountChoice == 1) {
-					ad.makeDeposit(accountNumber, "Checkings", amount);
+					log.info("Are you sure you would like to deposit $" + amount +" to Checkings (Y/N)?");
+					String confirm= sc.next();
+					if(confirm.equalsIgnoreCase("Y")) {
+						ad.makeDeposit(checkings.accountNumber, "Checkings", amount);
+						log.info("Would you like another transaction? (Y/N)");
+						String answer = sc.next();
+						if(answer.equals("Y")) {
+							transactions(checkings.accountNumber);
+						} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
+							log.error("Invalid Input! Please select a valid option: (Y/N)");
+							answer = sc.next();
+						} else if(answer.equalsIgnoreCase("N")) {
+							exitBank();
+						}
+					} else if(!confirm.equalsIgnoreCase("Y") && !confirm.equalsIgnoreCase("N")) {
+						log.error("Invalid Input! Please select a valid option: (Y/N)");
+					} else if(confirm.equalsIgnoreCase("N")) {
+						transactions(checkings.accountNumber);
+					}
 				} else if (accountChoice == 2) {
-					ad.makeDeposit(accountNumber, "Savings", amount);
-				}
-				log.info("Would you like another transaction? (Y/N)");
-				String answer = sc.next();
-				if(answer.equals("Y")) {
-					transactions(accountNumber);
-					option = sc.nextInt();
-				} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
-					System.out.println("Invalid Input! Please select a valid option: (Y/N)");
-					answer = sc.next();
-				} else if(answer.equalsIgnoreCase("N")) {
-					option = 4;
+					log.info("Are you sure you would like to deposit $" + amount +" to Savings?");
+					String confirm= sc.next();
+					if(confirm.equalsIgnoreCase("Y")) {
+						ad.makeDeposit(savings.accountNumber, "Savings", amount);
+						log.info("Would you like another transaction? (Y/N)");
+						String answer = sc.next();
+						if(answer.equals("Y")) {
+							transactions(savings.accountNumber);
+						} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
+							log.error("Invalid Input! Please select a valid option: (Y/N)");
+							answer = sc.next();
+						} else if(answer.equalsIgnoreCase("N")) {
+							exitBank();
+						}
+					} else if(!confirm.equalsIgnoreCase("Y") && !confirm.equalsIgnoreCase("N")) {
+						log.error("Invalid Input! Please select a valid option: (Y/N)");
+					} else if(confirm.equalsIgnoreCase("N")) {
+						transactions(savings.accountNumber);
+					}
 				}
 			} else if(option == 3) {
 				System.out.println();
 				log.info("Checkings: $" + checkings.accountBalance);
-				log.info("Savings: $" + savings.accountBalance);	
+				log.info("Savings: $" + savings.accountBalance);
+				System.out.println();
 				log.info("Withdrawal Amount: ");
 				double amount = sc.nextDouble();
 				log.info("Wthdraw from (1)Checking or (2)Savings?");
 				int accountChoice = sc.nextInt();
-				if(accountChoice == 1) {
-					ad.makeWithdrawal(accountNumber, "Checkings", amount);
-					log.info("You withdrew $" + amount + "for Checkings");
+				if(accountChoice == 1) {	
+					log.info("Are you sure you would like to withdraw $" + amount +" from Checkings (Y/N)?");
+					String confirm= sc.next();
+					if(confirm.equalsIgnoreCase("Y")) {
+						ad.makeWithdrawal(checkings.accountNumber, "Checkings", amount);
+						log.info("You withdrew $" + amount + " from Checkings");
+						log.info("Would you like another transaction? (Y/N)");
+						String answer = sc.next();
+						if(answer.equals("Y")) {
+							transactions(checkings.accountNumber);
+						} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
+							log.error("Invalid Input! Please select a valid option: (Y/N)");
+							answer = sc.next();
+						} else if (answer.equalsIgnoreCase("N")) {
+							logOut();
+						}
+					} else if(!confirm.equalsIgnoreCase("Y") && !confirm.equalsIgnoreCase("N")) {
+						log.error("Invalid Input! Please select a valid option: (Y/N)");
+					} else if(confirm.equalsIgnoreCase("N")) {
+						transactions(checkings.accountNumber);
+					}
 				} else if (accountChoice == 2) {
-					ad.makeWithdrawal(accountNumber, "Savings", amount);
-					log.info("You withdrew $" + amount + "for Savings");
-				}
-				log.info("Would you like another transaction? (Y/N)");
-				String answer = sc.next();
-				if(answer.equals("Y")) {
-					transactions(accountNumber);
-					option = sc.nextInt();
-				} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
-					log.error("Invalid Input! Please select a valid option: (Y/N)");
-					answer = sc.next();
-				} else if (answer.equalsIgnoreCase("N")) {
-					option = 4;
+					log.info("Are you sure you would like to withdraw $" + amount +" from Savings?");
+					String confirm= sc.next();
+					if(confirm.equalsIgnoreCase("Y")) {
+						ad.makeWithdrawal(savings.accountNumber, "Savings", amount);
+						log.info("You withdrew $" + amount + "from Savings");
+						log.info("Would you like another transaction? (Y/N)");
+						String answer = sc.next();
+						if(answer.equals("Y")) {
+							transactions(savings.accountNumber);
+						} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
+							log.error("Invalid Input! Please select a valid option: (Y/N)");
+							answer = sc.next();
+						} else if (answer.equalsIgnoreCase("N")) {
+							logOut();
+						}
+					} else if(!confirm.equalsIgnoreCase("Y") && !confirm.equalsIgnoreCase("N")) {
+						log.error("Invalid Input! Please select a valid option: (Y/N)");
+					} else if(confirm.equalsIgnoreCase("N")) {
+						transactions(savings.accountNumber);
+					}
 				}
 			} else if (option == 1){
 				log.info("View balance from (1)Checking or (2)Savings?");
 				int accountChoice = sc.nextInt();
 				if(accountChoice == 1) {
 					log.info("Checking: $" + checkings.accountBalance);
+					log.info("Would you like another transaction? (Y/N)");
+					String answer = sc.next();
+					if(answer.equalsIgnoreCase("Y")) {
+						transactions(checkings.accountNumber);
+					} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
+						log.error("Invalid Input! Please select a valid option: (Y/N)");
+						answer = sc.next();
+					} else if(answer.equalsIgnoreCase("N")) {
+						logOut();
+					}
 				} else if (accountChoice == 2) {
 					log.info("Savings: $" + savings.accountBalance);
+					log.info("Would you like another transaction? (Y/N)");
+					String answer = sc.next();
+					if(answer.equalsIgnoreCase("Y")) {
+						transactions(savings.accountNumber);
+					} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
+						log.error("Invalid Input! Please select a valid option: (Y/N)");
+						answer = sc.next();
+					} else if(answer.equalsIgnoreCase("N")) {
+						option = 4;
+					}
 				}
-				log.info("Would you like another transaction? (Y/N)");
+			} else if(option == 4) {
+				log.info("(1)Checkings or (2) Savings?");
+				int answer = sc.nextInt();
+				if(answer == 1) {
+					log.info("Deposit amount: ");
+					double amount = sc.nextDouble();
+					Account newCheckings = new Account(m.accountNumber, "Checkings", amount);
+					int addAccount = ad.addNewAccount(newCheckings);
+					if(addAccount == 1) {
+						log.info("New Account Created!");
+						transactions(m.accountNumber);
+					}
+				} else if (answer == 2) {
+					log.info("Deposit amount: ");
+					double amount = sc.nextDouble();
+					Account newSavings = new Account(m.accountNumber, "Savings", amount);
+					int addAccount = ad.addNewAccount(newSavings);
+					if(addAccount == 1) {
+						log.info("New Account Created!");
+						transactions(m.accountNumber);
+					}
+				}
+			} else if(option == 6) {
+				log.info("Are you sure you want to exit? (Y/N");
 				String answer = sc.next();
 				if(answer.equalsIgnoreCase("Y")) {
-					transactions(accountNumber);
+					exitBank();
 				} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
 					log.error("Invalid Input! Please select a valid option: (Y/N)");
 					answer = sc.next();
 				} else if(answer.equalsIgnoreCase("N")) {
-					option = 4;
+					transactions(m.accountNumber);
 				}
+				
 			}else {
 				log.error("Please select a valid option!");
-				log.info("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
-				option = sc.nextInt();						
+				transactions(m.accountNumber);					
 			}
 		}
-		if (option == 4) {
+		if (option == 5) {
 			logOut();
 		}
+	}
+
+	private static void exitBank() {
+		System.exit(0);	
 	}
 
 	// log out method
@@ -202,4 +325,18 @@ public class Transactions {
 		System.out.println();
 		homeScreen();		
 	}
+	
+	
+	
+	
+	public static double makeDeposit(double balance, double depositAmount) {
+		double newBalance = balance + depositAmount;
+		return newBalance;
+	}
+	
+	public static double makeWithdrawal(double balance, double withdrawalAmount) {
+		double newBalance = balance - withdrawalAmount;
+		return newBalance;
+	}
+		
 }
