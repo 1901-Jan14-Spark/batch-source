@@ -10,14 +10,14 @@ public class User implements Serializable {
 	private String firstName, lastName;
 	private float checkingBalance, savingBalance;
 	
-	public User(String firstName, String lastName, String username, String password)
+	public User(String firstName, String lastName, String username, String password, float checkingBalance, float savingBalance)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
 		this.password = password;
-		checkingBalance = 0;
-		savingBalance = 5;
+		this.checkingBalance = checkingBalance;
+		this.savingBalance = savingBalance;
 	}
 
 	public String getFirstName() {

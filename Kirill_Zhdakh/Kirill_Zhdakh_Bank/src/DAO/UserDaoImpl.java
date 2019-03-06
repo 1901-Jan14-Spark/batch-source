@@ -9,13 +9,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import Classes.User;
 import Util.ConnectionUtil;
 
 public class UserDaoImpl implements UserDao {
-	final private static Logger log = Logger.getRootLogger();
 	@Override
 	public List<User> getUsers() {
 		List<User> userList = new ArrayList<>();
@@ -26,7 +23,7 @@ public class UserDaoImpl implements UserDao {
 		{
 			while(rs.next())
 			{
-				userList.add(new User(rs.getString("USER_FIRSTNAME"), rs.getString("USER_LASTNAME"), rs.getString("USER_USERNAME"), rs.getString("USER_PASSWORD")));			
+				userList.add(new User(rs.getString("USER_FIRSTNAME"), rs.getString("USER_LASTNAME"), rs.getString("USER_USERNAME"), rs.getString("USER_PASSWORD"), rs.getFloat("USER_CHECKING"), rs.getFloat("USER_SAVING")));			
 			}
 		}
 		catch (IOException e)

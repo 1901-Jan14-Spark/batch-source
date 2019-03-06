@@ -3,8 +3,6 @@ package Classes;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.apache.log4j.Logger;
 
@@ -35,12 +33,14 @@ public class Bank{
 				case 1:
 				{
 					clearConsole();
+					scan.nextLine();
 					loginPage();
 				}
 				break;
 				case 2:
 				{
 					clearConsole();
+					scan.nextLine();
 					registerPage();
 				}
 				break;
@@ -81,7 +81,13 @@ public class Bank{
 		log.info("First Name: (type \"refresh\" to reset form, \"exit\" to exit)");
 		
 		//First name, last name
-		firstname = scan.next();
+		firstname = scan.nextLine();
+		while (!firstname.matches("[A-Za-z]+"))
+		{
+			log.info("\nName must be alphabetic characters only. Try again.\n");
+			log.info("First Name: (type \"refresh\" to reset form, \"exit\" to exit)");
+			firstname = scan.nextLine();
+		}
 		if (firstname.toLowerCase().equals("refresh"))
 		{
 			clearConsole();
@@ -93,7 +99,13 @@ public class Bank{
 			mainPage();
 		}
 		log.info("Last Name: (type \"refresh\" to reset form, \"exit\" to exit)");
-		lastname = scan.next();
+		lastname = scan.nextLine();
+		while (!lastname.matches("[A-Za-z]+"))
+		{
+			log.info("\nName must be alphabetic characters only. Try again.\n");
+			log.info("Last Name: (type \"refresh\" to reset form, \"exit\" to exit)");
+			lastname = scan.nextLine();
+		}
 		if (lastname.toLowerCase().equals("refresh"))
 		{
 			clearConsole();
@@ -111,7 +123,7 @@ public class Bank{
 		{
 			boolean userTaken = false;
 			log.info("Username: (type \"refresh\" to reset form, \"exit\" to exit)");
-			username = scan.next();
+			username = scan.nextLine();
 			if (username.toLowerCase().equals("refresh"))
 			{
 				clearConsole();
@@ -121,6 +133,11 @@ public class Bank{
 			{
 				clearConsole();
 				mainPage();
+			}
+			if (username.length() <= 4)
+			{
+				log.info("\nUsername must be at least 5 characters. Try again.\n");
+				continue;
 			}
 			for(User u : userList)
 			{
@@ -139,7 +156,7 @@ public class Bank{
 		
 		//Password
 		log.info("Password: (type \"refresh\" to reset form, \"exit\" to exit)");
-		password = scan.next();
+		password = scan.nextLine();
 		if (password.toLowerCase().equals("refresh"))
 		{
 			clearConsole();
@@ -160,7 +177,7 @@ public class Bank{
 			log.info("- Password must contain at least 1 lower case letter");
 			log.info("- Password must contain at least 1 special character (!, @, #, $, %, ^, &, *)\n");
 			log.info("Password: (type \"refresh\" to reset form, \"exit\" to exit)");
-			password = scan.next();
+			password = scan.nextLine();
 			if (password.toLowerCase().equals("refresh"))
 			{
 				clearConsole();
@@ -173,7 +190,7 @@ public class Bank{
 			}
 		}
 		log.info("Confirm Password: (type \"refresh\" to reset form, \"exit\" to exit)");
-		password2 = scan.next();
+		password2 = scan.nextLine();
 		if (password2.toLowerCase().equals("refresh"))
 		{
 			clearConsole();
@@ -188,15 +205,15 @@ public class Bank{
 		{
 			log.info("Password does not match. Try again.\n");
 			log.info("Password: ");
-			password = scan.next();
+			password = scan.nextLine();
 			log.info("Confirm Password: ");
-			password2 = scan.next();
+			password2 = scan.nextLine();
 		}	
 		
 		//Adding user
 		firstname = firstname.substring(0, 1).toUpperCase() + firstname.substring(1).toLowerCase();
 		lastname = lastname.substring(0, 1).toUpperCase() + lastname.substring(1).toLowerCase();		
-		if (udl.createUser(new User(firstname, lastname, username, password)))
+		if (udl.createUser(new User(firstname, lastname, username, password, 0, 5)))
 		{
 			clearConsole();
 			log.info("User added successfully!\n");
@@ -220,9 +237,9 @@ public class Bank{
 		}
 		String username, password;
 		log.info("Username: ");
-		username = scan.next();
+		username = scan.nextLine();
 		log.info("Password: ");
-		password = scan.next();
+		password = scan.nextLine();
 		for (User u : userList)
 		{
 			if (u.getUsername().equals(username) && u.getPassword().equals(password))
