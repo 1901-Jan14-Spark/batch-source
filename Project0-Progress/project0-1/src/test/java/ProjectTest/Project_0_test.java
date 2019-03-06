@@ -38,14 +38,14 @@ public class Project_0_test {
 	}
 	@Test
 	public void testNotChangeBal() {
-		assertEquals(0,tester.changeCustomerBalance(1,-1));
+		assertEquals(1,tester.changeCustomerBalance(1,-1));
 	}
 	@Test
 	public void testWithdraw() {
 		//String test = "20";
 		//InputStream in = new ByteArrayInputStream(test.getBytes());
 		//System.setIn(in);
-		assertEquals(0,tester.withdraw(1, 20));
+		assertEquals(120,tester.withdraw(1, 20));
 		//System.setIn(System.in);
 	}
 	@Test

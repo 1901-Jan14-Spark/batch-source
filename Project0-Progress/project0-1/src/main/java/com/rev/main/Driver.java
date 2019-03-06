@@ -24,7 +24,7 @@ public class Driver {
 	
 	public static  void Login() {
 		int cId = 0;
-		log.info("\t\t\t\t\t\t\tAre you loggining in or signing up?");
+		log.info("\t\t\t\t\t\t\tAre you logging in or signing up?");
 		log.info("Type: Login or Sign");
 		String ans = scan1.nextLine();
 		
@@ -125,7 +125,7 @@ public class Driver {
 		for(int i=0; i<5; i++) {
 			log.info("");
 		}
-		log.info("What Operation would you Like to Preform?");
+		log.info("What Operation would you Like to Perform?");
 		for(int i=0; i<5; i++) {
 			log.info("");
 		}
@@ -155,7 +155,7 @@ public class Driver {
 				operations(id);
 			}
 		}else {
-			log.info("did you include a special charector? Don't do that.");
+			log.info("did you include a special character? Don't do that.");
 			operations(id);
 		}
 		}

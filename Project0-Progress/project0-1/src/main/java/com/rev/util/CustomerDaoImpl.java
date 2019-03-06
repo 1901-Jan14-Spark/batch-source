@@ -13,6 +13,8 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
+import com.rev.main.Driver;
+
 public class CustomerDaoImpl implements CustomerDao {
 	private static Logger log = Logger.getRootLogger();
 	static Scanner scan2 = new Scanner(System.in);
@@ -221,18 +223,22 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public int withdraw(int id, double bal) {
 		int check = 0;
+		if(bal <= 0 ) {
+			log.info("You have no money.");
+			Driver.operations(id);
+		}
 		log.info("Current Balance is: "+bal);
 		log.info("How much would you like to withdraw?");
 		
 		String subtract = scan2.nextLine();
-		
+		check =1;
 		if(subtract.matches(".*[a-z].*")||(subtract.matches(".*[0-9].*"))==false) {
 			log.info("Numbers Only please");
 			withdraw(id,bal);
 		}else{
 			double minus= Double.parseDouble(subtract);
 			if(minus>bal) {
-				log.info("Insuffiecent Funds");
+				log.info("Insufficient Funds");
 				withdraw(id,bal);
 			}else if(minus<0){
 				log.info("positive numbers only please");
