@@ -1,21 +1,42 @@
 package util;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 public class PasswordEncryption {
-	final static private int nthUpshift = 15;
-	final static private int  nthDownshift = 30;
 	public static String encodePassword(String password)
 	{
+		Properties prop = new Properties();
+		InputStream in;
+		try 
+		{
+			in = new FileInputStream("encryption.properties");
+			prop.load(in);
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		int upshift =  Integer.parseInt(prop.getProperty("upshift"));
+		int downshift =  Integer.parseInt(prop.getProperty("upshift"));
 		StringBuilder sb = new StringBuilder();
 		int i; int length = password.length();
 		for(i = 0; i < length; ++i)
 		{
 			if (i % 2 == 0)
 			{
-				sb.append((char)(password.charAt(i) + nthUpshift));
+				sb.append((char)(password.charAt(i) + upshift));
 			}
 			else
 			{
-				sb.append((char)(password.charAt(i) - nthDownshift));
+				sb.append((char)(password.charAt(i) - downshift));
 			}
 		}
 		return sb.toString();
@@ -23,17 +44,34 @@ public class PasswordEncryption {
 	
 	public static String decodePassword(String encryption)
 	{
+		Properties prop = new Properties();
+		InputStream in;
+		try 
+		{
+			in = new FileInputStream("encryption.properties");
+			prop.load(in);
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		int upshift =  Integer.parseInt(prop.getProperty("upshift"));
+		int downshift =  Integer.parseInt(prop.getProperty("upshift"));
 		StringBuilder sb = new StringBuilder();
 		int i; int length = encryption.length();
 		for(i = 0; i < length; ++i)
 		{
 			if (i % 2 == 0)
 			{
-				sb.append((char)(encryption.charAt(i) - nthUpshift));
+				sb.append((char)(encryption.charAt(i) - upshift));
 			}
 			else
 			{
-				sb.append((char)(encryption.charAt(i) + nthDownshift));
+				sb.append((char)(encryption.charAt(i) + downshift));
 			}
 		}
 		return sb.toString();
