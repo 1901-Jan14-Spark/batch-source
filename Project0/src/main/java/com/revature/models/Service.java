@@ -27,12 +27,7 @@ public class Service {
 	// main class--------------------------------------------------------------------------------------------------------------
 	public static void main(String ...args) {
 		
-		try {
-			Connection c = Connections.getConnection();
-			System.out.println(c.getMetaData().getDriverName());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		
 		log.info("Welcome to Revature Banks.");
 		log.info("Do you have an account with us. Y/N");
 		boolean YN=false;
@@ -52,11 +47,9 @@ public class Service {
 		}
 		
 	}
-//	
+	
 		
-//		Account a= new Account(1, "Baronc828", "Unlp6977", "Aaron", "Chumchal", "aaronc1@tamu.edu", "7727544", 1);
-//		AccountDAO aa=new AccountDAO_Impl();
-//		aa.createAccount(a);
+
 	}
 	// making a user account--------------------------------------------------------------------------------------------------------------
 	public static void newUser() {
@@ -182,7 +175,7 @@ public class Service {
 			ReadWrite.writeCount(id);
 			log.info("Thank you for making an account. Press enter to continue");
 		s.hasNextLine();
-		main();
+		logIn();
 		}else {
 			log.info("Please only enter Y for yes or N for no.");
 		}
@@ -238,14 +231,14 @@ public static void enterAccount(Account user) {
 			boolean YN=false;
 			while(YN==false) {
 				String x = s.nextLine();
-				if (x.equals("N")) {
-					YN=true;
-					enterAccount(user);
-					
-					
-				}else if (x.equals("Y")) {
+				if (x.equals("Y")) {
 					YN=true;
 					logIn();
+					
+					
+				}else if (x.equals("N")) {
+					YN=true;
+					main();
 				
 				}else {
 					log.info("Please only enter Y for yes or N for no.");
@@ -293,7 +286,7 @@ public static void enterAccount(Account user) {
 			transaction(user);
 			break;
 		case "2":
-			
+			log.info("Your user acount is as follows: Username " + user.getUsername() +"| First Name: "+ user.getFirstname() + "| Last Name: " + user.getLastname() + "| Email: " + user.getEmail()+  "| Phone Number: " + user.getPhoneNumber());
 			break;
 		case "3":
 			log.info("Are you sure you want to delete your account?Y/N");
@@ -373,6 +366,28 @@ public static void enterAccount(Account user) {
 			
 			break;
 		case "4":
+			log.info("Are you sure you want to delete your account?Y/N");
+			boolean YN=false;
+			do {
+				String sure =s.nextLine();
+				if (sure.equals("Y")){
+					YN=true;
+					}
+				if(sure.contentEquals("N")) {
+					YN=true;
+					enterAccount(a);
+				}
+				
+			}while (YN==false);
+			log.info("Please enter username to validate deletion");
+			String confirmU=s.nextLine();
+			log.info("Please enter password to validate deletion");
+			String confirmP=s.nextLine();
+			if(confirmU.contentEquals(a.getUsername()) && confirmP.equals(a.getPassword())) {
+				log.info("Confirmed. Deleting account.");
+			}else {
+				transaction(a);
+			}
 			aa.deleteBankAccount(a.getBA_ID());
 			main();
 			break;

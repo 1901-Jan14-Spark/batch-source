@@ -1,0 +1,385 @@
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please provide a Username
+Please enter your first name
+Please enter your last name
+Please enter email address
+Please enter a phone number with 10 digits and no other characters in between.
+Your user account is as follows: Username: Achumchal828 | Password: Unlp6977$ | First Name: Aaron | Last Name: Chumchal | Email: cbs@ds.com | Phone# 1234567891.
+Is this all correct, Y/N?
+Thank you for making an account. Press enter to continue
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please only enter Y for yes or N for no.
+Please only enter Y for yes or N for no.
+Please only enter Y for yes or N for no.
+Please enter Username 
+Please enter password
+Welcome Aaron.
+Would you like to 1:make a bank account or 2: Delete user account?  Any other button will exit.
+Thank you for making a bank account. Would you like to log in now? Y/N
+Please enter Username 
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please enter Username 
+Please enter password
+ Incorrect Username or Password. Enter 1 to try again or any other button to quit.
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please provide a Username
+Please enter your first name
+First name must be capital, consist of only letters, and be between 1 and 20 characters
+Please enter your first name
+Please enter your last name
+Please enter email address
+Please enter a phone number with 10 digits and no other characters in between.
+Your user account is as follows: Username: username | Password: Pass420$ | First Name: User | Last Name: Name | Email: username@gmail.com | Phone# 1234567891.
+Is this all correct, Y/N?
+Thank you for making an account. Press enter to continue
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please only enter Y for yes or N for no.
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please enter Username 
+Please enter password
+Welcome User.
+Would you like to 1:make a bank account or 2: Delete user account?  Any other button will exit.
+Thank you for making a bank account. Would you like to log in now? Y/N
+Would you like to 1:make a bank account or 2: Delete user account?  Any other button will exit.
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Can only deposit positive, numeric amounts.
+Can only deposit positive, numeric amounts.
+Can only deposit positive, numeric amounts.
+Can only deposit positive, numeric amounts.
+Can only withdraw positive, numeric amounts.
+Can only deposit positive, numeric amounts.
+Can only withdraw positive, numeric amounts.
+Balance is to low to withdraw that much
+Can only withdraw positive, numeric amounts.
+Can only deposit positive, numeric amounts.
+Balance is to low to withdraw that much
+Can only withdraw positive, numeric amounts.
+Can only deposit positive, numeric amounts.
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please provide a Username
+Please enter your first name
+Please enter your last name
+Please enter email address
+Please enter a phone number with 10 digits and no other characters in between.
+Your user account is as follows: Username: Tony | Password: Tony123@ | First Name: Tony | Last Name: Tony | Email: Tony@tony.Tony | Phone# 4628513625.
+Is this all correct, Y/N?
+Thank you for making an account. Press enter to continue
+Please enter Username 
+Please enter password
+ Incorrect Username or Password. Enter 1 to try again or any other button to quit.
+Please enter Username 
+Please enter password
+Welcome Tony.
+Would you like to 1:make a bank account or 2: Delete user account?  Any other button will exit.
+Thank you for making a bank account. Would you like to log in now? Y/N
+Please enter Username 
+Please enter password
+Welcome Tony.
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 0.0.
+How much would you like to deposit
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+200.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 200.0.
+How much would you like to withdraw?
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+150.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+150.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Balance is to low to withdraw that much
+Can only withdraw positive, numeric amounts.
+Can only deposit positive, numeric amounts.
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please enter Username 
+Please enter password
+Welcome User.
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 0.0.
+How much would you like to deposit
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please enter Username 
+Please enter password
+Welcome Aaron.
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Your user acount is as follows: Username AaronChum828| First Name: Aaron| Last Name: Chumchal| Email: aaron@gmail.com| Phone Number: 3617727544
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 0.0.
+How much would you like to deposit
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please enter Username 
+Please enter password
+Welcome Tony.
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Your user acount is as follows: Username Tony| First Name: Tony| Last Name: Tony| Email: Tony@tony.Tony| Phone Number: 4628513625
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+150.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 150.0.
+How much would you like to withdraw?
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+125.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 125.0.
+How much would you like to deposit
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+225.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please provide a Username
+Passwords did not match, please try again.
+Password does not meet criteria. Must be between 8 and 40 characters, have a lowercase and uppercase letter,
+ have a number, and include a special character (@#$%!).
+Please enter your first name
+First name must be capital, consist of only letters, and be between 1 and 20 characters
+Please enter your first name
+Please enter your last name
+Please enter email address
+Invalid Email, please try again.
+Please enter email address
+Invalid Email, please try again.
+Please enter email address
+Invalid Email, please try again.
+Please enter email address
+Please enter a phone number with 10 digits and no other characters in between.
+Invalid Phone Number.
+Please enter a phone number with 10 digits and no other characters in between.
+Your user account is as follows: Username: Frank12 | Password: Frank12$ | First Name: Frank | Last Name: Casnt | Email: aaronc1@gmail.com | Phone# 3617727544.
+Is this all correct, Y/N?
+Thank you for making an account. Press enter to continue
+Please enter Username 
+Please enter password
+ Incorrect Username or Password. Enter 1 to try again or any other button to quit.
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please enter Username 
+Please enter password
+Welcome Frank.
+Would you like to 1:make a bank account or 2: Delete user account?  Any other button will exit.
+Thank you for making a bank account. Would you like to log in now? Y/N
+Please enter Username 
+Please enter password
+Welcome Frank.
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Your user acount is as follows: Username Frank12| First Name: Frank| Last Name: Casnt| Email: aaronc1@gmail.com| Phone Number: 3617727544
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 0.0.
+How much would you like to deposit
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+5000.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 5000.0.
+How much would you like to withdraw?
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Are you sure you want to delete your account?Y/N
+Please enter username to validate deletion
+Please enter password to validate deletion
+Confirmed. Deleting account.
+Your account has been deleted. Returning to home screen.
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please provide a Username
+Password does not meet criteria. Must be between 8 and 40 characters, have a lowercase and uppercase letter,
+ have a number, and include a special character (@#$%!).
+Passwords did not match, please try again.
+Please enter your first name
+Please enter your last name
+Last name must be capital, consist of only letters, and be between 1 and 20 characters
+Please enter your last name
+Please enter email address
+Invalid Email, please try again.
+Please enter email address
+Please enter a phone number with 10 digits and no other characters in between.
+Invalid Phone Number.
+Please enter a phone number with 10 digits and no other characters in between.
+Your user account is as follows: Username: Johnny$ | Password: Hurt1932$ | First Name: Johnny | Last Name: Cash | Email: RingOfFire@gmail.com | Phone# 1234567891.
+Is this all correct, Y/N?
+Thank you for making an account. Press enter to continue
+Please enter Username 
+Please enter password
+ Incorrect Username or Password. Enter 1 to try again or any other button to quit.
+Please enter Username 
+Please enter password
+Welcome Johnny.
+Would you like to 1:make a bank account or 2: Delete user account?  Any other button will exit.
+Thank you for making a bank account. Would you like to log in now? Y/N
+Please enter Username 
+Please enter password
+ Incorrect Username or Password. Enter 1 to try again or any other button to quit.
+Please enter Username 
+Please enter password
+Welcome Johnny.
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Your user acount is as follows: Username Johnny$| First Name: Johnny| Last Name: Cash| Email: RingOfFire@gmail.com| Phone Number: 1234567891
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Are you sure you want to delete your account?Y/N
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 0.0.
+How much would you like to deposit
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+1000000.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 1000000.0.
+How much would you like to withdraw?
+Balance is to low to withdraw that much
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 1000000.0.
+How much would you like to withdraw?
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+-9000000.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is -9000000.0.
+How much would you like to deposit
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 0.0.
+How much would you like to withdraw?
+Balance is to low to withdraw that much
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Are you sure you want to delete your account?Y/N
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is -10.0.
+How much would you like to deposit
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please enter Username 
+Please enter password
+Welcome Johnny.
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+-10.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is -10.0.
+How much would you like to deposit
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+199990.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 199990.0.
+How much would you like to withdraw?
+Balance is to low to withdraw that much
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+199990.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+199990.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 199990.0.
+How much would you like to withdraw?
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+199490.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 199490.0.
+How much would you like to deposit
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please enter Username 
+Please enter password
+ Incorrect Username or Password. Enter 1 to try again or any other button to quit.
+Please enter Username 
+Please enter password
+Welcome Johnny.
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+199500.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Would you like to do? Enter 1 to view balance, 2 to withdraw, 3 to deposit, 4 to delete bank account, 5 to log out, or 6 to return to home screen.
+Your balance is 199500.0.
+How much would you like to withdraw?
+your balance is now 0.0
+What would you like to do? Enter 1 to Make a Transaction, 2 to view Account Info, 3 to delete Account, 4 to log out, 5 to home screen 
+Are you sure you want to delete your account?Y/N
+Please enter username to validate deletion
+Please enter password to validate deletion
+Confirmed. Deleting account.
+Your account has been deleted. Returning to home screen.
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please provide a Username
+Username already taken, please choose another.
+Please provide a Username

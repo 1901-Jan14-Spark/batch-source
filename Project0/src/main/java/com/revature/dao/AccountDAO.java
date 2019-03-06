@@ -5,7 +5,7 @@ import java.util.List;
 import com.revature.models.Account;
 
 public interface AccountDAO {
-	public List<Account> getAccounts();
+
 	public Account varifyAccount(String username, String password);
 	public int createAccount(Account a);
 	public void updateAccount(Account a);

@@ -36,10 +36,7 @@ public class AccountDAO_Impl implements AccountDAO{
 		return departmentsCreated;
 	}
 
-	public List<Account> getAccounts() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	public Account varifyAccount(String username, String password) {
 		String sql = "SELECT * FROM ACCOUNTS WHERE USERNAME = ? AND PASSWORD= ?";
@@ -62,7 +59,6 @@ public class AccountDAO_Impl implements AccountDAO{
 				String email = rs.getString("EMAIL");
 				String phone = rs.getString("PHONE_NUMBER");
 				int bankId = rs.getInt("BANK_ACC_ID");
-				System.out.println(email);
 				
 				
 				acc = new Account(Id, name, pass, firstname, lastname, email, phone, bankId);
@@ -73,14 +69,9 @@ public class AccountDAO_Impl implements AccountDAO{
 		}
 		
 		return acc;
-		
-		
-	}
+		}
 
-	public int createAcount(Account a) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 	public void updateAccount(Account a) {
 String sql = "UPDATE ACCOUNTS SET BANK_ACC_ID = ? WHERE ACC_ID = ?";

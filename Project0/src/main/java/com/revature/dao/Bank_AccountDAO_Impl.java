@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,11 +17,7 @@ import com.revature.util.Connections;
 
 public class Bank_AccountDAO_Impl implements Bank_AccountDAO {
 	private static Logger log = Logger.getRootLogger();
-	@Override
-	public List<Bank_Account> getBankAccounts() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public int createBankAccount(Account a, Bank_Account b) {
@@ -47,11 +44,7 @@ public class Bank_AccountDAO_Impl implements Bank_AccountDAO {
 		
 	
 
-	@Override
-	public int updateBankAccount(Bank_Account a) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+	
 
 	@Override
 	public int deleteBankAccount(int id) {
@@ -66,18 +59,13 @@ String sql = "DELETE FROM BANK_ACC WHERE BA_ID = ?";
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-String sql2 = "UPDATE ACCOUNTS SET BANK_ACC_ID = ? WHERE ACC_ID = ?";
-		
+		String	sql2 = "{call UPDATE_BA_ID(?)}"; 
 		try(Connection con = Connections.getConnection();
-				PreparedStatement ps = con.prepareStatement(sql2)){
-			
-			ps.setInt(1, 0);
-			ps.setInt(2, id);
-		
-			ps.executeUpdate();
-			
-			
-		} catch (SQLException e) {
+		CallableStatement cs = con.prepareCall(sql2)){
+
+				cs.setInt(1, id); 
+				cs.execute();
+		}catch(SQLException e){
 			e.printStackTrace();
 		}
 		return 0;
@@ -86,11 +74,8 @@ String sql2 = "UPDATE ACCOUNTS SET BANK_ACC_ID = ? WHERE ACC_ID = ?";
 	@Override
 	public void deposit(Account a, double increaseAmount) {
 		double x=viewBalance(a);
-		if (increaseAmount<0.0) {
-			log.info("Can only deposit positive, numeric amounts.");
-			return;
-		}
-		double y=x+increaseAmount;
+		double y=increaseBalance(x, increaseAmount);
+		log.info("Your balance is now " + y );
 String sql = "UPDATE BANK_ACC SET BALANCE = ? WHERE BA_ID = ?";
 		
 		try(Connection con = Connections.getConnection();
@@ -106,6 +91,15 @@ String sql = "UPDATE BANK_ACC SET BALANCE = ? WHERE BA_ID = ?";
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public static double increaseBalance(Double balance, double deposit) {
+		if (deposit<0.0) {
+			log.info("Can only deposit positive, numeric amounts.");
+			return balance;
+		}
+		double sum=balance+deposit;
+		return sum;
 	}
 
 	
@@ -113,15 +107,8 @@ String sql = "UPDATE BANK_ACC SET BALANCE = ? WHERE BA_ID = ?";
 	@Override
 	public void withdraw(Account a, double decreaseAmount) {
 		double x=viewBalance(a);
-		if (x<decreaseAmount) {
-			log.info("Balance is to low to withdraw that much");
-			Service.transaction(a);
-		}
-		if (decreaseAmount<0.0) {
-			log.info("Can only withdraw positive, numeric amounts.");
-			return;
-		}
-		double y=x-decreaseAmount;
+	double y=decreaseBalance(x, decreaseAmount);
+		log.info("your balance is now " + y);
 String sql = "UPDATE BANK_ACC SET BALANCE = ? WHERE BA_ID = ?";
 		
 		try(Connection con = Connections.getConnection();
@@ -138,19 +125,31 @@ String sql = "UPDATE BANK_ACC SET BALANCE = ? WHERE BA_ID = ?";
 		}
 		
 	}
+	public static double decreaseBalance(Double balance, double withdrawal) {
+		if (balance<withdrawal) {
+			log.info("Balance is to low to withdraw that much");
+			return balance;
+		}
+		if (withdrawal<0.0) {
+			log.info("Can only withdraw positive, numeric amounts.");
+			return balance;
+		}
+		double y=balance-withdrawal;
+		return y;
+	}
 
 	@Override
 	public double viewBalance(Account a) {
 		String bankId= Integer.toString(a.getBA_ID()); 
-String sql = "SELECT BALANCE FROM BANK_ACC WHERE BA_ID =" + bankId;
-	double	balance= 0.0;
-		try(Connection con = Connections.getConnection();
-				
-				Statement s = con.createStatement();
-				ResultSet rs = s.executeQuery(sql);){
-			while(rs.next()) {
-			 balance=rs.getDouble("Balance");
-			}
+		String sql = "SELECT BALANCE FROM BANK_ACC WHERE BA_ID =" + bankId;
+			double	balance= 0.0;
+				try(Connection con = Connections.getConnection();
+						
+						Statement s = con.createStatement();
+						ResultSet rs = s.executeQuery(sql);){
+					while(rs.next()) {
+					 balance=rs.getDouble("Balance");
+					}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
