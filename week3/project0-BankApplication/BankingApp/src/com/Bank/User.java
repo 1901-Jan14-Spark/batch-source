@@ -17,7 +17,7 @@ public class User implements Serializable {
 	private String password;
 	private UserDaoImp userDao;
 
-	User() {
+	public User() {
 
 		super();
 

@@ -86,12 +86,12 @@ public class BankController implements Observer {
 
 			User foundUser = this.model.getUserDao().findUser(this.theView.getEnterdUsername());
 
-			System.out.println("printing founder" + foundUser.getID());
+			
 			this.theView.setPassword(foundUser.getPassword());
 
 			if ((foundUser.getID() != 0) && (this.theView.logInmenuCheckPassword())) {
 
-				System.out.println(foundUser);
+				
 				this.theView.setUsername(foundUser.getUsername());
 				this.theView.setFirstName(foundUser.getFirstName());
 				this.theView.setLastName(foundUser.getLastName());

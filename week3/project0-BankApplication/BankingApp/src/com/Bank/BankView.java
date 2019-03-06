@@ -19,8 +19,9 @@ public class BankView extends Observable {
 	private String enterdUsername;
 	private String logedinAs;
 	private boolean userNameExists;
+	private static Logger log = Logger.getRootLogger();
 
-	BankView() {
+	public BankView() {
 		super();
 		SC = new Scanner(System.in);
 		this.setLogedinAs(null);
@@ -60,23 +61,23 @@ public class BankView extends Observable {
 
 	public void splashPage() {
 
-		System.out.println("----------------------------------------------------------------------------------\n"
+		log.info("----------------------------------------------------------------------------------\n"
 				+ "                  Welcome to Bank of Ruptcy");
-		System.out.println("\n          Please Choose from the following option:");
+		log.info("\n          Please Choose from the following option:");
 
 	}
 
 	public void homePage() {
 
-		System.out.println("----------------------------------------------------------------------------------\n"
+		log.info("----------------------------------------------------------------------------------\n"
 				+ "                           HomePage");
-		System.out.println("\n Logged in as " + userName + "                                    Welcome home "
-				+ firstName + " " + lastName);
+		log.info("\n Logged in as " + userName + "                                    Welcome home " + firstName + " "
+				+ lastName);
 
-		System.out.println("\n         Your Checking Balance - " + checking
-				+ "                    Your Saving Balance + " + saving);
+		log.info("\n         Your Checking Balance - " + checking + "                    Your Saving Balance - "
+				+ saving);
 
-		System.out.println("\n         Press:\n            [X] - Deposit  [Y] - Withdraw  [E] - Logout ");
+		log.info("\n         Press:\n            [X] - Deposit  [Y] - Withdraw  [E] - Logout ");
 
 		loggedInMainMenu();
 	}
@@ -87,7 +88,7 @@ public class BankView extends Observable {
 
 		while (!transactionChoice.equals("x") && !transactionChoice.equals("y") && !transactionChoice.equals("X")
 				&& !transactionChoice.equals("Y") && !transactionChoice.equals("E") && !transactionChoice.equals("e")) {
-			System.out.println("               Please Enter the right choice or press E to end the apllication");
+			log.info("               Please Enter the right choice or press E to end the apllication");
 			transactionChoice = SC.nextLine();
 		}
 
@@ -99,7 +100,7 @@ public class BankView extends Observable {
 		} else if (transactionChoice.equals("e") || transactionChoice.equals("E")) {
 			logout();
 		} else {
-			System.out.println("unexpected error occured, returning back to menu");
+			log.info("unexpected error occured, returning back to menu");
 			handleLogInOption();
 
 		}
@@ -108,12 +109,12 @@ public class BankView extends Observable {
 
 	private void depositMainMenu() {
 
-		System.out.println(
+		log.info(
 				"\n         Press:\n            [X] - Deposit in to Checking  [Z] - Deposit in to Saving  [E] - Logout ");
 		String transactionChoice = SC.nextLine();
 		while (!transactionChoice.equals("X") && !transactionChoice.equals("x") && !transactionChoice.equals("Z")
 				&& !transactionChoice.equals("z") && !transactionChoice.equals("E") && !transactionChoice.equals("e")) {
-			System.out.println("               Please Enter the right choice or press E to end the apllication");
+			log.info("               Please Enter the right choice or press E to end the apllication");
 			transactionChoice = SC.nextLine();
 		}
 
@@ -124,7 +125,7 @@ public class BankView extends Observable {
 		} else if (transactionChoice.equals("z") || transactionChoice.equals("Z")) {
 			depositMenuSaving();
 		} else {
-			System.out.println("unexpected error occured, returning back to menu");
+			log.info("unexpected error occured, returning back to menu");
 			handleLogInOption();
 
 		}
@@ -133,12 +134,12 @@ public class BankView extends Observable {
 
 	private void withdrawMainMenu() {
 
-		System.out.println(
+		log.info(
 				"\n         Press:\n            [X] - Withdraw From Checking  [Z] - Withdarw From Saving  [E] - Logout ");
 		String transactionChoice = SC.nextLine();
 		while (!transactionChoice.equals("X") && !transactionChoice.equals("x") && !transactionChoice.equals("Z")
 				&& !transactionChoice.equals("z") && !transactionChoice.equals("E") && !transactionChoice.equals("e")) {
-			System.out.println("               Please Enter the right choice or press E to end the apllication");
+			log.info("               Please Enter the right choice or press E to end the apllication");
 			transactionChoice = SC.nextLine();
 		}
 
@@ -149,7 +150,7 @@ public class BankView extends Observable {
 		} else if (transactionChoice.equals("z") || transactionChoice.equals("Z")) {
 			withdrawFromSaving();
 		} else {
-			System.out.println("unexpected error occured, returning back to menu");
+			log.info("unexpected error occured, returning back to menu");
 			handleLogInOption();
 
 		}
@@ -164,11 +165,11 @@ public class BankView extends Observable {
 		setChanged();
 		notifyObservers("depositAmountSaving");
 
-		System.out.println("\n Transaction status: ");
-		System.out.println(status ? " success" : " fail");
+		log.info("\n Transaction status: ");
+		log.info(status ? " success" : " fail");
 
-		System.out.println("\n New Balance Amount: ");
-		System.out.println(" " + this.saving);
+		log.info("\n New Balance Amount: ");
+		log.info(" " + this.saving);
 
 		// update profile balance
 		this.enterdValue = this.saving;
@@ -186,11 +187,11 @@ public class BankView extends Observable {
 
 		setChanged();
 		notifyObservers("depositAmountChecking");
-		System.out.println("\n Transaction status: ");
-		System.out.println(status ? " success" : " fail");
+		log.info("\n Transaction status: ");
+		log.info(status ? " success" : " fail");
 
-		System.out.println("\n New Balance Amount: ");
-		System.out.println(" " + this.checking);
+		log.info("\n New Balance Amount: ");
+		log.info(" " + this.checking);
 
 		// update profile balance
 		this.enterdValue = this.checking;
@@ -209,13 +210,13 @@ public class BankView extends Observable {
 
 		setChanged();
 		notifyObservers("withdrawFromChecking");
-		System.out.println("\n Transaction status: ");
-		System.out.println(status ? " success" : " insufficient funds");
+		log.info("\n Transaction status: ");
+		log.info(status ? " success" : " insufficient funds");
 
 		// ask to save new balance if
 
-		System.out.println("\n New Balance Amount: ");
-		System.out.println(" " + this.checking);
+		log.info("\n New Balance Amount: ");
+		log.info(" " + this.checking);
 
 		homePage();
 
@@ -229,13 +230,13 @@ public class BankView extends Observable {
 
 		setChanged();
 		notifyObservers("withdrawFromSaving");
-		System.out.println("\n Transaction status: ");
-		System.out.println(status ? " success" : " insufficient funds");
+		log.info("\n Transaction status: ");
+		log.info(status ? " success" : " insufficient funds");
 
 		// ask to save new balance if
 
-		System.out.println("\n New Balance Amount: ");
-		System.out.println(" " + this.saving);
+		log.info("\n New Balance Amount: ");
+		log.info(" " + this.saving);
 
 		homePage();
 
@@ -260,15 +261,15 @@ public class BankView extends Observable {
 
 	public void handleLogInOption() {
 
-		System.out.println("\n         Press:\n            [x] - Create Account  [Y] - Log IN");
+		log.info("\n         Press:\n            [x] - Create Account  [Y] - Log IN");
 
 		String logInChoice = SC.nextLine();
 
-		System.out.println(logInChoice);
+		log.info(logInChoice);
 
 		while (!logInChoice.equals("x") && !logInChoice.equals("y") && !logInChoice.equals("X")
 				&& !logInChoice.equals("Y") && !logInChoice.equals("e") && !logInChoice.equals("E")) {
-			System.out.println("               Please Enter the right choice or press E to end the apllication");
+			log.info("               Please Enter the right choice or press E to end the apllication");
 			logInChoice = SC.nextLine();
 		}
 
@@ -280,7 +281,7 @@ public class BankView extends Observable {
 		} else if (logInChoice.equals("e") || logInChoice.equals("E")) {
 			logout();
 		} else {
-			System.out.println("unexpected error occured, returning back to menu");
+			log.info("unexpected error occured, returning back to menu");
 			handleLogInOption();
 
 		}
@@ -288,12 +289,12 @@ public class BankView extends Observable {
 	}
 
 	public boolean logInmenuCheckPassword() {
-		System.out.println("\n         Please enter your password");
+		log.info("\n         Please enter your password");
 
 		String enterdPassword = SC.nextLine();
 
 		if (!validateUsernameString(enterdPassword)) {
-			System.out.println("\n      Invalid entry, please try again");
+			log.info("\n      Invalid entry, please try again");
 			logInmenuCheckPassword();
 
 		}
@@ -309,13 +310,13 @@ public class BankView extends Observable {
 	}
 
 	public void logInmenuCheckUsername() {
-		System.out.println("\n         Please enter your credentials and press enter");
+		log.info("\n         Please enter your username and press enter");
 
 		String userNameT = SC.nextLine();
 
 		// check for invalid entry
 		if (!validateUsernameString(userNameT)) {
-			System.out.println("\n      Invalid entry, please try again");
+			log.info("\n      Invalid entry, please try again");
 			logInmenuCheckUsername();
 
 		}
@@ -327,32 +328,28 @@ public class BankView extends Observable {
 
 	public void createAccountPage() {
 
-		System.out.println(
-				"---------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"\n      Thank you for choosing Bank of Ruptcy where you know your money is always safe with us. \n"
-						+ "               As a token of appreciation we will deposit a free 10$ on your new account.\n"
-						+ "                   Just follow directions to create and start your new account!! \n"
-						+ " \n                   Please enter your First Name and last name \n    ");
+		log.info("---------------------------------------------------------------------------------------------------");
+		log.info("\n      Thank you for choosing Bank of Ruptcy where you know your money is always safe with us. \n"
+				+ "               As a token of appreciation we will deposit a free 10$ on your new account.\n"
+				+ "                   Just follow directions to create and start your new account!! \n"
+				+ " \n                   Please enter your First Name and last name \n    ");
 
 		String name = SC.nextLine();
 
 		validateandSetName(name);
-		System.out.println(
-				"---------------------------------------------------------------------------------------------------");
-		System.out.println("\n                       Please enter a 6 or more digits new password: ");
+		log.info("---------------------------------------------------------------------------------------------------");
+		log.info("\n                       Please enter a 6 or more digits new password: ");
 		String password = SC.nextLine();
 		validateAndSetPassword(password);
-		System.out.println(
-				"---------------------------------------------------------------------------------------------------");
-		System.out.println("\n       Please enter a prefered username that includes only numbers and letters ");
+		log.info("---------------------------------------------------------------------------------------------------");
+		log.info("\n       Please enter a prefered username that includes only numbers and letters ");
 
 		validateAndSetUserName();
 
 		this.checking = 10;
 		setChanged();
 		notifyObservers("CreateNewAccount");
-		System.out.println("\n       Account Page Created!! transferring you to your new homepage!!!... ");
+		log.info("\n       Account Page Created!! transferring you to your new homepage!!!... ");
 
 	}
 
@@ -371,7 +368,7 @@ public class BankView extends Observable {
 		String userNameT = SC.nextLine();
 
 		while (!validateUsernameString(userNameT)) {
-			System.out.println("       Invalid Input, please enter text with letters/numbers");
+			log.info("       Invalid Input, please enter text with letters/numbers");
 			userNameT = SC.nextLine();
 
 		}
@@ -383,7 +380,7 @@ public class BankView extends Observable {
 
 		// if its false then we can assign the user to new username
 
-		System.out.println("printing result" + this.isUserNameExists());
+		log.info("printing result" + this.isUserNameExists());
 
 		// check username logic
 		if (this.isUserNameExists() == false) {
@@ -394,11 +391,11 @@ public class BankView extends Observable {
 		} // else tell the user to use another user name
 		else {
 
-			System.out.println("       Sorry, the username is taken, choose another one");
+			log.info("       Sorry, the username is taken, choose another one");
 			validateAndSetUserName();
 		}
 
-		System.out.println(userNameT);
+		log.info(userNameT);
 	}
 
 	public boolean validateUsernameString(String userName) {
@@ -424,7 +421,7 @@ public class BankView extends Observable {
 		String lastNameT = splitName[1];
 
 		if (!validateNameString(firstNameT) || !validateNameString(lastNameT)) {
-			System.out.println("       Invalid entry, please try again");
+			log.info("       Invalid entry, please try again");
 			name = SC.nextLine();
 			validateandSetName(name);
 		}
@@ -447,7 +444,7 @@ public class BankView extends Observable {
 	public void validateAndSetPassword(String passwordArg) {
 
 		while (passwordArg.split(" ").length != 1) {
-			System.out.println("       Password cannot be empty or have space, please enter a valid password");
+			log.info("       Password cannot be empty or have space, please enter a valid password");
 			passwordArg = SC.nextLine();
 
 		}
@@ -458,7 +455,7 @@ public class BankView extends Observable {
 				validateAndSetPassword(passwordArg);
 			}
 
-			System.out.println("       Plesae enter a 6 or more characters password");
+			log.info("       Plesae enter a 6 or more characters password");
 			passwordArg = SC.nextLine();
 
 		}

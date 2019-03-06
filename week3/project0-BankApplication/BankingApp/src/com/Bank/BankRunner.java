@@ -1,10 +1,5 @@
 package com.Bank;
 
-import java.sql.Connection;
-
-import java.sql.SQLException;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 
 import com.Bank.BankController;
@@ -16,10 +11,17 @@ public class BankRunner {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
+		
+		
+		
+		//[%t] %-5p %c %x - 
+	//	log.info("write this one");
 
-//log.debug("Log4j appender configuration is successful ! - controller");
-		BankController theController = new BankController();
-
+ // log.debug("Log4j appender configuration is successful ! - controller");
+	BankController theController = new BankController();
+		
+	
 		// Log in console in and log file
 
 		// UserDAO dd = new DepartmentDaoImpl();
@@ -37,14 +39,7 @@ public class BankRunner {
 //}
 //  
 
-		UserDAO x = new UserDaoImp();
-		List<User> users = x.getusers();
-
-		for (User y : users) {
-
-			System.out.println(y);
-
-		}
+	
 
 	}
 
