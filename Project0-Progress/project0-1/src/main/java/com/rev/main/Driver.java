@@ -1,9 +1,5 @@
 package com.rev.main;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-//import log4j.properties;
-import java.util.List;
+
 import java.util.Scanner;
 
 import org.apache.log4j.Logger;
@@ -20,6 +16,9 @@ public class Driver {
 	
 	public static void main(String[] args) {
 		Login();
+//		CustomerDao cus1 = new CustomerDaoImpl();
+//		Customer bob = cus1.getCustomerById(4);
+//		System.out.println(bob);
 	}
 	
 	
@@ -112,7 +111,7 @@ public class Driver {
 		for(int i = 0; i<password.length(); i++) {
 			System.out.print("x");
 		}
-		System.out.print(" and usernmae are both set and will be saved.");
+		System.out.print(" and username are both set and will be saved.");
 		
 		
 		int creat = cus1.addCustomer(new Customer(name1,0,username,password));
@@ -143,7 +142,7 @@ public class Driver {
 			if(dep.matches(".*[a-z].*")) {
 				log.info("We cannot deposit letters. Only money. Enter a numeric value");
 				operations(id);
-			}
+			}else if(dep.matches(".*[0-9].*")) {
 			double deposit = Double.parseDouble(dep);
 			if(deposit>0) {
 			double balance = deposit + cus1.getBalance(id);
@@ -155,6 +154,10 @@ public class Driver {
 				log.info("Deposite must be a number greater than 0. Duh.");
 				operations(id);
 			}
+		}else {
+			log.info("did you include a special charector? Don't do that.");
+			operations(id);
+		}
 		}
 		else if(op.equals("bal")||op.equals("balance")||op.equals("Bal")||op.equals("Balance")||op.equals("B")||op.equals("b")||op.equals("v")||op.equals("V")||op.equals("view")||op.equals("View")) {
 			log.info("Current balance is "+cus1.getBalance(id));

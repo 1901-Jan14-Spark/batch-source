@@ -169,7 +169,8 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 
 	@Override
-	public void changeCustomerBalance(int id, double changeAmount) {
+	public int changeCustomerBalance(int id, double changeAmount) {
+		int check = 0;
 		CustomerDao cus2 = new CustomerDaoImpl();
 		double plus=cus2.getBalance(id);
 		CustomerDao cus1 = new CustomerDaoImpl();
@@ -181,11 +182,12 @@ public class CustomerDaoImpl implements CustomerDao {
 				ps.setInt(2, id);
 				ps.executeUpdate();
 				
-			
+			check = 1;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return check;
 		
 	}
 	
@@ -217,12 +219,14 @@ public class CustomerDaoImpl implements CustomerDao {
 	
 
 	@Override
-	public void withdraw(int id, double bal) {
+	public int withdraw(int id, double bal) {
+		int check = 0;
 		log.info("Current Balance is: "+bal);
 		log.info("How much would you like to withdraw?");
 		
 		String subtract = scan2.nextLine();
-		if(subtract.matches(".*[a-z].*")) {
+		
+		if(subtract.matches(".*[a-z].*")||(subtract.matches(".*[0-9].*"))==false) {
 			log.info("Numbers Only please");
 			withdraw(id,bal);
 		}else{
@@ -230,7 +234,10 @@ public class CustomerDaoImpl implements CustomerDao {
 			if(minus>bal) {
 				log.info("Insuffiecent Funds");
 				withdraw(id,bal);
-			}else {
+			}else if(minus<0){
+				log.info("positive numbers only please");
+				withdraw(id,bal);
+			}else{
 		CustomerDao cus2 = new CustomerDaoImpl();
 		double plus=cus2.getBalance(id);
 		CustomerDao cus1 = new CustomerDaoImpl();
@@ -250,6 +257,7 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 	}
 		}
+		return check;
 	}
 
 	@Override
