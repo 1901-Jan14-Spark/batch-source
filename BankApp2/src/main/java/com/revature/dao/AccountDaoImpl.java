@@ -97,7 +97,11 @@ public class AccountDaoImpl implements AccountDao{
 		return true;
 	}
 	
-	public double junitTestDeposit(Account a, double amount) {
+	public static double junitTestDeposit(Account a, double amount) {
+		return a.getCheckings() + amount;
+	}
+	
+	public static double junitTestWithdraw(Account a, double amount) {
 		return a.getCheckings() - amount;
 	}
 
