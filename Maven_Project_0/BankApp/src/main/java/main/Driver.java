@@ -21,8 +21,8 @@ public class Driver {
 	static List<String> content = new ArrayList<>();
 	public static void main(String[] args) {
 //		menu();
-		newAccount();		
-//			makeNew();
+//		newAccount();		
+			makeNew();
 //		withdraw();
 	}
 	public static void newAccount() {
@@ -61,20 +61,34 @@ log.info("WELCOME TO ACCOUNT CREATION");
 		
 		log.info("Please Enter First Name: ");
 		String firstname = input.nextLine().trim();
-		
-		
+		while(firstname.equals("")||firstname.equals(null)){
+			log.error("Invalid Input Please Try Again");
+			firstname = input.nextLine();
+		}
 		log.info("Please Enter Last Name: ");
 		String lastname = input.nextLine().trim();
-		
+		while(lastname.equals("")||lastname.equals(null)){
+			log.error("Invalid Input Please Try Again");
+			lastname = input.nextLine();
+		}
 		log.info("Please Enter Email: ");
 		String email = input.nextLine().trim();
-		
+		while(email.equals("")||email.equals(null)){
+			log.error("Invalid Input Please Try Again");
+			email = input.nextLine();
+		}
 		log.info("Please Enter Username: ");
 		String username = input.nextLine().trim();
-		
+		while(username.equals("")||username.equals(null)){
+			log.error("Invalid Input Please Try Again");
+			username = input.nextLine();
+		}
 		log.info("Please Enter Password: ");
 		String password = input.nextLine().trim();
-		
+		while(password.equals("")||password.equals(null)){
+			log.error("Invalid Input Please Try Again");
+			password = input.nextLine();
+		}
 		bcd.createClient(new BankClients(firstname, lastname, email, username,password));
 		
 		log.info("USER CREATED");

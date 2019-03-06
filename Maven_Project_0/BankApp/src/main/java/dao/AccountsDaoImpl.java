@@ -39,8 +39,9 @@ public class AccountsDaoImpl implements AccountsDao{
 		String sql = "SELECT * FROM ACCOUNTS WHERE MEM_NUM = ?";
 		Accounts a = null;
 		try(Connection con = ConnectionUtil.sysVar();
-				Statement s = con.createStatement();
-				ResultSet rs = s.executeQuery(sql);){
+			PreparedStatement ps = con.prepareStatement(sql);){
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
 				int accNum = rs.getInt("ACC_NUM");
 				int memNum = rs.getInt("MEM_NUM");
