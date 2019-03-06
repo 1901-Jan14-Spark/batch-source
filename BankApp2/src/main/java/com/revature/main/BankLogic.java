@@ -126,9 +126,7 @@ public class BankLogic {
 				amount = input.next();
 			}
 			damount = Double.parseDouble(amount);
-			double accBal = Handler.getSavingsBal(email);
-			accBal += damount;
-			ad.updateAccountSavings(email, accBal);
+			ad.incAccountSavings(email, damount);
 		}
 		
 		userAccount(email);
@@ -140,6 +138,7 @@ public class BankLogic {
 		String amount;
 		double damount;
 		String choice;
+		double check;
 		
 		System.out.println("Where would you like to withdraw?");
 		System.out.println("Checkings Balance: $"+ Handler.getCheckingsBal(email));
@@ -157,8 +156,12 @@ public class BankLogic {
 			}
 			damount = Double.parseDouble(amount);
 			double accBal = Handler.getCheckingsBal(email);
-			accBal -= damount;
-			ad.updateAccountCheckings(email, accBal);
+			check = accBal - damount;
+			if(check <= 0) {
+				System.out.println("Insufficient funds.");
+			} else {
+				ad.updateAccountCheckings(email, check);
+			}	
 		} else if (choice.equals("2")) {
 			System.out.println("How much would you like to withdraw?");
 			amount = input.next();
@@ -168,8 +171,13 @@ public class BankLogic {
 			}
 			damount = Double.parseDouble(amount);
 			double accBal = Handler.getSavingsBal(email);
-			accBal -= damount;
-			ad.updateAccountSavings(email, accBal);
+			check = accBal - damount;
+			if(check <= 0 ) {
+				System.out.println("Insufficient funds.");
+			} else {
+				ad.decAccountSavings(email, damount);
+			}
+			
 		}
 		
 		userAccount(email);
@@ -177,8 +185,8 @@ public class BankLogic {
 	
 	public static void showBal(String email) {
 		System.out.println("~~~~~BALANCE~~~~~");
-		System.out.println("Checkings Balance:\n $"+ Handler.getCheckingsBal(email));
-		System.out.println("Savings Balance:\n $"+ Handler.getSavingsBal(email));
+		System.out.println("Checkings:\n $"+ Handler.getCheckingsBal(email));
+		System.out.println("Savings:\n $"+ Handler.getSavingsBal(email));
 		userAccount(email);
 	}
 	

@@ -1,5 +1,6 @@
 package com.revature.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -60,27 +61,42 @@ public class AccountDaoImpl implements AccountDao{
 	
 
 	@Override
-	public int updateAccountSavings(String email, double amount) {
-		int AccountsUpdated = 0;
-		String sql = "UPDATE ACCOUNT "
-				   + "SET SAVINGS_BALANCE = ? "
-				   + "WHERE EMAIL = ?";
+	public boolean decAccountSavings(String email, double amount) {
 		
-		try (Connection con = ConnectionUtil.getConnection();
-				PreparedStatement ps = con.prepareStatement(sql)){
+		String sql = "{call DEC_SAVINGS(?,?)}";
+		
+		try(Connection con = ConnectionUtil.getConnection();
+				CallableStatement cs = con.prepareCall(sql)){
 			
-			
-			ps.setDouble(1, amount);
-			ps.setString(2, email);
-			AccountsUpdated = ps.executeUpdate();
-			//con.commit();
+			cs.setString(1, email);
+			cs.setDouble(2, amount);
+			cs.execute();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return AccountsUpdated;
+		return true;
 	}
+
+	@Override
+	public boolean incAccountSavings(String email, double amount) {
+		String sql = "{call INC_SAVINGS(?,?)}";
+		
+		try(Connection con = ConnectionUtil.getConnection();
+				CallableStatement cs = con.prepareCall(sql)){
+			
+			cs.setString(1, email);
+			cs.setDouble(2, amount);
+			cs.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return true;
+	}
+	
 	
 
 	@Override
