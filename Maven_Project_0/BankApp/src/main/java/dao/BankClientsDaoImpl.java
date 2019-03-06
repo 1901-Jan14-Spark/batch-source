@@ -21,12 +21,12 @@ public class BankClientsDaoImpl implements BankClientsDao {
 				Statement s = con.createStatement();
 				ResultSet rs = s.executeQuery(sql);){
 			while(rs.next()) {
-				int accNum = rs.getInt("ACC_NUM");
+				int memNum = rs.getInt("MEM_NUM");
 				String firstname = rs.getString("FIRSTNAME");
 				String lastname = rs.getString("LASTNAME");
 				String email = rs.getString("EMAIL");
 
-				clients.add(new BankClients(accNum, firstname, lastname, email));
+				clients.add(new BankClients(memNum, firstname, lastname, email));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -35,15 +35,15 @@ public class BankClientsDaoImpl implements BankClientsDao {
 	}
 
 	@Override
-	public BankClients getClientById(int accID) {
+	public BankClients getClientById(int memNum) {
 		BankClients bc = null;
-		String sql = "SELECT * FROM BANK_CLIENTS WHERE ACC_NUM = ?";
+		String sql = "SELECT * FROM BANK_CLIENTS WHERE MEM_NUM = ?";
 		try(Connection con = ConnectionUtil.sysVar(); 
 				PreparedStatement ps = con.prepareStatement(sql);){
-			ps.setInt(1, accID);
+			ps.setInt(1, memNum);
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()) {
-				int accNum = rs.getInt("ACC_NUM");
+				int accNum = rs.getInt("MEM_NUM");
 				String firstname = rs.getString("FIRSTNAME");
 				String lastname = rs.getString("LASTNAME");
 				String email = rs.getString("EMAIL");
@@ -78,14 +78,14 @@ public class BankClientsDaoImpl implements BankClientsDao {
 
 	@Override
 	public int updateClient(BankClients bc) {
-		String sql = "UPDATE BANK_CLIENTS SET FIRSTNAME= ?, LASTNAME= ?,EMAIL=? WHERE ACC_NUM= ?";
+		String sql = "UPDATE BANK_CLIENTS SET FIRSTNAME= ?, LASTNAME= ?,EMAIL=? WHERE MEM_NUM= ?";
 		int clientsUpdated = 0;
 		try(Connection con = ConnectionUtil.sysVar();
 				PreparedStatement ps = con.prepareStatement(sql);){
 			ps.setString(1, bc.getFirstName());
 			ps.setString(2, bc.getLastName());
 			ps.setString(3, bc.getEmail());
-			ps.setInt(4, bc.getAccID());
+			ps.setInt(4, bc.getMemNum());
 			clientsUpdated = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -94,12 +94,12 @@ public class BankClientsDaoImpl implements BankClientsDao {
 	}
 
 	@Override
-	public int deleteClient(int accID) {
-		String sql = "DELETE FROM BANK_CLIENTS WHERE ACC_NUM =?";
+	public int deleteClient(int memNum) {
+		String sql = "DELETE FROM BANK_CLIENTS WHERE MEM_NUM =?";
 		int rowsDeleted = 0;
 		try(Connection con = ConnectionUtil.sysVar();
 				PreparedStatement ps = con.prepareStatement(sql);){
-			ps.setInt(1, accID);
+			ps.setInt(1, memNum);
 			rowsDeleted = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -110,7 +110,7 @@ public class BankClientsDaoImpl implements BankClientsDao {
 	@Override
 	public boolean validation(String userName, String passWord) {
         boolean match = false;
-		String sql = "SELECT USERNAME, PASSWORD FROM BANK_CLIENTS";
+		String sql = "SELECT * FROM BANK_CLIENTS WHERE USERNAME = ? AND PASSWORD =?";
 		try(Connection con = ConnectionUtil.sysVar(); 
 				PreparedStatement ps = con.prepareStatement(sql);){
 			ps.setString(1, userName);
@@ -121,14 +121,26 @@ public class BankClientsDaoImpl implements BankClientsDao {
 				String password = rs.getString("PASSWORD");
 				if(username.equals(userName) && password.equals(passWord)) {
 						match= true;
-						return match;
-}
-				}
+					}
+				} 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return match;
 		
+	}
+
+	@Override
+	public String user(String firstname, String Lastname) {
+		String sql = "SELECT (FIRSTNAME|| ' ' || LASTNAME) FROM BANK_CLIENTS";
+		try(Connection con = ConnectionUtil.sysVar();
+				PreparedStatement ps = con.prepareStatement(sql);){
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return sql;
 	}
 
 	

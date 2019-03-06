@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,16 +16,17 @@ public class AccountsDaoImpl implements AccountsDao{
 
 	@Override
 	public List<Accounts> getAccounts() {
-		List<Accounts> accounts = new ArrayList<>();
 		String sql = "SELECT * FROM ACCOUNTS";
+		List<Accounts> accounts = new ArrayList<>();
 		try(Connection con = ConnectionUtil.sysVar();
 				Statement s = con.createStatement();
 				ResultSet rs = s.executeQuery(sql);){
 			while(rs.next()) {
 				int accNum = rs.getInt("ACC_NUM");
-				String accName = rs.getString("ACC_TYPE");
-				double balance = rs.getInt("BALANCE");
-				accounts.add(new Accounts(accNum, accName, balance));
+				int memNum = rs.getInt("MEM_NUM");
+				String accType = rs.getString("ACC_TYPE");
+				double balance = rs.getDouble("BALANCE");
+				accounts.add(new Accounts(accNum, memNum, accType, balance));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -34,46 +36,27 @@ public class AccountsDaoImpl implements AccountsDao{
 
 	@Override
 	public Accounts getAccountByID(int id) {
+		String sql = "SELECT * FROM ACCOUNTS WHERE MEM_NUM = ?";
 		Accounts a = null;
-		String sql = "SELECT * FROM ACCOUNTS WHERE ACC_NUM = ?";
-		try(Connection con = ConnectionUtil.sysVar(); 
-				PreparedStatement ps = con.prepareStatement(sql);){
-			ps.setInt(1, id);
-			ResultSet rs = ps.executeQuery();
+		try(Connection con = ConnectionUtil.sysVar();
+				Statement s = con.createStatement();
+				ResultSet rs = s.executeQuery(sql);){
 			while(rs.next()) {
 				int accNum = rs.getInt("ACC_NUM");
+				int memNum = rs.getInt("MEM_NUM");
 				String accType = rs.getString("ACC_TYPE");
 				double balance = rs.getDouble("BALANCE");
-				a = new Accounts(accNum, accType, balance);
+				a = new Accounts(accNum, memNum, accType, balance);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return a;
-		
-	}
-
-
-
-
-	@Override
-	public int updateAccount(Accounts a) {
-		String sql = "UPDATE ACCOUNTS SET BALANCE =? WHERE ACC_NUM = ?";
-		int balanceUpdate = 0;
-		try(Connection con = ConnectionUtil.sysVar();
-				PreparedStatement ps = con.prepareStatement(sql)){
-			ps.setDouble(1, a.getBalance());
-			ps.setInt(2, a.getAccNum());
-			balanceUpdate = ps.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}	
-		return balanceUpdate;
 	}
 
 	@Override
 	public int deleteAccount(int id) {
-		String sql = "DELETE FROM ACCOUNTS WHERE ACC_NUM =?";
+		String sql = "DELETE FROM ACCOUNTS WHERE MEM_NUM =?";
 		int rowsDeleted = 0;
 		try(Connection con = ConnectionUtil.sysVar();
 				PreparedStatement ps = con.prepareStatement(sql);){
@@ -83,6 +66,50 @@ public class AccountsDaoImpl implements AccountsDao{
 			e.printStackTrace();
 		}
 		return rowsDeleted;
+	}	
+	
+	@Override
+	public int createAccount(Accounts a) {
+		String sql = "INSERT INTO ACCOUNTS VALUES(null,?,?,?)";
+		int clientsCreated = 0;
+		try(Connection con = ConnectionUtil.sysVar();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setInt(1, a.getMemNum());
+			ps.setString(2, a.getAccType());
+			ps.setDouble(3, a.getBalance());
+			clientsCreated = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return clientsCreated;
 	}
+
+	@Override
+	public void deposit(int a, double deposit) {
+		String sql = "{call DEPOSIT(?,?)}";
+		try(Connection con = ConnectionUtil.sysVar();
+				CallableStatement cs = con.prepareCall(sql);){
+			cs.setInt(1, a);
+			cs.setDouble(2, deposit);
+			cs.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void withdraw(int a, double withdraw) {
+		String sql = "{call WITHDRAW(?,?)}";
+		try(Connection con = ConnectionUtil.sysVar();
+				CallableStatement cs = con.prepareCall(sql);){
+			cs.setInt(1, a);
+			cs.setDouble(2, withdraw);
+			cs.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 }

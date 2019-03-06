@@ -15,3 +15,33 @@
 2019-03-05 12:18:14 ERROR Driver:63 method: menu - INVAID INPUT PLEASE TRY AGAIN
 2019-03-05 12:18:22 ERROR Driver:63 method: menu - INVAID INPUT PLEASE TRY AGAIN
 2019-03-05 12:18:39 ERROR Driver:79 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 12:26:01 ERROR Driver:64 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-05 12:26:13 ERROR Driver:79 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 12:26:23 ERROR Driver:79 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 12:44:18 ERROR Driver:79 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 13:05:19 ERROR Driver:79 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 13:05:26 ERROR Driver:79 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 13:05:32 ERROR Driver:79 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:01:17 ERROR Driver:69 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-05 16:01:31 ERROR Driver:102 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:07:49 ERROR Driver:108 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:11:01 ERROR Driver:85 method: loggedIn - Invalid Choice Please Try Again
+2019-03-05 16:11:03 ERROR Driver:85 method: loggedIn - Invalid Choice Please Try Again
+2019-03-05 16:11:04 ERROR Driver:85 method: loggedIn - Invalid Choice Please Try Again
+2019-03-05 16:11:06 ERROR Driver:85 method: loggedIn - Invalid Choice Please Try Again
+2019-03-05 16:11:12 ERROR Driver:85 method: loggedIn - Invalid Choice Please Try Again
+2019-03-05 16:11:18 ERROR Driver:85 method: loggedIn - Invalid Choice Please Try Again
+2019-03-05 16:11:31 ERROR Driver:66 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-05 16:26:52 ERROR Driver:124 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:26:55 ERROR Driver:124 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:26:58 ERROR Driver:124 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:28:22 ERROR Driver:120 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:28:25 ERROR Driver:120 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:28:28 ERROR Driver:120 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:29:34 ERROR Driver:66 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-05 16:29:41 ERROR Driver:120 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:29:43 ERROR Driver:120 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:29:45 ERROR Driver:120 method: login - Username/Password Don't Match Please Try Again
+2019-03-05 16:32:19 ERROR Driver:66 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-05 16:58:30 ERROR Driver:66 method: menu - INVAID INPUT PLEASE TRY AGAIN
+2019-03-05 23:41:15 ERROR Driver:121 method: loggedIn - Invalid Choice Please Try Again

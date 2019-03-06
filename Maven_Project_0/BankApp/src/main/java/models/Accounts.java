@@ -6,6 +6,7 @@ public class Accounts implements Serializable{
 
 	private static final long serialVersionUID = -5249102949430143029L;
 private int accNum;
+private int memNum;
 private String accType;
 private double balance;
 public int getAccNum() {
@@ -13,6 +14,12 @@ public int getAccNum() {
 }
 public void setAccNum(int accNum) {
 	this.accNum = accNum;
+}
+public int getMemNum() {
+	return memNum;
+}
+public void setMemNum(int memNum) {
+	this.memNum = memNum;
 }
 public String getAccType() {
 	return accType;
@@ -23,13 +30,9 @@ public void setAccType(String accType) {
 public double getBalance() {
 	return balance;
 }
-public void setBalance(int balance) {
+public void setBalance(double balance) {
 	this.balance = balance;
 }
-public static long getSerialversionuid() {
-	return serialVersionUID;
-}
-
 @Override
 public int hashCode() {
 	final int prime = 31;
@@ -39,6 +42,7 @@ public int hashCode() {
 	long temp;
 	temp = Double.doubleToLongBits(balance);
 	result = prime * result + (int) (temp ^ (temp >>> 32));
+	result = prime * result + memNum;
 	return result;
 }
 @Override
@@ -59,21 +63,30 @@ public boolean equals(Object obj) {
 		return false;
 	if (Double.doubleToLongBits(balance) != Double.doubleToLongBits(other.balance))
 		return false;
+	if (memNum != other.memNum)
+		return false;
 	return true;
 }
 @Override
 public String toString() {
-	return "Accounts [accNum=" + accNum + ", accType=" + accType + ", balance=" + balance + "]";
+	return "Accounts [accNum=" + accNum + ", memNum=" + memNum + ", accType=" + accType + ", balance=" + balance + "]";
 }
-public Accounts(int accNum, String accType, double balance) {
+public Accounts(int accNum, int memNum, String accType, double balance) {
 	super();
 	this.accNum = accNum;
+	this.memNum = memNum;
 	this.accType = accType;
 	this.balance = balance;
 }
 public Accounts() {
 	super();
 	// TODO Auto-generated constructor stub
+}
+public Accounts(int memNum, String accType, double balance) {
+	this.memNum=memNum;
+	this.accType=accType;
+	this.balance=balance;
+	
 }
 
 }

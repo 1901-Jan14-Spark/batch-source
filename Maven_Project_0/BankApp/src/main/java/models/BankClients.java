@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class BankClients implements Serializable{
 	private static final long serialVersionUID = 4696949951560521088L;
-private int accID;
+private int memNum;
 private String firstName;
 private String lastName;
 private String email;
 private String username;
 private String password;
-public int getAccID() {
-	return accID;
+public int getMemNum() {
+	return memNum;
 }
-public void setAccID(int accID) {
-	this.accID = accID;
+public void setMemNum(int memNum) {
+	this.memNum = memNum;
 }
 public String getFirstName() {
 	return firstName;
@@ -50,10 +50,10 @@ public void setPassword(String password) {
 public int hashCode() {
 	final int prime = 31;
 	int result = 1;
-	result = prime * result + accID;
 	result = prime * result + ((email == null) ? 0 : email.hashCode());
 	result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 	result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+	result = prime * result + memNum;
 	result = prime * result + ((password == null) ? 0 : password.hashCode());
 	result = prime * result + ((username == null) ? 0 : username.hashCode());
 	return result;
@@ -67,8 +67,6 @@ public boolean equals(Object obj) {
 	if (getClass() != obj.getClass())
 		return false;
 	BankClients other = (BankClients) obj;
-	if (accID != other.accID)
-		return false;
 	if (email == null) {
 		if (other.email != null)
 			return false;
@@ -84,6 +82,8 @@ public boolean equals(Object obj) {
 			return false;
 	} else if (!lastName.equals(other.lastName))
 		return false;
+	if (memNum != other.memNum)
+		return false;
 	if (password == null) {
 		if (other.password != null)
 			return false;
@@ -98,31 +98,30 @@ public boolean equals(Object obj) {
 }
 @Override
 public String toString() {
-	return "BankClients [accID=" + accID + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+	return "BankClients [memNum=" + memNum + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 			+ ", username=" + username + ", password=" + password + "]";
 }
-public BankClients(String firstName, String lastName, String email, String username, String password) {
+public BankClients(int memNum, String firstName, String lastName, String email, String username, String password) {
 	super();
+	this.memNum = memNum;
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.email = email;
 	this.username = username;
 	this.password = password;
 }
-public BankClients() {
-	super();
-	// TODO Auto-generated constructor stub
+public BankClients(String firstname, String lastname, String email, String username, String password) {
+	this.firstName=firstname;
+	this.lastName=lastname;
+	this.email=email;
+	this.username=username;
+	this.password=password;
 }
-public BankClients(int accID, String firstName, String lastName, String email) {
-	this.accID = accID;
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.email = email; 
+public BankClients(int memNum, String firstname, String lastname, String email) {
+	this.memNum=memNum;
+	this.firstName=firstname;
+	this.lastName=lastname;
+	this.email=email;
 }
-
-public BankClients(String username, String password) {
-	this.username = username;
-	this.password = password;
-	}
 
 }
