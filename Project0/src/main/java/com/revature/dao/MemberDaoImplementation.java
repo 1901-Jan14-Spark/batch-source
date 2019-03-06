@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.bank.Account;
@@ -14,6 +15,32 @@ import com.revature.util.ConnectionUtil;
 public class MemberDaoImplementation implements MemberDao {
 	
 	AccountDao ad = new AccountDaoImplementation();
+	
+	@Override
+	public List<Member> getAllMembers() {
+			List<Member> members = new ArrayList<>();
+			
+			String sql = "SELECT * "
+					+ "FROM MEMBER_ACCOUNT";
+			
+			try(Connection c = ConnectionUtil.getConnection();
+					Statement s = c.createStatement();
+					ResultSet rs = s.executeQuery(sql)){
+				
+					while(rs.next()) {
+						String accountNumber = rs.getString("ACCOUNT_NUMBER");
+						String memFirstName = rs.getString("USER_FIRSTNAME");
+						String memLastName = rs.getString("USER_LASTNAME");
+						String memUsername = rs.getString("USER_USERNAME");
+						String memPass = rs.getString("USER_PASSWORD");
+						String memEmail = rs.getString("USER_EMAIL");
+						members.add(new Member(accountNumber, memFirstName, memLastName, memUsername, memPass, memEmail));	
+					}			
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}		
+		return members;
+	}
 
 	@Override
 	public Member getMemberByAccountNumber(String accountNumber) {
@@ -34,8 +61,7 @@ public class MemberDaoImplementation implements MemberDao {
 				String username = rs.getString("USER_USERNAME");
 				String email = rs.getString("USER_EMAIL");
 				String password = rs.getString("USER_PASSWORD");
-				m = new Member(firstName, lastName, username, email, password, new Account(memberAccountNumber));
-				
+				m = new Member(memberAccountNumber, firstName, lastName, username, password, email);	
 			}		
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -113,11 +139,4 @@ public class MemberDaoImplementation implements MemberDao {
 		}
 		return membersDeleted;
 	}
-
-	@Override
-	public List<Member> getAllMembers(String accountNumber) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

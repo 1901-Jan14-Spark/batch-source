@@ -10,6 +10,9 @@ public static Scanner sc = new Scanner(System.in);
 	
 	// login in method
 	public static void logIn() {
+		List<Memeber> = getAllMembers();
+		
+		
 		System.out.println("Login\n-----");
 		System.out.print("Username: ");
 		String username = sc.next();
@@ -170,60 +173,59 @@ public static Scanner sc = new Scanner(System.in);
 		homeScreen();		
 	}
 	
-	// add money to a user's account
-	public static void makeDeposit(double amount) {
-		// here we want to make changes to add money to the user's account
-		// get the current balance from the text file
-		double currentBalance = retrieveAccountBalance();
-		// variable for what the balance will be after the deposit
-		double newBalance;
-		// add the deposit amount to the current balance to create the new balance
-		newBalance = currentBalance + amount;
-		System.out.println();
-		// let the user know what how much they deposited
-		System.out.println("Deposit Amount: $" + amount);
-		// display the new account balance
-		System.out.println("Account Balance: $" + newBalance);
-		// adjust the account balance in the text file to reflect the new balance
-		adjustAccountBalance(newBalance);
-		
-	}
+//	// add money to a user's account
+//	public static void makeDeposit(double amount) {
+//		// here we want to make changes to add money to the user's account
+//		// get the current balance from the text file
+//		double currentBalance = retrieveAccountBalance();
+//		// variable for what the balance will be after the deposit
+//		double newBalance;
+//		// add the deposit amount to the current balance to create the new balance
+//		newBalance = currentBalance + amount;
+//		System.out.println();
+//		// let the user know what how much they deposited
+//		System.out.println("Deposit Amount: $" + amount);
+//		// display the new account balance
+//		System.out.println("Account Balance: $" + newBalance);
+//		// adjust the account balance in the text file to reflect the new balance
+//		adjustAccountBalance(newBalance);
+//		
+//	}
 	
 	
-	// take money out of a user's account
-	public static void makeWithdrawal(double amount) {
-		double currentBalance = retrieveAccountBalance();
-		double newBalance = 0.0;
-		// we don't want the user to be able to take out money if there's nothing in their account
-		if(currentBalance > 0) {
-			if(currentBalance >= amount) {
-				// change the balance to reflect the withdrawal, and let the user know
-				newBalance = (currentBalance - amount);
-				if(amount > currentBalance) {
-					System.out.println("Insufficient Funds.  Please enter a valid ammount: ");
-					amount = sc.nextDouble();
-				} else {
-					System.out.println("Withdrawal Amount: $" + amount + "\nAccount Balance: $" + newBalance);
-					// adjust the balance amount within the text file
-					adjustAccountBalance(newBalance);
-				}
-			} else {
-				// the user is trying to take out more money than they have
-				System.out.println("Insufficient Funds!");
-			}
-		}
-		if(currentBalance <= 0.0){
-			// notify the user if they don't have any money in their account
-			System.out.println("There are no funds in this account!");
-		}
-		
-	}
+//	// take money out of a user's account
+//	public static void makeWithdrawal(double amount) {
+//		double currentBalance = retrieveAccountBalance();
+//		double newBalance = 0.0;
+//		// we don't want the user to be able to take out money if there's nothing in their account
+//		if(currentBalance > 0) {
+//			if(currentBalance >= amount) {
+//				// change the balance to reflect the withdrawal, and let the user know
+//				newBalance = (currentBalance - amount);
+//				if(amount > currentBalance) {
+//					System.out.println("Insufficient Funds.  Please enter a valid ammount: ");
+//					amount = sc.nextDouble();
+//				} else {
+//					System.out.println("Withdrawal Amount: $" + amount + "\nAccount Balance: $" + newBalance);
+//					// adjust the balance amount within the text file
+//					adjustAccountBalance(newBalance);
+//				}
+//			} else {
+//				// the user is trying to take out more money than they have
+//				System.out.println("Insufficient Funds!");
+//			}
+//		}
+//		if(currentBalance <= 0.0){
+//			// notify the user if they don't have any money in their account
+//			System.out.println("There are no funds in this account!");
+//		}	
+//	}
 	
-	// show the user their balance
-	public static void viewBalance() {
-		// get the user's balance and print it to the console
-		double currentBalance = retrieveAccountBalance();
-		System.out.println("Account Balance: $" + currentBalance);
-	}
+//	// show the user their balance
+//	public static void viewBalance() {
+//		// get the user's balance and print it to the console
+//		double currentBalance = retrieveAccountBalance();
+//		System.out.println("Account Balance: $" + currentBalance);
+//	}
 
 }

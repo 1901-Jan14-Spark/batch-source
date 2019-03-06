@@ -172,7 +172,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Hello " + firstName + " " + lastName + "!\n\n" + "Account Number: " + accountNumber;
+		return "Member: " + firstName + " " + lastName + "\nAccount Number: " + accountNumber + "\nUsername: " + userName + "\nEmail: " + email;
 	}
 
 }

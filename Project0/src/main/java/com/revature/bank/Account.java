@@ -10,11 +10,33 @@ public class Account {
 		super();
 	}
 	
+	public Account(String accountNumber) {
+		super();
+		this.accountNumber = accountNumber;
+	}
+	
+	public Account(String accountNumber, String accountType) {
+		super();
+		this.accountNumber = accountNumber;
+		this.accountType = accountType;
+	}
+	
+	public Account(String accountNumber, String accountType, double accountBalance) {
+		super();
+		this.accountNumber = accountNumber;
+		this.accountType = accountType;
+		this.accountBalance = accountBalance;
+	}
+	
 	public Account(Member m, String accountType, double accountBalance) {
 		super();
 		this.accountNumber = m.getAccountNumber();
 		this.accountType = accountType;
 		this.accountBalance = accountBalance;
+	}
+	
+	public String getAccountNumber() {
+		return accountNumber;
 	}
 
 	public String getAccountType() {
@@ -75,9 +97,6 @@ public class Account {
 		return "Account: " + accountType + "\nBalance: $"
 				+ accountBalance;
 	}
-	
-	
-	
-	
+
 
 }

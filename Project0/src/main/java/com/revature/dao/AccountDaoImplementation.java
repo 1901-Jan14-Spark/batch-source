@@ -16,23 +16,22 @@ import com.revature.util.ConnectionUtil;
 public class AccountDaoImplementation implements AccountDao {
 
 	@Override
-	public List<Account> getBothAccounts(String accountNumber) {
+	public List<Account> getMemberAccounts(String accountNumber) {
 		List<Account> accounts = new ArrayList<>();
 		
-		String sql = "SELECT * FROM ACCOUNTS"
-				+ "WHERE USER_ACCOUNT = ?";
+		String sql = "SELECT * FROM ACCOUNT_TABLE "
+				+ "WHERE ACCOUNT_NUMBER = ?";
 		
 		try(Connection c = ConnectionUtil.getConnection();
 				PreparedStatement ps = c.prepareStatement(sql)){
 			
-			ps.setString(1, accountNumber);
-			ResultSet rs = ps.executeQuery();
+				ps.setString(1, accountNumber);
+				ResultSet rs = ps.executeQuery();
 			
-			while(rs.next()) {
-				
-				String memAccountNumber = rs.getString("USER_ACCOUNT");
-				double memAccountBalance = rs.getDouble("ACCOUNT_BALANCE");
+			while(rs.next()) {		
+				String memAccountNumber = rs.getString("ACCOUNT_NUMBER");
 				String memAccountType = rs.getString("ACCOUNT_TYPE");
+				double memAccountBalance = rs.getDouble("ACCOUNT_BALANCE");
 				accounts.add(new Account(memAccountNumber, memAccountType, memAccountBalance));
 			}	
 		} catch (SQLException e) {
@@ -43,26 +42,23 @@ public class AccountDaoImplementation implements AccountDao {
 
 	
 	@Override
-	public Account getAccountByAccountNumber(String accountNumber) {
-	
-		String sql = "SELECT * FROM ACCOUNT_TABLE"
-				+ "WHERE ACCOUNT_NUMBER = ?";
+	public Account getAccountByAccountType(String accountNumber, String accountType) {
+		String sql = "SELECT * FROM ACCOUNT_TABLE "
+				+ "WHERE ACCOUNT_NUMBER = ? AND ACCOUNT_TYPE = ?";
 		Account a = null;
 		
 		try(Connection c = ConnectionUtil.getConnection();
 				PreparedStatement ps = c.prepareStatement(sql)){
 			
 			ps.setString(1, accountNumber);
+			ps.setString(2, accountType);
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
 				String memAccountNumber = rs.getString("ACCOUNT_NUMBER");
-				System.out.println(memAccountNumber);
 				String memAccountType = rs.getString("ACCOUNT_TYPE");
-				System.out.println(memAccountType);
 				double memAccountBalance = rs.getDouble("ACCOUNT_BALANCE");
-				System.out.println(memAccountBalance);
-				a = new Account(memAccountType, memAccountBalance);
+				a = new Account(memAccountNumber, memAccountType, memAccountBalance);
 			}	
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -72,7 +68,6 @@ public class AccountDaoImplementation implements AccountDao {
 
 	@Override
 	public void makeDeposit(String accountNumber, String accountType, double depositAmount) {
-		
 		String sql = "{CALL MAKE_DEPOSIT(?,?,?)}";
 		
 		try(Connection c = ConnectionUtil.getConnection();
@@ -88,15 +83,37 @@ public class AccountDaoImplementation implements AccountDao {
 	}
 
 	@Override
-	public void makeWithdrawal(Account a, double withdrawalAmount) {
-		// TODO Auto-generated method stub
-		
+	public void makeWithdrawal(String accountNumber, String accountType, double withdrawalAmount) {
+		String sql = "{CALL MAKE_WITHDRAWAL(?,?,?)}";
+
+		try(Connection c = ConnectionUtil.getConnection();
+				CallableStatement cs = c.prepareCall(sql)){
+
+			cs.setString(1, accountNumber);
+			cs.setString(2, accountType);
+			cs.setDouble(3, withdrawalAmount);
+			cs.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
 	}
 
 	@Override
-	public void viewBalance(String accountNumber) {
-		// TODO Auto-generated method stub
+	public double viewBalance(String accountNumber, String accountType) {	
+		double accountBalance = 0.0;
 		
+		String sql = "{CALL VIEW_BALANCE(?,?,?)}";
+
+		try(Connection c = ConnectionUtil.getConnection();
+				CallableStatement cs = c.prepareCall(sql)){
+
+			cs.setString(1, accountNumber);
+			cs.setString(2, accountType);
+			cs.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return accountBalance;
 	}
 
 
@@ -125,7 +142,6 @@ public class AccountDaoImplementation implements AccountDao {
 	@Override
 	public int deleteAccount(String accountNumber, String accountType) {
 		int accountsDeleted = 0;
-		
 		
 		return accountsDeleted;	
 	}

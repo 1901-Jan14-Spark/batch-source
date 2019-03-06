@@ -1,5 +1,6 @@
 package com.revature.bank;
 
+import java.util.List;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -14,28 +15,22 @@ public class BankPresentation {
 	public static void main(String[] args) {
 
 		MemberDao md = new MemberDaoImplementation();
-//		int created = md.addNewMember(new Member("David", "Van Alstine", "VanalstineDJ", "r4ndomP4ss1", "flamehrow3r@2kgod.com"));
-//		System.out.println(created);
+//		List<Member> currentMembers = md.getAllMembers();
+//		for(Member m : currentMembers) {
+//			System.out.println(m);
+//			System.out.println();
+//		}
 		
-//		Member m = md.getMemberByAccountNumber("17263238");
-//		m.setAccountNumber("17263238");
-//		m.setFirstName("D.J.");
-//		m.setLastName("Valentine");
-//		m.setUserName("buck4ts");
-//		m.setPassword("str4ightF!re");
-//		m.setEmail("2kfl4megod@splash.com");	
-//		int updatedMember = md.updateMemberInfo(m);
-//		System.out.println(updatedMember);
-		
-//		int newMember = md.addNewMember(new Member("David", "Van Alstine", "VanalstineDJ", "r4ndomP4ss1", "flamehrow3r@2kgod.com"));
-//		System.out.println(newMember);
 		
 		AccountDao ad = new AccountDaoImplementation();
 //		int checkings = ad.addNewAccount(new Account("17263238", "Checkings", 3500.00));
 //		System.out.println(checkings);
-		int savings = ad.addNewAccount(new Account("17263238", "Savings", 25000.00));
-		System.out.println(savings);
-//		ad.makeDeposit(a, 2575.50);
+//		int savings = ad.addNewAccount(new Account("17263238", "Savings", 25000.00));
+//		System.out.println(savings);
+		
+//		Account a3 = ad.getAccountByAccountType("17263238", "Savings");
+//		System.out.println(a3);
+		ad.makeDeposit("1726328", "Checkings", 5000.50);
 		
 		
 	}
