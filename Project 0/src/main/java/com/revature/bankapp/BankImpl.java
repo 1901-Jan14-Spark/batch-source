@@ -1,16 +1,8 @@
 package com.revature.bankapp;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -88,6 +80,7 @@ public class BankImpl implements ReadWriteManager{
 				}
 			} catch(NullPointerException e) {
 				log.info("You have entered an incorrect username or password. Please try again.");
+				log.warn("User input error while logging in.");
 				userLogin();
 			}
 			} else {
@@ -178,7 +171,7 @@ public class BankImpl implements ReadWriteManager{
 			bankRun(temp.getAccount().getAccountId());
 		}
 		if(Integer.parseInt(theirChoice) == 1) {
-			log.info("Your current account balance is $"+temp.getAccount().getBalance());
+			log.info("Your current account balance is $"+temp.getAccount().getBalance().setScale(2, RoundingMode.CEILING));
 			returnHome();
 			bankRun(temp.getAccount().getAccountId());
 		}

@@ -4,3 +4,4 @@
 2019-02-26 21:48:00 ERROR BankDriver:60 - User improper input.
 2019-02-26 21:48:01 ERROR BankDriver:60 - User improper input.
 2019-02-26 21:50:24 WARN  BankDriver:60 - User improper input.
+2019-03-05 23:31:43 WARN  BankImpl:83 - User input error while logging in.

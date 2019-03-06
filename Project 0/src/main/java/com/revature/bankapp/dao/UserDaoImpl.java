@@ -125,7 +125,6 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int returnId(String input) {
-		User returnId = new User();
 		int returnedId = 0;
 		String sql = "SELECT * FROM USERS WHERE USERNAME = ?";
 		
