@@ -187,9 +187,9 @@ public static void logIn() {
 	String reply="";
 	String name="";
 	String pass1="";
-	log.info("Please enter Username ");
+	log.info("Please enter username.");
 	name=s.nextLine();
-	log.info("Please enter password");
+	log.info("Please enter password.");
 	pass1=s.nextLine();
 	AccountDAO aa=new AccountDAO_Impl();
 	
