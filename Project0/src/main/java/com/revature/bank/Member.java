@@ -4,7 +4,6 @@ public class Member {
 
 	// the instance variables that make up a member's account
 	public String accountNumber;
-
 	public String firstName;
 	public String lastName;
 	public String userName;

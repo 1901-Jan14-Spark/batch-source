@@ -3,6 +3,8 @@ package com.revature.bank;
 import java.util.List;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.revature.dao.AccountDao;
 import com.revature.dao.AccountDaoImplementation;
 import com.revature.dao.MemberDao;
@@ -10,47 +12,49 @@ import com.revature.dao.MemberDaoImplementation;
 
 public class Transactions {
 	
-public static Scanner sc = new Scanner(System.in);
-	
+	public static Scanner sc = new Scanner(System.in);
+	public final static Logger log = Logger.getRootLogger();
+
+	static MemberDao md = new MemberDaoImplementation();	
+	static AccountDao ad = new AccountDaoImplementation();
+
 	// this file will contain all the methods that correspond to the user transactions
-	
+
 	// login in method
 	public static void logIn() {
-		MemberDao md = new MemberDaoImplementation();		
-		AccountDao ad = new AccountDaoImplementation();
-		
 		List<Member> members = md.getAllMembers();
-		
-		System.out.println("Login\n-----");
-		System.out.print("Username: ");
+		log.info("Login\n-----");
+		log.info("Username: ");
 		String username = sc.next();
-		if(username.equals(getAccountUsername())) {
-			System.out.print("Password: ");
-			String password = sc.next();
-			if(password.equals(getAccountPassword())) {
-				transactions();	
+		for(Member m : members) {
+			if(username.equals(m.userName)) {
+				log.info("Password: ");
+				String password = sc.next();
+				if(password.equals(m.password)) {
+					transactions(m.accountNumber);	
+				} else {
+					System.out.println();
+					log.error("Invalid username or password!");
+					System.out.println();
+					logIn();
+				}
 			} else {
 				System.out.println();
-				System.out.println("Invalid username or password!");
+				log.error("Invalid username or password! Please re-enter: ");
 				System.out.println();
 				logIn();
 			}
-		} else {
-			System.out.println();
-			System.out.println("Invalid username or password! Please re-enter: ");
-			System.out.println();
-			logIn();
 		}
 	}
-	
+
 	public static void homeScreen() {
-		System.out.println("__________________________");
-		System.out.println("|                        |");
-		System.out.println("|       THE BANK         |");
-		System.out.println("|________________________|");
+		log.info("__________________________");
+		log.info("|                        |");
+		log.info("|       THE BANK         |");
+		log.info("|________________________|");
 		System.out.println();
 		System.out.println();
-		System.out.println("1: Login\n2: Create Account");
+		log.info("1: Login\n2: Create Account");
 		int option = sc.nextInt();
 		if(option == 1) {
 			System.out.println();
@@ -59,63 +63,78 @@ public static Scanner sc = new Scanner(System.in);
 			createNewMember();				
 		}
 	}
-	
+
 	public static void createNewMember() {
+		List<Member> members = md.getAllMembers();
+
 		System.out.println();
-		System.out.println("New Member Info\n---------------");
+		log.info("New Member Info\n---------------");
 		System.out.println();
 		// create a new member object
-		System.out.println("Username: ");
-		String newUsername = sc.next();
-		System.out.println("Email: ");
+		log.info("First Name: ");
+		String newUserFirst = sc.next();
+		log.info("Last Name: ");
+		String newUserLast = sc.next();
+		log.info("Email: ");
 		String newUserEmail = sc.next();
-		System.out.println("Password: ");
-		String newUserPassword1 = sc.next();
-		System.out.println("Re-enter Password: ");
-		String newUserPassword2 = sc.next();
-		if(!newUserPassword1.equals(newUserPassword2)) {
-			System.out.println("Passwords don't match!");
-			System.out.println("Password: ");
-			newUserPassword1 = sc.next();
-			System.out.println("Re-enter Password: ");
-			newUserPassword2 = sc.next();			
-		} 
-		if(newUserPassword1.equals(newUserPassword2)) {
-			System.out.println("Deposit Amount: ");
-			double newUserDeposit = sc.nextDouble();
-			Member newMember = new Member(newUsername, newUserEmail, newUserPassword1, newUserDeposit);
-			System.out.println();
-			System.out.println("Account successfully created!");
-			adjustAccountBalance(newMember.accountBalance);	
-			addNewBankMember(newMember);
+		log.info("Username: ");
+		String newUsername = sc.next();
+		// check to see if the username is already taken
+		if(members.contains(newUsername)) {
+			// let the user know the name is already take, have them enter a new one
+		} else {		
+			log.info("Password: ");
+			String newUserPassword1 = sc.next();
+			log.info("Re-enter Password: ");
+			String newUserPassword2 = sc.next();
+			if(!newUserPassword1.equals(newUserPassword2)) {
+				log.error("Passwords don't match!");
+				log.info("Password: ");
+				newUserPassword1 = sc.next();
+				log.info("Re-enter Password: ");
+				newUserPassword2 = sc.next();			
+			} 
+			if(newUserPassword1.equals(newUserPassword2)) {
+				int newMember = md.addNewMember(new Member(newUserFirst, newUserLast, newUsername, newUserPassword1, newUserEmail));
+				if(newMember == 1) {
+					log.info("Account successfully created!");
+				} 
+			}
 		}
 	}
-	
-	public static void transactions() {
-		System.out.println();
+
+	public static void transactions(String accountNumber) {
+		// the current member logged in
+		Member m = md.getMemberByUsername(accountNumber);
+		// their individual checking
+		Account checkings = ad.getAccountByAccountType(accountNumber, "Checkings");
+		// their individual savings
+		Account savings = ad.getAccountByAccountType(accountNumber, "Savings");
+
 		// once the user has been validated, enter the transactions menu
-		System.out.println("My Account\n----------");
-		System.out.println("Account: " + getAccountNumber());
-		System.out.println();
-		System.out.println();
-		System.out.println("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
+		log.info("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
 		int option = sc.nextInt();
 		while (option != 4) {
 			if(option == 2) {
 				System.out.println();
-				System.out.println("Balance: $" + retrieveAccountBalance());
-				System.out.println("Deposit Amount: ");
+				// show the balance of each account
+				log.info("Checkings: $" + checkings.accountBalance);
+				log.info("Savings: $" + savings.accountBalance);	
+
+				// get deposit amount
+				log.info("Deposit Amount: ");
 				double amount = sc.nextDouble();
-				makeDeposit(amount);
-				System.out.println("Would you like another transaction? (Y/N)");
+				log.info("Deposit to (1)Checking or (2)Savings?");
+				int accountChoice = sc.nextInt();
+				if(accountChoice == 1) {
+					ad.makeDeposit(accountNumber, "Checkings", amount);
+				} else if (accountChoice == 2) {
+					ad.makeDeposit(accountNumber, "Savings", amount);
+				}
+				log.info("Would you like another transaction? (Y/N)");
 				String answer = sc.next();
 				if(answer.equals("Y")) {
-					System.out.println();
-					System.out.println("My Account\n----------");
-					System.out.println("Account: " + getAccountNumber());
-					System.out.println();
-					System.out.println();
-					System.out.println("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
+					transactions(accountNumber);
 					option = sc.nextInt();
 				} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
 					System.out.println("Invalid Input! Please select a valid option: (Y/N)");
@@ -125,115 +144,62 @@ public static Scanner sc = new Scanner(System.in);
 				}
 			} else if(option == 3) {
 				System.out.println();
-				System.out.println("Balance: $" + retrieveAccountBalance());
-				System.out.println("Withdrawal Amount: ");
+				log.info("Checkings: $" + checkings.accountBalance);
+				log.info("Savings: $" + savings.accountBalance);	
+				log.info("Withdrawal Amount: ");
 				double amount = sc.nextDouble();
-				makeWithdrawal(amount);
-				System.out.println("Would you like another transaction? (Y/N)");
+				log.info("Wthdraw from (1)Checking or (2)Savings?");
+				int accountChoice = sc.nextInt();
+				if(accountChoice == 1) {
+					ad.makeWithdrawal(accountNumber, "Checkings", amount);
+					log.info("You withdrew $" + amount + "for Checkings");
+				} else if (accountChoice == 2) {
+					ad.makeWithdrawal(accountNumber, "Savings", amount);
+					log.info("You withdrew $" + amount + "for Savings");
+				}
+				log.info("Would you like another transaction? (Y/N)");
 				String answer = sc.next();
 				if(answer.equals("Y")) {
-					System.out.println();
-					System.out.println("My Account\n----------");
-					System.out.println("Account: " + getAccountNumber());
-					System.out.println();
-					System.out.println();
-					System.out.println("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
+					transactions(accountNumber);
 					option = sc.nextInt();
 				} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
-					System.out.println("Invalid Input! Please select a valid option: (Y/N)");
+					log.error("Invalid Input! Please select a valid option: (Y/N)");
 					answer = sc.next();
 				} else if (answer.equalsIgnoreCase("N")) {
 					option = 4;
 				}
 			} else if (option == 1){
-				viewBalance();
-				System.out.println("Would you like another transaction? (Y/N)");
+				log.info("View balance from (1)Checking or (2)Savings?");
+				int accountChoice = sc.nextInt();
+				if(accountChoice == 1) {
+					log.info("Checking: $" + checkings.accountBalance);
+				} else if (accountChoice == 2) {
+					log.info("Savings: $" + savings.accountBalance);
+				}
+				log.info("Would you like another transaction? (Y/N)");
 				String answer = sc.next();
-				if(answer.equals("Y")) {
-					System.out.println();
-					System.out.println("My Account\n----------");
-					System.out.println("Account: " + getAccountNumber());
-					System.out.println();
-					System.out.println();
-					System.out.println("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
-					option = sc.nextInt();
+				if(answer.equalsIgnoreCase("Y")) {
+					transactions(accountNumber);
 				} else if (!answer.equalsIgnoreCase("Y") && !answer.equalsIgnoreCase("N")) {
-					System.out.println("Invalid Input! Please select a valid option: (Y/N)");
+					log.error("Invalid Input! Please select a valid option: (Y/N)");
 					answer = sc.next();
 				} else if(answer.equalsIgnoreCase("N")) {
 					option = 4;
 				}
 			}else {
-				System.out.println("Please select a valid option!");
-				System.out.println("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
+				log.error("Please select a valid option!");
+				log.info("1: View Balance\n2: Make Deposit\n3: Make Withdrawal\n4: Log Out");
 				option = sc.nextInt();						
 			}
 		}
 		if (option == 4) {
 			logOut();
 		}
-		
 	}
-	
+
 	// log out method
 	public static void logOut() {
 		System.out.println();
 		homeScreen();		
 	}
-	
-//	// add money to a user's account
-//	public static void makeDeposit(double amount) {
-//		// here we want to make changes to add money to the user's account
-//		// get the current balance from the text file
-//		double currentBalance = retrieveAccountBalance();
-//		// variable for what the balance will be after the deposit
-//		double newBalance;
-//		// add the deposit amount to the current balance to create the new balance
-//		newBalance = currentBalance + amount;
-//		System.out.println();
-//		// let the user know what how much they deposited
-//		System.out.println("Deposit Amount: $" + amount);
-//		// display the new account balance
-//		System.out.println("Account Balance: $" + newBalance);
-//		// adjust the account balance in the text file to reflect the new balance
-//		adjustAccountBalance(newBalance);
-//		
-//	}
-	
-	
-//	// take money out of a user's account
-//	public static void makeWithdrawal(double amount) {
-//		double currentBalance = retrieveAccountBalance();
-//		double newBalance = 0.0;
-//		// we don't want the user to be able to take out money if there's nothing in their account
-//		if(currentBalance > 0) {
-//			if(currentBalance >= amount) {
-//				// change the balance to reflect the withdrawal, and let the user know
-//				newBalance = (currentBalance - amount);
-//				if(amount > currentBalance) {
-//					System.out.println("Insufficient Funds.  Please enter a valid ammount: ");
-//					amount = sc.nextDouble();
-//				} else {
-//					System.out.println("Withdrawal Amount: $" + amount + "\nAccount Balance: $" + newBalance);
-//					// adjust the balance amount within the text file
-//					adjustAccountBalance(newBalance);
-//				}
-//			} else {
-//				// the user is trying to take out more money than they have
-//				System.out.println("Insufficient Funds!");
-//			}
-//		}
-//		if(currentBalance <= 0.0){
-//			// notify the user if they don't have any money in their account
-//			System.out.println("There are no funds in this account!");
-//		}	
-//	}
-	
-//	// show the user their balance
-//	public static void viewBalance() {
-//		// get the user's balance and print it to the console
-//		double currentBalance = retrieveAccountBalance();
-//		System.out.println("Account Balance: $" + currentBalance);
-//	}
-
 }

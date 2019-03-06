@@ -102,7 +102,7 @@ public class AccountDaoImplementation implements AccountDao {
 	public double viewBalance(String accountNumber, String accountType) {	
 		double accountBalance = 0.0;
 		
-		String sql = "{CALL VIEW_BALANCE(?,?,?)}";
+		String sql = "{call VIEW_BALANCE(?,?)}";
 
 		try(Connection c = ConnectionUtil.getConnection();
 				CallableStatement cs = c.prepareCall(sql)){

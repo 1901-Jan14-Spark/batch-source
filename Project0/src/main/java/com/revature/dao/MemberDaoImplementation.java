@@ -41,6 +41,32 @@ public class MemberDaoImplementation implements MemberDao {
 			}		
 		return members;
 	}
+	
+	@Override
+	public Member getMemberByUsername(String username) {
+		String Sql = "SELECT * FROM MEMBER_ACCOUNT WHERE USER_USERNAME = ?";
+		Member m = null;
+		
+		try(Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(Sql)){
+			
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				String memberAccountNumber = rs.getString("ACCOUNT_NUMBER");
+				String firstName = rs.getString("USER_FIRSTNAME");
+				String lastName = rs.getString("USER_LASTNAME");
+				String memUsername = rs.getString("USER_USERNAME");
+				String email = rs.getString("USER_EMAIL");
+				String password = rs.getString("USER_PASSWORD");
+				m = new Member(memberAccountNumber, firstName, lastName, memUsername, password, email);	
+			}		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+		return m;
+	}
 
 	@Override
 	public Member getMemberByAccountNumber(String accountNumber) {
