@@ -9,4 +9,5 @@ public interface UserDao {
 	public boolean createUser(User u);
 	public boolean updateUser(User u);
 	public int deleteUser(int id);
+	public boolean updateTransactionDate(User u);
 }

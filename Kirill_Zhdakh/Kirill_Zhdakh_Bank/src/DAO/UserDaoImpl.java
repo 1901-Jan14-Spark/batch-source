@@ -1,6 +1,7 @@
 package DAO;
 
 import java.io.IOException;
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -95,6 +96,26 @@ public class UserDaoImpl implements UserDao {
 	public int deleteUser(int id) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public boolean updateTransactionDate(User u) {
+		String sql = "CALL UPDATE_TIME(?)";
+		try (Connection c = ConnectionUtil.getConnectionFromFile();
+			 CallableStatement cs = c.prepareCall(sql))
+		{
+			cs.setString(1, u.getUsername());
+			cs.execute();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 }

@@ -301,6 +301,7 @@ public class Bank{
 							clearConsole();
 							if (!udl.updateUser(currentUser))
 								log.info("Transaction failed.\n");
+							udl.updateTransactionDate(currentUser);
 							userPage();
 						}
 						break;
@@ -319,6 +320,7 @@ public class Bank{
 							clearConsole();
 							if (!udl.updateUser(currentUser))
 								log.info("Transaction failed.\n");
+							udl.updateTransactionDate(currentUser);
 							userPage();
 						}
 						break;
@@ -368,6 +370,7 @@ public class Bank{
 							clearConsole();
 							if (!udl.updateUser(currentUser))
 								log.info("Transaction failed.\n");
+							udl.updateTransactionDate(currentUser);
 							userPage();
 						}
 						break;
@@ -398,6 +401,7 @@ public class Bank{
 							clearConsole();
 							if (!udl.updateUser(currentUser))
 								log.info("Transaction failed.\n");
+							udl.updateTransactionDate(currentUser);
 							userPage();
 						}
 						break;
