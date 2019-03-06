@@ -3,6 +3,8 @@ package com.revature.main;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 import com.revature.dao.AccountDao;
 import com.revature.dao.AccountDaoImpl;
 import com.revature.dao.UserDao;
@@ -11,6 +13,7 @@ import com.revature.models.Account;
 import com.revature.models.User;
 
 public class BankLogic {
+	static Logger log = Logger.getRootLogger();
 	
 	static String path = "src/com/revature/bank/users.txt";
 	
@@ -20,16 +23,16 @@ public class BankLogic {
 		
 		int choice = 0;
 		
-		System.out.println("~~~~Welcome to Hassan's Bank~~~~");
-		System.out.println("| 1. Login");
-		System.out.println("| 2. Register");
-		System.out.println("| 3. Quit");
+		log.info("~~~~Welcome to Hassan's Bank~~~~");
+		log.info("| 1. Login");
+		log.info("| 2. Register");
+		log.info("| 3. Quit");
 		
 		
 			choice = input.nextInt();
 			try {
 				while(choice != 1 && choice != 2 && choice != 3 ) {
-					System.out.println("Try again...");
+					log.info("Try again...");
 					choice = input.nextInt();
 				}
 			} catch(InputMismatchException e) {
@@ -56,7 +59,7 @@ public class BankLogic {
 		if(Handler.userExists(email) && Handler.isPass(password)) {
 				userAccount(email);
 		} else {
-			System.out.println("User does not exist");
+			log.info("User does not exist");
 			bank();
 			
 		}
@@ -64,8 +67,8 @@ public class BankLogic {
 	}
 	
 	public static void userAccount(String email) {
-		System.out.println("~~~~~~~~~~~~~~~~~");
-		System.out.println("Select an Action:\n1. Deposit\n2. Withdraw \n3. Balance \n4. Logout");
+		log.info("~~~~~~~~~~~~~~~~~");
+		log.info("Select an Action:\n1. Deposit\n2. Withdraw \n3. Balance \n4. Logout");
 		int choice = 0;
 		try {
 			choice = input.nextInt();
@@ -83,10 +86,10 @@ public class BankLogic {
 				showBal(email);
 				break;
 			case 4:
-				System.out.println("Logging off...");
+				log.info("Logging off...");
 				bank();
 			default:
-				System.out.println("Invalid Input, try again.");
+				log.info("Invalid Input, try again.");
 				userAccount(email);
 		}
 			
@@ -94,24 +97,24 @@ public class BankLogic {
 	}
 	
 	public static void deposit(String email) {
-		System.out.println("~~~~~DEPOSIT~~~~~");
+		log.info("~~~~~DEPOSIT~~~~~");
 		AccountDao ad = new AccountDaoImpl();
 		String amount;
 		double damount;
 		String choice;
 		
-		System.out.println("Where would you like to deposit?");
-		System.out.println("Checkings Balance: $"+ Handler.getCheckingsBal(email));
-		System.out.println("Savings Balance: $"+ Handler.getSavingsBal(email));
+		log.info("Where would you like to deposit?");
+		log.info("Checkings Balance: $"+ Handler.getCheckingsBal(email));
+		log.info("Savings Balance: $"+ Handler.getSavingsBal(email));
 		
-		System.out.println("1. Checkings\n2. Savings");
+		log.info("1. Checkings\n2. Savings");
 		choice = input.next();
 		
 		if(choice.equals("1")) {
-			System.out.println("How much would you like to deposit?");
+			log.info("How much would you like to deposit?");
 			amount = input.next();
 			while(!(amount.matches("^[0-9]+$"))) {
-				System.out.println("Must be numbers");
+				log.info("Must be numbers");
 				amount = input.next();
 			}
 			damount = Double.parseDouble(amount);
@@ -119,10 +122,10 @@ public class BankLogic {
 			accBal += damount;
 			ad.updateAccountCheckings(email, accBal);
 		} else if (choice.equals("2")) {
-			System.out.println("How much would you like to deposit?");
+			log.info("How much would you like to deposit?");
 			amount = input.next();
 			while(!(amount.matches("^[0-9]+$"))) {
-				System.out.println("Must be numbers");
+				log.info("Must be numbers");
 				amount = input.next();
 			}
 			damount = Double.parseDouble(amount);
@@ -133,47 +136,47 @@ public class BankLogic {
 	}
 	
 	public static void withdraw(String email) {
-		System.out.println("~~~~~WITHDRAW~~~~");
+		log.info("~~~~~WITHDRAW~~~~");
 		AccountDao ad = new AccountDaoImpl();
 		String amount;
 		double damount;
 		String choice;
 		double check;
 		
-		System.out.println("Where would you like to withdraw?");
-		System.out.println("Checkings Balance: $"+ Handler.getCheckingsBal(email));
-		System.out.println("Savings Balance: $"+ Handler.getSavingsBal(email));
+		log.info("Where would you like to withdraw?");
+		log.info("Checkings Balance: $"+ Handler.getCheckingsBal(email));
+		log.info("Savings Balance: $"+ Handler.getSavingsBal(email));
 		
-		System.out.println("1. Checkings\n2. Savings");
+		log.info("1. Checkings\n2. Savings");
 		choice = input.next();
 		
 		if(choice.equals("1")) {
-			System.out.println("How much would you like to withdraw?");
+			log.info("How much would you like to withdraw?");
 			amount = input.next();
 			while(!(amount.matches("^[0-9]+$"))) {
-				System.out.println("Must be numbers");
+				log.info("Must be numbers");
 				amount = input.next();
 			}
 			damount = Double.parseDouble(amount);
 			double accBal = Handler.getCheckingsBal(email);
 			check = accBal - damount;
 			if(check <= 0) {
-				System.out.println("Insufficient funds.");
+				log.info("Insufficient funds.");
 			} else {
 				ad.updateAccountCheckings(email, check);
 			}	
 		} else if (choice.equals("2")) {
-			System.out.println("How much would you like to withdraw?");
+			log.info("How much would you like to withdraw?");
 			amount = input.next();
 			while(!(amount.matches("^[0-9]+$"))) {
-				System.out.println("Must be numbers");
+				log.info("Must be numbers");
 				amount = input.next();
 			}
 			damount = Double.parseDouble(amount);
 			double accBal = Handler.getSavingsBal(email);
 			check = accBal - damount;
 			if(check <= 0 ) {
-				System.out.println("Insufficient funds.");
+				log.info("Insufficient funds.");
 			} else {
 				ad.decAccountSavings(email, damount);
 			}
@@ -184,14 +187,14 @@ public class BankLogic {
 	}
 	
 	public static void showBal(String email) {
-		System.out.println("~~~~~BALANCE~~~~~");
-		System.out.println("Checkings:\n $"+ Handler.getCheckingsBal(email));
-		System.out.println("Savings:\n $"+ Handler.getSavingsBal(email));
+		log.info("~~~~~BALANCE~~~~~");
+		log.info("Checkings:\n $"+ Handler.getCheckingsBal(email));
+		log.info("Savings:\n $"+ Handler.getSavingsBal(email));
 		userAccount(email);
 	}
 	
 	public static void register() {
-		System.out.println("~~~~~REGISTER~~~~");
+		log.info("~~~~~REGISTER~~~~");
 		
 		AccountDao ad = new AccountDaoImpl();
 		UserDao ud = new UserDaoImpl();
@@ -201,29 +204,29 @@ public class BankLogic {
 		int outcome = 0;
 		int outcome2 = 0;
 		
-			System.out.println("Input First Name: ");
+			log.info("Input First Name: ");
 			String fname = input.next();
-			System.out.println("Input Last Name: ");
+			log.info("Input Last Name: ");
 			String lname = input.next();
-			System.out.println("Input E-mail: ");
+			log.info("Input E-mail: ");
 			String email = input.next();
 			while(!password.equals(password2)) {
-				System.out.println("Input Password");
+				log.info("Input Password");
 				password = input.next();
-				System.out.println("Confirm Password");
+				log.info("Confirm Password");
 				password2 = input.next();
 				if(!password.equals(password2)) {
-					System.out.println("Passwords don't match, try again.");
+					log.info("Passwords don't match, try again.");
 				}
 			}
 			User newUser = new User(fname, lname, email, password);
 			
-			System.out.println("Input starting balance: ");
+			log.info("Input starting balance: ");
 			double userBal = input.nextDouble();
-			System.out.println("Checkings or Savings?\n1. Checkins\n2. Savings");
+			log.info("Checkings or Savings?\n1. Checkins\n2. Savings");
 			choice = input.next();
 			while(!(choice.equals("1") || choice.equals("2"))) {
-				System.out.println("Invalid input, try again");
+				log.info("Invalid input, try again");
 				choice = input.next();
 			}
 			if(choice.equals("1")) {
@@ -236,7 +239,7 @@ public class BankLogic {
 			}
 			
 			if(outcome == 1 && outcome2 == 2) {
-			System.out.println("User has been added. Please login");
+			log.info("User has been added. Please login");
 			}
 			bank();
 	}

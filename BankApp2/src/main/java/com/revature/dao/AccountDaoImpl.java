@@ -97,7 +97,9 @@ public class AccountDaoImpl implements AccountDao{
 		return true;
 	}
 	
-	
+	public double junitTestDeposit(Account a, double amount) {
+		return a.getCheckings() - amount;
+	}
 
 	@Override
 	public int deleteAccount(int id) {
