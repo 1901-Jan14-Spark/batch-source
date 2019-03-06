@@ -2,6 +2,7 @@ package com.revature.model;
 
 import java.io.Serializable;
 
+//User class that defines the structure of our user objects
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;

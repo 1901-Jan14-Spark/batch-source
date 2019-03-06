@@ -3,7 +3,7 @@ package com.revature.dao;
 import java.util.List;
 
 import com.revature.model.User;
-
+//framework for the UserDaoImpl and what parameters are needed for those methods
 public interface UserDao {
 	
 	public List<User> getUsers();

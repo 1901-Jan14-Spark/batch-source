@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.revature.model.BankingAccount;
 
+//Constructs the layout of the Banking Account Dao implementation
 public interface BankingAccountDao {
 	
 	public List<BankingAccount> getBankingAccount();
@@ -11,5 +12,5 @@ public interface BankingAccountDao {
 	public int createAccount(BankingAccount b);
 	public int updateAccount(BankingAccount b);
 	public int deleteAccount(int id);
-	public void changeAccountBalance(BankingAccount b, double changeAmount);
+	public int changeAccountBalance(int id, double changeAmount);
 }

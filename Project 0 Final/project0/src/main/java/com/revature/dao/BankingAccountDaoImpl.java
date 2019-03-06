@@ -14,6 +14,7 @@ import com.revature.util.ConnectionUtil;
 
 public class BankingAccountDaoImpl implements BankingAccountDao{
 
+	//A method that retrieves all of the bank account in our database and return them in a list
 	@Override
 	public List<BankingAccount> getBankingAccount() {
 		List<BankingAccount> accounts = new ArrayList<>();
@@ -36,7 +37,7 @@ public class BankingAccountDaoImpl implements BankingAccountDao{
 		}
 		return accounts;
 	}
-
+	//Given an id for a bank account it will access that record for further usage
 	@Override
 	public BankingAccount getBankingAccountById(int id) {
 		String sql = "SELECT * FROM ACCOUNTS WHERE ACCOUNT_ID = ?";
@@ -60,7 +61,8 @@ public class BankingAccountDaoImpl implements BankingAccountDao{
 		}
 		return b;
 	}
-
+	//Creates a new Bank Account from the given BankAccount Object and adds it to the database
+	//Uses a Prepared Statement to do so
 	@Override
 	public int createAccount(BankingAccount b) {
 		int accountCreated = 0;
@@ -77,7 +79,7 @@ public class BankingAccountDaoImpl implements BankingAccountDao{
 		}
 		return accountCreated;
 	}
-
+	//Updates the banking account related to the object parameter in the database
 	@Override
 	public int updateAccount(BankingAccount b) {
 		int accountUpdate = 0;
@@ -96,7 +98,7 @@ public class BankingAccountDaoImpl implements BankingAccountDao{
 		}
 		return accountUpdate;
 	}
-
+	//When given an account id it will delete the respective account in the database
 	@Override
 	public int deleteAccount(int id) {
 		int rowsDeleted = 0;
@@ -115,21 +117,20 @@ public class BankingAccountDaoImpl implements BankingAccountDao{
 		
 		return rowsDeleted;
 	}
-
+	//Calls upon a stored procedure in our database to run when given the parameters passed into the wildcards
 	@Override
-	public void changeAccountBalance(BankingAccount b, double changeAmount) {
+	public int changeAccountBalance(int id, double changeAmount) {
 		
 		String sql = "{call CHANGE_BALANCE(?,?)}";
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				CallableStatement cs = con.prepareCall(sql)){
-			cs.setInt(1, b.getAccountId());
-			cs.setDouble(1, changeAmount);
+			cs.setInt(1,id);
+			cs.setDouble(2, changeAmount);
 			cs.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+		return 1;
 	}
-	
 }

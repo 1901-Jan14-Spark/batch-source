@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//the Class that provides the connection to the sql database
 public class ConnectionUtil {
 	
 	private static Connection connection;

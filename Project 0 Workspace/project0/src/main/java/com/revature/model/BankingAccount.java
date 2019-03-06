@@ -2,6 +2,8 @@ package com.revature.model;
 
 import java.io.Serializable;
 
+//Class that defines the structure of our BankingAccount object and the constructors used to make them
+//get and setters are included as well as the overridden hashcode, equals, and the toString method
 public class BankingAccount implements Serializable {
 
 	private static final long serialVersionUID = 1L;

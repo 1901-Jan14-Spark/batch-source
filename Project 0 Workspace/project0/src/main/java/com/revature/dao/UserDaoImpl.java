@@ -15,7 +15,7 @@ import com.revature.util.ConnectionUtil;
 public class UserDaoImpl implements UserDao{
 	
 	BankingAccountDaoImpl bad = new BankingAccountDaoImpl();
-	
+	//Generates a list of current users from out database
 	@Override
 	public List<User> getUsers() {
 		List<User> users = new ArrayList<>();
@@ -63,7 +63,7 @@ public class UserDaoImpl implements UserDao{
 		
 		return users;
 	}
-
+	//When given a user id, the user will then be accessed from the database
 	@Override
 	public User getUserById(int id) {
 		String sql = "SELECT * FROM USERS_TABLE WHERE USER_ID = ?";
@@ -86,7 +86,7 @@ public class UserDaoImpl implements UserDao{
 		}
 		return u;
 	}
-
+	//Creates a new user with the given user object
 	@Override
 	public int createUser(User u) {
 		int userCreated = 0;
@@ -105,13 +105,13 @@ public class UserDaoImpl implements UserDao{
 		bad.createAccount(u.getAccount());
 		return userCreated;
 	}
-
+	//Currently Unimplemented
 	@Override
 	public int updateUser(User u) {
 		int userUpdated = 0;
 		return userUpdated;
 	}
-
+	//Currently Unimplemented
 	@Override
 	public int deleteUser(int id) {
 		return 0;
