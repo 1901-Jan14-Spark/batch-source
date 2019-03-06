@@ -10,9 +10,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.revature.bankapp.dao.UserDao;
+import com.revature.bankapp.dao.UserDaoImpl;
 import com.revature.bankapp.models.Account;
 import com.revature.bankapp.models.AccountManager;
 import com.revature.bankapp.models.User;
@@ -20,62 +25,101 @@ import com.revature.bankapp.util.ConnectionUtil;
 
 public class Tests {
 	
-	static List<Account> testList = new ArrayList<Account>();
-	
-	@BeforeClass
-	public static void createMockData() {
-//		User mockUser = new User(new Account(new BigDecimal(500.15)));
-		testList.add(new Account(new BigDecimal(500.15)));
+	static List<User> list = new ArrayList<User>();
+	static UserDao userDao2 = new UserDaoImpl();
+	static Account mockAcc = new Account(new BigDecimal(400.15));
+	static User mockUser = new User("JUnitTest", mockAcc);
+	static int ourId;
+	static BigDecimal ourBal;
+
+	@Before
+	public void createMockData() {
+		list.add(mockUser);
 		
 		String sql = "{call INSERT_MOCKACC(?,?)}";
 		try(Connection con = ConnectionUtil.getConnectionFromSystem();
 				CallableStatement cs = con.prepareCall(sql)){
 			
-			cs.setString(1, "Bobby");
-			cs.setBigDecimal(2, testList.get(0).getBalance());
+			cs.setString(1, mockUser.getUsername());
+			cs.setBigDecimal(2, mockAcc.getBalance());
 			cs.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
+
+	@After
+	public void removeMockAcc() {
+		int deleteId = 0;
+		deleteId = userDao2.returnId(list.get(0).getUsername());
+		String sql = "{call DELETE_MOCKACC(?)}";
+		try(Connection con = ConnectionUtil.getConnectionFromSystem();
+				CallableStatement cs = con.prepareCall(sql)){
+			
+			cs.setInt(1, deleteId);
+			cs.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
-//	@AfterClass
-//	public static void removeMockData() {
-//		String sql = "ALTER ACCOUNTS"
-//		
-//	}
+	@After
+	public void removeMockUser() {
+		String sql = "{call DELETE_MOCKUSER}";
+		try(Connection con = ConnectionUtil.getConnectionFromSystem();
+				CallableStatement cs = con.prepareCall(sql)){
+			
+			cs.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	@Test
-	public void twoNumbersDeposit() {
-		BigDecimal result = AccountManager.addDeposit(testList.get(0).getAccountId(), new BigDecimal(500));
+	public void testTwoNumbersDeposit() {
+		int holdId = 0;
+		holdId = userDao2.returnId(list.get(0).getUsername());
+		BigDecimal result = AccountManager.addDeposit(holdId, new BigDecimal(500));
 		result = result.setScale(2, RoundingMode.CEILING);
-		BigDecimal expected = testList.get(0).getBalance().add(new BigDecimal(500));
+		BigDecimal expected = mockAcc.getBalance().add(new BigDecimal(500));
 		expected = expected.setScale(2, RoundingMode.CEILING);
 		assertEquals(expected, result);
 	}
 	
 	@Test
 	public void twoDecimals() {
-		BigDecimal currentBalance = new BigDecimal(500.77);
-		BigDecimal depositAmount = new BigDecimal(300.40);
-//		BigDecimal result = AccountManager.addDepositJUnit(currentBalance, depositAmount);
-//		result = result.setScale(2, RoundingMode.CEILING);
-//		System.out.println(result);
-//		BigDecimal expected = new BigDecimal(801.17);
-//		expected = expected.setScale(2, RoundingMode.CEILING);
-//		assertEquals(expected, result);
+		int holdId = 0;
+		holdId = userDao2.returnId(list.get(0).getUsername());
+		BigDecimal result = AccountManager.addDeposit(holdId, new BigDecimal(599.15));
+		result = result.setScale(2, RoundingMode.CEILING);
+		BigDecimal expected = mockAcc.getBalance().add(new BigDecimal(599.15));
+		expected = expected.setScale(2, RoundingMode.CEILING);
+		assertEquals(expected, result);
 	}
 	
-//	@Test
-//	public void negativeDeposit() {
-//		BigDecimal currentBalance = new BigDecimal(300.00);
-//		BigDecimal depositAmount = new BigDecimal(-300.00);
-//		BigDecimal result = AccountManager.addDepositJUnit(currentBalance, depositAmount);
-//		result = result.setScale(2, RoundingMode.CEILING);
-//		System.out.println(result);
-//		BigDecimal expected = new BigDecimal(0);
-//		expected = expected.setScale(2, RoundingMode.CEILING);
-//		assertEquals(expected, result);
-//	}
+	@Test
+	public void testTwoNumbersWithdraw() {
+		int holdId = 0;
+		holdId = userDao2.returnId(list.get(0).getUsername());
+		BigDecimal result = AccountManager.processWithdrawal(holdId, new BigDecimal(300));
+		result = result.setScale(2, RoundingMode.CEILING);
+		BigDecimal expected = mockAcc.getBalance().subtract(new BigDecimal(300));
+		expected = expected.setScale(2, RoundingMode.CEILING);
+		assertEquals (expected, result);
+	}
+	
+	@Test
+	public void testNegativeWithdraw() {
+		int holdId = 0;
+		holdId = userDao2.returnId(list.get(0).getUsername());
+		BigDecimal result = AccountManager.processWithdrawal(holdId, new BigDecimal(-500));
+		result = result.setScale(2, RoundingMode.CEILING);
+		BigDecimal expected = mockAcc.getBalance().subtract(new BigDecimal(-500));
+		expected = expected.setScale(2, RoundingMode.CEILING);
+		assertEquals (expected, result);
+	}
+	
+
+	
 }

@@ -76,8 +76,13 @@ public class User implements ReadWriteManager {
 		return balance;
 	}
 
-	public void setBalance(BigDecimal balance) {
-		this.balance = balance;
+	public void setBalance(String balance) {
+		if(balance.matches("\\d+(\\.\\d{1,2})?")) {
+			BigDecimal bal = new BigDecimal(balance);
+			this.balance = bal;
+		} else {
+			this.balance = null;
+		}
 	}
 
 	public String getUsername() {

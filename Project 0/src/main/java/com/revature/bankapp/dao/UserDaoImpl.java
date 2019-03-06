@@ -122,5 +122,30 @@ public class UserDaoImpl implements UserDao {
 		}
 		return users;
 	}
+
+	@Override
+	public int returnId(String input) {
+		User returnId = new User();
+		int returnedId = 0;
+		String sql = "SELECT * FROM USERS WHERE USERNAME = ?";
+		
+		try (Connection con = ConnectionUtil.getConnectionFromSystem();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			
+			ps.setString(1, input);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int userId = rs.getInt("USER_ID");
+				returnedId = userId;
+			}
+						
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return returnedId;
+	}
 	
 }

@@ -37,14 +37,14 @@ public class BankImpl implements ReadWriteManager{
 	
 	public static void appStart()
 	{
-		log.info("Welcome to the revBanking app! Please input a number 1-3 to begin.");
+		log.info("Welcome to the revBanking app! Please input a number 1-4 to begin.");
 		log.info("[1] -- Login");
 		log.info("[2] -- Create an account");
 		log.info("[3] -- Admin access");
 		log.info("[4] -- Quit");
 		String menuSelect = userInput.next();
 		try {
-			if(Integer.parseInt(menuSelect) <= 0 || Integer.parseInt(menuSelect) > 3) {
+			if(Integer.parseInt(menuSelect) <= 0 || Integer.parseInt(menuSelect) > 4) {
 				appStart();
 			}
 			if(Integer.parseInt(menuSelect) == 1) {
@@ -70,24 +70,29 @@ public class BankImpl implements ReadWriteManager{
 	
 	private static void userLogin() {
 		User testLogin = new User();
-		log.info("Welcome to the login page! Please input your username.");
+		int checkInput = 0;
+		log.info("Welcome to the login page! Please input your username. Press 4 to return to the homepage.");
 		String enteredUsername = userInput.next();
-		log.info("Please input your password:");
-		String enteredPassword = userInput.next();
-		testLogin = userDao.verifyUser(enteredUsername);
-		log.info(testLogin);
-		try {
-			if(testLogin.getUsername().matches(enteredUsername) && testLogin.getPassword().matches(enteredPassword)){
-				int loggedInAccId = testLogin.getUserId();
-				bankRun(loggedInAccId);
-			} else {
+			if(!enteredUsername.matches("4")) {
+				log.info("Please input your password:");
+				String enteredPassword = userInput.next();
+				testLogin = userDao.verifyUser(enteredUsername);
+			try {
+				if(testLogin.getUsername().matches(enteredUsername) && testLogin.getPassword().matches(enteredPassword)){
+					int loggedInAccId = testLogin.getUserId();
+					bankRun(loggedInAccId);
+				} 
+				else {
+					log.info("You have entered an incorrect username or password. Please try again.");
+					userLogin();
+				}
+			} catch(NullPointerException e) {
 				log.info("You have entered an incorrect username or password. Please try again.");
 				userLogin();
 			}
-		} catch(NullPointerException e) {
-			log.info("You have entered an incorrect username or password. Please try again.");
-			userLogin();
-		}	
+			} else {
+				appStart();	
+		}
 	}
 	
 	public static void adminAccess() {
@@ -137,14 +142,15 @@ public class BankImpl implements ReadWriteManager{
 						log.info("Password: ");
 						newUser.setPassword(userInput.next());
 					}	while (newUser.getPassword() == null);
-					log.info("Please input your starting balance. You must start with a balance greater than 0.");
-					newUser.setBalance(userInput.nextBigDecimal());
+						do {
+							log.info("Please input your starting balance. You must start with a balance greater than 0.");
+							newUser.setBalance(userInput.next());
+						} while(newUser.getBalance() == null);
+										
 					Account newAcc = new Account(newUser.getBalance());
 					log.info("Your account was created! You are being returned to the homescreen. You may choose to log-in there.");
 					int test2 = accDao.createAccount(newAcc);
 					int test = userDao.createUser(newUser);
-					log.info(test);
-					log.info("Accounts created: "+test2);
 					appStart();
 			}	
 		} catch (Exception e)
