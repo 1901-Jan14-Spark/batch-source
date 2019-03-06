@@ -16,6 +16,7 @@ import dao.AccountHolderDaoImpl;
 import models.Account;
 import models.AccountHandler;
 import models.AccountManager2;
+import util.InputValidator;
 
 public class BankTester {
 
@@ -77,9 +78,36 @@ public class BankTester {
 			BigDecimal amount = new BigDecimal(1000000);
 			assertFalse(am3.withdraw(amount, test3));
 		}
-//	String input = "";
-//	InputStream in = new ByteArrayInputStream(input.getBytes());
-//	System.setIn(in);
-//	asserEquals(///, ....., ....);
-//			System.setIn(System.in);
+		
+		@Test
+		public void passwordNeedNumber() {
+			assertFalse(InputValidator.validatePassword("AslkjnalLALKndlaKNlKAN"));
+		}
+		@Test
+		public void passwordNeedlowerCap() {
+			assertFalse(InputValidator.validatePassword("ASKJAFBKDBF78787"));
+		}
+		@Test
+		public void passwordNeedUpperCap() {
+			assertFalse(InputValidator.validatePassword("kjsbksbf7246"));
+		}
+		@Test
+		public void passwordNeedatLeast6() {
+			assertFalse(InputValidator.validatePassword("Ae3"));
+		}
+		
+		@Test
+		public void validPassword() {
+			assertTrue(InputValidator.validatePassword("asAs123"));
+		}
+		
+		@Test
+		public void nameNoNumber() {
+			assertFalse(InputValidator.validateName("AslkjnalLALKndlaKNlKAN112"));
+		}
+		@Test
+		public void validNumber() {
+			assertTrue(InputValidator.validateName("Kevin"));
+		}
+		
 }

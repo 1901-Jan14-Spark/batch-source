@@ -20,6 +20,7 @@ import models.Account;
 import models.AccountHandler;
 import models.AccountManager2;
 import models.Transaction;
+import util.InputValidator;
 
 public class Interface {
 
@@ -34,8 +35,9 @@ public class Interface {
 	public static void start() {
 		boolean go = true;
 		while (go) {
-			String welcomeMessage = "Welcome to the terminal banking application!\n----------------------------------------------------------------- \n\t- To login press: 1.\n\t- To create an account press: 2.\n\t- To exit press: 3.";
-			log.info(welcomeMessage);
+			log.info("Welcome to the terminal banking application!"
+					+ "\n----------------------------------------------------------------- "
+					+ "\n\t- To login press: 1.\n\t- To create an account press: 2.\n\t- To exit press: 3.");
 			String input = sc.nextLine();
 			switch (input) {
 			case "1":
@@ -52,46 +54,65 @@ public class Interface {
 				break;
 			}
 		}
-		log.info("\n-----------------------------------------------------------------\nThank you for using our services!");
+		log.info("\n-----------------------------------------------------------------\n"
+				+ "Thank you for using our services!");
 	}
 
-	public static void createAccount() {
+	public static boolean createAccount() {
 		log.info("\n - Please enter your first name.");
 		String firstName = sc.nextLine();
+		if (!InputValidator.validateName(firstName)) {
+			log.warn("Name should only be comprised of characters.\n");
+			return false;
+		}
 		log.info(" - Please enter your last name.");
 		String lastName = sc.nextLine();
-		log.info(" - Please enter your username.");
+		if (!InputValidator.validateName(lastName)) {
+			log.warn("Name should only be comprised of characters.\n");
+			return false;
+		}
+		log.info(" - Please enter your username.(At least 5 characters.)");
 		String username = sc.nextLine();
-		log.info(" - Please enter your password.(Must be longer than 8 characters.)");
+		if (!InputValidator.validateUser(username)) {
+			log.warn("Username should only be comprised of characters and numbers.(At least 5 characters.)\n");
+			return false;
+		}
+		log.info(" - Please enter your password.\n\t-Must be longer than 6 characters."
+				+ "\n\t-Must contain at least an uppercase character. \n\t-Lowercase character, a number.\n");
 		String password = sc.nextLine();
+		if (!InputValidator.validatePassword(password)) {
+			log.warn("Invalid password.");
+			return false;
+		}
 		log.info(" - Please re-enter your password.");
 		String password2 = sc.nextLine();
-		log.info(" - Please press 1 to create a Checking account or press 2 for a Savings account.");
-		String accountChoice = sc.nextLine();
-		if (firstName != null && firstName.length() > 0 && lastName != null && lastName.length() > 0 && username != null
-				&& username.length() > 0 && password != null && password.length() > 8
-				&& (accountChoice.equals("1") || accountChoice.equals("2"))) {
-			if (password.equals(password2)) {
-				if (ah.createAccountHolder(username, password, firstName, lastName)) {
-					int tempId = ad.getAccSeq();
-					log.info("\n... Retrieving account associated with user.");
-					if (Integer.parseInt(accountChoice) == 1) {
-						ad.createAccount(new Account(0));
-					} else {
-						ad.createAccount(new Account(1));
-					}
-					log.info("... Associating account with user.");
-					amd.assignAccount(ad.getAccountByID(tempId), ahd.getAccountHolderByUsername(username));
-					log.info("... Account set up.\n");
-				} else {
-					log.info("Username is already present, unable to create account.\n");
-				}
-			} else {
-				log.info("Passwords do not match.\n");
-			}
-		} else {
-			log.info("Invalid input.\n");
+		if (!password2.equals(password)) {
+			log.info("Passwords do not match.\n");
+			return false;
 		}
+		log.info(" - Press '1' to create a Checking account or press '2' for a Savings account.");
+		String accountChoice = sc.nextLine();
+		if (!(accountChoice.equals("1") || accountChoice.equals("2"))) {
+			log.warn("Invalid input, requires either '1' or '2'.\n");
+			return false;
+		}
+		log.info("\n... Creating user.");
+		if (ah.createAccountHolder(username, password, firstName, lastName)) {
+			int tempId = ad.getAccSeq();
+			log.info("... Retrieving account associated with user.");
+			if (Integer.parseInt(accountChoice) == 1) {
+				ad.createAccount(new Account(0));
+			} else {
+				ad.createAccount(new Account(1));
+			}
+			log.info("... Associating account with user.");
+			amd.assignAccount(ad.getAccountByID(tempId), ahd.getAccountHolderByUsername(username));
+			log.info("... Account set up.\n");
+		} else {
+			log.info("Username is already present, unable to create account.\n");
+			return false;
+		}
+		return true;
 	}
 
 	public static boolean login() {
@@ -99,98 +120,111 @@ public class Interface {
 		String userName = sc.nextLine();
 		log.info(" - Please enter your password.");
 		String password = sc.nextLine();
+		
 		log.info("Retrieving account...");
 		AccountManager2 am = ah.login(userName, password);
-		if (am != null) {
-			log.info("Successfully logged in.");
-			boolean loggedIn = true;
-			List<Account> list;
-			while (loggedIn == true) {
-				log.info("\nWelcome back " + am.getAccountHolder().getFirstname()
-						+ ".\n-----------------------------------------------------------------\n\t- To make a transaction press: 1.\n\t- For account operations press: 2.\n\t- To view your accounts press: 3.\n\t- To log out press: 4.");
-				String input = sc.nextLine();
-				switch (input) {
-				case "1":
-					log.info(
-							"\n\t- To make a deposit press: 1.\n\t- To make a withdrawal press: 2.\n\t- To make a transfer press: 3.\n\t- To go back, press: 4.\n");
-					String input2 = sc.nextLine();
-					switch (input2) {
-					case "1":
-						makeDeposit(am);
-						break;
-					case "2":
-						makeWithdrawal(am);
-						break;
-					case "3":
-						makeTransfer(am);
-						break;
-					default:
-						break;
-					}
-					break;
-				case "2":
-					log.info(
-							"\n\t- To create a separate account press: 1.\n\t- To join an account press: 2.\n\t- To view your previews transactions press: 3.\n\t- To go back, press: 4.\n");
-					String input3 = sc.nextLine();
-					switch (input3) {
-					case "1":
-						log.info(" - Please press 1 to create a Checking account or press 2 for a Savings account.");
-						String accountChoice1 = sc.nextLine();
-						int tempId = ad.getAccSeq();
-						log.info("\n... Retrieving account associated with user.");
-						if (Integer.parseInt(accountChoice1) == 1) {
-							ad.createAccount(new Account(0));
-						} else {
-							ad.createAccount(new Account(1));
-						}
-						log.info("... Associating account with user.");
-						amd.assignAccount(ad.getAccountByID(tempId), ahd.getAccountHolderByUsername(am.getAccountHolder().getUsername()));
-						log.info("... Account set up.\n");
-						break;
-					case "2":
-						log.info("Please enter the account id of the account to be joined.");
-						String accId = sc.nextLine();
-						if (am.accessAccount(Integer.parseInt(accId))) {
-							log.info("Account Successfully added.");
-						} else {
-							log.warn("Unable to add account.");
-						}
-						break;
-					case "3":
-						getTransactions(am);
-						break;
-					default:
-						break;
-					}
-					break;
-				case "3":
-					list = am.getAccounts();
-					for (Account a : list) {
-
-						if (a.getType() == 0) {
-
-						}
-						log.info(a);
-					}
-					break;
-				case "4":
-					loggedIn = false;
-					am.logout();
-					log.info("Successfully logged out!\n\n");
-					break;
-				default:
-					log.info("Invalid Input.\n");
-					break;
-
-				}
-			}
-		} else {
+		
+		if (am == null) {
 			log.warn("Unable to login.\n");
 			return false;
 		}
+		
+		log.info("Successfully logged in.");
+		
+		boolean loggedIn = true;
+		List<Account> list;
+		
+		while (loggedIn == true) {
+			log.info("\nWelcome back " + am.getAccountHolder().getFirstname()
+					+ ".\n-----------------------------------------------------------------\n\t- To make a transaction press: 1.\n\t- For account operations press: 2.\n\t- To view your accounts press: 3.\n\t- To log out press: 4.");
+			String input = sc.nextLine();
+			switch (input) {
+			case "1":
+				log.info(
+						"\n\t- To make a deposit press: 1.\n\t- To make a withdrawal press: 2.\n\t- To make a transfer press: 3.\n\t- To go back, press: 4.\n");
+				String input2 = sc.nextLine();
+				switch (input2) {
+				case "1":
+					makeDeposit(am);
+					break;
+				case "2":
+					makeWithdrawal(am);
+					break;
+				case "3":
+					makeTransfer(am);
+					break;
+				default:
+					break;
+				}
+				break;
+			case "2":
+				log.info(
+						"\n\t- To create a separate account press: 1.\n\t- To join an account press: 2.\n\t- To view your previous transactions press: 3.\n\t- To go back, press: 4.\n");
+				String input3 = sc.nextLine();
+				switch (input3) {
+				case "1":
+					log.info(" - Please press 1 to create a Checking account or press 2 for a Savings account.");
+					String accountChoice1 = sc.nextLine();
+					int accountC = Integer.parseInt(accountChoice1);
+					int tempId = ad.getAccSeq();
+					createAccount(accountC, am);
+					break;
+				case "2":
+					log.info("Please enter the account id of the account to be joined.");
+					String accId = sc.nextLine();
+					if (am.accessAccount(Integer.parseInt(accId))) {
+						log.info("Account Successfully added.");
+					} else {
+						log.warn("Unable to add account.");
+					}
+					break;
+				case "3":
+					getTransactions(am);
+					break;
+				default:
+					break;
+				}
+				break;
+			case "3":
+				list = am.getAccounts();
+				for (Account a : list) {
+
+					if (a.getType() == 0) {
+
+					}
+					log.info(a);
+				}
+				break;
+			case "4":
+				loggedIn = false;
+				am.logout();
+				log.info("Successfully logged out!\n\n");
+				break;
+			default:
+				log.info("Invalid Input.\n");
+				break;
+
+			}
+		}
+
 		return true;
 	}
 
+	
+	public static boolean createAccount(int account, AccountManager2 am) {
+		int tempId = ad.getAccSeq();
+		log.info("\n... Retrieving account associated with user.");
+		if (account == 1) {
+			ad.createAccount(new Account(0));
+		} else {
+			ad.createAccount(new Account(1));
+		}
+		log.info("... Associating account with user.");
+		amd.assignAccount(ad.getAccountByID(tempId),
+				ahd.getAccountHolderByUsername(am.getAccountHolder().getUsername()));
+		log.info("... Account set up.\n");
+		return true;
+	}
 	public static boolean makeDeposit(AccountManager2 am) {
 		am.printAccounts();
 		String accIds = sc.nextLine();
@@ -201,7 +235,7 @@ public class Interface {
 					temp = a;
 				}
 			}
-			if(temp == null) {
+			if (temp == null) {
 				log.warn("Unable to retrieve account.");
 				return false;
 			}
@@ -237,7 +271,7 @@ public class Interface {
 					temp = a;
 				}
 			}
-			if(temp == null) {
+			if (temp == null) {
 				log.warn("Unable to retrieve account.");
 				return false;
 			}
@@ -294,7 +328,7 @@ public class Interface {
 					temp = a;
 				}
 			}
-			if(temp == null) {
+			if (temp == null) {
 				log.info("Unable to retrieve account.");
 				return false;
 			}
