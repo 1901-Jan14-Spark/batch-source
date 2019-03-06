@@ -61,31 +61,31 @@ log.info("WELCOME TO ACCOUNT CREATION");
 		
 		log.info("Please Enter First Name: ");
 		String firstname = input.nextLine().trim();
-		while(firstname.equals("")||firstname.equals(null)){
+		while(!firstname.matches("[a-zA-Z]*")||firstname.equals("")){
 			log.error("Invalid Input Please Try Again");
 			firstname = input.nextLine();
 		}
 		log.info("Please Enter Last Name: ");
 		String lastname = input.nextLine().trim();
-		while(lastname.equals("")||lastname.equals(null)){
+		while(!lastname.matches("[a-zA-Z]*")||lastname.equals("")){
 			log.error("Invalid Input Please Try Again");
 			lastname = input.nextLine();
 		}
 		log.info("Please Enter Email: ");
 		String email = input.nextLine().trim();
-		while(email.equals("")||email.equals(null)){
+		while(!email.matches("[(a-zA-Z-0-9-\\_\\+\\.)]+@[(a-z-A-z)]+\\.[(a-zA-z)]{2,3}")||email.equals("")){
 			log.error("Invalid Input Please Try Again");
 			email = input.nextLine();
 		}
 		log.info("Please Enter Username: ");
 		String username = input.nextLine().trim();
-		while(username.equals("")||username.equals(null)){
+		while(!username.matches("[a-zA-Z0-9_]*")||username.equals("")){
 			log.error("Invalid Input Please Try Again");
 			username = input.nextLine();
 		}
 		log.info("Please Enter Password: ");
 		String password = input.nextLine().trim();
-		while(password.equals("")||password.equals(null)){
+		while(!password.matches("[a-zA-Z0-9_]*")||password.equals("")){
 			log.error("Invalid Input Please Try Again");
 			password = input.nextLine();
 		}
