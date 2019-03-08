@@ -1,7 +1,6 @@
 package com.revature.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,7 +20,7 @@ public class CalculatorServlet extends HttpServlet {
 //		System.out.println("do get request handler method invoked in our calculator servlet");
 //		response.setContentType("text/html;charset=UTF-8");
 //		PrintWriter pw = response.getWriter();
-//		pw.write("<h2>My Calculator Page </h2>");
+//		pw.write("<p><h2>My Calculator Page </h2></p>");
 //		pw.close();
 		
 		RequestDispatcher rd = request.getRequestDispatcher("Calculator.html");
@@ -47,6 +46,8 @@ public class CalculatorServlet extends HttpServlet {
 		// return result --> use print writer to print to our page
 //		PrintWriter pw = response.getWriter();
 //		pw.write("<p> The answer is: "+ result+"</p>");
+		
+		request.setAttribute("result", Integer.toString(result));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("answer");
 		rd.forward(request, response);
