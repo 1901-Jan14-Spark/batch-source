@@ -28,7 +28,8 @@ public class LoginServlet extends HttpServlet{
 		//System.out.println("Name: "+name+", "+"pass: "+pass);
 		boolean accept = ls.verify(name, pass);
 		PrintWriter pw = response.getWriter();
-		pw.write("Login: "+accept);
+		pw.write("<p><h1>Login: "+accept+"</h1></p>");
+		pw.write("<p><a href=\"login.html\">Login Page</a></p>");
 		pw.close();
 	}
 }
