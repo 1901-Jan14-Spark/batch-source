@@ -1,0 +1,14 @@
+2019-03-06 20:53:12 ERROR EmployeeDaoImpl:44 getEmployeesAssociatedTo - SQLException - unable to getEmployeesAssociatedTo(int id): id: 30000031
+2019-03-06 20:55:34 ERROR EmployeeDaoImpl:45 getEmployeesAssociatedTo - SQLException - unable to getEmployeesAssociatedTo(int id): id: 30000031
+2019-03-06 20:56:50 ERROR EmployeeDaoImpl:45 getEmployeesAssociatedTo - SQLException - unable to getEmployeesAssociatedTo(int id): id: 30000031
+2019-03-06 20:58:19 ERROR EmployeeDaoImpl:45 getEmployeesAssociatedTo - SQLException - unable to getEmployeesAssociatedTo(int id): id: 30000031
+2019-03-06 20:59:50 ERROR EmployeeDaoImpl:45 getEmployeesAssociatedTo - SQLException - unable to getEmployeesAssociatedTo(int id): id: 30000031
+2019-03-06 21:04:38 ERROR EmployeeDaoImpl:44 getEmployeesAssociatedTo - SQLException - unable to getEmployeesAssociatedTo(int id): id: 300000031
+2019-03-07 08:56:31 ERROR EmployeeDaoImpl:209 getEmployees - SQLException - unable to getEmployees()
+2019-03-07 08:56:56 ERROR EmployeeDaoImpl:209 getEmployees - SQLException - unable to getEmployees()
+2019-03-07 08:57:34 ERROR EmployeeDaoImpl:209 getEmployees - SQLException - unable to getEmployees()
+2019-03-07 19:38:40 ERROR ReimbursementDaoImpl:46 getReimbursements - SQLException - unable to getReimbursements()
+2019-03-07 20:08:01 ERROR ReimbursementDaoImpl:199 createReimbursement - SQLException - unable to createReimbursement(), reimbursement: Reimbursement [id=400000001, employee_id=300000020, amount=20.0, state=0, date=2019-03-07 19:34:12.578271, description=CreatedReimbursement, manager_id=0]
+2019-03-07 20:26:54 ERROR ReimbursementDaoImpl:230 updateReimbursement - SQLException - unable to updateReimbursement(): reimbursement: Reimbursement [id=400000001, employee_id=300000020, amount=20.0, state=0, date=2019-03-07 19:34:12.578271, description=Updated Reimbursement, manager_id=0]
+2019-03-07 20:27:33 ERROR ReimbursementDaoImpl:230 updateReimbursement - SQLException - unable to updateReimbursement(): reimbursement: Reimbursement [id=400000001, employee_id=300000020, amount=20.0, state=0, date=2019-03-07 19:34:12.578271, description=Updated Reimbursement, manager_id=0]
+2019-03-07 20:28:45 ERROR ReimbursementDaoImpl:231 updateReimbursement - SQLException - unable to updateReimbursement(): reimbursement: Reimbursement [id=400000001, employee_id=300000020, amount=20.0, state=0, date=2019-03-07 19:34:12.578271, description=Updated Reimbursement, manager_id=0]
