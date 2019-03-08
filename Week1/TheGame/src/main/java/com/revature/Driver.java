@@ -30,7 +30,12 @@ public class Driver {
 		System.out.println("Welcome to.. THE GAME!!");
 		sc.nextLine();
 		
-		while(itr.hasNext()&&itrQ.hasNext()) {
+		while(itrQ.hasNext()) {
+			if(!itr.hasNext()) {
+				Collections.shuffle(associateCollection);
+				itr = associateCollection.iterator();
+				itr.next();
+			}
 			System.out.println(itr.next().getName()+":");
 			System.out.println(itrQ.next().getContent());
 			sc.nextLine();

@@ -1,0 +1,40 @@
+What is normalization? Why might we want to normalize or denormalize a database?
+What is the difference between an inner join, an full outer join, a right outer join, and a left outer join?
+What is a trigger?
+What is an index?
+What is a cursor?
+What is the difference between a scalar and aggregate function? Give examples of each.
+What is the requirement for a db to be in first normal form?
+What is the requirement for a db to be in second normal form?
+What is the requirement for a db to be in third normal form?
+What are the different sublanguages of SQL?
+What are the keywords associated with DML?
+What are the keywords associated with DCL?
+What are the keywords associated with TCL?
+What are the keywords associated with DDL?
+What is the difference between a stored procedure and a function?
+What are the transaction isolation levels?
+What is a dirty read? 
+What is a nonrepeatable read?
+What is a phantom read?
+What are the four properties of a transaction?
+What is the DAO design pattern?
+How does one create a Connection with JDBC?
+Explain the role of a Statement in JDBC and its subinterfaces.
+What is a ResultSet?
+Explain the difference between bubbling and capturing.
+Explain the AJAX workflow.
+What are the ready states of an XmlHTTPResponse object?
+What is the difference between stopPropagation and stopImmediatePropagation?
+What are some additions to HTML 5?
+What is Bootstrap? What are the benefits of using it?
+What are the three ways to associate an event with an HTML element?
+What is a callback function? Where have you seen them used?
+What is the difference between well formed and valid xml?
+What are the two ways we can validate XML?
+What is the difference between Agile and Waterfall methodologies?
+What is a closure?
+What is hoisting?
+What is the difference between var, let and const?
+What is a template literal? What is the syntax and benefits?
+What is the DOM? What are the different ways we can access elements in it?
