@@ -29,27 +29,23 @@ public class Transactions {
 		log.info("Username: ");
 		System.out.println();
 		String username = sc.next();
-		while(members.isEmpty() == false) {
-			for(int i = 0; i < members.size(); i++) {
-				//Member m1 = new Member(m.accountNumber, m.firstName,m.lastName, m.userName, m.password, m.email);	
-				if(username.equals(members.get(i).getUserName())) {
-					log.info("Password: ");
-					String password = sc.next();
-					if(password.equals(members.get(i).getPassword())) {
-						transactions(members.get(i).getAccountNumber());	
-					} else {
-						System.out.println();
-						log.error("Invalid username or password!");
-						System.out.println();
-						logIn();
-					}
-				} else {
-					System.out.println();
-					log.error("Invalid username or password! Please re-enter: ");
-					System.out.println();
-					logIn();
-				}
+		if(members.contains(username)) {
+			Member m = md.getMemberByUsername(username);
+			log.info("Password: ");
+			String password = sc.next();
+			if(password.equals(password)) {
+				transactions(m.accountNumber);	
+			} else {
+				System.out.println();
+				log.error("Invalid username or password!");
+				System.out.println();
+				logIn();
 			}
+		} else {
+			System.out.println();
+			log.error("Invalid username or password! Please re-enter: ");
+			System.out.println();
+			logIn();
 		}
 	}
 
