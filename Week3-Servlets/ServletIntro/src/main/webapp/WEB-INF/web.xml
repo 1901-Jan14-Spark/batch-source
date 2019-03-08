@@ -6,10 +6,27 @@
 		<servlet-name>HelloWorldServlet</servlet-name>
 		<servlet-class>com.revature.servlets.HelloWorldServlet</servlet-class>
 	</servlet>
-	
 	<servlet-mapping>
 		<servlet-name>HelloWorldServlet</servlet-name>
 		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CatServlet</servlet-name>
+		<servlet-class>com.revature.servlets.CatServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CatServlet</servlet-name>
+		<url-pattern>/cats</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CalculatorServlet</servlet-name>
+		<servlet-class>com.revature.servlets.CalculatorServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CalculatorServlet</servlet-name>
+		<url-pattern>/calculator</url-pattern>
 	</servlet-mapping>
 
 </web-app>

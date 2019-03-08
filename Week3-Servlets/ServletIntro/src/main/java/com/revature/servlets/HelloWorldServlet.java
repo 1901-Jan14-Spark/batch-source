@@ -14,7 +14,7 @@ public class HelloWorldServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		System.out.println("Service method called");
+		System.out.println("Service method called with a "+request.getMethod()+" request");
 		PrintWriter pw = response.getWriter();
 		pw.print("Hello World");
 		pw.close();
