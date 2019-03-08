@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>simplelogin</display-name>
+ 
+	<servlet>
+		<servlet-name>loginServlet</servlet-name>
+		<servlet-class>com.revature.main.servlets.loginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>correctServlet</servlet-name>
+		<servlet-class>com.revature.main.servlets.correctServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>correctServlet</servlet-name>
+		<url-pattern>/correct</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>wrongServlet</servlet-name>
+		<servlet-class>com.revature.main.servlets.wrongServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>wrongServlet</servlet-name>
+		<url-pattern>/wrong</url-pattern>
+	</servlet-mapping>
+
+</web-app>

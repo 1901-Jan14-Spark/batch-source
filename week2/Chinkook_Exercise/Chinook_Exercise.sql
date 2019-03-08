@@ -168,6 +168,7 @@ begin
     select avg(i.total)
     into average
     from chinook.invoice i;
+    
     return average;
 end;
 /
