@@ -1,0 +1,39 @@
+#firstDiv{
+    border: solid black 1px;
+}
+
+#indiv1{
+    border: solid black 1px;
+}
+
+#indiv2{
+    border: solid black 1px;
+}
+
+#par1{
+    border: solid black 1px;
+
+}
+
+#par2{
+    border: solid black 1px;
+    
+}
+
+#par3{
+    border: solid black 1px;
+    
+}
+
+#par4{
+    border: solid black 1px;
+    
+}
+
+/* div > p {
+    background-color: aqua;
+} */
+
+#indiv1 + p{
+    background-color: firebrick;
+}

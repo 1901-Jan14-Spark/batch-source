@@ -5,6 +5,7 @@
 	<groupId>ReimbursementApp</groupId>
 	<artifactId>EmployeePortal</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>RE-Burst</name>
 	<description>A reimbursement application with privledges and functions for employees/managers</description>
 
