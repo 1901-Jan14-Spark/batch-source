@@ -19,7 +19,7 @@ public class BankingDriver {
 	
 	
 	public static  void main(String[] args) {
-		log.info("Welcome to Daniel Bogar's Banking Application.");
+		log.info("Welcome to the Daniel Bogar Banking Application.");
 		log.info("----------------------------------------------------");
 		log.info("You May Logout at Anytime by Entering (X)");
 		Start();

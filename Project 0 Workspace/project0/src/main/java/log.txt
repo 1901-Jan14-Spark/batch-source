@@ -6019,3 +6019,15 @@
 2019-03-06 00:37:38 ERROR BankingDriver:263 method: EnterAmount - There was not a Valid input, please enter a Number
 2019-03-06 00:39:08 ERROR BankingDriver:264 method: EnterAmount - There was not a Valid input, please enter a Number
 2019-03-06 00:39:35 ERROR BankingDriver:264 method: EnterAmount - There was not a Valid input, please enter a Number
+2019-03-06 09:54:34 ERROR BankingDriver:140 method: Login - Invalid Username or Password
+2019-03-06 09:54:45 ERROR BankingDriver:140 method: Login - Invalid Username or Password
+2019-03-06 09:54:52 ERROR BankingDriver:140 method: Login - Invalid Username or Password
+2019-03-06 09:55:33 ERROR BankingDriver:240 method: EnterBalance - Please Enter a Non-Negative Number.
+2019-03-06 09:55:36 ERROR BankingDriver:245 method: EnterBalance - There was not a Valid input, please enter a Number
+2019-03-06 09:55:43 ERROR BankingDriver:245 method: EnterBalance - There was not a Valid input, please enter a Number
+2019-03-06 09:56:01 ERROR BankingDriver:140 method: Login - Invalid Username or Password
+2019-03-06 09:57:26 ERROR BankingDriver:140 method: Login - Invalid Username or Password
+2019-03-06 09:57:50 ERROR BankingDriver:140 method: Login - Invalid Username or Password
+2019-03-06 11:55:38 ERROR BankingDriver:203 method: Withdraw - Withdraw Error, Cannot Withdraw More than the Balance of the Account
+2019-03-06 11:56:06 ERROR BankingDriver:44 method: Start - Incorrect Input, Please Enter in One of the Given Characters
+2019-03-06 11:56:09 ERROR BankingDriver:44 method: Start - Incorrect Input, Please Enter in One of the Given Characters
