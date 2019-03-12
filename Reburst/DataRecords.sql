@@ -6,17 +6,17 @@ insert into MANAGERS (MANAGERS_ID, EMPLOYEE_ID) values (2, 2);
 insert into MANAGERS (MANAGERS_ID, EMPLOYEE_ID) values (3, 3);
 insert into MANAGERS (MANAGERS_ID, EMPLOYEE_ID) values (4, 4);
 
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (1, 'Boigie', 'Kulic','fake1@gmail.com', 'password1', 'CEO', NULL);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (2, 'Garold', 'Meeus', 'fake2@gmail.com', 'password2', 'General Manager', 1);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (3, 'Amitie', 'Jope', 'fake3@gmail.com', 'password3', 'Assistant Manager', 2);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (4, 'Drew', 'MacSween', 'fake4@gmail.com', 'password4', 'HR Manager', 1);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (5, 'Lay', 'Tabb', 'fake5@gmail.com', 'password5', 'HR Associate', 1);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (6, 'Ward', 'Haddrell', 'fake6@gmail.com', 'password6', 'Generic', 3);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (7, 'Britt', 'Christophle', 'fake7@gmail.com', 'password7', 'Generic', 3);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (8, 'Jermain', 'Grumble', 'fake8@gmail.com', 'password8', 'Generic', 3);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (9, 'Nicolai', 'Bellefant', 'fake9@gmail.com', 'password9', 'Generic', 3);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (10, 'Chrissy', 'Sendley', 'fake10@gmail.com', 'password10', 'Generic', 3);
-insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) values (11, 'Eilis', 'Snoday', 'fake11@gmail.com', 'password11', 'Generic', 3);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (1, 'Boigie', 'Kulic','fake1@gmail.com', 'password1', 'CEO', NULL, 1);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (2, 'Garold', 'Meeus', 'fake2@gmail.com', 'password2', 'General Manager', 1, 1);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (3, 'Amitie', 'Jope', 'fake3@gmail.com', 'password3', 'Assistant Manager', 2, 1);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (4, 'Drew', 'MacSween', 'fake4@gmail.com', 'password4', 'HR Manager', 1, 1);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (5, 'Lay', 'Tabb', 'fake5@gmail.com', 'password5', 'HR Associate', 1, 0);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (6, 'Ward', 'Haddrell', 'fake6@gmail.com', 'password6', 'Generic', 3, 0);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (7, 'Britt', 'Christophle', 'fake7@gmail.com', 'password7', 'Generic', 3, 0);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (8, 'Jermain', 'Grumble', 'fake8@gmail.com', 'password8', 'Generic', 3, 0);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (9, 'Nicolai', 'Bellefant', 'fake9@gmail.com', 'password9', 'Generic', 3, 0);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (10, 'Chrissy', 'Sendley', 'fake10@gmail.com', 'password10', 'Generic', 3, 0);
+insert into EMPLOYEE (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID, IS_MANAGER) values (11, 'Eilis', 'Snoday', 'fake11@gmail.com', 'password11', 'Generic', 3, 0);
 
 
 
