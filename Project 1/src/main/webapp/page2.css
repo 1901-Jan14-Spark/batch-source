@@ -1,0 +1,16 @@
+body{
+    height:100%;
+    width:100%;
+    font-family: 'Spectral' !important;
+    font-size: 12.5pt !important;
+}
+
+.header {
+    width: 100%;
+    height: 125px;
+    padding: 3.0%;
+    background-color: black;
+	background-repeat: no-repeat;
+    background-position: 81% 81%;
+    box-sizing: content-box;
+}
