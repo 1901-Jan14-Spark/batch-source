@@ -1,6 +1,7 @@
 package com.revature.servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -49,8 +50,13 @@ public class CalculatorServlet extends HttpServlet {
 		
 		request.setAttribute("result", Integer.toString(result));
 		
+		PrintWriter pw = response.getWriter();
+		pw.write("<p>CalculatorServlet before including</p>");
+		
 		RequestDispatcher rd = request.getRequestDispatcher("answer");
-		rd.forward(request, response);
+		rd.include(request, response);
+		
+		pw.write("<p>CalculatorServlet after including</p>");
 		
 	}
 
