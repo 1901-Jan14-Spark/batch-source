@@ -12,9 +12,10 @@ public class DepartmentDaoImpl implements DepartmentDao {
 	
 	public DepartmentDaoImpl() {
 		super();
-		departments.add(new Department(1, "HR", 13000));
-		departments.add(new Department(2, "IT", 15000));
+		departments.add(new Department(1, "Human Resources", 13000));
+		departments.add(new Department(2, "Information Technology", 15000));
 		departments.add(new Department(3, "Sales", 12000));
+//		departments.add(new Department(7, "Marketing", 15000));
 	}
 
 	public List<Department> getDepartments() {
