@@ -23,11 +23,29 @@ public class EmployeeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		ObjectMapper om = new ObjectMapper();
 		
-		//get all of our employees from our service layer
-		List<Employee> employees = eService.getAll();
+		String idStr = request.getParameter("id");
+		System.out.println(idStr);
 		
-		//convert the arraylist of employees to json
-		String employeeJSON = om.writeValueAsString(employees);
+		String employeeJSON;
+		
+		if(idStr!=null && idStr!="") {
+			int id = Integer.parseInt(idStr);
+			Employee e = eService.getById(id);
+			if(e==null) {
+//				employeeJSON = "No employee with provided id was found";
+				employeeJSON = "";
+				response.setStatus(404);
+			} else {
+				employeeJSON = om.writeValueAsString(e);	
+			}			
+		} else {
+			//get all of our employees from our service layer
+			List<Employee> employees = eService.getAll();
+			
+			//convert the arraylist of employees to json
+			employeeJSON = om.writeValueAsString(employees);
+		}
+	
 		
 		//print my json to the response body of my http response
 		PrintWriter pw = response.getWriter();
@@ -45,7 +63,6 @@ public class EmployeeServlet extends HttpServlet {
 		Department d = new Department();
 		d.setId(departmentId);
 		e.setDepartment(d);
-		e.setId(11);
 		
 		System.out.println(e);
 		

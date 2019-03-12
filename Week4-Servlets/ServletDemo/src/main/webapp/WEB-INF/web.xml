@@ -27,4 +27,14 @@
     <servlet-name>CreateServlet</servlet-name>
     <url-pattern>/new</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DepartmentServlet</display-name>
+    <servlet-name>DepartmentServlet</servlet-name>
+    <servlet-class>com.revature.servlet.api.DepartmentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DepartmentServlet</servlet-name>
+    <url-pattern>/api/departments</url-pattern>
+  </servlet-mapping>
 </web-app>
