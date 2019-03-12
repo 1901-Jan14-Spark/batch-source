@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
 		
 		PrintWriter pw = response.getWriter();
 		
-		if (username.equals("admin") && password.equals("password"))
+		if ("admin".equals(username) && "password".equals(password))
 			pw.write("<p> Login successful! </p>");
 		else
 			pw.write("<p> Invalid login credentioals. Please try again. </p>");
