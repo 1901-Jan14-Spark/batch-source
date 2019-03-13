@@ -7,11 +7,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import com.revature.model.Employee;
 import com.revature.util.ConnectionUtil;
 
 public class EmployeeDaoImpl implements EmployeeDao {
-
+	private static Logger log = Logger.getRootLogger();
 	@Override
 	public List<Employee> getEmps() {
 		// TODO Auto-generated method stub
@@ -25,8 +27,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public Employee validate(String email, String Pass) {
-		String sql = "SELECT EMPLOYEE_EMAIL FROM EMPLOYEES WHERE EMPLOYEE_EMAIL=? AND EMPLOYEEE_PASSWORD =?";
+	public int validate(String email, String Pass) {
+		String sql = "SELECT EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD FROM EMPLOYEE WHERE EMPLOYEE_EMAIL=? AND EMPLOYEE_PASSWORD =?";
 		
 		Employee emp = null;
 		
@@ -40,11 +42,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				
 				rs.next();
 				
-				String emailV = rs.getString("emailV");
+				String emailV = rs.getString("EMPLOYEE_EMAIL");
+				String passV = rs.getString("EMPLOYEE_PASSWORD");
 				
-				emp = new Employee(email);
+				emp = new Employee(email, Pass);
 				emp.setEmail(emailV);
+				emp.setPassword(passV);
 		
+				log.info(emp);
 		
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -53,7 +58,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return emp;
+		return 0;
 	}
 
 	@Override

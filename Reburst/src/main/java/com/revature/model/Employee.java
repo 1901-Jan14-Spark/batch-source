@@ -32,9 +32,20 @@ public class Employee implements Serializable {
 			Title = title;
 			this.mId = mId;
 		}
-
-		public Employee(String email) {
+		
+		public Employee(String fName, String lName, String email, String password, String title) {
+		
+			FName = fName;
+			LName = lName;
 			Email = email;
+			Password = password;
+			Title = title;
+			
+		}
+
+		public Employee(String email, String password) {
+			Email = email;
+			Password = password;
 		}
 
 		public int geteId() {
