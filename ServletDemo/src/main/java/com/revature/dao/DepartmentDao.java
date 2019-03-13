@@ -1,6 +1,6 @@
 package com.revature.dao;
 
-import java.sql.Connection;
+
 import java.util.List;
 
 import com.revature.model.Department;

@@ -33,6 +33,10 @@ public class Employee implements Serializable {
 			this.mId = mId;
 		}
 
+		public Employee(String email) {
+			Email = email;
+		}
+
 		public int geteId() {
 			return eId;
 		}

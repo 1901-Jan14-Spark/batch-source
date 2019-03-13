@@ -1,5 +1,17 @@
 package com.revature.dao;
 
-public interface EmployeeDao {
+import java.util.List;
 
+import com.revature.model.Employee;
+
+public interface EmployeeDao {
+	
+	public List<Employee> getEmps();
+	public Employee getUserById(int id);
+	public Employee validate(String email, String Pass);
+	public List<Employee> getEmpsReportingTo(Employee emp);
+	public Employee getEmps(Employee emp);
+	public int createEmp(String email, String password, int managerId);
+	public boolean updateEmp(Employee emp);
+	public boolean LoggedIn(Employee emp);
 }
