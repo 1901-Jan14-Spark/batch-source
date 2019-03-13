@@ -13,7 +13,7 @@ function sendAjaxGet(url, func){
 	xhr.send();
 }
 
-sendAjaxGet("http://localhost:8080/ServletDemo/api/departments", populateSelect);
+sendAjaxGet("http://localhost:8080/FrontControllerDemo/api/departments", populateSelect);
 
 function populateSelect(xhr){
 	let departments = JSON.parse(xhr.response);

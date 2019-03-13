@@ -15,7 +15,7 @@ function sendAjaxGet(url, func){
 	xhr.send();
 }
 
-sendAjaxGet("http://localhost:8080/ServletDemo/api/employees", display);
+sendAjaxGet("http://localhost:8080/FrontControllerDemo/api/employees", display);
 
 
 function display(xhr){
