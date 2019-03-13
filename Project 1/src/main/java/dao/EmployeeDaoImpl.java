@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -41,13 +42,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				String lName = rs.getString("LNAME");
 				String email = rs.getString("EMAIL");
 				String password = rs.getString("PASSWORD");
-				if (Integer.valueOf(rs.getInt("REPORTSTO")) == null) {
-					int reportsTo = 0;
-				} else {
-					int reportsTo = rs.getInt("REPORTSTO");
-				}
+				int reportsTo = rs.getInt("REPORTSTO");
 				int loggedIn = rs.getInt("LOGGEDIN");
-				tempEmp = new Employee(empId, fName, lName, email, password, loggedIn);	
+				tempEmp = new Employee(empId, fName, lName, email, password, reportsTo, loggedIn);	
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -55,5 +52,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		}
 		return tempEmp;
 	}
+
 
 }

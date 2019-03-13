@@ -10,6 +10,11 @@ public class Employee {
 	int reportsTo;
 	int loggedIn;
 	
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public Employee(int empId, String firstName, String lastName, String email, String password, int loggedIn) {
 		super();
 		this.id = empId;
@@ -20,13 +25,15 @@ public class Employee {
 		this.loggedIn = loggedIn;
 	}
 	
-	public Employee(String firstName, String lastName, String email, String password, int reportsTo) {
+	public Employee(int empId, String firstName, String lastName, String email, String password, int reportsTo, int loggedIn) {
 		super();
+		this.id = empId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.reportsTo = reportsTo;
+		this.loggedIn = loggedIn;
 	}
 	
 

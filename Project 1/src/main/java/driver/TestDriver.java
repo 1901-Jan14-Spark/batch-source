@@ -3,6 +3,9 @@ package driver;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import dao.EmployeeDao;
+import dao.EmployeeDaoImpl;
+import models.Employee;
 import util.DBConnection;
 
 public class TestDriver {
@@ -15,6 +18,12 @@ public class TestDriver {
 			e.printStackTrace();
 		} 
 		System.out.println();
+		
+		
+		EmployeeDao empDao = new EmployeeDaoImpl();
+		Employee test = empDao.getEmployeeByUsername("vksadanani@gmail.com");
+		System.out.println(test.getFirstName());
 	}
+
 }
 

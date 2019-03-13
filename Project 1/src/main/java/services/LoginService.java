@@ -10,6 +10,8 @@ public class LoginService {
 	
 	public String confirmLogin(String email, String password) {
 		Employee temp = empDao.getEmployeeByUsername(email);
+//		System.out.println(temp.toString());
+//		System.out.println(temp.getReportsTo());
 		try {
 			if (temp.getEmail() == null) {
 			String error="nullEmail";
@@ -19,10 +21,16 @@ public class LoginService {
 			String error="nullEmail";
 			return error;
 		}
-		if(email.matches(temp.getEmail()) && password.matches(temp.getPassword())) {
-			String success = "success";
-			return success;
-		} else {
+		if(email.matches(temp.getEmail()) && password.matches(temp.getPassword()) && temp.getReportsTo() == 0) {
+				String manager = "manager";
+				//invoke method that changes loggedIn value in SQL table from 0 to 1
+				return manager;
+			} 
+		if(email.matches(temp.getEmail()) && password.matches(temp.getPassword()) && temp.getReportsTo() > 0) {
+			String employee = "employee";
+			//invoke method that changes loggedIn value in SQL table from 0 to 1
+			return employee;
+		}  else {
 		String error = "incorrect";
 		return error;
 		}

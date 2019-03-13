@@ -2,41 +2,45 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>Project1</display-name>
 
-	<servlet>
-		<servlet-name>EmployeeServlet</servlet-name>
-		<servlet-class>servlets.EmployeeServlet</servlet-class>	
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>EmployeeServlet</servlet-name>
-		<url-pattern>/employees</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>LoginServlet</servlet-name>
-		<servlet-class>servlets.LoginServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LoginServlet</servlet-name>
-		<url-pattern>/login</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>LoginResponseServlet</servlet-name>
-		<servlet-class>servlets.LoginResponseServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LoginResponseServlet</servlet-name>
-		<url-pattern>/loginResponse</url-pattern>
-	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>LoggedInServlet</servlet-name>
-		<servlet-class>servlets.LoggedInServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>LoggedInServlet</servlet-name>
-		<url-pattern>/loggedIn</url-pattern>
-	</servlet-mapping>
-	
-	
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ManagerServlet</display-name>
+    <servlet-name>ManagerServlet</servlet-name>
+    <servlet-class>servlets.ManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerServlet</servlet-name>
+    <url-pattern>/WelcomeManager</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>SessionServlet</display-name>
+    <servlet-name>SessionServlet</servlet-name>
+    <servlet-class>servlets.api.SessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionServlet</servlet-name>
+    <url-pattern>/session</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
 </web-app>
