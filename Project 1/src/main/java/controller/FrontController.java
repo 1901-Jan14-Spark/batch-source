@@ -15,12 +15,9 @@ public class FrontController extends DefaultServlet {
 	
     public FrontController() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 		if(request.getRequestURI().substring(request.getContextPath().length()).startsWith("/static/")) {
 			super.doGet(request, response);
 		} else {
@@ -29,7 +26,6 @@ public class FrontController extends DefaultServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

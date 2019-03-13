@@ -12,10 +12,10 @@ public class ViewDelegate {
 		switch(address) {
 		case "login":
 			request.getRequestDispatcher("/static/Views/index.html").forward(request, response);
-			break;
-		case "welcomemanager":
+			return;
+		case "managerLogin":
 			request.getRequestDispatcher("/static/Views/managerhome.html").forward(request, response);
-			break;
+			return;
 		default:
 			response.sendError(404, "Static Resource Not Found");
 		}
