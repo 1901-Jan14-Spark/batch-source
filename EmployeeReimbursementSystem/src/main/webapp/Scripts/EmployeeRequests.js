@@ -1,3 +1,31 @@
+let pendingChecked = false;
+let resolvedChecked = false;
+
+let url = "http://localhost:8080/Revature/allReqs";
+
+function setUrl() {
+	if (pendingChecked && !resolvedChecked) {
+		url = "http://localhost:8082/Revature/pendingReqs";
+	} else if (!pendingChecked && resolvedChecked) {
+		url = "http://localhost:8080/Revature/resolvedReqs";
+	} else {
+		url = "http://localhost:8080/Revature/allReqs";
+	}
+}
+
+document.getElementById("pending").addEventListener("change", function() {
+	pendingChecked = this.checked;
+	setUrl();
+	sendAjaxGet(url, display);
+});
+
+document.getElementById("resolved").addEventListener("change", function() {
+	resolvedChecked = this.checked;
+	setUrl();
+	sendAjaxGet(url, display);
+});
+
+
 function sendAjaxGet(url, func) {
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
 	xhr.onreadystatechange = function() {

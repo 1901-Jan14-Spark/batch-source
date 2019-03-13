@@ -72,7 +72,7 @@ public class EmployeeDaoImpl implements EmployeeDao  {
 		try (PreparedStatement ps = con.prepareStatement(sql);) {
 			ps.setInt(1, id);
 			rs = ps.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				String firstname = rs.getString("FIRSTNAME");
 				String lastname = rs.getString("LASTNAME");
 				String username = rs.getString("EMPLOYEE_USERNAME");
@@ -87,6 +87,7 @@ public class EmployeeDaoImpl implements EmployeeDao  {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+			System.out.println("sql grr");
 			e.printStackTrace();
 		}
 		return emp;

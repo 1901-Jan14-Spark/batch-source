@@ -166,33 +166,39 @@ public class RequestDaoImpl implements RequestDao {
 
 	@Override
 	public void addRequest(Request r) {
-		String sql = "INSERT INTO REQUEST (REQUEST_ID, STATUS, AMOUNT, EMPLOYEE_ID, MANAGER_ID) VALUES (?, ?, ?, ?, ?)";
+		r.setId(getNextId());
+		String sql = "INSERT INTO REQUEST (REQUEST_ID, STATUS, AMOUNT, EMPLOYEE_ID) VALUES (?, ?, ?, ?)";
 		try (Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql);) {
 			ps.setInt(1, r.getId());
 			ps.setString(2, r.getStatus());
 			ps.setBigDecimal(3, r.getAmount());
 			ps.setInt(4, r.getEmployee().getId());
-			ps.setInt(5, r.getManager().getId());
+			ps.executeQuery();
 		} catch (SQLException | IOException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	@Override
-	public int getNextid() {
+	private int getNextId() {
 		int nextId = -1;
 		ResultSet rs = null;
 		try (Connection con = ConnectionUtil.getConnection();
 				Statement s = con.createStatement();) {
-			rs = s.executeQuery("SELECT MAX(REQUEST_ID FROM REQUEST");
+			rs = s.executeQuery("SELECT MAX(REQUEST_ID) FROM REQUEST");
 			if (rs.next()) {
-				nextId = rs.getInt(1) + 1;
+				if (nextId == 0) {
+					nextId = 1;
+				} else {
+					nextId = rs.getInt(1) + 1;
+				}	
 			}
-		} catch (SQLException | IOException e) {
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-			if(rs != null) {
+			if (rs != null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
@@ -200,7 +206,6 @@ public class RequestDaoImpl implements RequestDao {
 				}
 			}
 		}
-		
 		return nextId;
 	}
 

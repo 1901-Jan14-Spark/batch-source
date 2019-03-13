@@ -8,7 +8,6 @@ public class User {
 		User.userId = userId;
 		User.isManager = isManager;
 	}
-	
 	public static void setUserNull() {
 		userId = -1;
 		isManager = false;
@@ -17,11 +16,9 @@ public class User {
 	public static int getUserId() {
 		return userId;
 	}
-	
 	public static boolean isManager() {
 		return isManager;
 	}
-	
 	public static boolean isNull() {
 		return userId < 0;
 	}

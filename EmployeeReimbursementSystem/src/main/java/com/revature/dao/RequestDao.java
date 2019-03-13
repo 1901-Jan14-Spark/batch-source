@@ -15,5 +15,4 @@ public interface RequestDao {
 	List<Request> getPendingRequestsByEmployeeId(int employeeId);
 	List<Request> getResolvedRequestsByEmployeeId(int employeeId);
 	void addRequest(Request r);
-	int getNextid();
 }
