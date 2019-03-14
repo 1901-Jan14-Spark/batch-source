@@ -1,0 +1,5 @@
+/* this is the css that would render for anything which it applies to in the template associated with first component */
+
+p {
+    background-color: darkturquoise;
+}
