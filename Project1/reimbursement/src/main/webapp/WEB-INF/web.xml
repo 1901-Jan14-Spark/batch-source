@@ -29,4 +29,14 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EHomeServlet</display-name>
+    <servlet-name>EHomeServlet</servlet-name>
+    <servlet-class>servlets.EHomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EHomeServlet</servlet-name>
+    <url-pattern>/eHome</url-pattern>
+  </servlet-mapping>
 </web-app>

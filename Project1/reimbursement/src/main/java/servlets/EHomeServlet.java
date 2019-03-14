@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class MHomeServlet
+ * Servlet implementation class EHomeServlet
  */
-public class MHomeServlet extends HttpServlet {
+public class EHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MHomeServlet() {
+    public EHomeServlet() {
         super();
     }
 
@@ -30,9 +30,9 @@ public class MHomeServlet extends HttpServlet {
 		if(session != null) {
 			//get the first number of userId
 			String id = session.getAttribute("userId").toString().substring(0, 1);
-			//check userId is manager
-			if("2".equals(id)) {
-				RequestDispatcher rd = request.getRequestDispatcher("mHome.html");
+			//check userId is employee
+			if("1".equals(id)) {
+				RequestDispatcher rd = request.getRequestDispatcher("eHome.html");
 				rd.forward(request, response);
 			}
 		}

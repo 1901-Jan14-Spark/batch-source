@@ -24,16 +24,16 @@ public class LoginServlet extends HttpServlet{
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		String inputId = request.getParameter("userId");
-		int id = Integer.parseInt(inputId);//TODO fix this
+		//ensure user inputs ints
+		int id = ls.validIdInput(inputId);
 		String pass = request.getParameter("password");
+		
+		//verify credentials are valid and differentiate between employee and manager id
 		int accept = ls.verify(id, pass);
-//		System.out.println("id: "+id);
-//		System.out.println("pass: "+pass);
-//		PrintWriter pw = response.getWriter();
-//		pw.write("<p><h1>Login: "+accept+"</h1></p>");
-//		pw.close();
 		if(accept == 1) {
-			System.out.println("employee id detected");
+			HttpSession session = request.getSession();
+			session.setAttribute("userId", id);
+			response.sendRedirect("eHome");
 		}
 		else if(accept == 2) {
 			HttpSession session = request.getSession();
