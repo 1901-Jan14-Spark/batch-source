@@ -52,3 +52,27 @@ h1 {
 h2 {
 	text-align: center;
 }
+
+#empTable {
+	background-color: #F5F5F5;
+	height: 65%;
+	display: block;
+    overflow-y: auto;
+    margin: auto;
+    width: 65%;
+    text-align:center;
+}
+
+#reimbTable{
+	background-color: #F5F5F5;
+	height: 65%;
+	display: block;
+    overflow-y: auto;
+    margin: auto;
+    width: 75%;
+    text-align:center;
+}
+
+.btn{
+	background-color:#428bca;
+}

@@ -3,8 +3,9 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import models.Employee;
@@ -13,16 +14,29 @@ import util.DBConnection;
 public class EmployeeDaoImpl implements EmployeeDao {
 	
 	@Override
-	public List<Employee> retrieveEmployees() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	//A implemented method that will access the SQL DB and check if the input username/password match any in the database.
-	@Override
-	public String loginCheck(String username, String password) {
+	//getting all employees, excluding managers
+	public List<Employee> getOnlyEmployees() {
+		List<Employee> employees = new ArrayList<>();
+		String sql = "SELECT * FROM EMPLOYEE";
 		
-		return null;
+		try(Connection con = DBConnection.getConnection();
+				Statement s = con.createStatement();
+				ResultSet rs = s.executeQuery(sql)){
+			
+			while (rs.next()) {
+				int empId = rs.getInt("EMP_ID");
+				String fName = rs.getString("FNAME");
+				String lName = rs.getString("LNAME");
+				String email = rs.getString("EMAIL");
+				int reportsTo = rs.getInt("REPORTSTO");
+				employees.add(new Employee(empId, fName, lName, email, reportsTo));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return employees;
 	}
 
 	@Override

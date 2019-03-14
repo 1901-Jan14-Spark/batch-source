@@ -10,9 +10,14 @@ public class Employee {
 	int reportsTo;
 	int loggedIn;
 	
-	public Employee() {
+	//The employee object we will add to our list to create the /onlyEmployees endpoint
+	public Employee(int empId, String fName, String lName, String email, int reportsTo) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.id = empId;
+		this.firstName = fName;
+		this.lastName = lName;
+		this.email = email;
+		this.reportsTo = reportsTo;
 	}
 
 	public Employee(int empId, String firstName, String lastName, String email, String password, int loggedIn) {

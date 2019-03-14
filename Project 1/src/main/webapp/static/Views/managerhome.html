@@ -19,11 +19,12 @@
 <body class="font-family: 'Spectral';font-size: 16pt" style="background-color:#F5F5F5">
     <div class="header">
     	<div id="headerText">
-    		<h1 style="font-size:40pt ; color:white">Reimbursements Manager Portal</h1>
+    		<h1 style="font-size:40pt ; color:white">Reimbursements Manager Dashboard</h1>
     	</div>
     		<div class="dropButton">
 	    		<button class="btn buttonDrop dropdown-toggle" type="button" data-toggle="dropdown" id="greeting"></button>
 	    		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	    		  	<a class="dropdown-item" href="managerLogin">Dashboard Home</a>
 	    		 	<a class="dropdown-item" href="#">My Profile</a>
 				    <a class="dropdown-item" href="#">View Employees</a>
 				    <a class="dropdown-item" href="#">Reimbursement Requests</a>
@@ -33,10 +34,38 @@
     </div>
     <br>
     
-    <div class="content">
-    	<h2>Profile Information</h2>
-    	
-    </div>
+		<div class="dashboard col text-center">
+			<button class="btn" id="showEmployees">View Employees</button>
+			<button class="btn" id="showReimbursements">View Pending Reimbursements</button>
+			<button class="btn" id="showResolvedReimb">View Resolved Reimbursements</button>
+			<!--  if time add employee <button class="btn" id="showCreate">Add employee</button> -->
+		</div>
+		<br>
+		
+		<div id="empTable" hidden>
+			<table class="table table-bordered table-hover" id="employees">
+				<tr>
+					<th style="background-color:#428bca" id="sticky">Employee Id#</th>
+					<th style="background-color:#428bca" id="sticky">Name</th>
+					<th style="background-color:#428bca" id="sticky">Email</th>
+					<th style="background-color:#428bca" id="sticky">Managers' Id#</th>
+				</tr>
+			</table>
+		</div>
+
+		<div id="reimbTable" hidden>
+			<table class="table table-bordered table-hover" id="reimbursements">
+				<tr>
+					<th style="background-color:#428bca" id="sticky">Reimbursement Id#</th>
+					<th style="background-color:#428bca" id="sticky">Submitted By</th>
+					<th style="background-color:#428bca" id="sticky">Content</th>
+					<th style="background-color:#428bca" id="sticky">Amount Requested</th>
+					<th style="background-color:#428bca" id="sticky">Resolved?</th>
+					<th style="background-color:#428bca" id="sticky">Resolved Status</th>
+					<th style="background-color:#428bca" id="sticky">Resolved By</th>
+				</tr>
+			</table>
+		</div>
    
 <script src="static/Scripts/mnghome.js"></script>
 </body>

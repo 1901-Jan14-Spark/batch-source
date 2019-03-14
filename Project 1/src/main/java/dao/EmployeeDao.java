@@ -6,8 +6,7 @@ import models.Employee;
 
 public interface EmployeeDao {
 
-	public String loginCheck(String username, String password);
-	public List<Employee> retrieveEmployees();
+	public List<Employee> getOnlyEmployees();
 	public Employee getEmployeeByUsername(String username);
 	
 }
