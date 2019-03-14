@@ -1,0 +1,19 @@
+h1{
+    color: white;
+    margin-top: 200px;
+    text-align: center;
+    size:300px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body{
+    color: white;
+    text-align: center;
+    background-image: url(office.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+
+header{
+    font-size: 75px;
+}

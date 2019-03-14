@@ -3,9 +3,7 @@
   <groupId>Project1</groupId>
   <artifactId>Reimbursement</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  <name>MyReimbursementApp</name>
-  
+  <packaging>war</packaging>  
   	<build>
   		<finalName>Reimbursement</finalName>
   	</build>

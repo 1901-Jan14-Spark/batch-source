@@ -11,6 +11,7 @@ public class Employees implements Serializable{
 	private String username;
 	private String password;
 	private String isMana;
+	
 	public int getId() {
 		return id;
 	}
@@ -41,12 +42,14 @@ public class Employees implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getIsMana() {
+	public String IsMana() {
 		return isMana;
 	}
 	public void setIsMana(String isMana) {
 		this.isMana = isMana;
 	}
+	
+	
 	
 	@Override
 	public int hashCode() {
@@ -114,8 +117,22 @@ public class Employees implements Serializable{
 	}
 	public Employees() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+	public Employees(int empId, String first, String last, String user, String pass) {
+		this.id=empId;
+		this.first=first;
+		this.last=last;
+		this.username=user;
+		this.password=pass;
+	}
+	public Employees(String first, String last, String user, String pass, String isMana) {
+		this.first=first;
+		this.last=last;
+		this.username=user;
+		this.password=pass;
+		this.isMana=isMana;
+	}
+
 	
 
 	

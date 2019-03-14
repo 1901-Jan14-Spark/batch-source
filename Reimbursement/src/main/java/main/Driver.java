@@ -1,13 +1,11 @@
 package main;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
-
 import dao.EmployeesDao;
 import dao.EmployeesDaoImpl;
+import dao.ReimbursementsDao;
+import dao.ReimbursementsDaoImpl;
 import models.Employees;
-import util.ConnectionUtil;
+import models.Reimbursements;
 
 public class Driver {
 	
@@ -20,15 +18,17 @@ public class Driver {
 //		} catch (SQLException e) {
 //			e.printStackTrace();
 //		} 
-		
-		EmployeesDao ed1 = new EmployeesDaoImpl();
-		 List<Employees> a = ed1.getEmployees();
-		for(Employees e:a) {
-			System.out.println(e);
-		}
+//		
+//	EmployeesDao ed = new EmployeesDaoImpl();
+//	ed.createEmployee(new Employees("Javier","Rodriguez","August12641","Jar1126","1"));
+//	ed.createEmployee(new Employees("Peter","Parker","pparker","spiderman","0"));
+//	ed.createEmployee(new Employees("Peyton","Shriver","pshriver","passpass","0"));
 	
+		ReimbursementsDao rd = new ReimbursementsDaoImpl();
+		Reimbursements a = rd.updateReims(1);
+		
 	}
 		
 	
 	
-}
+ }
