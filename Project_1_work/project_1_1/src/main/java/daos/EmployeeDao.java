@@ -10,5 +10,7 @@ public interface EmployeeDao {
 	public HashMap<String, String> checkManager();
 	public void getRequests(String username);
 	public List<Employee> getEmployees();
+	public Employee getEmpByUser(String username);
+	public String getManagerName(String username);
 	
 }

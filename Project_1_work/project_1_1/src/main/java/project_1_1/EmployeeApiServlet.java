@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import daos.Employee;
+import daos.EmployeeDaoImp;
 import utilities.EmployeeService;
 
 /**
@@ -19,36 +20,56 @@ import utilities.EmployeeService;
  */
 public class EmployeeApiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	private EmployeeService empServ = new EmployeeService();
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public EmployeeApiServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	private EmployeeDaoImp employ = new EmployeeDaoImp();
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		ObjectMapper om = new ObjectMapper();
-		String employeeJSON;
-		List<Employee> employees = empServ.getAll();
-		System.out.println(employees);
-		employeeJSON = om.writeValueAsString(employees);
-		PrintWriter pw = response.getWriter();
-		pw.write(employeeJSON);
-		pw.close();
-		
+	public EmployeeApiServlet() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		ObjectMapper om = new ObjectMapper();
+		String employeeJSON;
+		String user = "lsaphir1i";
+
+//		if (user!=null) {
+
+			Employee e = empServ.getEmpByUser("blouca1k");
+
+//			if (e == null) {
+//				employeeJSON = "no employees found";
+//			} else {
+				employeeJSON = om.writeValueAsString(e);
+//			}
+
+//		} else {
+//			List<Employee> employees = empServ.getAll();
+//			employeeJSON = om.writeValueAsString(employees);
+//		}
+
+		PrintWriter pw = response.getWriter();
+		pw.write(employeeJSON);
+		pw.close();
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

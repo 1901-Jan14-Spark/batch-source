@@ -16,4 +16,12 @@ public class EmployeeService implements CrudService<Employee>{
 		return empDao.getEmployees();
 	}
 
+	@Override
+	public Employee getEmpByUser(String username) {
+		
+		return empDao.getEmpByUser(username);
+	}
+	
+	 
+
 }

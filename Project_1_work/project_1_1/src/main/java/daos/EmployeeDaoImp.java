@@ -33,9 +33,12 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 		return creds;
 		
 	}
+	
+	
 
 	public int getManager(String username) {
 		int managerId = 0;
+		
 		String sql = "SELECT REPORSTO FROM EMPLOYEE_INFO WHERE USERNAME = ?";
 		try(Connection con = ConnetionSrc.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)){
@@ -103,6 +106,42 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 			e.printStackTrace();
 		}
 		return employees;
+	}
+
+	@Override
+	public Employee getEmpByUser(String username) {
+		Employee employee = new Employee();
+		String sql = "SELECT * FROM EMPLOYEE_INFO WHERE USERNAME = ?";
+		try(Connection con = ConnetionSrc.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+				ps.setString(1, username);
+				ResultSet rs = ps.executeQuery();
+				while(rs.next()) {
+					int empId = rs.getInt("EMPLOYEE_ID");
+			 		String first = rs.getString("FIRST_NAME");
+			 		String last = rs.getString("LAST_NAME");
+			 		int mngId = rs.getInt("REPORSTO");
+			 		String pass = rs.getString("EMP_PASSWORD");
+			 		String user = rs.getString("USERNAME");
+			 		employee= new Employee(empId, first, last, mngId,pass,user);
+					
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		return employee;
+	}
+
+
+
+	@Override
+	public String getManagerName(String username) {
+		
+		return null;
 	}
 	
 	
