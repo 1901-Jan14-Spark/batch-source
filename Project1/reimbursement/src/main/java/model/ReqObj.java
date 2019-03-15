@@ -2,24 +2,14 @@ package model;
 
 public class ReqObj {
 	private int rId;
-	private int eId;
+	private EmpObj eId;
 	private double amount;
 	private String Desc;
 	private int status;
-	private int resovledBy;
+	private EmpObj resovledBy;
 	
 	public ReqObj() {
 		super();
-	}
-
-	public ReqObj(int rId, int eId, double amount, String desc, int status, int resovledBy) {
-		super();
-		this.rId = rId;
-		this.eId = eId;
-		this.amount = amount;
-		Desc = desc;
-		this.status = status;
-		this.resovledBy = resovledBy;
 	}
 
 	public int getrId() {
@@ -30,11 +20,11 @@ public class ReqObj {
 		this.rId = rId;
 	}
 
-	public int geteId() {
+	public EmpObj geteId() {
 		return eId;
 	}
 
-	public void seteId(int eId) {
+	public void seteId(EmpObj eId) {
 		this.eId = eId;
 	}
 
@@ -62,11 +52,11 @@ public class ReqObj {
 		this.status = status;
 	}
 
-	public int getResovledBy() {
+	public EmpObj getResovledBy() {
 		return resovledBy;
 	}
 
-	public void setResovledBy(int resovledBy) {
+	public void setResovledBy(EmpObj resovledBy) {
 		this.resovledBy = resovledBy;
 	}
 
@@ -78,9 +68,9 @@ public class ReqObj {
 		long temp;
 		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + eId;
+		result = prime * result + ((eId == null) ? 0 : eId.hashCode());
 		result = prime * result + rId;
-		result = prime * result + resovledBy;
+		result = prime * result + ((resovledBy == null) ? 0 : resovledBy.hashCode());
 		result = prime * result + status;
 		return result;
 	}
@@ -101,11 +91,17 @@ public class ReqObj {
 			return false;
 		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
 			return false;
-		if (eId != other.eId)
+		if (eId == null) {
+			if (other.eId != null)
+				return false;
+		} else if (!eId.equals(other.eId))
 			return false;
 		if (rId != other.rId)
 			return false;
-		if (resovledBy != other.resovledBy)
+		if (resovledBy == null) {
+			if (other.resovledBy != null)
+				return false;
+		} else if (!resovledBy.equals(other.resovledBy))
 			return false;
 		if (status != other.status)
 			return false;

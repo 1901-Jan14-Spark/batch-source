@@ -10,6 +10,18 @@ public class EmpObj {
 		super();
 	}
 
+	public EmpObj(int eId) {
+		super();
+		this.eId = eId;
+	}
+
+	public EmpObj(int eId, String eName, String email) {
+		super();
+		this.eId = eId;
+		this.eName = eName;
+		this.email = email;
+	}
+	
 	public EmpObj(int eId, String eName, String ePass, String email) {
 		super();
 		this.eId = eId;
