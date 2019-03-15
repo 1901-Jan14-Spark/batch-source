@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", searchReimbursements);
 document.getElementById("showEmployees").addEventListener("click", unhideEmpTable);
 //document.getElementById("showEmployees").addEventListener("click", hideReimbTable);
 document.getElementById("showReimbursements").addEventListener("click", unhideReimbTable);
-document.getElementById("showReimbursements").addEventListener("click", hideOptions);
 document.getElementById("showReimbursements").addEventListener("click", createButtonEvents);
 
 function unhideEmpTable(){
@@ -30,6 +29,7 @@ function unhideReimbTable(){
 //Making reimbursement table
 function addReimbursementRow(reimbId, empId, content, reimbAmt, resolvedMess){
 	let row = document.createElement("tr");
+	row.setAttribute("id", "reimRow"+reimbId);
     let cell1 = document.createElement("td");
     let cell2 = document.createElement("td");
     let cell3 = document.createElement("td");
@@ -48,7 +48,7 @@ function addReimbursementRow(reimbId, empId, content, reimbAmt, resolvedMess){
     cell4.innerHTML = "$"+reimbAmt;
     let reimbButton = document.createElement("button");
     reimbButton.setAttribute("class", "btn pendingReim");
-    reimbButton.setAttribute("id", counter);
+    reimbButton.setAttribute("id", "pend"+reimbId);
     reimbButton.innerHTML = resolvedMess;
     cell5.appendChild(reimbButton);
 
@@ -65,59 +65,54 @@ function addReimbursementRow(reimbId, empId, content, reimbAmt, resolvedMess){
     let rejectBtn = document.createElement("button");
     let holdingDiv = document.createElement("div");
     holdingDiv.setAttribute("class", "holdDiv");
+    
     approveBtn.setAttribute("class", "btn btn-success");
     rejectBtn.setAttribute("class", "btn btn-success");
+    
+    hidingRow.setAttribute("hidden", true);
+    
+    approveBtn.setAttribute("id", "app"+reimbId);
+    rejectBtn.setAttribute("id", "rej"+reimbId);
+    
     approveBtn.innerHTML = "Approve Reimbursement";
     rejectBtn.innerHTML = "Reject Reimbursement";
+    
     hidingRow.appendChild(hidingCell1);
     hidingRow.appendChild(hidingCell2);
-//    hidingRow.appendChild(contents);
-//    hidingRow.appendChild(contents2);
+
     hidingCell1.appendChild(contents);
     hidingCell2.appendChild(contents2);
+    
     contents.appendChild(approveBtn);
     contents2.appendChild(rejectBtn);
-    hidingRow.setAttribute("id", "row"+counter);
+    
+    hidingRow.setAttribute("id", "row"+reimbId);
     hidingRow.setAttribute("class", "rowClass");
-    incId(reimbButton, hidingRow);
 
     insertAfter(hidingRow, row);
-}
-
-var counter = 0;
-function incId(reimbButton, hidingRow){
-	reimbButton.id = "button"+(counter);
-	let input = counter;
-	hidingRow.id = "row"+(counter++);
 }
 
 function createButtonEvents(){
 	var buttons = document.getElementsByClassName("pendingReim");
 	for (let btn of buttons){
-		var input = btn.id.substring(6);
+		var input = btn.id.substring(4);
 		console.log(input);
-		btn.addEventListener("click", unHideOptions);
-	}
-	
-}
-function hideOptions(){
-	var list = document.getElementsByClassName("rowClass");
-	for (let item of list){
-		item.style.display = "none";
+		document.getElementById("pend"+input).addEventListener("click", unHideOptions);
 	}
 }
 
-function unHideOptions(){
-	var list = document.getElementsByClassName("rowClass");
-	for (let item of list){
-		if (item.style.display === "none"){
-		item.style.display = "table";
-	} else {
-		item.style.display = "none";
+function unHideOptions(input){
+	var id = this.id.substring(4);
+	console.log('unhideOptions ' +id);
+	var hiddenRow = document.getElementById("row"+id);
+	console.log(hiddenRow);
+	console.log('doot');
+	if(hiddenRow.hidden == true){
+		hiddenRow.hidden = false;
+		} else {
+			hiddenRow.hidden = true;
+		}
 	}
-}
-}
-
 
 //function to place hidden div underneath each row
 function insertAfter(newNode, referenceNode){
