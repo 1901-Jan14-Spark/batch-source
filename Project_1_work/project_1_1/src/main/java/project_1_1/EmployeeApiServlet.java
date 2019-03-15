@@ -41,11 +41,11 @@ public class EmployeeApiServlet extends HttpServlet {
 
 		ObjectMapper om = new ObjectMapper();
 		String employeeJSON;
-		String user = "lsaphir1i";
-
+		
+		String user= (String) request.getSession().getAttribute("username");
 //		if (user!=null) {
 
-			Employee e = empServ.getEmpByUser("blouca1k");
+			Employee e = empServ.getEmpByUser(user);
 
 //			if (e == null) {
 //				employeeJSON = "no employees found";

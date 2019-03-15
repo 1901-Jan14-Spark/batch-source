@@ -37,4 +37,34 @@
     <servlet-name>EmployeeApiServlet</servlet-name>
     <url-pattern>/EmpApi</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManagerNameServletApi</display-name>
+    <servlet-name>ManagerNameServletApi</servlet-name>
+    <servlet-class>project_1_1.ManagerNameServletApi</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerNameServletApi</servlet-name>
+    <url-pattern>/ManagerNameApi</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManagersEmployeeServlet</display-name>
+    <servlet-name>ManagersEmployeeServlet</servlet-name>
+    <servlet-class>project_1_1.ManagersEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagersEmployeeServlet</servlet-name>
+    <url-pattern>/ManagersEmployee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeReimbursmentServlet</display-name>
+    <servlet-name>EmployeeReimbursmentServlet</servlet-name>
+    <servlet-class>project_1_1.EmployeeReimbursmentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeReimbursmentServlet</servlet-name>
+    <url-pattern>/EmployeeReimburs</url-pattern>
+  </servlet-mapping>
 </web-app>

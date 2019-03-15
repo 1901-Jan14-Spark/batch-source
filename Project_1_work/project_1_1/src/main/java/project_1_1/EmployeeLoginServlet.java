@@ -46,9 +46,15 @@ public class EmployeeLoginServlet extends HttpServlet implements Runnable{
 		//HttpSession session = request.getSession();
 		if(emp.getEmployeeCredentials().containsKey(username)&&emp.getEmployeeCredentials().get(username).equals(password)) {
 			
+			HttpSession session = request.getSession();
+			session.setAttribute("username", username);
+			
+			
+			
 			response.sendRedirect("EmpHome");
 			System.out.println("contaains");
 			System.out.println();
+			
 			
 			
 		}else{

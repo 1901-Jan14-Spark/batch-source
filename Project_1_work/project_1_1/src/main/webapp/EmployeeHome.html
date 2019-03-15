@@ -23,14 +23,25 @@
 </div>
 
 <h4>Reimbursement Requests</h4>
+<form action = "EmployeeReimburs" method = "POST">
+	<h5>Submit Request</h5>
+	<label>Reason</label>
+	<input name = "reason">
+	<label>Amount</label>
+	<input name ="amount">
+	<input type= "submit">
+</form>
 <table id = "employeeReimbursementStatus">
 	<tr>
 		<th>Reimbursement Status</th>
 		<th>Date Submitted</th>
 	</tr>
 </table>
+
+
 <a href ="UpdateEmployeeInfo.html" id = "updateLink">Update your information</a>
 <script src = "Scripts/EmployeeInfoPop.js"></script>
+<script src = "Scripts/ManagerName.js"></script>
 </body>
 
 </html>

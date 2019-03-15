@@ -12,5 +12,8 @@ public interface EmployeeDao {
 	public List<Employee> getEmployees();
 	public Employee getEmpByUser(String username);
 	public String getManagerName(String username);
+	public List<Employee> getManagersEmployee(String username);
+	public int getEmployeeId(String username);
+	public void postRequest(String username, int id, double cost, String reason);
 	
 }
