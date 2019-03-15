@@ -76,3 +76,13 @@ h2 {
 .btn{
 	background-color:#428bca;
 }
+
+.holdDiv{
+	width:100%;
+}
+
+.rowClass {
+	float: right;
+	width:100%;
+}
+

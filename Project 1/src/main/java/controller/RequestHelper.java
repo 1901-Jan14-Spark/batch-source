@@ -75,10 +75,6 @@ public class RequestHelper {
 //					response.sendError(405, "Method not supported for /"+record);
 				}
 				return;
-			case "reimbursements/pending":
-				return;
-			case "reimbursements/resolved":
-				return;
 			default: 
 				response.setStatus(404);
 			}

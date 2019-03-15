@@ -3,9 +3,12 @@ let reimbAllURL = "http://localhost:9393/Project1/api/reimbursements/all";
 
 document.addEventListener("DOMContentLoaded", searchEmployees);
 document.addEventListener("DOMContentLoaded", searchReimbursements);
+//document.addEventListener("DOMContentLoaded", hideOptions);
 document.getElementById("showEmployees").addEventListener("click", unhideEmpTable);
 //document.getElementById("showEmployees").addEventListener("click", hideReimbTable);
 document.getElementById("showReimbursements").addEventListener("click", unhideReimbTable);
+document.getElementById("showReimbursements").addEventListener("click", hideOptions);
+document.getElementById("showReimbursements").addEventListener("click", createButtonEvents);
 
 function unhideEmpTable(){
 	let table = document.getElementById("empTable");
@@ -25,43 +28,102 @@ function unhideReimbTable(){
 
 
 //Making reimbursement table
-function addReimbursementRow(reimbId, empId, content, reimbAmt, isResolved, resolvedMess, mngResolved){
+function addReimbursementRow(reimbId, empId, content, reimbAmt, resolvedMess){
 	let row = document.createElement("tr");
     let cell1 = document.createElement("td");
     let cell2 = document.createElement("td");
     let cell3 = document.createElement("td");
     let cell4 = document.createElement("td");
     let cell5 = document.createElement("td");
-    let cell6 = document.createElement("td");
-    let cell7 = document.createElement("td");
     
     row.appendChild(cell1);
     row.appendChild(cell2);
     row.appendChild(cell3);
     row.appendChild(cell4);
     row.appendChild(cell5);
-    row.appendChild(cell6);
-    row.appendChild(cell7);
     
     cell1.innerHTML = reimbId;
     cell2.innerHTML = empId;
     cell3.innerHTML = content;
     cell4.innerHTML = "$"+reimbAmt;
-    if (isResolved == 0) {
-    	cell5.innerHTML = "No";
-    } else {
-    	cell5.innerHTML = "Yes";
-    }
-    cell6.innerHTML = resolvedMess;
-    if (mngResolved == 0){
-    	 cell7.innerHTML = "Unresolved";
-    } else {
-    	cell7.innerHTMl = mngResolved;
-    }
-   
+    let reimbButton = document.createElement("button");
+    reimbButton.setAttribute("class", "btn pendingReim");
+    reimbButton.setAttribute("id", counter);
+    reimbButton.innerHTML = resolvedMess;
+    cell5.appendChild(reimbButton);
+
+    document.getElementById("reimbursements").appendChild(row);
+
+    var hidingRow = document.createElement("tr");
+    var hidingCell1 = document.createElement("td");
+    var hidingCell2 = document.createElement("td");
+    var contents = document.createElement("div");
+    var contents2 = document.createElement("div");
     
-    document.getElementById("reimbursements").appendChild(row);    
+    hidingCell1.setAttribute("colspan", "100%");
+    let approveBtn = document.createElement("button");
+    let rejectBtn = document.createElement("button");
+    let holdingDiv = document.createElement("div");
+    holdingDiv.setAttribute("class", "holdDiv");
+    approveBtn.setAttribute("class", "btn btn-success");
+    rejectBtn.setAttribute("class", "btn btn-success");
+    approveBtn.innerHTML = "Approve Reimbursement";
+    rejectBtn.innerHTML = "Reject Reimbursement";
+    hidingRow.appendChild(hidingCell1);
+    hidingRow.appendChild(hidingCell2);
+//    hidingRow.appendChild(contents);
+//    hidingRow.appendChild(contents2);
+    hidingCell1.appendChild(contents);
+    hidingCell2.appendChild(contents2);
+    contents.appendChild(approveBtn);
+    contents2.appendChild(rejectBtn);
+    hidingRow.setAttribute("id", "row"+counter);
+    hidingRow.setAttribute("class", "rowClass");
+    incId(reimbButton, hidingRow);
+
+    insertAfter(hidingRow, row);
 }
+
+var counter = 0;
+function incId(reimbButton, hidingRow){
+	reimbButton.id = "button"+(counter);
+	let input = counter;
+	hidingRow.id = "row"+(counter++);
+}
+
+function createButtonEvents(){
+	var buttons = document.getElementsByClassName("pendingReim");
+	for (let btn of buttons){
+		var input = btn.id.substring(6);
+		console.log(input);
+		btn.addEventListener("click", unHideOptions);
+	}
+	
+}
+function hideOptions(){
+	var list = document.getElementsByClassName("rowClass");
+	for (let item of list){
+		item.style.display = "none";
+	}
+}
+
+function unHideOptions(){
+	var list = document.getElementsByClassName("rowClass");
+	for (let item of list){
+		if (item.style.display === "none"){
+		item.style.display = "table";
+	} else {
+		item.style.display = "none";
+	}
+}
+}
+
+
+//function to place hidden div underneath each row
+function insertAfter(newNode, referenceNode){
+	 referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
 
 //callback function for showing reimbursements
 function searchReimbursements(){
@@ -72,7 +134,7 @@ function displayAllReimbursements(xhr){
 	let reimbursements = JSON.parse(xhr.response);
 	console.log(reimbursements);
 	for (reimb of reimbursements){
-		addReimbursementRow(reimb.reimbursementId, reimb.emp_id, reimb.content, reimb.reimbursementAmount, reimb.isResolved, reimb.resolvedMessage, reimb.mngResolved);
+		addReimbursementRow(reimb.reimbursementId, reimb.emp_id, reimb.content, reimb.reimbursementAmount, reimb.resolvedMessage);
 	}
 }
 
