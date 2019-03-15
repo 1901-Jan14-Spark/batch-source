@@ -67,4 +67,14 @@
     <servlet-name>EmployeeReimbursmentServlet</servlet-name>
     <url-pattern>/EmployeeReimburs</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeRequestApiServlet</display-name>
+    <servlet-name>EmployeeRequestApiServlet</servlet-name>
+    <servlet-class>project_1_1.EmployeeRequestApiServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeRequestApiServlet</servlet-name>
+    <url-pattern>/EmployeeRequestApi</url-pattern>
+  </servlet-mapping>
 </web-app>

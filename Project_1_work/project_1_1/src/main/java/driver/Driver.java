@@ -20,6 +20,7 @@ public class Driver {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
 		LocalDateTime now = LocalDateTime.now();
 		System.out.println(dtf.format(now));
+		System.out.println(tester.getRequests("gmarle1m"));
 	}
 	
 	

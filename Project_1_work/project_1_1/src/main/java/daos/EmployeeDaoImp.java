@@ -17,6 +17,7 @@ import utilities.ConnetionSrc;
 public class EmployeeDaoImp implements EmployeeDao, Runnable{
 			List<Employee> employees = new ArrayList<>();
 			List<Employee> MngEmployees = new ArrayList<>();
+			List<Request> request = new ArrayList<>();
 	static HashMap<String, String> creds = new HashMap<String, String>();
 	
 	public HashMap<String, String> getEmployeeCredentials() {
@@ -103,7 +104,32 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 	}
 
 	@Override
-	public void getRequests(String username) {
+	public List<Request> getRequests(String username) {
+		
+		int id = getEmployeeId(username);
+		String sql = "SELECT * FROM REIMBURSEMENT_REQUEST WHERE EMPLOYEE_ID = ?";
+		try(Connection con = ConnetionSrc.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);){
+				ps.setInt(1, id);
+				ResultSet rs = ps.executeQuery();
+				while(rs.next()) {
+					int empId = rs.getInt("EMPLOYEE_ID");
+					boolean aproved = rs.getBoolean("APPROVED");
+					String date = rs.getString("DATE_SUBMITTED");
+					String reason = rs.getString("REASON");
+					double amount = rs.getDouble("AMOUNT");
+					request.add(new Request(empId, aproved, date, reason, amount));
+					
+				}
+				
+			    
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return request;
 		// TODO Auto-generated method stub
 		
 	}
@@ -230,6 +256,14 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 			e.printStackTrace();
 		}
 		
+	}
+
+
+
+	@Override
+	public List<Request> apiRequest() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
