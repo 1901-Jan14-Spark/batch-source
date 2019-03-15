@@ -1,0 +1,57 @@
+@font-face {
+    font-family:"Indonesiana" !important;
+    src:url("css/fonts/Indonesiana_Serif____Free_RePackaged.eot?") format("eot"),
+    url("css/fonts/Indonesiana_Serif____Free_RePackaged.woff") format("woff"),
+    url("css/fonts/Indonesiana_Serif____Free_RePackaged.ttf") format("truetype"),
+    url("css/fonts/Indonesiana_Serif____Free_RePackaged.svg#IndonesianaSerif") format("svg") !important;
+    font-weight:normal !important;
+    font-style:normal !important;
+}
+   
+body {
+    background: url("https://ih0.redbubble.net/image.239742048.6551/flat,1000x1000,075,f.u3.jpg") !important;
+    font-family: Indonesiana !important;
+}
+
+#header {
+    background-image: url("https://i.ytimg.com/vi/bjkeZlCb8Nw/maxresdefault.jpg");
+    color: rgb(250, 191, 103);
+    font-family: Indonesiana !important;
+    text-align: center;
+    font-size: 100px;
+    height: 150px;
+    background-size: cover;    
+}
+
+h1 {
+    text-align: center;
+}
+
+.form {
+    background-image: url("https://ak8.picdn.net/shutterstock/videos/15516268/thumb/1.jpg");
+    background-size: cover;
+    color: rgb(250, 191, 103);
+    padding: 10px;
+    border: 2px solid black;
+    text-align: center;
+    width: 45%;
+    height:50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+input[type=submit] {
+    padding:5px 15px; 
+    background:black; 
+    border:0 none;
+    cursor:pointer;
+    color: rgb(250, 191, 103);
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+input[type=submit]:hover {
+    background-color: rgb(250, 191, 103);
+    color: black;
+}
