@@ -1,0 +1,20 @@
+<h3>Attribute Directives</h3>
+
+<div>
+  <form>
+    <label>Enable color select:</label>
+    <input type='checkbox' [(ngModel)]='isChecked' name='isChecked' > <br> <br>
+    <label>Change Color:</label> <br>
+    <select [(ngModel)]='selectedColor' name='selectedColor' [disabled]='!isChecked'>
+      <option *ngFor='let color of colors' [value]='color'>{{color}}</option>
+    </select>
+    <br>
+    <label>Change Format:</label>
+    <br>
+    <select multiple (change)='updateClasses($event)'>
+      <option *ngFor='let class of classes' [value]='class'>{{class}}</option>
+    </select>
+  </form>
+</div>
+<br>
+<span [ngClass]='selectedClasses' [ngStyle]="{'color' : selectedColor}">color: {{selectedColor}} </span>

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="jumbotron">
+    <h4>HTTP Example</h4>
+    <p>Click the button to get all of our posts:</p>
+    <button class="btn btn-primary" (click)='getPosts()' >Get Posts!</button>
+  </div>
+  <div *ngIf='posts.length>0'>
+    <!-- <div *ngFor='let post of posts'>
+      <h4>{{post.id}} {{post.title}}</h4>
+    </div> -->
+    <table>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+      </tr>
+      <tr *ngFor='let post of posts'>
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
