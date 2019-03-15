@@ -8,12 +8,12 @@
     <!-- <div *ngFor='let post of posts'>
       <h4>{{post.id}} {{post.title}}</h4>
     </div> -->
-    <table>
+    <table class="table table-hover">
       <tr>
         <th>Id</th>
         <th>Title</th>
       </tr>
-      <tr *ngFor='let post of posts'>
+      <tr *ngFor='let post of posts' routerLink="/posts/{{post.id}}" >
         <td>{{post.id}}</td>
         <td>{{post.title}}</td>
       </tr>

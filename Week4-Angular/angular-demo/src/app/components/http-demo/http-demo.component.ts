@@ -13,13 +13,13 @@ export class HttpDemoComponent implements OnInit {
   ngOnInit() {
   }
 
-  posts: Post[];
+  posts: Post[] = [];
 
   getPosts(){
     this.postService.getPosts()
       .subscribe((allPosts)=>{
         this.posts = allPosts;
-        console.log(this.posts);
+        // console.log(this.posts);
       });
   }
 

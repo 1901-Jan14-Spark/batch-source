@@ -15,6 +15,9 @@ import { FirstCapPipe } from './pipes/first-cap.pipe';
 import { ConvertToSpacesPipe } from './pipes/convert-to-spaces.pipe';
 import { HttpDemoComponent } from './components/http-demo/http-demo.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NavComponent } from './components/nav/nav.component';
+import { DirectivesComponent } from './components/directives/directives.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
 
 @NgModule({
   declarations: [ // components and pipes
@@ -28,7 +31,10 @@ import { AppRoutingModule } from './app-routing.module';
     PipeDemoComponent,
     FirstCapPipe,
     ConvertToSpacesPipe,
-    HttpDemoComponent
+    HttpDemoComponent,
+    NavComponent,
+    DirectivesComponent,
+    PostDetailComponent
   ],
   imports: [ // external modules
     BrowserModule,
