@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Viewing Requests</title>
+<title>ERS Manager Home</title>
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -12,28 +12,29 @@
 </head>
 <body>
 
-	<div id="EmployeeNavBar" class="container"></div>
-
-	<div id="EmployeeNavBar" class="container"></div>
 	<div class="container">
-		<input type="checkbox" id="pending" name="requesttype">pending
-		<input type="checkbox" id="resolved" name="requesttype">resolved
-		<br>
-		<table id="requestTable" class="table table-striped table-dark">
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Status</th>
-					<!-- <th scope="col">Reason</th> -->
-					<th scope="col">Amount</th>
-					<th scope="col">Manager</th>
-				</tr>
-			</thead>
-			<tbody id="requestTableBody">
-
-			</tbody>
-		</table>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="navbar-brand" href="home">ERS</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNav" aria-controls="navbarNav"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item active"><a class="nav-link"
+						href="managerhome">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="managerminion">View
+							Employee</a></li>
+					<li class="nav-item"><a class="nav-link" href="managerprofile">View
+							Profile</a></li>
+					<li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+				</ul>
+			</div>
+		</nav>
 	</div>
+
+	<h1>This is the Manager Profile</h1>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -46,10 +47,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 		crossorigin="anonymous"></script>
-
-	<script type="text/javascript" src="Scripts/EmployeeRequests.js"></script>
-	<script type="text/javascript" src="Scripts/NavBar.js"></script>
-
 
 </body>
 </html>

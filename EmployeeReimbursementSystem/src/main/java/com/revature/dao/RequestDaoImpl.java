@@ -146,7 +146,7 @@ public class RequestDaoImpl implements RequestDao {
 		
 		return requests;
 	}
-
+	
 	@Override
 	public List<Request> getRequestsByEmployeeId(int employeeId) {
 		return getRequestsByEmployeeId(employeeId, "SELECT * FROM REQUEST WHERE EMPLOYEE_ID = ?");
@@ -154,13 +154,13 @@ public class RequestDaoImpl implements RequestDao {
 
 	@Override
 	public List<Request> getPendingRequestsByEmployeeId(int employeeId) {
-		String sql = "SELECT * FROM REQUEST WHERE EMPLOYEE_ID = ? AND STATUS = 'pending'";
+		String sql = "SELECT * FROM REQUEST WHERE EMPLOYEE_ID = ? AND STATUS = 'pending' ";
 		return getRequestsByEmployeeId(employeeId, sql);
 	}
 
 	@Override
 	public List<Request> getResolvedRequestsByEmployeeId(int employeeId) {
-		String sql = "SELECT * FROM REQUEST WHERE EMPLOYEE_ID = ? AND STATUS != 'pending'";
+		String sql = "SELECT * FROM REQUEST WHERE EMPLOYEE_ID = ? AND NOT STATUS = 'pending' ";
 		return getRequestsByEmployeeId(employeeId, sql);
 	}
 
@@ -208,6 +208,24 @@ public class RequestDaoImpl implements RequestDao {
 		}
 		return nextId;
 	}
+	
+	@Override
+	public void updateRequest(Request r) {
+		String sql = "UPDATE REQUEST SET REQUEST_ID = ?, STATUS = ?, AMOUNT = ?, EMPLOYEE_ID = ?, MANAGER_ID = ? WHERE REQUEST_ID = ?";
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setInt(1, r.getId());
+			ps.setString(2, r.getStatus());
+			ps.setBigDecimal(3, r.getAmount());
+			ps.setInt(4, r.getEmployee().getId());
+			ps.setInt(5, r.getManager().getId());
+			ps.setInt(6, r.getId());
+			ps.executeQuery();
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	private Request populateRequest(ResultSet rs, Connection con) throws SQLException {
 		int requestId = rs.getInt("REQUEST_ID");
@@ -228,5 +246,22 @@ public class RequestDaoImpl implements RequestDao {
 		r.setManager(m);
 		return r;
 	}
+	
+	@Override
+	public List<Request> getRequestsByEmployeeIdForManagerHome(int employeeId) {
+		return getRequestsByEmployeeId(employeeId, "SELECT * FROM REQUEST WHERE EMPLOYEE_ID = ?");
+	}
 
+	@Override
+	public List<Request> getPendingRequestsByEmployeeIdForManagerHome(int employeeId) {
+		String sql = "SELECT * FROM REQUEST WHERE EMPLOYEE_ID = ? AND STATUS = 'pending' ";
+		return getRequestsByEmployeeId(employeeId, sql);
+	}
+
+	@Override
+	public List<Request> getResolvedRequestsByEmployeeIdForManagerHome(int employeeId) {
+		String sql = "SELECT * FROM REQUEST WHERE EMPLOYEE_ID = ? AND NOT STATUS = 'pending' ";
+		return getRequestsByEmployeeId(employeeId, sql);
+	}
+	
 }

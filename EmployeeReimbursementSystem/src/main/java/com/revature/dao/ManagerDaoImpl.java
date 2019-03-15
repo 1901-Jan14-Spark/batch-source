@@ -112,5 +112,7 @@ public class ManagerDaoImpl implements ManagerDao {
 		}
 		return man;
 	}
+	
+	
 
 }

@@ -127,5 +127,25 @@ public class EmployeeDaoImpl implements EmployeeDao  {
 		}
 		return emp;
 	}
+	
+	@Override
+	public void updateEmployee(Employee e) {
+		String sql = "UPDATE EMPLOYEE SET EMPLOYEE_ID = ?, FIRSTNAME = ?, LASTNAME = ?, EMPLOYEE_USERNAME = ?, EMPLOYEE_PASSWORD = ? WHERE EMPLOYEE_ID = ?";
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);) {
+			ps.setInt(1, e.getId());
+			ps.setString(2, e.getFirstname());
+			ps.setString(3, e.getLastname());
+			ps.setString(4, e.getUsername());
+			ps.setString(5, e.getPassword());
+			ps.setInt(6, e.getId());
+			ps.executeQuery();
+		} catch (SQLException | IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	
 
 }

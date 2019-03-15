@@ -1,17 +1,24 @@
 let pendingChecked = false;
 let resolvedChecked = false;
+let allChecked = false;
 
-let url = "http://localhost:8080/Revature/allReqs";
+let url = "http://localhost:8080/Revature/managerallReqs";
 
 function setUrl() {
-	if (pendingChecked && !resolvedChecked) {
-		url = "http://localhost:8082/Revature/pendingReqs";
-	} else if (!pendingChecked && resolvedChecked) {
-		url = "http://localhost:8080/Revature/resolvedReqs";
-	} else {
-		url = "http://localhost:8080/Revature/allReqs";
+	if (pendingChecked) {
+		url = "http://localhost:8080/Revature/managerpendingReqs";
+	} else if (resolvedChecked) {
+		url = "http://localhost:8080/Revature/managerresolvedReqs";
+	} else if (allChecked) {
+		url = "http://localhost:8080/Revature/managerallReqs";
 	}
 }
+
+document.getElementById("all").addEventListener("change", function() {
+	allChecked = this.checked;
+	setUrl();
+	sendAjaxGet(url, display);
+});
 
 document.getElementById("pending").addEventListener("change", function() {
 	pendingChecked = this.checked;
@@ -40,8 +47,7 @@ function sendAjaxGet(url, func) {
 sendAjaxGet(url, display);
 
 function display(xhr) {
-	requests = JSON.parse(xhr.responseText);
-	requestArr = requests.requests;
+	requestArr = JSON.parse(xhr.responseText).requests;
 	let table = document.getElementById("requestTable");
 	table.removeChild(document.getElementById("requestTableBody"));
 	let newBody = document.createElement("tbody");
@@ -62,3 +68,10 @@ function display(xhr) {
 		newBody.appendChild(newRow);
 	}
 }
+
+//Toggle the side navigation
+$("#sidebarToggle").on('click', function (e) {
+	e.preventDefault();
+	$("body").toggleClass("sidebar-toggled");
+	$(".sidebar").toggleClass("toggled");
+});

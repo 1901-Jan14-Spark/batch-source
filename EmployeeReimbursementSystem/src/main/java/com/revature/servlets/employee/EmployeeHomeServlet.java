@@ -1,4 +1,4 @@
-package com.revature.servlets;
+package com.revature.servlets.employee;
 
 import java.io.IOException;
 
@@ -20,7 +20,7 @@ public class EmployeeHomeServlet extends HttpServlet {
 			request.getSession().invalidate();
 			response.sendRedirect("login");
 		} else {
-			request.getRequestDispatcher("Views/EmployeeHome.html").forward(request, response);
+			request.getRequestDispatcher("Views/Employee/EmployeeHome.html").forward(request, response);
 		}
 	}
 }

@@ -15,7 +15,7 @@
     <description></description>
     <display-name>EmployeeHomeServlet</display-name>
     <servlet-name>EmployeeHomeServlet</servlet-name>
-    <servlet-class>com.revature.servlets.EmployeeHomeServlet</servlet-class>
+    <servlet-class>com.revature.servlets.employee.EmployeeHomeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>EmployeeHomeServlet</servlet-name>
@@ -25,7 +25,7 @@
     <description></description>
     <display-name>SubmitRequestServlet</display-name>
     <servlet-name>SubmitRequestServlet</servlet-name>
-    <servlet-class>com.revature.servlets.SubmitRequestServlet</servlet-class>
+    <servlet-class>com.revature.servlets.employee.SubmitRequestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>SubmitRequestServlet</servlet-name>
@@ -35,37 +35,37 @@
     <description></description>
     <display-name>RequestServlet</display-name>
     <servlet-name>RequestServlet</servlet-name>
-    <servlet-class>com.revature.servlets.api.RequestServlet</servlet-class>
+    <servlet-class>com.revature.servlets.manager.api.ManagerRequestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RequestServlet</servlet-name>
-    <url-pattern>/allReqs</url-pattern>
+    <url-pattern>/managerallReqs</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>PendingRequestServlet</display-name>
     <servlet-name>PendingRequestServlet</servlet-name>
-    <servlet-class>com.revature.servlets.api.PendingRequestServlet</servlet-class>
+    <servlet-class>com.revature.servlets.manager.api.ManagerPendingRequestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>PendingRequestServlet</servlet-name>
-    <url-pattern>/pendingReqs</url-pattern>
+    <url-pattern>/managerpendingReqs</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ResolvedRequestServlet</display-name>
     <servlet-name>ResolvedRequestServlet</servlet-name>
-    <servlet-class>com.revature.servlets.api.ResolvedRequestServlet</servlet-class>
+    <servlet-class>com.revature.servlets.manager.api.ManagerResolvedRequestServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ResolvedRequestServlet</servlet-name>
-    <url-pattern>/resolvedReqs</url-pattern>
+    <url-pattern>/managerresolvedReqs</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ManagerHomeServlet</display-name>
     <servlet-name>ManagerHomeServlet</servlet-name>
-    <servlet-class>com.revature.servlets.ManagerHomeServlet</servlet-class>
+    <servlet-class>com.revature.servlets.manager.ManagerHomeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ManagerHomeServlet</servlet-name>
@@ -80,5 +80,95 @@
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeProfile</display-name>
+    <servlet-name>EmployeeProfile</servlet-name>
+    <servlet-class>com.revature.servlets.employee.EmployeeProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeProfile</servlet-name>
+    <url-pattern>/employeeprofile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManagerProfile</display-name>
+    <servlet-name>ManagerProfile</servlet-name>
+    <servlet-class>com.revature.servlets.manager.ManagerProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerProfile</servlet-name>
+    <url-pattern>/managerprofile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManagerMinion</display-name>
+    <servlet-name>ManagerMinion</servlet-name>
+    <servlet-class>com.revature.servlets.manager.ManagerMinion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerMinion</servlet-name>
+    <url-pattern>/managerminion</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetEmployeeServlet</display-name>
+    <servlet-name>GetEmployeeServlet</servlet-name>
+    <servlet-class>com.revature.servlets.manager.api.GetEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetEmployeeServlet</servlet-name>
+    <url-pattern>/getemployee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateRequestServlet</display-name>
+    <servlet-name>UpdateRequestServlet</servlet-name>
+    <servlet-class>com.revature.servlets.manager.UpdateRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateRequestServlet</servlet-name>
+    <url-pattern>/updaterequest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateEmployeeServlet</display-name>
+    <servlet-name>UpdateEmployeeServlet</servlet-name>
+    <servlet-class>com.revature.servlets.employee.UpdateEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateEmployeeServlet</servlet-name>
+    <url-pattern>/updateemployee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeePendingRequestServlet</display-name>
+    <servlet-name>EmployeePendingRequestServlet</servlet-name>
+    <servlet-class>com.revature.servlets.employee.api.EmployeePendingRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeePendingRequestServlet</servlet-name>
+    <url-pattern>/employeependingReqs</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeResolvedRequestServlet</display-name>
+    <servlet-name>EmployeeResolvedRequestServlet</servlet-name>
+    <servlet-class>com.revature.servlets.employee.api.EmployeeResolvedRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeResolvedRequestServlet</servlet-name>
+    <url-pattern>/employeeresolvedReqs</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeeRequestServlet</display-name>
+    <servlet-name>EmployeeRequestServlet</servlet-name>
+    <servlet-class>com.revature.servlets.employee.api.EmployeeRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeeRequestServlet</servlet-name>
+    <url-pattern>/employeeallReqs</url-pattern>
   </servlet-mapping>
 </web-app>

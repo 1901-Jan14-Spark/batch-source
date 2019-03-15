@@ -1,9 +1,8 @@
-package com.revature.servlets;
+package com.revature.servlets.employee;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,15 +22,11 @@ public class SubmitRequestServlet extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("Views/Requests.html").forward(request, response);
-	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher reqD = null;
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		if (!User.isNull() && !User.isManager()) {
-			double a = Double.parseDouble(request.getParameter("amount"));		
+			double a = Double.parseDouble(request.getParameter("amount"));
 			BigDecimal amount = BigDecimal.valueOf(a);
 			// request.getParameter("reason");
 			RequestDao rd = new RequestDaoImpl();
@@ -42,10 +37,11 @@ public class SubmitRequestServlet extends HttpServlet {
 			r.setEmployee(e);
 			r.setManager(null);
 			rd.addRequest(r);
-			reqD = request.getRequestDispatcher("Views/Requests.html");
+			response.sendRedirect("employeehome");
 		} else {
-			reqD = request.getRequestDispatcher("Views/Login.html");
+			response.sendRedirect("login");
 		}
-		reqD.forward(request, response);
+
 	}
+	
 }
