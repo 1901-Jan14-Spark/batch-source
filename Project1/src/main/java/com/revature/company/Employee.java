@@ -2,89 +2,117 @@ package com.revature.company;
 
 public class Employee {
 	
-	private int id;
+	private int empId;
 	private String firstName;
 	private String lastName;
+	private String email;
 	private String username;
 	private String password;
-	private int managerId;
+	private Department d;
 	
 	
 	public Employee() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Employee(int id, String firstName, String lastName, String username, String password, int managerId) {
+
+	public Employee(int empId, String firstName, String lastName, String email, String username, String password,
+			Department d) {
 		super();
-		this.id = id;
+		this.empId = empId;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.email = email;
 		this.username = username;
 		this.password = password;
-		this.managerId = managerId;
+		this.d = d;
 	}
 
-	public int getId() {
-		return id;
+
+	public int getEmpId() {
+		return empId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+
+	public void setEmpId(int empId) {
+		this.empId = empId;
 	}
+
 
 	public String getFirstName() {
 		return firstName;
 	}
 
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
 
 	public String getLastName() {
 		return lastName;
 	}
 
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 
 	public String getUsername() {
 		return username;
 	}
 
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public int getManagerId() {
-		return managerId;
+
+	public Department getD() {
+		return d;
 	}
 
-	public void setManagerId(int managerId) {
-		this.managerId = managerId;
+
+	public void setD(Department d) {
+		this.d = d;
 	}
+
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((d == null) ? 0 : d.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + empId;
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
-		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + managerId;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -95,19 +123,27 @@ public class Employee {
 		if (getClass() != obj.getClass())
 			return false;
 		Employee other = (Employee) obj;
+		if (d == null) {
+			if (other.d != null)
+				return false;
+		} else if (!d.equals(other.d))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (empId != other.empId)
+			return false;
 		if (firstName == null) {
 			if (other.firstName != null)
 				return false;
 		} else if (!firstName.equals(other.firstName))
 			return false;
-		if (id != other.id)
-			return false;
 		if (lastName == null) {
 			if (other.lastName != null)
 				return false;
 		} else if (!lastName.equals(other.lastName))
-			return false;
-		if (managerId != other.managerId)
 			return false;
 		if (password == null) {
 			if (other.password != null)
@@ -122,11 +158,15 @@ public class Employee {
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
-				+ ", password=" + password + ", managerId=" + managerId + "]";
+		return "Employee [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", username=" + username + ", password=" + password + ", d=" + d + "]";
 	}
+
+	
+	
 	
 	
 

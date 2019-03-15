@@ -8,9 +8,11 @@ public interface EmployeeDao {
 
 	// the methods to be used to retrieve the employees from the database
 	public List<Employee> getAllEmployees();
-	public Employee getEmployeeById(String id);
-	public Employee getEmployeeByNAme(String firstname, String lastname);
+	public Employee getEmployeeById(int id);
+	public Employee getEmployeeByName(String firstname, String lastname);
 	public int addNewEmployee(Employee e);
+	public int updateEmployee(Employee e);
+	public int deleteEmployee(int id);
 	
 	
 }

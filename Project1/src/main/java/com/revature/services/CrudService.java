@@ -1,0 +1,13 @@
+package com.revature.services;
+
+import java.util.List;
+
+public interface CrudService<T> {
+	
+	public List<T> getAll();
+	public T getById(int id);
+	public int create(T obj);
+	public int update(T obj);
+	public int deleteById(int id);
+
+}
