@@ -43,7 +43,5 @@ public class ReimbursementDelegate {
 		} else {
 			response.setStatus(400);
 		}
-		
-		
 	}
 }

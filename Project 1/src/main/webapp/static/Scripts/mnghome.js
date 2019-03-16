@@ -1,5 +1,5 @@
 let employeeURL = "http://localhost:9393/Project1/api/employees";
-let reimbAllURL = "http://localhost:9393/Project1/api/reimbursements/all";
+let reimbAllURL = "http://localhost:9393/Project1/api/reimbursements";
 
 document.addEventListener("DOMContentLoaded", searchEmployees);
 document.addEventListener("DOMContentLoaded", searchReimbursements);
@@ -8,6 +8,7 @@ document.getElementById("showEmployees").addEventListener("click", unhideEmpTabl
 document.getElementById("showReimbursements").addEventListener("click", unhideReimbTable);
 document.getElementById("showResolvedReimb").addEventListener("click", unhideResolved);
 document.getElementById("showReimbursements").addEventListener("click", createButtonEvents);
+document.getElementById("empSelect").addEventListener("change", displayThisEmp)
 
 sendAjaxGet("http://localhost:9393/Project1/session", runWelcome);
 
@@ -31,6 +32,9 @@ function unhideResolved(){
 	
 	let empTable = document.getElementById("empTable");
 	empTable.setAttribute("hidden", true);
+	
+	let div = document.getElementById("select");
+	div.setAttribute("hidden", true);
 }
 
 function unhideEmpTable(){
@@ -42,6 +46,9 @@ function unhideEmpTable(){
 	
 	let resTable = document.getElementById("resolvedTable");
 	resTable.setAttribute("hidden", true);
+	
+	let div = document.getElementById("select");
+	div.setAttribute("hidden", true);
 }
 
 function unhideReimbTable(){
@@ -53,6 +60,9 @@ function unhideReimbTable(){
 	
 	let resTable = document.getElementById("resolvedTable");
 	resTable.setAttribute("hidden", true);
+	
+	let div = document.getElementById("select");
+	div.removeAttribute("hidden");
 }
 
 
@@ -60,6 +70,8 @@ function unhideReimbTable(){
 function addReimbursementRow(reimbId, empId, content, reimbAmt, resolvedMess){
 	let row = document.createElement("tr");
 	row.setAttribute("id", "reimRow"+reimbId);
+	row.setAttribute("class", "pendingReimbs");
+	row.setAttribute("title", empId);
     let cell1 = document.createElement("td");
     let cell2 = document.createElement("td");
     let cell3 = document.createElement("td");
@@ -296,7 +308,40 @@ function displayAllEmployees(xhr){
 	let employees = JSON.parse(xhr.response);
 	for (emps of employees){
 		addRow(emps.id, emps.firstName, emps.lastName, emps.email, emps.reportsTo);
+		
+		if(!emps.reportsTo == 0){
+			addOptions(emps.id, emps.firstName, emps.lastName);
+		}
 	}
+}
+
+function addOptions(id, firstName, lastName){
+	let selectEmp =  document.getElementById("empSelect");
+	let opt = document.createElement("option");
+	
+	opt.innerHTML = `${id} -- ${firstName}`;
+	
+	selectEmp.appendChild(opt);
+}
+
+function displayThisEmp(){
+	sendAjaxGet(reimbAllURL, thisEmpsReimbs);
+}
+
+function thisEmpsReimbs(xhr){
+	let empString = document.getElementById("empSelect").value;
+	let empId = empString.substring(0, 1);
+	let reimbs = JSON.parse(xhr.response);
+	let allReims = document.getElementsByClassName("pendingReimbs");
+	for(r of allReims){
+		if (r.title != empId){
+			r.setAttribute("hidden", true);
+		} else {
+			r.removeAttribute("hidden");
+		}
+		
+	}
+	
 }
 
 function sendAjaxGet(url, funct){

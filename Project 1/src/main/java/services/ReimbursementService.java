@@ -17,5 +17,8 @@ public class ReimbursementService {
 	public int resolveReimbursements(Reimbursements reimb) {
 		return reimbDao.resolveReimbursementsById(reimb);
 	}
-		
+	
+	public List<Reimbursements> getReimbById(int id){
+		return reimbDao.getReimbByEmpId(id);
+	}
 }

@@ -76,4 +76,35 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 
 	}
 
+	@Override
+	public List<Reimbursements> getReimbByEmpId(int id) {
+		List<Reimbursements> reimbById = new ArrayList<>();
+		String sql = "SELECT * FROM REIMBURSEMENTS WHERE EMP_ID = ?";
+		
+		try (Connection con = DBConnection.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql);
+				ResultSet rs = ps.executeQuery()) {
+			
+			ps.setInt(1, id);
+
+			while (rs.next()) {
+				int reimbId = rs.getInt("R_ID");
+				int empId = rs.getInt("EMP_ID");
+				String content = rs.getString("CONTENT");
+				int reimbursementAmount = rs.getInt("AmountRequested");
+				int isResolved = rs.getInt("Resolved");
+				String resolvedMess = rs.getString("ResolvedMessage");
+				String mngResolved = rs.getString("MngResolved");
+				reimbById.add(new Reimbursements(reimbId, empId, content, reimbursementAmount, isResolved, resolvedMess, mngResolved));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+
 }

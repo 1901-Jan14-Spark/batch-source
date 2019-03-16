@@ -68,7 +68,7 @@ public class RequestHelper {
 					response.sendError(405, "Method not supported for /"+record);
 				}
 				return;
-			case "reimbursements/all":
+			case "reimbursements":
 				if("GET".equals(request.getMethod())) {
 					reimbDel.getReimbursements(request, response);
 				}	
