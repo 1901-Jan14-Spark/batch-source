@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -28,7 +29,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				int reimbursementAmount = rs.getInt("AmountRequested");
 				int isResolved = rs.getInt("Resolved");
 				String resolvedMess = rs.getString("ResolvedMessage");
-				int mngResolved = rs.getInt("MngResolved");
+				String mngResolved = rs.getString("MngResolved");
 				reimbursements.add(new Reimbursements(reimbId, empId, content, reimbursementAmount, isResolved, resolvedMess, mngResolved));
 			}
 			
@@ -38,6 +39,41 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		}
 		
 		return reimbursements;
+	}
+
+	@Override
+	public int resolveReimbursementsById(Reimbursements reim) {
+		int yay = 0;
+		if (reim.getIsResolved() == 1) {
+			String sql = "UPDATE REIMBURSEMENTS SET RESOLVED = 1, RESOLVEDMESSAGE = 'Approved', MNGRESOLVED = ? WHERE REIMBURSEMENTS.R_ID = ?";
+			try (Connection con = DBConnection.getConnection();
+					PreparedStatement ps = con.prepareStatement(sql)) {
+				
+				ps.setString(1, reim.getMngResolved());
+				ps.setInt(2, reim.getReimbursementId());
+				yay = ps.executeUpdate();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return yay;	
+		} else {
+			String sql = "UPDATE REIMBURSEMENTS SET RESOLVED = 2, RESOLVEDMESSAGE = 'Rejected', MNGRESOLVED = ? WHERE REIMBURSEMENTS.R_ID = ?";
+			try (Connection con = DBConnection.getConnection();
+					PreparedStatement ps = con.prepareStatement(sql)) {
+				
+				ps.setString(1, reim.getMngResolved());
+				ps.setInt(2, reim.getReimbursementId());
+				yay = ps.executeUpdate();
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return yay;	
+		}	
+
 	}
 
 }

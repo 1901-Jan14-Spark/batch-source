@@ -8,7 +8,7 @@ public class Reimbursements {
 	int reimbursementAmount;
 	int isResolved;
 	String resolvedMessage;
-	int mngResolved;
+	String mngResolved;
 	
 	public Reimbursements() {
 		super();
@@ -16,7 +16,7 @@ public class Reimbursements {
 	}
 
 	public Reimbursements(int reimbursementId, int emp_id, String content, int reimbursementAmount, int isResolved,
-			String resolvedMessage, int mngResolved) {
+			String resolvedMessage, String mngResolved) {
 		super();
 		this.reimbursementId = reimbursementId;
 		this.emp_id = emp_id;
@@ -75,11 +75,11 @@ public class Reimbursements {
 		this.resolvedMessage = resolvedMessage;
 	}
 
-	public int getMngResolved() {
+	public String getMngResolved() {
 		return mngResolved;
 	}
 
-	public void setMngResolved(int mngResolved) {
+	public void setMngResolved(String mngResolved) {
 		this.mngResolved = mngResolved;
 	}
 
@@ -90,7 +90,6 @@ public class Reimbursements {
 		result = prime * result + ((content == null) ? 0 : content.hashCode());
 		result = prime * result + emp_id;
 		result = prime * result + isResolved;
-		result = prime * result + mngResolved;
 		result = prime * result + reimbursementAmount;
 		result = prime * result + reimbursementId;
 		result = prime * result + ((resolvedMessage == null) ? 0 : resolvedMessage.hashCode());

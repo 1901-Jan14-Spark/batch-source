@@ -71,8 +71,9 @@ public class RequestHelper {
 			case "reimbursements/all":
 				if("GET".equals(request.getMethod())) {
 					reimbDel.getReimbursements(request, response);
-				}	else {
-//					response.sendError(405, "Method not supported for /"+record);
+				}	
+				else if ("POST".equals(request.getMethod())){
+					reimbDel.resolveReimbursements(request, response);
 				}
 				return;
 			default: 

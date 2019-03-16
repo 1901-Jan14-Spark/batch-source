@@ -8,7 +8,6 @@ public class Employee {
 	String email;
 	String password;
 	int reportsTo;
-	int loggedIn;
 	
 	//The employee object we will add to our list to create the /onlyEmployees endpoint
 	public Employee(int empId, String fName, String lName, String email, int reportsTo) {
@@ -20,17 +19,16 @@ public class Employee {
 		this.reportsTo = reportsTo;
 	}
 
-	public Employee(int empId, String firstName, String lastName, String email, String password, int loggedIn) {
+	public Employee(int empId, String firstName, String lastName, String email, String password) {
 		super();
 		this.id = empId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
-		this.loggedIn = loggedIn;
 	}
 	
-	public Employee(int empId, String firstName, String lastName, String email, String password, int reportsTo, int loggedIn) {
+	public Employee(int empId, String firstName, String lastName, String email, String password, int reportsTo) {
 		super();
 		this.id = empId;
 		this.firstName = firstName;
@@ -38,18 +36,15 @@ public class Employee {
 		this.email = email;
 		this.password = password;
 		this.reportsTo = reportsTo;
-		this.loggedIn = loggedIn;
 	}
 	
 
-	public Employee(int id, String firstName, String lastName, String email, int reportsTo, int loggedIn) {
+	public Employee(int id, String firstName, String lastName, String email) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.reportsTo = reportsTo;
-		this.loggedIn = loggedIn;
 	}
 
 	public int getId() {
@@ -100,13 +95,6 @@ public class Employee {
 		this.reportsTo = reportsTo;
 	}
 
-	public int getLoggedIn() {
-		return loggedIn;
-	}
-
-	public void setLoggedIn(int loggedIn) {
-		this.loggedIn = loggedIn;
-	}
 
 	@Override
 	public int hashCode() {
@@ -116,7 +104,6 @@ public class Employee {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + id;
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + loggedIn;
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + reportsTo;
 		return result;
@@ -148,8 +135,6 @@ public class Employee {
 				return false;
 		} else if (!lastName.equals(other.lastName))
 			return false;
-		if (loggedIn != other.loggedIn)
-			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;
@@ -163,7 +148,7 @@ public class Employee {
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", password=" + password + ", reportsTo=" + reportsTo + ", loggedIn=" + loggedIn + "]";
+				+ ", password=" + password + ", reportsTo=" + reportsTo + "]";
 	}
 
 

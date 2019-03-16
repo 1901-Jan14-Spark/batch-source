@@ -30,4 +30,20 @@ public class ReimbursementDelegate {
 		pw.close();
 		
 	}
+	
+	public void resolveReimbursements(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String requestBodyText = request.getReader().readLine();
+		
+		ObjectMapper om = new ObjectMapper();
+		Reimbursements newReim = om.readValue(requestBodyText, Reimbursements.class);
+		
+		int reimbursementsUpdated = reimbService.resolveReimbursements(newReim);
+		if (reimbursementsUpdated == 1) {
+			response.setStatus(201);
+		} else {
+			response.setStatus(400);
+		}
+		
+		
+	}
 }

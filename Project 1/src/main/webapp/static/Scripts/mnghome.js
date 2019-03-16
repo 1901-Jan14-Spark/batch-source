@@ -35,12 +35,14 @@ function addReimbursementRow(reimbId, empId, content, reimbAmt, resolvedMess){
     let cell3 = document.createElement("td");
     let cell4 = document.createElement("td");
     let cell5 = document.createElement("td");
+    let cell6 = document.createElement("td");
     
     row.appendChild(cell1);
     row.appendChild(cell2);
     row.appendChild(cell3);
     row.appendChild(cell4);
     row.appendChild(cell5);
+    row.appendChild(cell6);
     
     cell1.innerHTML = reimbId;
     cell2.innerHTML = empId;
@@ -54,51 +56,111 @@ function addReimbursementRow(reimbId, empId, content, reimbAmt, resolvedMess){
 
     document.getElementById("reimbursements").appendChild(row);
 
-    var hidingRow = document.createElement("tr");
-    var hidingCell1 = document.createElement("td");
-    var hidingCell2 = document.createElement("td");
-    var contents = document.createElement("div");
-    var contents2 = document.createElement("div");
-    
-    hidingCell1.setAttribute("colspan", "100%");
     let approveBtn = document.createElement("button");
     let rejectBtn = document.createElement("button");
     let holdingDiv = document.createElement("div");
-    holdingDiv.setAttribute("class", "holdDiv");
+    rejectBtn.setAttribute("type", "submit");
+    rejectBtn.setAttribute("value", "Reject");
     
-    approveBtn.setAttribute("class", "btn btn-success");
-    rejectBtn.setAttribute("class", "btn btn-success");
+    approveBtn.setAttribute("class", "appBtns btn btn-success");
+    rejectBtn.setAttribute("class", "rejBtns btn btn-danger");
     
-    hidingRow.setAttribute("hidden", true);
+    cell6.setAttribute("hidden", true);
     
     approveBtn.setAttribute("id", "app"+reimbId);
     rejectBtn.setAttribute("id", "rej"+reimbId);
     
-    approveBtn.innerHTML = "Approve Reimbursement";
-    rejectBtn.innerHTML = "Reject Reimbursement";
+    approveBtn.innerHTML = "Approve";
+    rejectBtn.innerHTML = "Reject";
     
-    hidingRow.appendChild(hidingCell1);
-    hidingRow.appendChild(hidingCell2);
+    cell6.appendChild(approveBtn);
+    cell6.appendChild(rejectBtn);
+    
+    cell6.setAttribute("id", "row"+reimbId);
+    cell6.setAttribute("class", "rowClass");
 
-    hidingCell1.appendChild(contents);
-    hidingCell2.appendChild(contents2);
-    
-    contents.appendChild(approveBtn);
-    contents2.appendChild(rejectBtn);
-    
-    hidingRow.setAttribute("id", "row"+reimbId);
-    hidingRow.setAttribute("class", "rowClass");
-
-    insertAfter(hidingRow, row);
 }
 
 function createButtonEvents(){
 	var buttons = document.getElementsByClassName("pendingReim");
 	for (let btn of buttons){
 		var input = btn.id.substring(4);
-		console.log(input);
 		document.getElementById("pend"+input).addEventListener("click", unHideOptions);
 	}
+	var appBtn = document.getElementsByClassName("appBtns");
+	for (let app of appBtn){
+		var input = app.id.substring(3);
+		document.getElementById("app"+input).addEventListener("click", approveReimbursement);
+	}
+	var rejBtn = document.getElementsByClassName("rejBtns");
+	for (let rej of rejBtn){
+		var input = rej.id.substring(3);
+		document.getElementById("rej"+input).addEventListener("click", rejectReimbursement);
+	}
+}	
+
+
+function approveReimbursement(){
+	var id = this.id.substring(3);
+	let tableRow = document.getElementById("reimRow"+id);
+	let employeeId = tableRow.firstChild.nextSibling.innerHTML;
+	let content = tableRow.firstChild.nextSibling.nextSibling.innerHTML;
+	let amount = tableRow.firstChild.nextSibling.nextSibling.nextSibling.innerHTML;
+	let newAmount = amount.substring(1);
+	console.log(amount);
+	let approved = "Approved";
+	
+	let newReimbObj = {
+			"reimbursementId": id,
+			"emp_id": employeeId,
+			"content": content,
+			"reimbursementAmount": newAmount,
+			"isResolved": 1,
+			"resolvedMessage": approved,
+			"mngResolved": "test"
+				
+	}
+	ajaxPost(reimbAllURL, newReimbObj);
+	window.location.reload();
+	
+}
+
+function ajaxPost(url, newReimbObj){
+	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
+	xhr.open("POST", url);
+	xhr.onreadystatechange = function (){
+		if(this.readyState === 4 && xhr.status === 201){
+			console.log('post worked');
+		}
+	}
+	xhr.setRequestHeader("Content-Type", "application/json");
+	let jsonEmp = JSON.stringify(newReimbObj);
+	console.log(jsonEmp);
+	xhr.send(jsonEmp);
+}
+
+function rejectReimbursement(){
+	var id = this.id.substring(3);
+	let tableRow = document.getElementById("reimRow"+id);
+	let employeeId = tableRow.firstChild.nextSibling.innerHTML;
+	let content = tableRow.firstChild.nextSibling.nextSibling.innerHTML;
+	let amount = tableRow.firstChild.nextSibling.nextSibling.nextSibling.innerHTML;
+	let newAmount = amount.substring(1);
+	console.log(amount);
+	let rejected = "Rejected";
+	
+	let rejReimbObj = {
+			"reimbursementId": id,
+			"emp_id": employeeId,
+			"content": content,
+			"reimbursementAmount": newAmount,
+			"isResolved": 2,
+			"resolvedMessage": rejected,
+			"mngResolved": "mngName"
+	}
+	ajaxPost(reimbAllURL, rejReimbObj);
+	window.location.reload();
+	
 }
 
 function unHideOptions(input){
@@ -115,23 +177,32 @@ function unHideOptions(input){
 	}
 
 //function to place hidden div underneath each row
-function insertAfter(newNode, referenceNode){
-	 referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-}
+//function insertAfter(newNode, referenceNode){
+//	 referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+//}
 
 
 //callback function for showing reimbursements
 function searchReimbursements(){
-	sendAjaxGet(reimbAllURL, displayAllReimbursements);
+	sendAjaxGet(reimbAllURL, displayPendingReimbursements);
 }
 
-function displayAllReimbursements(xhr){
+function displayPendingReimbursements(xhr){
 	let reimbursements = JSON.parse(xhr.response);
 	console.log(reimbursements);
 	for (reimb of reimbursements){
+		console.log(reimb.resolvedMessage);
+		if(reimb.isResolved == 1 || reimb.isResolved == 2){
+			continue;
+		} else {
 		addReimbursementRow(reimb.reimbursementId, reimb.emp_id, reimb.content, reimb.reimbursementAmount, reimb.resolvedMessage);
+		}
 	}
 }
+
+//function displayCompletedReimbursements(xhr){
+//	
+//}
 
 //Making the table of Employees
 //an addRow function that appends rows to table.
@@ -173,7 +244,7 @@ function displayAllEmployees(xhr){
 function sendAjaxGet(url, funct){
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
 	xhr.onreadystatechange = function (){
-		if(this.readyState === 4){
+		if(this.readyState === 4 && this.status === 200){
 			funct(this);
 		}
 	}

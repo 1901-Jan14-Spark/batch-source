@@ -57,8 +57,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				String email = rs.getString("EMAIL");
 				String password = rs.getString("PASSWORD");
 				int reportsTo = rs.getInt("REPORTSTO");
-				int loggedIn = rs.getInt("LOGGEDIN");
-				tempEmp = new Employee(empId, fName, lName, email, password, reportsTo, loggedIn);	
+				tempEmp = new Employee(empId, fName, lName, email, password, reportsTo);	
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -66,6 +65,5 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		}
 		return tempEmp;
 	}
-
 
 }
