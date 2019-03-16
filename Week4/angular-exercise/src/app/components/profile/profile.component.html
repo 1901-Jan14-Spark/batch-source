@@ -1,0 +1,8 @@
+<button class="btn btn-primary" (click)="show = !show">
+  {{ show ? "show user" : "hide user" }}
+</button>
+<br />
+<br />
+<div *ngIf="!show">
+  <p *ngFor="let user of users">{{ user }}</p>
+</div>

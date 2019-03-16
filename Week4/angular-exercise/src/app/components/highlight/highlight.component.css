@@ -1,0 +1,8 @@
+p {
+    text-align: center;
+    font-size: 25px;
+}
+
+p:hover {
+    background-color: lightskyblue;
+}

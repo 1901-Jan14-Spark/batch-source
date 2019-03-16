@@ -1,0 +1,20 @@
+<table [ngClass]="styleTable ? '' : 'table table-striped table-hover'">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>DOB</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.fName + " " + user.lName | firstCap }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.dob | date: "MM/dd/yy" }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" (click)="styleTable = !styleTable">
+  {{ styleTable ? "awesome table" : "boring table" }}
+</button>
