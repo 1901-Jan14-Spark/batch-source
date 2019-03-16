@@ -3,11 +3,23 @@ let reimbAllURL = "http://localhost:9393/Project1/api/reimbursements/all";
 
 document.addEventListener("DOMContentLoaded", searchEmployees);
 document.addEventListener("DOMContentLoaded", searchReimbursements);
-//document.addEventListener("DOMContentLoaded", hideOptions);
 document.getElementById("showEmployees").addEventListener("click", unhideEmpTable);
-//document.getElementById("showEmployees").addEventListener("click", hideReimbTable);
 document.getElementById("showReimbursements").addEventListener("click", unhideReimbTable);
 document.getElementById("showReimbursements").addEventListener("click", createButtonEvents);
+
+sendAjaxGet("http://localhost:9393/Project1/session", runWelcome);
+
+function runWelcome(xhr){
+	let response = JSON.parse(xhr.response);
+	document.getElementById("sessionEmail").innerHTML = `${response.email}`;
+	
+	if(response.email != null){
+		document.getElementById("greeting").innerHTML = `Welcome back, ${response.email} <i class="	fa fa-angle-double-down" style="font-size:20px"></i>`;
+		
+	} else {
+		window.location = "http://localhost:9393/Project1/login";
+	}
+}
 
 function unhideEmpTable(){
 	let table = document.getElementById("empTable");
@@ -117,8 +129,7 @@ function approveReimbursement(){
 			"reimbursementAmount": newAmount,
 			"isResolved": 1,
 			"resolvedMessage": approved,
-			"mngResolved": "test"
-				
+			"mngResolved": document.getElementById("sessionEmail").innerHTML
 	}
 	ajaxPost(reimbAllURL, newReimbObj);
 	window.location.reload();
@@ -156,7 +167,7 @@ function rejectReimbursement(){
 			"reimbursementAmount": newAmount,
 			"isResolved": 2,
 			"resolvedMessage": rejected,
-			"mngResolved": "mngName"
+			"mngResolved": document.getElementById("sessionEmail").innerHTML
 	}
 	ajaxPost(reimbAllURL, rejReimbObj);
 	window.location.reload();
@@ -176,12 +187,6 @@ function unHideOptions(input){
 		}
 	}
 
-//function to place hidden div underneath each row
-//function insertAfter(newNode, referenceNode){
-//	 referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
-//}
-
-
 //callback function for showing reimbursements
 function searchReimbursements(){
 	sendAjaxGet(reimbAllURL, displayPendingReimbursements);
@@ -189,9 +194,7 @@ function searchReimbursements(){
 
 function displayPendingReimbursements(xhr){
 	let reimbursements = JSON.parse(xhr.response);
-	console.log(reimbursements);
 	for (reimb of reimbursements){
-		console.log(reimb.resolvedMessage);
 		if(reimb.isResolved == 1 || reimb.isResolved == 2){
 			continue;
 		} else {
@@ -199,10 +202,6 @@ function displayPendingReimbursements(xhr){
 		}
 	}
 }
-
-//function displayCompletedReimbursements(xhr){
-//	
-//}
 
 //Making the table of Employees
 //an addRow function that appends rows to table.
@@ -252,15 +251,3 @@ function sendAjaxGet(url, funct){
 	xhr.send();
 }
 
-sendAjaxGet("http://localhost:9393/Project1/session", runWelcome);
-
-function runWelcome(xhr){
-	let response = JSON.parse(xhr.response);
-	console.log(response);
-	
-	if(response.email != null){
-		document.getElementById("greeting").innerHTML = `Welcome back, ${response.email} <i class="	fa fa-angle-double-down" style="font-size:20px"></i>`;
-	} else {
-		window.location = "http://localhost:9393/Project1/login";
-	}
-}
