@@ -3,8 +3,10 @@ let reimbAllURL = "http://localhost:9393/Project1/api/reimbursements/all";
 
 document.addEventListener("DOMContentLoaded", searchEmployees);
 document.addEventListener("DOMContentLoaded", searchReimbursements);
+document.addEventListener("DOMContentLoaded", searchResReimbursements);
 document.getElementById("showEmployees").addEventListener("click", unhideEmpTable);
 document.getElementById("showReimbursements").addEventListener("click", unhideReimbTable);
+document.getElementById("showResolvedReimb").addEventListener("click", unhideResolved);
 document.getElementById("showReimbursements").addEventListener("click", createButtonEvents);
 
 sendAjaxGet("http://localhost:9393/Project1/session", runWelcome);
@@ -20,6 +22,16 @@ function runWelcome(xhr){
 		window.location = "http://localhost:9393/Project1/login";
 	}
 }
+function unhideResolved(){
+	let table = document.getElementById("resolvedTable");
+	table.removeAttribute("hidden");
+	
+	let reimbTable = document.getElementById("reimbTable");
+	reimbTable.setAttribute("hidden", true);
+	
+	let empTable = document.getElementById("empTable");
+	empTable.setAttribute("hidden", true);
+}
 
 function unhideEmpTable(){
 	let table = document.getElementById("empTable");
@@ -27,6 +39,9 @@ function unhideEmpTable(){
 	
 	let reimbTable = document.getElementById("reimbTable");
 	reimbTable.setAttribute("hidden", true);
+	
+	let resTable = document.getElementById("resolvedTable");
+	resTable.setAttribute("hidden", true);
 }
 
 function unhideReimbTable(){
@@ -35,6 +50,9 @@ function unhideReimbTable(){
 	
 	let empTable = document.getElementById("empTable");
 	empTable.setAttribute("hidden", true);
+	
+	let resTable = document.getElementById("resolvedTable");
+	resTable.setAttribute("hidden", true);
 }
 
 
@@ -192,6 +210,10 @@ function searchReimbursements(){
 	sendAjaxGet(reimbAllURL, displayPendingReimbursements);
 }
 
+function searchResReimbursements(){
+	sendAjaxGet(reimbAllURL, displayResolvedReimbursements);
+}
+
 function displayPendingReimbursements(xhr){
 	let reimbursements = JSON.parse(xhr.response);
 	for (reimb of reimbursements){
@@ -201,6 +223,43 @@ function displayPendingReimbursements(xhr){
 		addReimbursementRow(reimb.reimbursementId, reimb.emp_id, reimb.content, reimb.reimbursementAmount, reimb.resolvedMessage);
 		}
 	}
+}
+
+function displayResolvedReimbursements(xhr){
+	let reimbursements = JSON.parse(xhr.response);
+	for (reimb of reimbursements){
+		if (reimb.isResolved == 0){
+			continue;
+		} else {
+			addResReimbursementRow(reimb.reimbursementId, reimb.emp_id, reimb.content, reimb.reimbursementAmount, reimb.resolvedMessage, reimb.mngResolved)
+		}
+	}
+}
+
+function addResReimbursementRow(reimbId, empId, content, reimbAmt, resolvedMessage, mngResolved){
+	let row = document.createElement("tr");
+    let cell1 = document.createElement("td");
+    let cell2 = document.createElement("td");
+    let cell3 = document.createElement("td");
+    let cell4 = document.createElement("td");
+    let cell5 = document.createElement("td");
+    let cell6 = document.createElement("td");
+    
+    row.appendChild(cell1);
+    row.appendChild(cell2);
+    row.appendChild(cell3);
+    row.appendChild(cell4);
+    row.appendChild(cell5);
+    row.appendChild(cell6);
+    
+    cell1.innerHTML = reimbId;
+    cell2.innerHTML = empId;
+    cell3.innerHTML = content;
+    cell4.innerHTML = "$"+reimbAmt;
+    cell5.innerHTML = resolvedMessage;
+    cell6.innerHTML = mngResolved;
+
+    document.getElementById("resolved").appendChild(row);
 }
 
 //Making the table of Employees

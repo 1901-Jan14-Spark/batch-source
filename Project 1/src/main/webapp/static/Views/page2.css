@@ -63,7 +63,7 @@ h2 {
     text-align:center;
 }
 
-#reimbTable{
+#reimbTable, #resolvedTable {
 	background-color: #F5F5F5;
 	height: 65%;
 	display: block;
