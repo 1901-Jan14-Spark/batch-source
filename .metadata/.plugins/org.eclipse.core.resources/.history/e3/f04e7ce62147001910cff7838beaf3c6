@@ -1,0 +1,30 @@
+package com.revature.services;
+
+import java.util.List;
+
+import com.revature.company.Department;
+import com.revature.dao.DepartmentDao;
+import com.revature.dao.imp.DepartmentDaoImpl;
+
+public class DepartmentService implements CrudService<Department> {
+
+	DepartmentDao dDao = new DepartmentDaoImpl();
+	
+	@Override
+	public List<Department> getAll() {	
+		return dDao.getAllDepartments();
+	}
+
+	@Override
+	public Department getById(int id) {
+		return dDao.getDepartmentById(id);
+	}
+
+	@Override
+	public Department getByName(String name) {
+		// TODO Auto-generated method stub
+		return dDao.getDepartmentByName(name);	
+	}
+
+
+}

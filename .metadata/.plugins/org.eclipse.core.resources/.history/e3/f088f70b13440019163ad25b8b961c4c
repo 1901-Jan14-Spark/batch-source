@@ -1,0 +1,18 @@
+package com.revature.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class ConnectionUtil {
+	
+	private static Connection connection;
+	
+		String url = System.getenv("DB_URL");
+		String user = System.getenv("DB_USER");
+		String password = System.getenv("DB_PASS");
+		if (connection == null || connection.isClosed()) {
+			connection = DriverManager.getConnection(url,  user,  password);
+		}
+		return connection;
+
+}

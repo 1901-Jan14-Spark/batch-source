@@ -1,0 +1,8 @@
+package com.revature.services;
+
+public class CrudService<T> {
+
+	public Lit<t> gerAll();
+	public T getById(int id);
+	
+}

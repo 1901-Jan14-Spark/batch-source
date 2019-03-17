@@ -1,0 +1,41 @@
+package com.revature.services;
+
+import java.util.List;
+
+import com.revature.company.Employee;
+import com.revature.dao.EmployeeDao;
+import com.revature.dao.imp.EmployeeDaoImpl;
+
+public class EmployeeService implements CrudService<Employee> {
+	
+	EmployeeDao eDao = new EmployeeDaoImpl();
+
+	@Override
+	public List<Employee> getAll() {
+		return eDao.getAllEmployees();
+	}
+
+	@Override
+	public Employee getById(int id) {
+		return eDao.getEmployeeById(id);
+	}
+
+	@Override
+	public int create(Employee obj) {
+		return eDao.addNewEmployee(obj);
+	}
+
+	@Override
+	public int update(Employee obj) {
+		return eDao.updateEmployee(obj);
+	}
+
+	@Override
+	public int deleteById(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+
+}

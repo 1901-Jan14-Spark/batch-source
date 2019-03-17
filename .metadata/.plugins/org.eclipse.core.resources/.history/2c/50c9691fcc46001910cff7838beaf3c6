@@ -1,0 +1,9 @@
+package com.revature.delegate;
+
+public class EmployeeDelegate {
+	
+	private EmployeeService eService = new EmployeeService();
+	
+	
+
+}

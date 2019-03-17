@@ -1,0 +1,78 @@
+package com.revature.dao.imp;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.revature.company.Department;
+import com.revature.company.Employee;
+import com.revature.dao.EmployeeDao;
+import com.revature.util.ConnectionUtil;
+
+public class EmployeeDaoImpl implements EmployeeDao {
+	
+	DepartmentDao deptDao = new DepartmentDaoImpl();
+
+	@Override
+	public List<Employee> getAllEmployees() {
+		List<Employee> employees = new ArrayList<>();
+
+		String sql = "SELECT * FROM EMPLOYEES";
+
+		try (Connection c = ConnectionUtil.getConnection();
+				Statement s = c.createStatement();
+				ResultSet rs = s.executeQuery(sql)) {
+
+			while (rs.next()) {
+				int empId = rs.getInt("EMP_ID");
+				int deptId = rs.getInt("DEPT_ID");
+				String firstName = rs.getString("EMP_FIRSTNAME");
+				String lastName = rs.getString("EMP_LASTNAME");
+				String email = rs.getString("EMP_EMAIL");
+				String username = rs.getString("EMP_USERNAME");
+				String password = rs.getString("EMP_PASS");
+				employees.add(new Employee(empId, firstName, lastName, email, username, password, new Department(deptId)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return employees;
+	}
+
+	@Override
+	public Employee getEmployeeById(int id) {
+	
+	}
+
+	@Override
+	public Employee getEmployeeByName(String firstname, String lastname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int addNewEmployee(Employee e) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int updateEmployee(Employee e) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int deleteEmployee(int id) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
+	
+
+}

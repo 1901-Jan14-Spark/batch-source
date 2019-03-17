@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Project0.1/src/com/revature/bank/account_data.txt&apos; to &apos;account_balance.txt&apos;" description="Rename resource &apos;account_data.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/revature/bank/account_data.txt" name="account_balance.txt" stamp="1550793760374" updateReferences="true"/>
+</session>

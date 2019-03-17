@@ -1,0 +1,23 @@
+package com.revature.company;
+
+public class Employee {
+	
+	private int empId;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String username;
+	private String password;
+	private Department d;
+	
+	
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	
+
+}

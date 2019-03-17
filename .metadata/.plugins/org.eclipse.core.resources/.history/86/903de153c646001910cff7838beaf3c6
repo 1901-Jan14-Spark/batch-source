@@ -1,0 +1,57 @@
+package com.revature.dao.imp;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.revature.company.Department;
+import com.revature.company.Employee;
+import com.revature.dao.DepartmentDao;
+import com.revature.util.ConnectionUtil;
+
+public class DepartmentDaoImpl implements DepartmentDao {
+
+	@Override
+	public List<Department> getAllDepartments() {
+		List<Department> departments = new ArrayList<>();
+
+		String sql = "SELECT * FROM DEPARTMENTS";
+
+		try (Connection c = ConnectionUtil.getConnection();
+				Statement s = c.createStatement();
+				ResultSet rs = s.executeQuery(sql)) {
+
+			while (rs.next()) {
+				int empId = rs.getInt("EMP_ID");
+				int deptId = rs.getInt("DEPT_ID");
+				String firstName = rs.getString("EMP_FIRSTNAME");
+				String lastName = rs.getString("EMP_LASTNAME");
+				String email = rs.getString("EMP_EMAIL");
+				String username = rs.getString("EMP_USERNAME");
+				String password = rs.getString("EMP_PASS");
+				employees.add(
+						new Employee(empId, firstName, lastName, email, username, password, new Department(deptId)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return employees;
+	}
+
+	@Override
+	public Department getDepartmentById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Department getDepartmentByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
