@@ -10,4 +10,5 @@ public interface ReimbursementsDao {
 	public int updateReims(Reimbursements reim);
 	public int deleteReims(int id);
 	public Reimbursements getReimById(int id);
+	Reimbursements getReimByRequester(int requestee);
 }

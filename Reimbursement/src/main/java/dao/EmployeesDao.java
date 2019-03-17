@@ -12,6 +12,7 @@ public interface EmployeesDao {
 	public int createEmployee(Employees emp);
 	public int updateEmployee(Employees emp);
 	public int deleteEmployeesById(int id);
+	Employees getEmployeesByIsMana(int stat);
 
 //view all
 	//all pending

@@ -14,7 +14,15 @@ public class LoginServlet extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		System.out.println("doGet Method Invoked");
-		RequestDispatcher rs = request.getRequestDispatcher("Login.html");
+		RequestDispatcher rs = request.getRequestDispatcher("static/Login.html");
 		rs.forward(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException {
+		String user = request.getParameter("username");
+		String pass = request.getParameter("password");
+		
+		
+	
 	}
 }

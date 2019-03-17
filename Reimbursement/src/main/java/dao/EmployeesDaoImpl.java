@@ -123,6 +123,28 @@ public class EmployeesDaoImpl implements EmployeesDao{
 		}
 		return employees;
 	}
+	
+	@Override
+	public Employees getEmployeesByIsMana(int stat) {
+		Employees employees = null;
+		String sql = "SELECT * FROM EMPLOYEES WHERE IS_MANA = ?";
+		try(Connection con = ConnectionUtil.systemVar();
+				PreparedStatement ps = con.prepareStatement(sql);){
+			ps.setInt(1,stat);
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				int empId = rs.getInt("EMP_ID");
+				String first = rs.getString("EMP_FIRST");
+				String last = rs.getString("EMP_LAST");
+				String user = rs.getString("EMP_USER");
+				String pass = rs.getString("EMP_PASS");
+				employees= new Employees(empId,first,last,user,pass);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return employees;
+	}
 
 
 	@Override

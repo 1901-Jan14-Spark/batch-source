@@ -1,10 +1,7 @@
 package main;
 
-import dao.EmployeesDao;
-import dao.EmployeesDaoImpl;
 import dao.ReimbursementsDao;
 import dao.ReimbursementsDaoImpl;
-import models.Employees;
 import models.Reimbursements;
 
 public class Driver {
@@ -25,8 +22,11 @@ public class Driver {
 //	ed.createEmployee(new Employees("Peyton","Shriver","pshriver","passpass","0"));
 	
 		ReimbursementsDao rd = new ReimbursementsDaoImpl();
-		Reimbursements a = rd.updateReims(1);
-		
+		Reimbursements a = rd.getReimById(1000);
+		a.setReimStatus("DENIED");
+		a.setResolvedId(1);
+		int updated = rd.updateReims(a);
+		System.out.println(updated);
 	}
 		
 	

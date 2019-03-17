@@ -114,6 +114,15 @@ public class Reimbursements implements Serializable{
 		this.requester_Id=requester;
 		this.amount=amount;
 	}
+	public Reimbursements(int reimId, String reimName, int requester, double amount, String status,
+			String resovedBy) {
+		this.reim_id=reimId;
+		this.reim_name=reimName;
+		this.requester_Id=requester;
+		this.amount=amount;
+		this.reimStatus=status;
+		
+	}
 	
 		
 		
