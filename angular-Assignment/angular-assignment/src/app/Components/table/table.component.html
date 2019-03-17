@@ -1,0 +1,20 @@
+<table [ngClass]="style ? '' : 'table'">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>DOB</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.Name}}</td>
+        <td>{{ user.Desc }}</td>
+        <td>{{ user.DOB | date: "MM/dd/yy" }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <button class="btn btn-primary" (click)="style = !style">
+    {{ style ? "Bootstrap Table" : "No Bootstrap Table" }}
+  </button>

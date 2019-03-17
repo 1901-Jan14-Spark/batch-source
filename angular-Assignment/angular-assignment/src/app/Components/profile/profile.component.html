@@ -1,0 +1,10 @@
+<h1 style="text-align:center">Welcome to your Profile</h1>
+
+<button  (click)="view = !view">
+    {{ view ? "View Profile" : "Hide Profile" }}
+  </button>
+  <br />
+  <br />
+  <div *ngIf="!view">
+    <p *ngFor="let profile of profiles">{{ profile }}</p>
+  </div>
