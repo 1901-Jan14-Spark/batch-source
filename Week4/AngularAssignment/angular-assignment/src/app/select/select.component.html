@@ -1,0 +1,24 @@
+<label><input type="radio" [(ngModel)]="ltype" value="animals">Animals</label><br>
+<label><input type="radio" [(ngModel)]="ltype" value="colors">Colors</label><br>
+<label><input type="radio" [(ngModel)]="ltype" value="days">Days</label><br>
+
+<div *ngIf='"animals" == ltype'>
+  <p>{{ltype}}</p>
+  <ul *ngFor='let animal of animals'>
+    <li>{{animal}}</li>
+  </ul>
+</div>
+
+<div *ngIf='"colors" == ltype'>
+    <p>{{ltype}}</p>
+  <ul *ngFor='let color of colors'>
+    <li>{{color}}</li>
+  </ul>
+</div> 
+
+<div *ngIf='"days"== ltype'>
+    <p>{{ltype}}</p>
+  <ul *ngFor='let day of days'>
+    <li>{{day}}</li>
+  </ul>
+</div>

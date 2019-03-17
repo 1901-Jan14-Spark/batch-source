@@ -1,0 +1,12 @@
+<h3>Employee Info</h3>
+<div *ngIf='people.length>0'>
+  <button [class] = 'btnClass' (click)='toggleStyle()'>Change Style</button>
+  <table [class] = 'tClass'>
+    <tr><th>Name</th><th>Email</th><th>Bday</th></tr>
+    <tr *ngFor = 'let person of people'>
+      <td>{{person.fname | lowercase | firstCap }} {{person.lname | lowercase | firstCap  }}</td>
+      <td>{{person.email}}</td>
+      <td>{{person.birthday | date:'dd/MM/y'}}</td>
+    </tr>
+  </table>
+</div>

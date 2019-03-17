@@ -1,0 +1,5 @@
+
+<h1>User Information</h1>
+<p *ngIf="isHidden" >Name: {{user.fname}}<br>  Email: {{user.email}}<br>  Phone: {{user.phone}}</p>
+<button (click)='toggleInfo()' class="btn btn-primary">{{hideorshow}} Info</button>
+<p></p>
