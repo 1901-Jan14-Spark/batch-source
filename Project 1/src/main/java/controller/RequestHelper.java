@@ -42,6 +42,14 @@ public class RequestHelper {
 			viewDel.returnView(request, response);
 		}
 		
+		if(uri.startsWith("/employeeLogin")) {
+			viewDel.returnView(request, response);
+		}
+		
+		if(uri.startsWith("/createReimb")) {
+			reimbDel.createReimbursement(request, response);
+			
+		}
 		//logging a user out
 		if(uri.startsWith("/logout")) {
 			logoutDel.logoutUser(request, response);

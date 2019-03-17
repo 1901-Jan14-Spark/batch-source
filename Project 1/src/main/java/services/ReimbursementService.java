@@ -21,4 +21,8 @@ public class ReimbursementService {
 	public List<Reimbursements> getReimbById(int id){
 		return reimbDao.getReimbByEmpId(id);
 	}
+	
+	public int createReimbursement(Reimbursements reimb) {
+		return reimbDao.createReimbursement(reimb);
+	}
 }

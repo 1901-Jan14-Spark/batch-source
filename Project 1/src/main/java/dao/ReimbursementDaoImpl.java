@@ -104,6 +104,12 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		}
 		return null;
 	}
+
+	@Override
+	public int createReimbursement(Reimbursements reimb) {
+		String sql = "INSERT INTO REIMBURSEMENTS (EMP_ID, CONTENT, AmountRequested) VALUES ?, ?, ?";
+		return 0;
+	}
 	
 	
 

@@ -44,4 +44,19 @@ public class ReimbursementDelegate {
 			response.setStatus(400);
 		}
 	}
-}
+	
+	public void createReimbursement(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String requestBodyText = request.getReader().readLine();
+		
+		ObjectMapper om = new ObjectMapper();
+		Reimbursements newReim = om.readValue(requestBodyText, Reimbursements.class);
+		
+		int reimbursementsUpdated = reimbService.createReimbursement(newReim);
+		if (reimbursementsUpdated == 1) {
+			response.setStatus(201);
+		} else {
+			response.setStatus(400);
+		}
+	}
+		
+	}

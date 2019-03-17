@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <link rel="shortcut icon" href="https://cdn2.iconfinder.com/data/icons/applications-5/24/window-dollar-1-512.png">
+    <title>Employee Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -11,20 +12,87 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="static/Views/page3.css">
 </head>
-<body>
+<body class="font-family: 'Spectral';font-size: 16pt" style="background-color:#F5F5F5">
+    <div class="header">
+    	<div id="headerText">
+    		<h1 style="font-size:40pt ; color:white">Reimbursements Employee Dashboard</h1>
+    	</div>
+    		<div class="dropButton">
+	    		<button class="btn buttonDrop dropdown-toggle" type="button" data-toggle="dropdown" id="greetingEmp"></button>
+	    		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	    		  	<a class="dropdown-item" href="employeeLogin">Dashboard Home</a>
+	    		 	<a class="dropdown-item" href="#">My Profile</a>
+				    <a class="dropdown-item" href="#">Create Reimbursement Requests</a>
+				    <a class="dropdown-item" href="#">View Pending Requests</a>
+				    <a class="dropdown-item" href="#">View Resolved Requests</a>
+				    <a class="dropdown-item" href="logout">Logout</a>
+				 </div>
+			 </div>
+    </div>
+    <br>
     
-
-
-
-
-
-
-
-
-
-
-    <script src="main.js"></script>
+		<div class="dashboard col text-center">
+			<button class="btn" id="showRequestForm">Create Request</button>
+			<button class="btn" id="showReimbursements">View Pending Reimbursements</button>
+			<button class="btn" id="showResolvedReimb">View Resolved Reimbursements</button>
+			<!--  if time add employee <button class="btn" id="showCreate">Add employee</button> -->
+		</div>
+		<br>
+		
+		<div id ="showForm">
+			<form id="createReimb" hidden action="/Project1/createReimb" method="POST">
+			<!--	<div class="form-group">
+                	<label for="contentType" class="col-md-6 col-form-label">Reimbursement Content</label>
+                      <div class="col-md-7">
+                       	<input type="text" id="contentInp" class="form-control" name="content" aria-describedby="contentHelp" placeholder="Enter content">
+                       	<small id="emailHelp" class="form-text">What is this reimbursement request for?</small>
+                      </div>
+                   </div> -->
+               <div class="form-group">
+                	<label for="amountType" class="col-md-6 col-form-label">Amount Requested</label>
+                      <div class="col-md-7">
+                       	<input type="number" id="amountInp" class="form-control" name="amount" aria-describedby="amountHelp" placeholder="Enter amount requested ($xx.xx)" required>
+                       	<small id="amountHelp" class="form-text">What is the monetary amount you are requesting to be reimbursed for?</small>
+                      </div>
+                   </div>  
+                	<textarea rows="3" cols="50" name="content" form="createReimb" maxlength="2000" placeholder="Please enter the reason for your reimbursement request. Be as specific as possible." required></textarea>
+               	
+               <div class ="submitLogin">
+                   <button id="submitRequest" type="submit" class="col-md-3 btn btn-success">Submit Reimbursement Request</button>
+               </div> <br>
+               </form>
+               
+       
+		</div>
+		
+		<div id="pendingTable" hidden>
+			<table class="table table-bordered table-hover" id="pending">
+				<tr>
+					<th style="background-color:#428bca" id="sticky">Employee Id#</th>
+					<th style="background-color:#428bca" id="sticky">Name</th>
+					<th style="background-color:#428bca" id="sticky">Email</th>
+					<th style="background-color:#428bca" id="sticky">Managers' Id#</th>
+				</tr>
+			</table>
+		</div>
+		
+		<div id="resolvedTable" hidden>
+			<table class="table table-bordered table-hover" id="resolved">
+				<tr>
+					<th style="background-color:#428bca" id="sticky">Reimbursement Id#</th>
+					<th style="background-color:#428bca" id="sticky">Content</th>
+					<th style="background-color:#428bca" id="sticky">Amount Requested</th>
+					<th style="background-color:#428bca" id="sticky">Status</th>
+					<th style="background-color:#428bca" id="sticky">Resolved By</th>
+				</tr>
+			</table>
+		</div>
+		
+	<p hidden id="sessionEmail"></p>
+	<p hidden id="hiddenId"></p>
+   
+<script src="static/Scripts/employeehome.js"></script>
 </body>
 </html>

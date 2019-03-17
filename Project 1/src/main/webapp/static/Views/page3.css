@@ -20,9 +20,9 @@ h1 {
 	color: white;
 }
 
-#greeting {
+#greetingEmp {
 	position: absolute;
-	right: 20px;
+	right: 30px;
 	color: white;
 	background-color: black;
 	padding: 0;
@@ -30,14 +30,9 @@ h1 {
 	background: none;
 }
 
+
 .dropdown-toggle::after {
     display: none;
-}
-
-.dropdown-menu {
-    transform: translate3d(1197px, 140px, 0px) !important;
-    text-align:center;
-    width: 17.5%;
 }
 
 .dropButton {
@@ -53,42 +48,17 @@ h2 {
 	text-align: center;
 }
 
-#empTable {
-	background-color: #F5F5F5;
-	height: 65%;
-	display: block;
-    overflow-y: auto;
-    margin: auto;
-    width: 65%;
-    text-align:center;
-}
-
-#reimbTable, #resolvedTable{
-	background-color: #F5F5F5;
-	height: 65%;
-	display: block;
-    overflow-y: auto;
-    margin: auto;
-    width: 68%;
-    text-align:center;
-}
-
 .btn{
 	background-color:#428bca;
 }
 
-.holdDiv{
+form {
 	width:100%;
+	margin: auto;
+	text-align:center;
 }
 
-.rowClass {
-	float: right;
-	width:100%;
+.form-group {
+	width: 100%;
+	text-align: center;
 }
-
-#select {
-	float:right;
-	margin-right: 10px;
-	margin-top: 10px;
-}
-

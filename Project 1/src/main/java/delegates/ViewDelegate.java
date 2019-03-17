@@ -16,6 +16,9 @@ public class ViewDelegate {
 		case "managerLogin":
 			request.getRequestDispatcher("/static/Views/managerhome.html").forward(request, response);
 			return;
+		case "employeeLogin":
+			request.getRequestDispatcher("/static/Views/employeehome.html").forward(request, response);
+			return;
 		default:
 			response.sendError(404, "Static Resource Not Found");
 		}

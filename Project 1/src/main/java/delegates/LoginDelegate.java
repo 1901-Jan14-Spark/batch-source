@@ -32,7 +32,7 @@ public class LoginDelegate {
 		} else {
 			HttpSession session = request.getSession();
 			session.setAttribute("email", email);
-			response.sendRedirect("WelcomeEmployee");
+			response.sendRedirect("http://localhost:9393/Project1/employeeLogin");
 		}		
 	}
 	}
