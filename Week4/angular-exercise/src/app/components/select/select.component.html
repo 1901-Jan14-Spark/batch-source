@@ -1,13 +1,23 @@
-<input type="checkbox" [(ngModel)]="isAnimal" name="option" /> animal <br><br>
-<input type="checkbox" [(ngModel)]="isColor" name="option" /> color <br><br>
-<input type="checkbox" [(ngModel)]="isday" name="option" /> days <br><br>
+<label><input type="radio" [(ngModel)]="ltype" value="animals" />Animals</label
+><br />
+<label><input type="radio" [(ngModel)]="ltype" value="colors" />Colors</label
+><br />
+<label><input type="radio" [(ngModel)]="ltype" value="days" />Days</label><br />
 
-<div *ngIf="isAnimal">
-  <p *ngFor="let animal of animals">{{ animal }}</p>
+<div *ngIf="'animals' == ltype">
+  <ul *ngFor="let animal of animals">
+    <p>{{ animal }}</p>
+  </ul>
 </div>
-<div *ngIf="isColor">
-  <p *ngFor="let color of colors">{{ color }}</p>
+
+<div *ngIf="'colors' == ltype">
+  <ul *ngFor="let color of colors">
+    <p>{{ color }}</p>
+  </ul>
 </div>
-<div *ngIf="isday">
-  <p *ngFor="let day of days">{{ day }}</p>
+
+<div *ngIf="'days' == ltype">
+  <ul *ngFor="let day of days">
+    <p>{{ day }}</p>
+  </ul>
 </div>
