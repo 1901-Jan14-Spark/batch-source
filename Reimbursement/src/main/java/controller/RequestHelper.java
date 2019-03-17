@@ -39,6 +39,9 @@ public class RequestHelper {
 						response.sendError(405, "Method "+ record +" Not Available");
 					}
 					break;
+//				case "login":
+//					response.sendRedirect("Login.html");
+//					break;
 				default:
 					response.sendError(404, "Method Not Supported");
 		 				}

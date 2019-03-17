@@ -45,4 +45,9 @@ public class EmployeesService implements EmployeesDao {
 		return empImpl.deleteEmployeesById(id);
 	}
 
+	@Override
+	public Employees getEmployeesByIsMana(int stat) {
+		return empImpl.getEmployeesByIsMana(stat);
+	}
+
 }

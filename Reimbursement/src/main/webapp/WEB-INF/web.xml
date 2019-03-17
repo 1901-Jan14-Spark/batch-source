@@ -21,12 +21,12 @@
 	</servlet-mapping>
 	-->
 	<servlet>
-		<servlet-name>	FrontController</servlet-name>
+		<servlet-name>FrontController</servlet-name>
 		<servlet-class>controller.FrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>	FrontController</servlet-name>
-		<url-pattern>/controller</url-pattern>
+		<servlet-name>FrontController</servlet-name>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
  
 </web-app>

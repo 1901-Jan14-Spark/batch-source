@@ -9,5 +9,6 @@ function sendGet(url, callback){
 	xhr.send();
 }
 
+
 //sendGet()
 

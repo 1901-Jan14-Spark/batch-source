@@ -18,7 +18,6 @@ public class FrontController extends DefaultServlet{
 			}else {
 			helper.process(request, response);
 			}
-			
 		}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
