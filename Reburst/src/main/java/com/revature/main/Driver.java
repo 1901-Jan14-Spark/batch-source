@@ -10,20 +10,20 @@ import com.revature.model.Employee;
 import com.revature.util.ConnectionUtil;
 
 public class Driver {
-
+	
 	public static void main(String[] args) {
-//		try {
-//			Connection c = ConnectionUtil.getConnectionFromFile();
-//			System.out.println(c.getMetaData().getDriverName());
-//		} catch (SQLException | IOException e) {
-//			e.printStackTrace();
-//		} 
+	try {
+		Connection c = ConnectionUtil.getConnectionFromFile();
+			System.out.println(c.getMetaData().getDriverName());
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		} 
 		
-//		EmployeeDao ee = new EmployeeDaoImpl();
-//		
-//		Employee e = ee.validate("fake1@gmail.com", "password1");
-//		
-//		System.out.println(e);
+		EmployeeDao ee = new EmployeeDaoImpl();
+	
+	Employee e = ee.getUserByEmail("fake4@gmail.com");
+	
+	System.out.println(e);
 	}
 
 }

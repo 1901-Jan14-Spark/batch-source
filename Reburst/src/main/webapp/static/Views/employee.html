@@ -15,8 +15,8 @@
     />
 
     <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/employee.css" />
+    <link rel="stylesheet" type="text/css" href="static/assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/employee.css" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -28,55 +28,85 @@
   </head>
 
   <body>
-      <div class="d-flex" id="wrapper">
-
-          <!-- Sidebar -->
-          <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">Re-Burst </div>
-            <div class="list-group list-group-flush">
-              <a href="eReimbursement.html" class="list-group-item list-group-item-action bg-light">Reimbursements</a>
-              <a href="Eprofile.html" class="list-group-item list-group-item-action bg-light">View Profile</a>
-            </div>
-          </div>
-          <!-- /#sidebar-wrapper -->
-      
-          <!-- Page Content -->
-          <div id="page-content-wrapper">
-      
-            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-      
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-      
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                      <a class="nav-link" href="index.html">Sign Out</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        More
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="eReimbursement.html">Reimbursements</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="Eprofile.html">View Profile</a>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-          </div>
-          <!-- /#page-content-wrapper -->
-      
+    <div class="d-flex" id="wrapper">
+      <!-- Sidebar -->
+      <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">Re-Burst</div>
+        <div class="list-group list-group-flush">
+          <form method="POST" action="eReimbursement">
+            <input class="lookGOOD" type="submit" value="Reimbursements" />
+          </form>
+          <form method="POST" action="eProfile">
+            <input class="lookGOOD" type="submit" value="Profile" />
+          </form>
         </div>
-        <!-- /#wrapper -->
-      
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      </div>
+      <!-- /#sidebar-wrapper -->
 
+      <!-- Page Content -->
+      <div id="page-content-wrapper">
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-light border-bottom"
+        >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+              <li class="nav-item">
+                <form method="POST" action="logout">
+                  <input class="lookGOOD" type="submit" value="Logout" />
+                </form>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  More
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <form method="POST" action="eReimbursement">
+                    <input
+                      class="lookGOOD"
+                      type="submit"
+                      value="Reimbursements"
+                    />
+                  </form>
+                  <div class="dropdown-divider"></div>
+                  <form method="POST" action="eProfile">
+                    <input class="lookGOOD" type="submit" value="Profile" />
+                  </form>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

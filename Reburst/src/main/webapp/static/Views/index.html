@@ -15,8 +15,8 @@
     />
 
     <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="../assets/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="static/assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="static/assets/css/index.css" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -38,7 +38,7 @@
             </div>
           </div>
           <div class="card-body">
-            <form action="login" method="POST">
+            <form action="sendLogin" method="POST">
               <div class="input-group form-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"
@@ -47,7 +47,7 @@
                 </div>
                 <input
                   type="text"
-                  name="email"
+                  name="username"
                   class="form-control"
                   placeholder="Username"
                 />
@@ -66,15 +66,8 @@
                 />
               </div>
               <div class="form-group">
-                <a  href="employee.html" id="loginButton" class="btn justify-content-center login_btn">E-login</a>
+                <input type="submit" value="login "id="loginButton" class="btn justify-content-center login_btn">
               </div>
-              
-              <div class="form-group">
-                  <a href="manager.html" id="loginButton" type="submit" class="btn justify-content-center login_btn">m-login</a>
-              </div>
-                <div class="form-group">
-                    <a href="hrmanager.html" id="loginButton" class="btn justify-content-center login_btn">hrM-login</a>
-                </div>
             </form>
           </div>
         </div>

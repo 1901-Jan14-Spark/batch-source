@@ -6,41 +6,15 @@ import com.revature.dao.ReimbursementDao;
 import com.revature.dao.ReimbursementDaoImpl;
 import com.revature.model.Reimbursement;
 
-public class ReimbursementService implements CrudService<Reimbursement> {
+public class ReimbursementService {
 
-	ReimbursementDao rebursDao = new ReimbursementDaoImpl();
+	ReimbursementDao rDao = new ReimbursementDaoImpl();
 	
-	@Override
-	public List<Reimbursement> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Reimbursement> getReimbursements() {
+		return rDao.getReimbursements();
 	}
 
-	@Override
-	public Reimbursement getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public int create(Reimbursement obj) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int update(Reimbursement obj) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int deleteById(int id) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
 	public int validation(Reimbursement obj) {
 		// TODO Auto-generated method stub
 		return 0;

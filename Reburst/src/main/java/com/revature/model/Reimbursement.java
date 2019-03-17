@@ -18,7 +18,8 @@ public class Reimbursement implements Serializable {
 	private Timestamp date;
 	private String description;
 	private Blob image;
-	private int manager_id;
+	private int rStatusChange;
+	private int employee_id;
 	
 	
 	public Reimbursement() {
@@ -28,7 +29,7 @@ public class Reimbursement implements Serializable {
 
 
 	public Reimbursement(int rId, double rAmount, int rStatus, Timestamp date, String description, Blob image,
-			int manager_id) {
+			int rStatusChange, int employee_id) {
 		super();
 		this.rId = rId;
 		this.rAmount = rAmount;
@@ -36,7 +37,33 @@ public class Reimbursement implements Serializable {
 		this.date = date;
 		this.description = description;
 		this.image = image;
-		this.manager_id = manager_id;
+		this.rStatusChange = rStatusChange;
+		this.employee_id = employee_id;
+	}
+
+	
+
+	public Reimbursement(int rId, double rAmount, int rStatus, Timestamp date, String description, int rStatusChange,
+			int employee_id) {
+		super();
+		this.rId = rId;
+		this.rAmount = rAmount;
+		this.rStatus = rStatus;
+		this.date = date;
+		this.description = description;
+		this.rStatusChange = rStatusChange;
+		this.employee_id = employee_id;
+	}
+
+	
+	public Reimbursement(int rId, double rAmount, int rStatus, String description, int rStatusChange, int employee_id) {
+		super();
+		this.rId = rId;
+		this.rAmount = rAmount;
+		this.rStatus = rStatus;
+		this.description = description;
+		this.rStatusChange = rStatusChange;
+		this.employee_id = employee_id;
 	}
 
 
@@ -100,13 +127,23 @@ public class Reimbursement implements Serializable {
 	}
 
 
-	public int getManager_id() {
-		return manager_id;
+	public int getrStatusChange() {
+		return rStatusChange;
 	}
 
 
-	public void setManager_id(int manager_id) {
-		this.manager_id = manager_id;
+	public void setrStatusChange(int rStatusChange) {
+		this.rStatusChange = rStatusChange;
+	}
+
+
+	public int getEmployee_id() {
+		return employee_id;
+	}
+
+
+	public void setEmployee_id(int employee_id) {
+		this.employee_id = employee_id;
 	}
 
 
@@ -116,13 +153,14 @@ public class Reimbursement implements Serializable {
 		int result = 1;
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + employee_id;
 		result = prime * result + ((image == null) ? 0 : image.hashCode());
-		result = prime * result + manager_id;
 		long temp;
 		temp = Double.doubleToLongBits(rAmount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + rId;
 		result = prime * result + rStatus;
+		result = prime * result + rStatusChange;
 		return result;
 	}
 
@@ -146,13 +184,20 @@ public class Reimbursement implements Serializable {
 				return false;
 		} else if (!description.equals(other.description))
 			return false;
-		if (manager_id != other.manager_id)
+		if (employee_id != other.employee_id)
+			return false;
+		if (image == null) {
+			if (other.image != null)
+				return false;
+		} else if (!image.equals(other.image))
 			return false;
 		if (Double.doubleToLongBits(rAmount) != Double.doubleToLongBits(other.rAmount))
 			return false;
 		if (rId != other.rId)
 			return false;
 		if (rStatus != other.rStatus)
+			return false;
+		if (rStatusChange != other.rStatusChange)
 			return false;
 		return true;
 	}
@@ -161,7 +206,8 @@ public class Reimbursement implements Serializable {
 	@Override
 	public String toString() {
 		return "Reimbursement [rId=" + rId + ", rAmount=" + rAmount + ", rStatus=" + rStatus + ", date=" + date
-				+ ", description=" + description + ", image=" + image + ", manager_id=" + manager_id + "]";
+				+ ", description=" + description + ", image=" + image + ", rStatusChange=" + rStatusChange
+				+ ", employee_id=" + employee_id + "]";
 	}
 	
 	

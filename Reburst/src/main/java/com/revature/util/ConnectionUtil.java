@@ -15,6 +15,11 @@ public class ConnectionUtil {
 
 	
 	public static Connection getConnectionFromFile() throws IOException, SQLException {
+		try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 		Properties prop = new Properties();
 		InputStream in = new FileInputStream("connections.properties");
 		prop.load(in);
