@@ -3,6 +3,7 @@ let employeeUrl = "http://localhost:9393/Project1/api/employees";
 document.getElementById("showRequestForm").addEventListener("click", unhideForm);
 document.getElementById("showReimbursements").addEventListener("click", unhidePendingTable);
 document.getElementById("showResolvedReimb").addEventListener("click", unhideResolved);
+document.getElementById("submitRequest").addEventListener("click", processPostRequest);
 
 function unhideForm(){
 	let form = document.getElementById("createReimb");
@@ -60,6 +61,24 @@ function sendAjaxGet(url, funct){
 	}
 	xhr.open("GET", url);
 	xhr.send();
+}
+
+function ajaxPost(url, newReimbObj){
+	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
+	xhr.open("POST", url);
+	xhr.onreadystatechange = function (){
+		if(this.readyState === 4 && xhr.status === 201){
+			console.log('post worked');
+		}
+	}
+	xhr.setRequestHeader("Content-Type", "application/json");
+	let jsonEmp = JSON.stringify(newReimbObj);
+	console.log(jsonEmp);
+	xhr.send(jsonEmp);
+}
+
+function processPostRequest(){
+	
 }
 
 //function to hide employeeId -- needed when submitting reimbursements.
