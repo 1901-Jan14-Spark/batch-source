@@ -1,0 +1,13 @@
+
+
+
+
+<div>
+   colors: <input type = "radio" name = "colors" [value] ="colo" ><br>
+   animals: <input type = "radio" name = "animals"  [value] ="anim"><br>
+   days: <input type = "radio" name = "days" [value] ="day">
+</div>
+
+<div *ngIf = 'colo' id='colordiv'>{{colors}}</div>
+<div *ngIf = 'anim' id='animalsdiv'>{{animals}}</div>
+<div *ngIf = 'day' id='daysdiv'>{{days}}</div>

@@ -9,6 +9,9 @@ function sendGet(url, callback){
 	xhr.send();
 }
 
+let url ="http://localhost:8080/Reimbursement/api/employees";
+sendGet(url, populate);
 
-//sendGet()
-
+function poppulate(){
+	
+}

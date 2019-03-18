@@ -19,30 +19,40 @@ EmployeesService es = new EmployeesService();
 public void getEmployees(HttpServletRequest request, HttpServletResponse response) throws IOException {
 	List<Employees> allEmps = es.getAll();
 	List<Employees> empSearch = new ArrayList<>();
+//	System.out.println(allEmps);
+//	String empId = request.getParameter("id");
+//	String firstname = request.getParameter("first");
+//	String lastname = request.getParameter("last");
+//	String managerStat = request.getParameter("isMana");
+	String empJSON;
 	
-	String empId = request.getParameter("id");
-	String firstname = request.getParameter("first");
-	String lastname = request.getParameter("last");
-	String managerStat = request.getParameter("isMana");
-	
-	if (empId != null && empId.matches("^\\d+$")) {
-		empSearch.add(es.getEmployeesById(Integer.parseInt(empId)));
-	} else if (firstname != null && lastname != null) {
-		for (Employees e : allEmps) {
-			if (e.getFirst().contains(firstname) && e.getLast().contains(lastname)) {
-				empSearch.add(e);
-			} else if(managerStat != null && managerStat.matches(("^\\d+$"))){
-				empSearch.add(es.getEmployeesByIsMana(Integer.parseInt(managerStat)));
-			}else {
-			empSearch = allEmps;
-		}
+	System.out.println(empSearch);
+	ObjectMapper om = new ObjectMapper();
+	empJSON = om.writeValueAsString(allEmps);
+	System.out.println(empJSON);
 
-		ObjectMapper om = new ObjectMapper();
-		PrintWriter pw = response.getWriter();
-		pw.write(om.writeValueAsString(empSearch));
-		pw.close();
-	}
-}
+	PrintWriter pw = response.getWriter();
+	pw.write(empJSON);
+	pw.close();
+	
+//	if (empId != null && empId.matches("^\\d+$")) {
+//		empSearch.add(es.getEmployeesById(Integer.parseInt(empId)));
+//		System.out.println("check1");
+//	} else if (firstname != null && lastname != null) {
+//		for (Employees e : allEmps) {
+//			if (e.getFirst().contains(firstname) && e.getLast().contains(lastname)) {
+//				empSearch.add(e);
+//				System.out.println("check2");
+//			} else if(managerStat != null && managerStat.matches(("^\\d+$"))){
+//				empSearch.add(es.getEmployeesByIsMana(Integer.parseInt(managerStat)));
+//				System.out.println("check3");
+//
+//			}else {
+//			empSearch = allEmps;		System.out.println("check4");
+//
+//		}
+//	}
+//}
 
 
 
@@ -56,9 +66,7 @@ public void createEmployees(HttpServletRequest request, HttpServletResponse resp
 	
 	int empCreated = es.createEmployee(newEmp);
 	if(empCreated ==1) {
-		response.setStatus(201);
-	}else {
-		response.setStatus(400);
+		
 	}
 }
 
