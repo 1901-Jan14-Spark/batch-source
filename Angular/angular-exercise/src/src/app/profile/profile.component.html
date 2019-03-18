@@ -1,0 +1,8 @@
+<p>
+  User Information
+</p>
+
+<button click="visible=!visible"{{ visible ? " Hide " : " Show " }}></button>
+<div *ngIf="!view">
+  <p *ngFor="let User of Users">{{ User }}</p>
+</div>

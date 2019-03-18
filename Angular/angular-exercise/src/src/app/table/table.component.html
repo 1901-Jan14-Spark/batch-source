@@ -1,0 +1,16 @@
+<table >
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Birthday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people">
+      <td>{{ person.Name}}</td>
+      <td>{{ person.Email }}</td>
+      <td>{{ person.Birthday | date: "MM/dd/yyyy" }}</td>
+    </tr>
+  </tbody>
+</table>
