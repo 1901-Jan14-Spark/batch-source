@@ -1,0 +1,15 @@
+<h4>Table Component</h4>
+
+<table [ngClass]="class">
+  <tr>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>Birthday</th>
+  </tr>
+  <tr *ngFor="let thing of people">
+    <td>{{thing.firstName}} {{thing.lastName}}</td>
+    <td>{{thing.email}}</td>
+    <td>{{thing.birthday}}</td>
+  </tr>
+
+<button (click)="changeCSS()">Toggle CSS</button>

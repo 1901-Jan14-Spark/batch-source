@@ -1,0 +1,12 @@
+<h4>Select Component</h4>
+
+<form>
+  <label *ngFor="let item of things; let i = index">
+    <input type="radio" [value]="item" (change)="isSelected(item)">
+    {{things[i]}}
+  </label>
+</form>
+
+<ul>
+  <li *ngFor="let item of printItems">{{item}}</li>
+</ul>
