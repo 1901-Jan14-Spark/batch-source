@@ -1,0 +1,11 @@
+<hr>
+<h2>Profiles</h2>
+<button (click)="show = !show">{{ show ? "Show Profiles" : "Hide Profiles" }}</button>
+<br>
+<div *ngIf="!show">
+  <ol class="profiles">
+    <li *ngFor="let profile of profiles">
+      <span class> Name: {{ profile.name}}.  Number: {{ profile.id }}</span> 
+    </li>
+  </ol>
+</div>

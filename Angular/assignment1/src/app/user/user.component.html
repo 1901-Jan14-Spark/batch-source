@@ -1,0 +1,22 @@
+<hr>
+<h2>Retrieving Users</h2>
+<div class="container">
+    <div *ngIf='users.length>0'>
+      <table class="table table-hover">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Website</th>
+        </tr>
+        <tr *ngFor='let user of users'>
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.website}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>

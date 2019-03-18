@@ -1,0 +1,25 @@
+<hr>
+<h2>Person Table</h2>
+<div class="container">
+    <div *ngIf='people.length>0'>
+      <table [ngClass]="style ? '' : 'table'">
+        <tr>
+          <th>First Name</th>
+          <th>LastName</th>
+          <th>Email</th>
+          <th>Birthday</th>
+        </tr>
+        <tr *ngFor='let person of people'>
+          <td>{{ person.firstname | firstCap }}</td>
+          <td>{{ person.lastname | firstCap}}</td>
+          <td>{{ person.email }}</td>
+          <td>{{ person.birthday | date:'MM/dd/yyyy' }}</td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <p>Click the button to add styling to the table!</p>
+    <button class="btn btn-primary" (click)="style = !style">
+      {{ style ? "Styled Table" : "Unstyled Table"}}
+    </button>
+  </div>
