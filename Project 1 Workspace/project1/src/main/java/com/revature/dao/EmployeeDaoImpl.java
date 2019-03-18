@@ -122,6 +122,15 @@ public class EmployeeDaoImpl implements EmployeeDao{
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)){
 			
+			ps.setInt(1, e.getId());
+			ps.setString(1, e.getUsername());
+			ps.setString(3, e.getPassword());
+			ps.setString(4, e.getEmail());
+			ps.setString(5, e.getAddress());
+			ps.setString(6, e.getPhone());
+			ps.setInt(7, e.getIsManager());
+			employeeUpdate = ps.executeUpdate();
+			
 		}catch(SQLException x) {
 			x.printStackTrace();
 		}

@@ -2,8 +2,6 @@ package com.revature.services;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import com.revature.dao.EmployeeDao;
 import com.revature.dao.EmployeeDaoImpl;
 import com.revature.models.Employee;
@@ -13,7 +11,7 @@ public class EmployeeService implements CrudService<Employee>{
 	EmployeeDao ed = new EmployeeDaoImpl();
 	
 	@Override
-	public List<Employee> getAll(HttpServletRequest request) {
+	public List<Employee> getAll() {
 		return ed.getEmployees();
 	}
 
@@ -29,7 +27,6 @@ public class EmployeeService implements CrudService<Employee>{
 
 	@Override
 	public int update(Employee employee) {
-		// TODO Auto-generated method stub
 		return ed.updateEmployee(employee);
 	}
 

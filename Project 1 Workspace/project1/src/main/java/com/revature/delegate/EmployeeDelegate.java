@@ -64,7 +64,7 @@ public class EmployeeDelegate {
 		int numCreated = eService.create(e);
 		System.out.println(numCreated);
 		
-		response.sendRedirect("../employees");
+		response.sendRedirect("../employee");
 	}
 	public void updateEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		
