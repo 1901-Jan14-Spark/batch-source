@@ -18,12 +18,12 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		
 		HttpSession session = request.getSession();
 		if("admin".equals(username) && "pass123".equals(password)) {
 			session.setAttribute("username", username);
 			response.sendRedirect("profile");
 		} else {
+			session.setAttribute("error", "Invalid username or password");
 			response.sendRedirect("login");
 		}
 		

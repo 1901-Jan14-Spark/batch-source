@@ -14,6 +14,6 @@ sendAjaxGet("http://localhost:8080/PEAKReimbursment/session", checkLogin);
 
 function checkLogin(xhr){
 	let response = JSON.parse(xhr.response);
-	if(response.username == null)
-		window.location = "http://localhost:8080/PEAKReimbursment/login";
+	if(response.error != null)
+		document.getElementById("loginerror").innerHTML = response.error;
 }

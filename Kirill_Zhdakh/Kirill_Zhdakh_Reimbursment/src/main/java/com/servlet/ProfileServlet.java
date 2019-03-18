@@ -14,6 +14,7 @@ public class ProfileServlet extends HttpServlet {
 		if(request.getSession().getAttribute("username")==null) {
 			response.sendRedirect("login");
 		} else {
+			request.getSession().removeAttribute("error");
 			request.getRequestDispatcher("Views/Profile.html").forward(request, response);
 		}
 	}
