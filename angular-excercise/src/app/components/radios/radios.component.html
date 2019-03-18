@@ -1,0 +1,21 @@
+<label><input type="radio" [(ngModel)]="choice" value="animals" />Animals</label>
+<label><input type="radio" [(ngModel)]="choice" value="colors" />Colors</label>
+<label><input type="radio" [(ngModel)]="choice" value="days" />Days</label>
+  
+  <div *ngIf="'animals' == choice">
+    <ul *ngFor="let animal of animals">
+      <p>{{ animal }}</p>
+    </ul>
+  </div>
+  
+  <div *ngIf="'colors' == choice">
+    <ul *ngFor="let color of colors">
+      <p>{{ color }}</p>
+    </ul>
+  </div>
+  
+  <div *ngIf="'days' == choice">
+    <ul *ngFor="let day of days">
+      <p>{{ day }}</p>
+    </ul>
+  </div>

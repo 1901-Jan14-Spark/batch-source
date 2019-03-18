@@ -1,0 +1,20 @@
+<table class="table table-hover">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Phone Number</th>
+      <th>Website</th>
+    </tr>
+    <tr *ngFor="let post of posts">
+      <td>{{ post.id }}</td>
+      <td>{{ post.name }}</td>
+      <td>{{ post.username }}</td>
+      <td>{{ post.email }}</td>
+      <td>{{ post.phone }}</td>
+      <td>{{ post.website }}</td>
+    </tr>
+  </table>
+  
+  <button class="btn btn-primary" (click)="getPosts()">Get Posts</button>
