@@ -7,16 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SelectComponent implements OnInit {
 
+  options = '';
   colors: string[] = ['green', 'red', 'purple', 'orange'];
   animals: string[] = ['cow', 'dog', 'dragon', 'trent'];
   days: string[] = ['friday', 'saturday', 'sunday', 'monday'];
-
-  showcolors() {
-    document.getElementById('colordiv');
-    document.getElementById('animalsdiv');
-    document.getElementById('daysdiv');
-
-  }
 
   constructor() { }
 

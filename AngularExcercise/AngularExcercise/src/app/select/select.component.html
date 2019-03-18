@@ -3,11 +3,12 @@
 
 
 <div>
-   colors: <input type = "radio" name = "colors" [value] ="colo" ><br>
-   animals: <input type = "radio" name = "animals"  [value] ="anim"><br>
-   days: <input type = "radio" name = "days" [value] ="day">
+   colors: <input type = "radio" [(ngModel)]="options" value ="colo" ><br>
+   animals: <input type = "radio" [(ngModel)] = 'options' value ="anim"><br>
+   days: <input type = "radio" [(ngModel)] = 'options' value ="day">
 </div>
 
-<div *ngIf = 'colo' id='colordiv'>{{colors}}</div>
-<div *ngIf = 'anim' id='animalsdiv'>{{animals}}</div>
-<div *ngIf = 'day' id='daysdiv'>{{days}}</div>
+<div *ngIf = '"colo"== options'>{{colors}}</div>
+<div *ngIf = '"anim"== options'>{{animals}}</div>
+<div *ngIf = '"day"== options'>{{days}}</div>
+
