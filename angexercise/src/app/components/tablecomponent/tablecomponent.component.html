@@ -1,0 +1,18 @@
+<br>
+<h2>The Table Component</h2>
+<button class="btn" (click)="changeStyle()">Change Style</button>
+<table [ngClass]="styleTable ? '' : 'table table-striped'">
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>DOB</th>
+  </tr>
+  <tr *ngFor="let pep of people">
+    <td>{{pep.firstname | uppercase }}</td>
+    <td>{{pep.lastname | uppercase }}</td>
+    <td>{{pep.email}}</td>
+    <td>{{pep.dob | date:"MM/dd/yy"}}</td>
+  </tr>
+
+</table>

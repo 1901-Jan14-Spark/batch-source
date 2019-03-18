@@ -1,0 +1,22 @@
+<p>The Select Component</p>
+<input type="radio" [(ngModel)] = "options" value="animals">Animal
+<input type="radio" [(ngModel)] = "options" value="colors">Colors
+<input type="radio" [(ngModel)] = "options" value="days">Days
+
+<div *ngIf="'animals' == options">
+  <li>
+    <ul *ngFor = "let anim of animals">{{anim}}</ul>
+  </li>
+</div>
+
+<div *ngIf="'colors' == options">
+    <li>
+      <ul *ngFor = "let col of colors">{{col}}</ul>
+    </li>
+  </div>
+
+  <div *ngIf="'days' == options">
+      <li>
+        <ul *ngFor = "let da of days">{{da}}</ul>
+      </li>
+    </div>

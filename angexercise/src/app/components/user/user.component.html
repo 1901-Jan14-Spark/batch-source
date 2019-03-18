@@ -1,0 +1,19 @@
+<button class="btn" (click)="getUsers()">Click Me To See Users!</button>
+
+<table class="table">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+  <tr *ngFor ="let us of user">
+    <td>{{us.id}}</td>
+    <td>{{us.name}}</td>
+    <td>{{us.username}}</td>
+    <td>{{us.email}}</td>
+    <td>{{us.phone}}</td>
+  </tr>
+
+</table>
