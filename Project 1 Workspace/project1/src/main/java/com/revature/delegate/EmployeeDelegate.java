@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.Employee;
+import com.revature.models.Reimbursement;
 import com.revature.services.EmployeeService;
 
 public class EmployeeDelegate {
@@ -33,7 +34,7 @@ public class EmployeeDelegate {
 			}
 		}
 		else {
-			List<Employee> employees = eService.getAll(request);
+			List<Employee> employees = eService.getAll();
 			employeeJSON = om.writeValueAsString(employees);
 		}
 		PrintWriter pw = response.getWriter();
@@ -67,9 +68,31 @@ public class EmployeeDelegate {
 		response.sendRedirect("../employee");
 	}
 	public void updateEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	String requestBodyText = request.getReader().readLine();
 		
+		ObjectMapper om = new ObjectMapper();
+		Employee newE = om.readValue(requestBodyText, Employee.class);
+		
+		int reimbursementsUpdated = eService.update(newE);
+		if(reimbursementsUpdated == 1) {
+			response.setStatus(202);
+		}
+		else {
+			response.setStatus(400);
+		}
 	}
 	public void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	String requestBodyText = request.getReader().readLine();
 		
+		ObjectMapper om = new ObjectMapper();
+		Employee newE = om.readValue(requestBodyText, Employee.class);
+		
+		int reimbursementsUpdated = eService.deleteById(newE.getId());
+		if(reimbursementsUpdated == 1) {
+			response.setStatus(202);
+		}
+		else {
+			response.setStatus(400);
+		}
 	}
 }
