@@ -21,17 +21,23 @@ public class LoginDelegate {
 	System.out.println("checkedInput " +checkedInput);
 	
 	PrintWriter pw = response.getWriter();
-	if("nullEmail".matches(checkedInput) || "incorrect".matches("checkedInput")) {
+	if("nullEmail".matches(checkedInput) || "incorrect".matches(checkedInput)) {
+		HttpSession session = request.getSession();
+		String error = "error";
+		session.setAttribute("email", error);
 		response.sendRedirect("login");
 	} else {
 		if("manager".matches(checkedInput)) {
-			System.out.println(checkedInput);
-			HttpSession session = request.getSession();
-			session.setAttribute("email", email);
+			HttpSession error = request.getSession();
+			error.invalidate();
+			HttpSession newSession = request.getSession();
+			newSession.setAttribute("email", email);
 			response.sendRedirect("http://localhost:9393/Project1/managerLogin");
 		} else {
-			HttpSession session = request.getSession();
-			session.setAttribute("email", email);
+			HttpSession error = request.getSession();
+			error.invalidate();
+			HttpSession newSession = request.getSession();
+			newSession.setAttribute("email", email);
 			response.sendRedirect("http://localhost:9393/Project1/employeeLogin");
 		}		
 	}

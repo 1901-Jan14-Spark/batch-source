@@ -10,7 +10,6 @@ public class LoginService {
 	
 	public String confirmLogin(String email, String password) {
 		Employee temp = empDao.getEmployeeByUsername(email);
-		System.out.println(temp.toString());
 		try {
 			if (temp.getEmail() == null) {
 			String error="nullEmail";

@@ -50,4 +50,9 @@ button {
     height:100%;
 }
 
+p {
+	color: red;
+	font-weight: bold;
+}
+
 
