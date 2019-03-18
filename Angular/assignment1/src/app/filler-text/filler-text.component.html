@@ -1,5 +1,5 @@
 <hr>
 <h2>Filler Text</h2>
-<div>
-  <p (hover)="{'background-color' : selectedColor}">This is some filler text!</p>
+<div (mouseover) = "hover = true" (mouseleave) = "hover = false">
+  <p [ngStyle]="{'background-color' : hover == true ? 'orange' : 'white'}">This is some filler text!</p>
 </div>

@@ -1,6 +1,10 @@
 <hr>
 <h2>Retrieving Users</h2>
 <div class="container">
+    <div class="jumbotrom">
+      <p>Click the button to retrieve all the users:</p>
+      <button class="btn btn-primary" (click)='getUsers()'>Retrieve Users</button>    
+    </div>
     <div *ngIf='users.length>0'>
       <table class="table table-hover">
         <tr>

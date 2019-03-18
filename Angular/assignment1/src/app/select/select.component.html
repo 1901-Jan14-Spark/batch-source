@@ -1,18 +1,11 @@
 <hr>
 <h2>Selected Lists</h2>
-<br>
 <div>
-  <input type="radio" name="animals" value="aSelected">Animals<br>
-  <input type="radio" name="colors" value="colors">Colors<br>
-  <input type="radio" name="days" value="days">Days<br>
+  <input type="radio" (click)='show($event)' name="option" value="animals">Animals<br>
+  <input type="radio" (click)='show($event)' name="option" value="colors">Colors<br>
+  <input type="radio" (click)='show($event)' name="option" value="days">Days<br>
+ <div>
+    <p *ngFor="let i of option">{{ i }}</p>
+  </div>
 </div>
 
-<div *ngIf="aSelected">
-  <p *ngFor="let animal of animals">{{ animal }}</p>
-</div>
-<div *ngIf="cSelected">
-  <p *ngFor="let color of colors">{{ color }}</p>
-</div>
-<div *ngIf="dSelected">
-  <p *ngFor="let day of days">{{ day }}</p>
-</div>

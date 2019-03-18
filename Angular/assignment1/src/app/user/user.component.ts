@@ -17,7 +17,7 @@ export class UserComponent implements OnInit {
 
   getUsers(){
     this.httpService.getUsers()
-      .subscribe((allUsers)=>{
+      .subscribe((allUsers) => {
         this.users = allUsers;
       });
   }
