@@ -1,0 +1,17 @@
+<div>
+  <label>Animals:</label><br>
+  <input type = "radio" name = "animals" value = "animals" (click) = 'getSelect("animals")'>
+  <br>
+  <label>Colors:</label><br>
+  <input type = "radio" name = "colors" value = "colors" (click) = 'getSelect("colors")'>
+  <br>
+  <label>Days:</label><br>
+  <input type = "radio" name = "colors" value = "days" (click) = 'getSelect("days")'>
+  <br>
+</div>
+
+<div>
+  <ul *ngFor = 'let select of selected'>
+      <li>{{select}}</li>
+  </ul>
+</div>

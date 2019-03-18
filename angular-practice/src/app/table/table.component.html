@@ -1,0 +1,19 @@
+<h4>People Table:</h4>
+
+<div>
+  <button [class] = 'buttonStyle' (click) = 'changeStyle()'>Switch Style</button>
+  <table [class] = 'tableStyle'>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Birthday</th>
+    </tr>
+    <tr *ngFor = 'let person of people'>
+      <td>{{person.firstName | lowercase | cap}} {{person.lastName | lowercase | cap}}</td>
+      <td>{{person.email}}</td>
+      <td>{{person.birthday | date:'dd/MM/yy'}}</td>
+    </tr>
+
+  </table>
+
+</div>
