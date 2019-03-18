@@ -1,0 +1,14 @@
+<button class='btn btn-info'>Pretify</button>
+<div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Birthday</th>
+    </tr>
+    <tr *ngFor = 'let peeps of people'  uppercase>
+      <td>{{peeps.firstname | firstCap}} {{peeps.lastname | firstCap}}</td>
+      <td>{{peeps.email}}</td>
+      <td>{{peeps.birthday | date: 'y/MM/dd'}}</td>
+  </table>
+</div>>
