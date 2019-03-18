@@ -27,6 +27,27 @@ people: any[] = [
     birthday: '09-24-1990'
   }
 ];
+buttclass = '';
+buttname = 'pretify';
+clicked = false;
+divy = document.getElementById('table');
+tabname = '';
+
+clicky() {
+  this.clicked = !this.clicked;
+
+  if (this.clicked){
+    this.tabname = 'table table-dark';
+    this.buttname = 'dullify';
+    this.buttclass = 'btn btn-primary btn-lg';
+  } else {
+    this.buttclass = ' ';
+    this.tabname = ' ';
+    this.buttname = 'pretify';  }
+ }
+
+
+
   constructor() { }
 
   ngOnInit() {
