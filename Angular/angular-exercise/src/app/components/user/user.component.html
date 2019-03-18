@@ -1,0 +1,10 @@
+<br><br>
+<button (click)="toggle()">{{buttonName}}</button>
+<br><br>
+<div *ngIf="user">
+  <h2>{{user.lastname | uppercase}} Details</h2>
+  <div><span>First name: </span>{{user.firstname}}</div>
+  <div><span>Last name: </span>{{user.lastname}}</div>
+  <div><span>Birthday: </span>{{user.birthday}}</div>
+  <div><span>Major: </span>{{user.major}}</div>
+</div>

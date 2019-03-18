@@ -1,0 +1,17 @@
+<br><br>
+<div>
+  <table [class]="stylez">
+    <tr>
+      <th>Fullname</th>
+      <th>Email</th>
+      <th>Birthday</th>
+    </tr>
+    <tr *ngFor='let people of peoples'>
+      <td>{{people.firstname | uppercase}} {{people.lastname | uppercase}}</td>
+      <td>{{people.email}}</td>
+      <td>{{people.birthday | date}}</td>
+    </tr>
+  </table>
+  <br>
+  <button class="btn btn-primary" (click) = 'toggleStyle()'>Toggle</button>
+</div>

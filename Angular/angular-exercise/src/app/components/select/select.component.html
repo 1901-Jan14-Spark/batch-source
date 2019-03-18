@@ -1,0 +1,24 @@
+<br><br>
+<div>
+  Please select an option:
+  <br>
+</div>
+<div>
+  <input type="radio" id="animals" name="choice" value="animals" (click) = 'selectRadio($event)'>
+  <label for="animals">Animals</label>
+</div>
+<div>
+  <input type="radio" id="colors" name="choice" value="colors" (click) = 'selectRadio($event)'>
+  <label for="colors">Colors</label>
+</div>
+<div>
+  <input type="radio" id="days" name="choice" value="days" (click) = 'selectRadio($event)'>
+  <label for="days">Days</label>
+</div>
+<div *ngIf="list">
+  <br><br>
+  <h3> List:</h3>
+  <ol>
+    <li *ngFor='let li of list'>{{li}}</li>
+  </ol>
+</div>
