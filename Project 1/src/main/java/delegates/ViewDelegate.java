@@ -10,6 +10,10 @@ import javax.servlet.http.HttpSession;
 public class ViewDelegate {
 	public void returnView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String address = request.getRequestURI().substring(request.getContextPath().length()+1);
+		if ("api/employees".equals(address)) {
+			address = "employeeLogin";
+		}
+		
 		switch(address) {
 		case "login":
 			request.getRequestDispatcher("/static/Views/index.html").forward(request, response);

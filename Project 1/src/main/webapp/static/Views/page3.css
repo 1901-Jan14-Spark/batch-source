@@ -22,7 +22,7 @@ h1 {
 
 #greetingEmp {
 	position: absolute;
-	right: 30px;
+	right: 25px;
 	color: white;
 	background-color: black;
 	padding: 0;
@@ -36,7 +36,7 @@ h1 {
 }
 
 .dropButton {
-	width: 20%;
+	width: 18%;
 }
 
 .btn:focus,.btn:active {
@@ -68,7 +68,7 @@ form {
 	text-align: center;
 }
 
-#amountDiv {
+#amountDiv, #profileButtons {
 	margin: auto;
 	width: 100%;
 }
@@ -80,4 +80,25 @@ form {
 #pending, #resolved {
 	width: 70%;
 	margin: auto;
+}
+
+#profileEditInfoDiv {
+	font-size: 14pt;
+}
+
+#editProfileBtn, #cancelEditBtn {
+	background-color: black;
+	color: white;
+	margin-left: 43.5%;
+}
+
+#saveEditBtn {
+	background-color: black;
+	color: white;
+	margin-right: 20%;
+}
+
+#empFNInp:focus, #empLNInp:focus, #empEmailInp:focus {
+	outline: black;
+	border: 1px solid black;
 }

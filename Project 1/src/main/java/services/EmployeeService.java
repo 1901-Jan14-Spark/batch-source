@@ -13,6 +13,9 @@ public class EmployeeService {
 	
 	public List<Employee> getEmployeesList(){
 		return empDao.getOnlyEmployees();
+	}
 	
+	public int updateEmployeeInfo(Employee e) {
+		return empDao.updateEmployeeInfo(e);
 	}
 }

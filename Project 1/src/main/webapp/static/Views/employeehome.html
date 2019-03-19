@@ -37,7 +37,6 @@
 			<button class="btn" id="showRequestForm">Create Request</button>
 			<button class="btn" id="showReimbursements">View Pending Reimbursements</button>
 			<button class="btn" id="showResolvedReimb">View Resolved Reimbursements</button>
-			<!--  if time add employee <button class="btn" id="showCreate">Add employee</button> -->
 		</div>
 		<br>
 		
@@ -92,29 +91,45 @@
 		
 		<div id="accountProfile" hidden>
 			<h2 id="profileWelcome">Profile Information</h2>
-			<form>
-				<div class="form-group">
+			<form id="saveThisUsersInfo" action="http://localhost:9393/Project1/employeeLogin" method="post">
+				<div id="profileEditInfoDiv" class="form-group">
 					<span style="display: block" id="span1">
-						<label id="firstName" for="firstName">First Name:</label>
+						<label class="col-form-label" id="firstName" for="firstName">First Name:</label>
 							<p style="display: inline" id="empFN"></p>
-							<input style="display: inline" id="empFNInp" type="text" name="empFNInp" hidden>
+							<input style="display: inline" id="empFNInp" type="text" name="empFNInp" class="form-group col-sm-1" hidden>
 					</span>
 					<span style="display: block" id="span2">
-						<label id="lastName" for="lastName">Last Name:</label>
+						<label class="col-form-label" id="lastName" for="lastName">Last Name:</label>
 							<p style="display: inline" id="empLN"></p>
-							<input style="display: inline" id="empLNInp" type="text" name="empLNInp" hidden>
+							<input style="display: inline" id="empLNInp" type="text" name="empLNInp" class="form-group col-sm-1" hidden>
 					</span>
 					<span style="display: block" id="span3">
-						<label id="profEmail" for="email">Email:</label>
+						<label class="col-form-label" id="profEmail" for="email">Email:</label>
 							<p style="display: inline" id="empEmail"></p>
-							<input style="display: inline" id="empEmailInp" type="text" name="empEmailInp" hidden>
+							<input style="display: inline" id="empEmailInp" type="text" name="empEmailInp" class="form-group col-sm-2" hidden>
+					</span>
+					<span style="display: block" id="span4">
+						<label class="col-form-label" id="profPass" for="email">Password:</label>
+							<p style="display: inline" id="empPass"></p>
+						<input style="display: inline" id="empPassInp" type="text" name="empPassInp" class="form-group col-sm-2" hidden>
+						<input id="empFormId" name="empFormId" type="number"> 
+						<input id="empReports" name="empReports" type="number"> 
 					</span>
 						
 					</div>
 			</form>
+			<div id="profileButtons">
+				<div id="centerThisPlease">
+						<button id="editProfileBtn" class="btn">Edit Profile Information</button>
+						<button id="cancelEditBtn" style="display: inline" class="btn" hidden>Cancel</button>
+						<button id="saveEditBtn" style="display: inline" class="btn" type="submit" form="saveThisUsersInfo" hidden>Save Profile Information</button>
+				</div>
+			</div>
 		</div>
 		
-	<p hidden id="sessionEmail"></p>
+	<p hidden id="sessionEmail" hidden></p>
+	<p hidden id="userFirstName" hidden></p>
+	<p hidden id="userLastName" hidden></p>
    
 <script src="static/Scripts/employeehome.js"></script>
 </body>

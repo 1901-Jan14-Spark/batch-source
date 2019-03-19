@@ -20,6 +20,11 @@ body, html {
     float:right;  
 }
 
+#passInp:focus, #emailInp:focus {
+	outline: black;
+	border: 1px solid black;
+}
+
 .ourform {
     margin-top: 215px;
     width: 80%;

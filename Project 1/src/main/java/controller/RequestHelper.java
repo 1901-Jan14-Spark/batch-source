@@ -44,9 +44,15 @@ public class RequestHelper {
 		
 		if(uri.startsWith("/employeeLogin")) {
 			if("POST".equals(request.getMethod())) {
-				reimbDel.createReimbursement(request, response);
-				viewDel.returnView(request, response);
-				return;
+				if(request.getHeader("requestType") != null) {
+					reimbDel.createReimbursement(request, response);
+					viewDel.returnView(request, response);
+					return;
+				} else {
+					empDel.updateUser(request, response);
+					viewDel.returnView(request, response);
+					return;
+				}
 			} else {
 			viewDel.returnView(request, response);
 			}
@@ -76,10 +82,14 @@ public class RequestHelper {
 					empDel.getEmployees(request, response);
 					return;
 				} 
-			else {
+					if ("POST".equals(request.getMethod())){
+					System.out.println("in right method");
+					empDel.updateUser(request, response);
+					return;
+				}
+					else {
 					response.sendError(405, "Method not supported for /"+record);
 				}
-				return;
 			case "reimbursements":
 				if("GET".equals(request.getMethod())) {
 					reimbDel.getReimbursements(request, response);

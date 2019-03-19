@@ -66,4 +66,26 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return tempEmp;
 	}
 
+	@Override
+	public int updateEmployeeInfo(Employee e) {
+		String sql = "Update Employee Set FNAME = ?, LNAME = ?, EMAIL = ?, PASSWORD = ? WHERE emp_id = ?";
+		int employeesUpd = 0;
+		try (Connection con = DBConnection.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+		
+			ps.setString(1, e.getFirstName());
+			ps.setString(2, e.getLastName());
+			ps.setString(3, e.getEmail());
+			ps.setString(4, e.getPassword());
+			ps.setInt(5, e.getId());
+			employeesUpd = ps.executeUpdate();
+		
+			
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return employeesUpd;
+	}
+	
 }

@@ -63,11 +63,9 @@ public class ReimbursementDelegate {
 		if (reimbursementsUpdated == 1) {
 			response.setStatus(201);
 			System.out.println("Woot");
-			
-			
 		} else {
 			response.setStatus(400);
 		}
 	}
 		
-	}
+}

@@ -6,6 +6,14 @@ document.getElementById("showReimbursements").addEventListener("click", unhidePe
 document.getElementById("showResolvedReimb").addEventListener("click", unhideResolved);
 document.getElementById("submitRequest").addEventListener("click", processPostRequest);
 document.getElementById("toProfile").addEventListener("click", showProfile);
+document.getElementById("editProfileBtn").addEventListener("click", toggleToInput);
+document.getElementById("cancelEditBtn").addEventListener("click", cancelEdits);
+document.getElementById("saveEditBtn").addEventListener("click", checkNulls);
+document.getElementById("saveEditBtn").addEventListener("click", refreshPage);
+
+function refreshPage(){
+	window.location.href = "http://localhost:9393/Project1/employeeLogin";
+}
 
 function unhideForm(){
 	let form = document.getElementById("createReimb");
@@ -98,10 +106,14 @@ function storeId(xhr){
 	let sessionEmail = document.getElementById("sessionEmail").innerHTML;
 	for (emps of empId){
 		if(emps.email == sessionEmail){
-			document.getElementById("hiddenId").value = emps.id;
+			document.getElementById("empFormId").value = emps.id;
 			document.getElementById("empFN").innerHTML = emps.firstName;
 			document.getElementById("empLN").innerHTML = emps.lastName;
 			document.getElementById("empEmail").innerHTML = emps.email;
+			document.getElementById("empReports").value = emps.reportsTo;
+			document.getElementById("sessionEmail").value = emps.email;
+			document.getElementById("userFirstName").value = emps.firstName;
+			document.getElementById("userLastName").value = emps.lastName;
 		}
 	}
 }
@@ -217,4 +229,120 @@ function showProfile(){
 	
 	let btn3 = document.getElementById("showResolvedReimb");
 	btn3.setAttribute("hidden", true);
+}
+
+function toggleToInput(){
+	console.log('doot');
+	let fn = document.getElementById("empFN");
+	fn.setAttribute("hidden", true);
+	let ln = document.getElementById("empLN");
+	ln.setAttribute("hidden", true);
+	let em = document.getElementById("empEmail");
+	em.setAttribute("hidden", true);
+	let fnInput = document.getElementById("empFNInp");
+	fnInput.removeAttribute("hidden");
+	let lnInput = document.getElementById("empLNInp");
+	lnInput.removeAttribute("hidden");
+	let emInput = document.getElementById("empEmailInp");
+	emInput.removeAttribute("hidden");
+	let passInput = document.getElementById("empPassInp");
+	passInput.removeAttribute("hidden");
+	
+	//Hiding edit, unhiding cancel & save
+	let editBtn = document.getElementById("editProfileBtn");
+	editBtn.setAttribute("hidden", true);
+	
+	let cancelBtn = document.getElementById("cancelEditBtn");
+	cancelBtn.removeAttribute("hidden");
+	
+	let saveBtn = document.getElementById("saveEditBtn");
+	saveBtn.removeAttribute("hidden");
+}
+
+function cancelEdits() {
+	let cancelBtn = document.getElementById("cancelEditBtn");
+	cancelBtn.setAttribute("hidden", true);
+	
+	let saveBtn = document.getElementById("saveEditBtn");
+	saveBtn.setAttribute("hidden", true);
+	
+	let editBtn = document.getElementById("editProfileBtn");
+	editBtn.removeAttribute("hidden");	
+	
+	let fnInput = document.getElementById("empFNInp");
+	let lnInput = document.getElementById("empLNInp");
+	let emInput = document.getElementById("empEmailInp");
+	let passInput = document.getElementById("empPassInp");
+	fnInput.value = "";
+	lnInput.value = "";
+	emInput.value = "";
+	passInput.value = "";
+}
+
+//function ajaxPost(url, newEmployeeObj){
+//	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
+//	xhr.open("POST", url);
+//	xhr.onreadystatechange = function (){
+//		if(this.readyState === 4 && xhr.status === 201){
+//			console.log('post worked');
+//		}
+//	}
+//	xhr.setRequestHeader("Content-Type", "application/json");
+//	let jsonEmp = JSON.stringify(newEmployeeObj);
+//	console.log(jsonEmp);
+//	xhr.send(jsonEmp);
+//}
+
+function checkNulls(){
+//	newEmployeeObj = {
+//			"id": 0,
+//			"firstName": "", 
+//			"lastName": "",
+//			"email": "",
+//			"password": "",
+//			"reportsTo": 0
+//		}
+//	
+	let empFn = document.getElementById("empFN").innerHTML;
+	let empLn = document.getElementById("empLN").innerHTML;
+	let email = document.getElementById("empEmail").innerHTML;
+	
+	let inputFN = document.getElementById("empFNInp").value;
+	let inputLN = document.getElementById("empLNInp").value;
+	let inputEmail = document.getElementById("empEmailInp").value;
+	let inputPass = document.getElementById("empPassInp").value;
+	let empId = document.getElementById("empFormId").value;
+	let reportsTo = document.getElementById("empReports").value;
+	
+	if (inputFN == ""){
+		inputFN = document.getElementById("userFirstName").value;
+	} 
+	
+	if (inputLN == ""){
+		inputLN = document.getElementById("userLastName").value;
+	}
+	
+	if (inputEmail = ""){
+		inputEmail = document.getElementById("sessionEmail").value;
+	}
+//	
+//	if (inputLN == ""){
+//		newEmployeeObj.lastName = empLn;
+//	} else {
+//		newEmployeeObj.lastName = inputLN;
+//	}
+//	
+//	//add validation for email
+//	if (inputEmail == ""){
+//		newEmployeeObj.email = email;
+//	} else {
+//		newEmployeeObj.email = inputEmail;
+//	}
+//		
+//	newEmployeeObj.id = empId;
+//	newEmployeeObj.reportsTo = reportsTo;
+//	newEmployeeObj.password = inputPass;
+//	
+//	ajaxPost(employeeUrl, newEmployeeObj);
+//}	
 }

@@ -8,5 +8,6 @@ public interface EmployeeDao {
 
 	public List<Employee> getOnlyEmployees();
 	public Employee getEmployeeByUsername(String username);
+	public int updateEmployeeInfo(Employee e);
 	
 }
