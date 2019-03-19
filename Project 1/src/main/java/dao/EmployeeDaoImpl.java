@@ -43,7 +43,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public Employee getEmployeeByUsername(String emailInp) {
 		String sql = "Select * From Employee Where Email = ?";
 		Employee tempEmp = null;
-		System.out.println("email input: "+emailInp);
 		try (Connection con = DBConnection.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)){
 			

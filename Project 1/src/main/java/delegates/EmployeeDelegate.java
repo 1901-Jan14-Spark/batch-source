@@ -31,6 +31,7 @@ public class EmployeeDelegate {
 	
 	public void updateUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("Hi Im in update");
+	
 		int employeesUpdated;
 		String fn = request.getParameter("empFNInp");
 		String ln = request.getParameter("empLNInp");
@@ -45,6 +46,8 @@ public class EmployeeDelegate {
 		int employeeId = Integer.parseInt(idNum);
 		String reports = request.getParameter("empReports");
 		int reportsTo = Integer.parseInt(reports);
+		
+		request.getSession().setAttribute("email", request.getParameter("empEmailInp"));
 		
 		if(pass == "") {
 			Employee emp = new Employee(employeeId, fn, ln, email, reportsTo);

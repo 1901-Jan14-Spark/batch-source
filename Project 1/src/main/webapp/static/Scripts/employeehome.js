@@ -1,6 +1,8 @@
 let employeeUrl = "http://localhost:9393/Project1/api/employees";
 let reimbUrl = "http://localhost:9393/Project1/api/reimbursements";
+let sessionUrl = "http://localhost:9393/Project1/session";
 
+document.addEventListener("DOMContentLoaded", grabInfo);
 document.getElementById("showRequestForm").addEventListener("click", unhideForm);
 document.getElementById("showReimbursements").addEventListener("click", unhidePendingTable);
 document.getElementById("showResolvedReimb").addEventListener("click", unhideResolved);
@@ -9,11 +11,7 @@ document.getElementById("toProfile").addEventListener("click", showProfile);
 document.getElementById("editProfileBtn").addEventListener("click", toggleToInput);
 document.getElementById("cancelEditBtn").addEventListener("click", cancelEdits);
 document.getElementById("saveEditBtn").addEventListener("click", checkNulls);
-document.getElementById("saveEditBtn").addEventListener("click", refreshPage);
-
-function refreshPage(){
-	window.location.href = "http://localhost:9393/Project1/employeeLogin";
-}
+document.getElementById("saveEditBtn").addEventListener("click", updateSession);
 
 function unhideForm(){
 	let form = document.getElementById("createReimb");
@@ -57,11 +55,12 @@ function unhideResolved(){
 	accProf.setAttribute("hidden", true);
 }
 
-sendAjaxGet("http://localhost:9393/Project1/session", runWelcome);
-
 function runWelcome(xhr){
 	let response = JSON.parse(xhr.response);
+	console.log(response.id);
+	console.log(response.email);
 	document.getElementById("sessionEmail").innerHTML = `${response.email}`;
+	document.getElementById("empFormId").value = response.id;
 	
 	if(response.email != null){
 		document.getElementById("greetingEmp").innerHTML = `Welcome back, ${response.email} <i class="fa fa-angle-double-down" style="font-size:20px"></i>`;
@@ -99,14 +98,31 @@ function ajaxPost(url, newReimbObj){
 	xhr.send(jsonEmp);
 }
 
+function updateSession(){
+	let newEmail = document.getElementById("empEmailInp").value;
+	let id = parseInt(document.getElementById("empFormId").value);
+	
+	session = {
+		"email": newEmail,
+		"id": id
+	}
+	
+	ajaxPost(sessionUrl, session);
+}
 //function to hide employeeId -- needed when submitting reimbursements.
-sendAjaxGet(employeeUrl, storeId);
+function grabInfo(){
+	sendAjaxGet(employeeUrl, storeId);
+	sendAjaxGet(reimbUrl, viewReimbursements);
+	sendAjaxGet("http://localhost:9393/Project1/session", runWelcome);
+}
+
 function storeId(xhr){
 	let empId = JSON.parse(xhr.response);
 	let sessionEmail = document.getElementById("sessionEmail").innerHTML;
+	let sessionId = document.getElementById("empFormId").value;
+	
 	for (emps of empId){
-		if(emps.email == sessionEmail){
-			document.getElementById("empFormId").value = emps.id;
+		if(emps.id == sessionId){
 			document.getElementById("empFN").innerHTML = emps.firstName;
 			document.getElementById("empLN").innerHTML = emps.lastName;
 			document.getElementById("empEmail").innerHTML = emps.email;
@@ -117,8 +133,6 @@ function storeId(xhr){
 		}
 	}
 }
-
-sendAjaxGet(reimbUrl, viewReimbursements);
 
 function viewReimbursements(xhr){
 	let idNum = document.getElementById("hiddenId").value;
@@ -277,21 +291,22 @@ function cancelEdits() {
 	lnInput.value = "";
 	emInput.value = "";
 	passInput.value = "";
+	location.reload();
 }
 
-//function ajaxPost(url, newEmployeeObj){
-//	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
-//	xhr.open("POST", url);
-//	xhr.onreadystatechange = function (){
-//		if(this.readyState === 4 && xhr.status === 201){
-//			console.log('post worked');
-//		}
-//	}
-//	xhr.setRequestHeader("Content-Type", "application/json");
-//	let jsonEmp = JSON.stringify(newEmployeeObj);
-//	console.log(jsonEmp);
-//	xhr.send(jsonEmp);
-//}
+function ajaxPost(url, newEmployeeObj){
+	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
+	xhr.open("POST", url);
+	xhr.onreadystatechange = function (){
+		if(this.readyState === 4 && xhr.status === 201){
+			console.log('post worked');
+		}
+	}
+	xhr.setRequestHeader("Content-Type", "application/json");
+	let jsonEmp = JSON.stringify(newEmployeeObj);
+	console.log(jsonEmp);
+	xhr.send(jsonEmp);
+}
 
 function checkNulls(){
 //	newEmployeeObj = {

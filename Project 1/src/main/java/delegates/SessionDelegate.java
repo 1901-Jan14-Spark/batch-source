@@ -13,9 +13,10 @@ public class SessionDelegate {
 		HttpSession session = request.getSession();
 		PrintWriter pw = response.getWriter();
 		if (session != null && session.getAttribute("email") != null) {
-			pw.write("{\"email\":\""+session.getAttribute("email")+"\"}");
+			pw.write("{\"email\":\""+session.getAttribute("email")+"\", \"id\":"+session.getAttribute("id")+"}");
 		} else {
 			pw.write("{\"email\": null }");
+			pw.write("{\"id\": null }");
 		}
 		pw.close();
 	}

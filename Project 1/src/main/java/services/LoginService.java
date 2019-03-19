@@ -8,29 +8,30 @@ public class LoginService {
 	
 	EmployeeDao empDao = new EmployeeDaoImpl();
 	
-	public String confirmLogin(String email, String password) {
+	public Employee confirmLogin(String email, String password) {
 		Employee temp = empDao.getEmployeeByUsername(email);
+		
 		try {
 			if (temp.getEmail() == null) {
-			String error="nullEmail";
-			return error;
+			temp.setEmail("nullEmail");
+			System.out.println(temp.getEmail());
+			return temp;
 		}
 		} catch (NullPointerException e) {
-			String error="nullEmail";
-			return error;
+			temp.setEmail("nullEmail");
+			System.out.println(temp.getEmail());
+			return temp;
 		}
 		if(email.matches(temp.getEmail()) && password.matches(temp.getPassword()) && temp.getReportsTo() == 0) {
-				String manager = "manager";
 				//invoke method that changes loggedIn value in SQL table from 0 to 1
-				return manager;
+				return temp;
 			} 
 		if(email.matches(temp.getEmail()) && password.matches(temp.getPassword()) && temp.getReportsTo() > 0) {
-			String employee = "employee";
 			//invoke method that changes loggedIn value in SQL table from 0 to 1
-			return employee;
+			return temp;
 		}  else {
-		String error = "incorrect";
-		return error;
+		temp.setEmail("incorrect");
+		return temp;
 		}
 	}
 }
