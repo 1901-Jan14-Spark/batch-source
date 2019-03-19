@@ -94,8 +94,29 @@
 				</div>
 			</nav>
 			<div class="container">
+				<div class="row">
+					<div class="col-lg-6 col-md-12 ">
+						<div class="form-style-8">
+							<h2>Create Reimbursement</h2>
+							<form>
+								<input id ="rAmount" type="Number" name="field1" placeholder="Enter Amount" />
+								<input id ="rDesc" type="text" name="field1" placeholder="Desecription" />  
+								<input id ="createRButton" type="submit" value="Create" />
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12">
+						<div class="form-style-8">
+							<h2>Update Reimbursement</h2>
+							<form>
+								<input type="number" name="field1" placeholder="Status Code" />
+								<input type="submit" value="Update" />
+							</form>
+						</div>
+					</div>
+				</div>
 				<div class="card bg-light">
-				<h5 class="card-title text-center">All Reimbursements</h5>
+					<h5 class="card-title text-center">All Reimbursements</h5>
 					<table id="table_id" class="display">
 						<thead>
 							<tr>
@@ -128,6 +149,16 @@
 
 
 	<!-- /#wrapper -->
+	
+	<!--Modal 1  -->
+
+	$('#myModal').on('shown.bs.modal', function () {
+	$('#myInput').trigger('focus') })
+	
+	<!--Modal 2  -->
+
+	$('#myModal').on('shown.bs.modal', function () {
+	$('#myInput').trigger('focus') })
 
 
 	<!-- Bootstrap core JavaScript -->

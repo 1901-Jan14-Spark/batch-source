@@ -21,5 +21,9 @@ public class EmployeeService{
 		
 		return eDao.validate(obj.getEmail(), obj.getPassword());
 	}
+	
+	public Employee getEmployeeByEmail(String email) {
+		return eDao.getUserByEmail(email);
+	}
 
 }

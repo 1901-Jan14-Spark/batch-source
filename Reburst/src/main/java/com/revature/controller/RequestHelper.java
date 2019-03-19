@@ -68,7 +68,9 @@ public class RequestHelper {
 					case "reimbursements":
 						if("GET".equals(request.getMethod())) {
 							rd.getReimbursements(request, response);
-						}	
+						} else if ("POST".equals(request.getMethod())) {
+							rd.createReimbursement(request, response);	
+						}
 						return;
 					default: 
 						response.setStatus(404);

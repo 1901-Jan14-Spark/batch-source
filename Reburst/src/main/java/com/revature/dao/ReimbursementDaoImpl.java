@@ -81,7 +81,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	@Override
 	public int createReimbursement(Reimbursement r) {
 		
-		String sql = "INSERT INTO REIMBURSEMENTS (REIMBURSEMENT_AMOUNT, REIMBURSEMENT_DESC EMPLOYEE_ID) VALUES(?, ?, ?)";
+		String sql = "INSERT INTO REIMBURSEMENTS (REIMBURSEMENT_AMOUNT, REIMBURSEMENT_DESC, EMPLOYEE_ID) VALUES(?, ?, ?)";
 
 		int rBoolean = 0;
 		try (Connection con = ConnectionUtil.getConnectionFromFile();
