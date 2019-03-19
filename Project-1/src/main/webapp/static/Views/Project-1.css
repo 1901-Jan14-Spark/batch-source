@@ -1,0 +1,11 @@
+input{
+    width:50%;
+    border: 2px solid red;
+  border-radius: 4px;
+}
+body{
+text-align: Center;  
+}
+h1{
+	text-color:white;
+}

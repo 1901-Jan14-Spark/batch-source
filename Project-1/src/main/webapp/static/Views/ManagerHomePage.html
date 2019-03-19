@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Manager Home Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="./static/Views/Project-1.css">
+<style>
+  body{
+  text-align: Center;
+  
+  }
+  </style>
+</head>
+<body style="Background-color: rgb(46, 245, 185)">
+	<div class="jumbotron" style="Background-color: rgb(54, 202, 74)">
+		<h1 class="display-5">Manager Home Page</h1>
+	</div>
+	<button id="aButton"class="btn btn-success" type="button" data-toggle="collapse"
+		data-target="#Active" aria-expanded="false"
+		aria-controls="collapseExample">View active Reimbursements</button>
+	
+	<div class="collapse" id="Active"
+		style="Background-color: rgb(112, 196, 137)">
+		<div class="card card-body"
+			style="Background-color: rgb(112, 196, 137)">
+			<form style="Background-color: rgb(112, 196, 137)">
+				<table id="ActiveT" class="table">
+					<tr id="headerRow">
+						<th>Reimbursement ID</th>
+						<th>Employee</th>
+						<th>Category</th>
+						<th>Cost</th>
+						<th>Merchant</th>
+						<th>Purchase Date</th>
+						
+					</tr>
+				</table>
+				<select id="select" name="select">
+    
+				</select>
+				<br><br>
+				<button id="Approve" class="btn btn-success" type="button">Approve</button>
+				<button id="Deny" class="btn btn-success" type="button">Deny</button>
+			</form>
+			
+		</div>
+	</div>
+	
+	<br>
+	<br>
+	<button class="btn btn-success" type="button" data-toggle="collapse"
+		data-target="#Resolved" aria-expanded="false"
+		aria-controls="collapseExample">View Resolved Reimburesments
+	</button>
+	
+	<div class="collapse" id="Resolved"
+		style="Background-color: rgb(112, 196, 137)">
+		<div class="card card-body"
+			style="Background-color: rgb(112, 196, 137)">
+			<form style="Background-color: rgb(112, 196, 137)">
+				<p>Resolved reimbursements
+				</p>
+			</form>
+			>
+		</div>
+	</div>
+	<br>
+<br>
+
+	<button id="tbutton" class="btn btn-success" type="button" data-toggle="collapse"
+		data-target="#ETable" aria-expanded="false"
+		aria-controls="collapseExample">View Employees</button>
+	
+	<div class="collapse" id="ETable"
+		style="Background-color: rgb(112, 196, 137)">
+		<div class="card card-body"
+			style="Background-color: rgb(112, 196, 137)">
+			<form style="Background-color: rgb(112, 196, 137)">
+				<table id="table" class="table">
+					<tr id="headerRow">
+						<th>id</th>
+						<th>Name</th>
+						<th>Birthday</th>
+						<th>Salary</th>
+						<th>Position</th>
+						<th>Manager</th>
+						<th>Hire Date</th>
+					</tr>
+				</table>
+			</form>
+			>
+		</div>
+	</div>
+
+
+	<button class="btn btn-success" type="submit">Log out</button>
+	<script src="static/Scripts/ManagerHomePage.js"></script>
+</body>
+</html>

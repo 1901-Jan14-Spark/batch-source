@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Employee Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css"
+  href="Project-1.css">
+  <style>
+  body{
+  text-align: Center;
+  color:white;
+  }
+  </style>
+</head>
+<body style="Background-color:rgb(190, 190, 245)">
+    <div class="jumbotron" style="background-color: blue" >
+        <h1 class="display-5"">Employee Home Page</h1>
+        </div>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Make a Reimbursement
+      </button>
+    </p>
+    <div class="collapse" id="collapseExample" style="Background-color:rgb(118, 118, 167)">
+      <div class="card card-body" style="Background-color:rgb(87, 156, 177)">
+       <form  style="Background-color:rgb(87, 156, 177)">
+           <input type="text" class="form-control" placeholder="Category" name="category" id="category"><br>
+           <input type="number" class="form-control" placeholder="Cost" name="cost" id="cost"><br>
+           <input type="text" class="form-control" placeholder="Merchant" name="merchant" id="merchant"><br>
+           <input type="date" class="form-control" placeholder="Date" name="date" id="date"><br>
+           <button id="submit" type="button" class="btn btn-primary">Submit</button>
+       </form>>
+      </div>
+      </div>
+      <br>
+      <button id="ActiveB" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Active" aria-expanded="false" aria-controls="collapseExample">
+        View Active Reimbursments
+      </button>
+  </p>
+  <div class="collapse" id="Active" style="Background-color:rgb(118, 118, 167)">
+    <div class="card card-body" style="Background-color:rgb(87, 156, 177)">
+     <form style="Background-color:rgb(87, 156, 177)">
+         <table id="ActiveT" class="table">
+					<tr id="headerRow">
+						<th>Reimbursement ID</th>
+						<th>Employee</th>
+						<th>Category</th>
+						<th>Cost</th>
+						<th>Merchant</th>
+						<th>Purchase Date</th>
+						<th>Approved By</th>
+						<th>Denied By</th>
+					</tr>
+				</table>
+     </form>>
+    </div>
+    </div>
+    <br>
+    <button id="ResolvedB" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Resolved" aria-expanded="false" aria-controls="collapseExample">
+        View Resolved Reimburements 
+      </button>
+      <br>
+    <div class="collapse" id="Resolved" style="Background-color:rgb(118, 118, 167)">
+        <div class="card card-body" style="Background-color:rgb(87, 156, 177)">
+         <form style="Background-color:rgb(87, 156, 177)">
+             <table id="ResolvedT" class="table">
+					<tr id="headerRow">
+						<th>Reimbursement ID</th>
+						<th>Employee</th>
+						<th>Category</th>
+						<th>Cost</th>
+						<th>Merchant</th>
+						<th>Purchase Date</th>
+						<th>Approved By</th>
+						<th>Denied By</th>
+					</tr>
+				</table>
+         </form>>
+        </div>
+        </div>
+        <br>
+        <button id="empInfo" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#Info" aria-expanded="false" aria-controls="collapseExample">
+            View Employee Information 
+          </button>
+          <br>
+        <div class="collapse" id="Info" style="Background-color:rgb(118, 118, 167)">
+            <div class="card card-body" style="Background-color:rgb(87, 156, 177)">
+             <form id="infoForm" style="Background-color:rgb(87, 156, 177)">
+                 <p id="IDInfo">Employee Info<p>
+                 <p id="NameInfo">Employee Info<p>
+                 <p id="DepInfo">Employee Info<p>
+                 <p id="HDInfo">Employee Info<p>
+                 <p id="SalInfo">Employee Info<p>
+                 <p id="BDInfo">Employee Info<p>
+               
+             </form>>
+            </div>
+            </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Log out</button>
+        <script src="static/Scripts/EmployeeHomepage.js"></script>
+</body>
+</html>

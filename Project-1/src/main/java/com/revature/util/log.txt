@@ -1,0 +1,12 @@
+Welcome to Revature Banks.
+Do you have an account with us. Y/N
+Please provide a Username
+Please enter your first name
+Please enter your last name
+Last name must be capital, consist of only letters, and be between 1 and 20 characters
+Please enter your last name
+Please enter email address
+Please enter a phone number with 10 digits and no other characters in between.
+Your user account is as follows: Username: TheBaron828 | Password: Baron828$ | First Name: Baron | Last Name: Chum | Email: Baron@gmail.com | Phone# 5555555555.
+Is this all correct, Y/N?
+Thank you for making an account. Press enter to continue
