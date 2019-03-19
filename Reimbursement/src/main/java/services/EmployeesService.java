@@ -50,4 +50,9 @@ public class EmployeesService implements EmployeesDao {
 		return empImpl.getEmployeesByIsMana(stat);
 	}
 
+	@Override
+	public Employees getEmployeeByUser(String user, String pass) {
+		return empImpl.getEmployeeByUser(user, pass);
+	}
+
 }

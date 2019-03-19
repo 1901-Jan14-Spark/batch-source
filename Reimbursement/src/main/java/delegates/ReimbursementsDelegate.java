@@ -18,38 +18,41 @@ public class ReimbursementsDelegate {
 	
 	public void getReimbursements(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		List<Reimbursements> allReims = reimServ.getReims();
-		List<Reimbursements> reimSearch = new ArrayList<>();
-		
-		String reimId = request.getParameter("id");
-		String name = request.getParameter("name");
-		String requester = request.getParameter("requester");
-		String status = request.getParameter("status");
-		String resolved_By = request.getParameter("resolvedBy");
-		
-		if (reimId != null && reimId.matches("^\\d+$")) {
-			reimSearch.add(reimServ.getReimById(Integer.parseInt(reimId)));
-		} else if (name != null) {
-			for (Reimbursements r : allReims) {
-				if (r.getReim_name().contains(name)) {
-					reimSearch.add(r);
-				} else if(status != null) {
-					for(Reimbursements stat: allReims) {
-						if(stat.getReimStatus().contains("status")) {
-							reimSearch.add(stat);
-						}else if(resolved_By != null) {
-							reimSearch.add(reimServ.getReimByRequester(Integer.parseInt(requester)));
-							}else {
-								reimSearch = allReims;
-						}
-					}
-				}
-
-			ObjectMapper om = new ObjectMapper();
-			PrintWriter pw = response.getWriter();
-			pw.write(om.writeValueAsString(reimSearch));
-			pw.close();
-			}
-		}
+//		List<Reimbursements> reimSearch = new ArrayList<>();
+//		
+//		String reimId = request.getParameter("id");
+//		String name = request.getParameter("name");
+//		String requester = request.getParameter("requester");
+//		String status = request.getParameter("status");
+//		String resolved_By = request.getParameter("resolvedBy");
+//		
+//		if (reimId != null && reimId.matches("^\\d+$")) {
+//			reimSearch.add(reimServ.getReimById(Integer.parseInt(reimId)));
+//		} else if (name != null) {
+//			for (Reimbursements r : allReims) {
+//				if (r.getReim_name().contains(name)) {
+//					reimSearch.add(r);
+//				} else if(status != null) {
+//					for(Reimbursements stat: allReims) {
+//						if(stat.getReimStatus().contains("status")) {
+//							reimSearch.add(stat);
+//						}else if(resolved_By != null) {
+//							reimSearch.add(reimServ.getReimByRequester(Integer.parseInt(requester)));
+//							}else {
+//								reimSearch = allReims;
+//						}
+//					}
+//				}
+				String reimJSON;
+				System.out.println(allReims);
+				ObjectMapper om = new ObjectMapper();
+				reimJSON = om.writeValueAsString(allReims);
+				System.out.println(reimJSON);
+				PrintWriter pw = response.getWriter();
+				pw.write(reimJSON);
+				pw.close();
+//			}
+//		}
 		
 	}
 	

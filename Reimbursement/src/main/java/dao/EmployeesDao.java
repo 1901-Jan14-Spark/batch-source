@@ -13,6 +13,7 @@ public interface EmployeesDao {
 	public int updateEmployee(Employees emp);
 	public int deleteEmployeesById(int id);
 	Employees getEmployeesByIsMana(int stat);
+	Employees getEmployeeByUser(String user, String pass);
 
 //view all
 	//all pending

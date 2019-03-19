@@ -8,3 +8,20 @@ function sendAjaxGet(url, func){
 	xhr.open("GET", url);
 	xhr.send();
 }
+
+
+	let url ="http://localhost:8080/Reimbursement/api/reimbursementslist";
+	sendAjaxGet(url, populate);
+
+	function populate(xhr){
+		reims = JSON.parse(xhr.response)
+		 let table = document.getElementById("ReimsTab");
+		for (r in reims){
+			let nextRow = document.createElement("tr");
+			nextRow.innerHTML = `<td>${reims[r].reim_id}</td>
+			<td>${reims[r].reim_name}</td><td>${reims[r].requester_Id}</td>
+			<td>${reims[r].amount}</td><td>${reims[r].reimStatus}</td><td>${reims[r].resolvedId}</td>`;
+			table.appendChild(nextRow);
+		}
+		
+	}

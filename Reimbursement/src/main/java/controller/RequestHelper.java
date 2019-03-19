@@ -21,7 +21,7 @@ public class RequestHelper {
 				String record = uri.substring(5);
 				System.out.println(record);
 				switch (record) {
-				case "employees":
+				case "employeeslist":
 					if ("GET".equals(request.getMethod())) {
 						ed.getEmployees(request, response);
 					} else if ("POST".equals(request.getMethod())) {
@@ -29,8 +29,8 @@ public class RequestHelper {
 					} else {
 						response.sendError(405, "Method "+ record +" Not Available");
 					}
-					break;
-				case "reimbursements":
+					return;
+				case "reimbursementslist":
 					if ("GET".equals(request.getMethod())) {
 						rdel.getReimbursements(request, response);
 					} else if ("POST".equals(request.getMethod())) {
@@ -38,11 +38,8 @@ public class RequestHelper {
 					} else {
 						response.sendError(405, "Method "+ record +" Not Available");
 					}
-					break;
-//				case "login":
-//					response.sendRedirect("Login.html");
-//					break;
-				default:
+					return;
+						default:
 					response.sendError(404, "Method Not Supported");
 		 				}
 		 			} else {

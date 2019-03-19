@@ -2,7 +2,6 @@ package delegates;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,18 +17,25 @@ EmployeesService es = new EmployeesService();
 
 public void getEmployees(HttpServletRequest request, HttpServletResponse response) throws IOException {
 	List<Employees> allEmps = es.getAll();
-	List<Employees> empSearch = new ArrayList<>();
+//	List<Employees> empSearch = new ArrayList<>();
 //	System.out.println(allEmps);
 //	String empId = request.getParameter("id");
 //	String firstname = request.getParameter("first");
 //	String lastname = request.getParameter("last");
 //	String managerStat = request.getParameter("isMana");
-	String empJSON;
 	
-	System.out.println(empSearch);
+	String empJSON;
+	System.out.println(allEmps);
 	ObjectMapper om = new ObjectMapper();
 	empJSON = om.writeValueAsString(allEmps);
 	System.out.println(empJSON);
+	
+	
+	  
+//	for(int i = 0; i < allEmps.size(); i++) {
+//		System.out.println(allEmps.get(i).toString());
+//	}
+//	System.out.println(empJSON);
 
 	PrintWriter pw = response.getWriter();
 	pw.write(empJSON);

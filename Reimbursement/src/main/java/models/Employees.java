@@ -10,7 +10,7 @@ public class Employees implements Serializable{
 	private String last;
 	private String username;
 	private String password;
-	private String isMana;
+	private int isMana;
 	
 	public int getId() {
 		return id;
@@ -42,10 +42,10 @@ public class Employees implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String IsMana() {
+	public int IsMana() {
 		return isMana;
 	}
-	public void setIsMana(String isMana) {
+	public void setIsMana(int isMana) {
 		this.isMana = isMana;
 	}
 	
@@ -57,7 +57,7 @@ public class Employees implements Serializable{
 		int result = 1;
 		result = prime * result + ((first == null) ? 0 : first.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((isMana == null) ? 0 : isMana.hashCode());
+		result = prime * result + isMana;
 		result = prime * result + ((last == null) ? 0 : last.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
@@ -79,10 +79,7 @@ public class Employees implements Serializable{
 			return false;
 		if (id != other.id)
 			return false;
-		if (isMana == null) {
-			if (other.isMana != null)
-				return false;
-		} else if (!isMana.equals(other.isMana))
+		if (isMana != other.isMana)
 			return false;
 		if (last == null) {
 			if (other.last != null)
@@ -101,12 +98,14 @@ public class Employees implements Serializable{
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Employees [id=" + id + ", first=" + first + ", last=" + last + ", username=" + username + ", password="
 				+ password + ", isMana=" + isMana + "]";
 	}
-	public Employees(int id, String first, String last, String username, String password, String isMana) {
+
+	public Employees(int id, String first, String last, String username, String password, int isMana) {
 		super();
 		this.id = id;
 		this.first = first;
@@ -125,12 +124,16 @@ public class Employees implements Serializable{
 		this.username=user;
 		this.password=pass;
 	}
-	public Employees(String first, String last, String user, String pass, String isMana) {
+	public Employees(String first, String last, String user, String pass, int isMana) {
 		this.first=first;
 		this.last=last;
 		this.username=user;
 		this.password=pass;
 		this.isMana=isMana;
+	}
+	public Employees(String user, String pass) {
+		this.username = user;
+		this.password = pass;
 	}
 
 	

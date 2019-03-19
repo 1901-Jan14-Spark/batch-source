@@ -26,7 +26,7 @@ public class EmployeesDaoImpl implements EmployeesDao{
 				String last = rs.getString("EMP_LAST");
 				String username =rs.getString("EMP_USER");
 				String password = rs.getString("EMP_PASS");
-				String isMana = rs.getString("IS_MANA");
+				int isMana = rs.getInt("IS_MANA");
 				emp.add(new Employees(id,first,last,username, password, isMana));
 			}
 		} catch (SQLException e) {
@@ -34,7 +34,7 @@ public class EmployeesDaoImpl implements EmployeesDao{
 		}
 		return emp;
 	}
-	
+
 
 	@Override
 	public List<Employees> getManagers() {
@@ -49,7 +49,7 @@ public class EmployeesDaoImpl implements EmployeesDao{
 				String last = rs.getString("EMP_LAST");
 				String username =rs.getString("EMP_USER");
 				String password = rs.getString("EMP_PASS");
-				String isMana = rs.getString("IS_MANA");
+				int isMana = rs.getInt("IS_MANA");
 				emp.add(new Employees(id,first,last,username, password, isMana));
 			}
 		} catch (SQLException e) {
@@ -73,8 +73,10 @@ public class EmployeesDaoImpl implements EmployeesDao{
 				String last = rs.getString("EMP_LAST");
 				String username =rs.getString("EMP_USER");
 				String password = rs.getString("EMP_PASS");
-				String isMana = rs.getString("IS_MANA");
-				emp.add(new Employees(id,first,last,username, password, isMana));
+				int isMana = rs.getInt("IS_MANA");
+				Employees tempEmployee = new Employees(id,first,last,username, password, isMana);
+				emp.add(tempEmployee);
+
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -123,7 +125,7 @@ public class EmployeesDaoImpl implements EmployeesDao{
 		}
 		return employees;
 	}
-	
+
 	@Override
 	public Employees getEmployeesByIsMana(int stat) {
 		Employees employees = null;
@@ -149,22 +151,22 @@ public class EmployeesDaoImpl implements EmployeesDao{
 
 	@Override
 	public int createEmployee(Employees emp) {
-			String sql = "INSERT INTO EMPLOYEES VALUES(null,?,?,?,?,?)";
-			int employeesMade = 0;
-			try(Connection con = ConnectionUtil.systemVar();
-					PreparedStatement ps = con.prepareStatement(sql)){
-				ps.setString(1, emp.getFirst());
-				ps.setString(2, emp.getLast());
-				ps.setString(3, emp.getUsername());
-				ps.setString(4, emp.getPassword());
-				ps.setString(5, emp.IsMana());
+		String sql = "INSERT INTO EMPLOYEES VALUES(null,?,?,?,?,?)";
+		int employeesMade = 0;
+		try(Connection con = ConnectionUtil.systemVar();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setString(1, emp.getFirst());
+			ps.setString(2, emp.getLast());
+			ps.setString(3, emp.getUsername());
+			ps.setString(4, emp.getPassword());
+			ps.setInt(5, emp.IsMana());
 			employeesMade = ps.executeUpdate();
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return employeesMade;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		return employeesMade;
+	}
 
 
 
@@ -181,5 +183,25 @@ public class EmployeesDaoImpl implements EmployeesDao{
 		}
 		return rowsDeleted;
 	}
+
+	@Override
+	public Employees getEmployeeByUser(String user, String pass) {
+			Employees employees = null;
+			String sql = "SELECT * FROM EMPLOYEES WHERE EMP_USER = ? AND EMP_PASS = ?";
+			try(Connection con = ConnectionUtil.systemVar();
+					PreparedStatement ps = con.prepareStatement(sql);){
+				ps.setString(1,user);
+				ps.setString(2, pass);
+				ResultSet rs = ps.executeQuery();
+				while(rs.next()) {
+					String username = rs.getString("EMP_USER");
+					String password = rs.getString("EMP_PASS");
+					employees= new Employees(username,password);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return employees;
+		}
 
 }

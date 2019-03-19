@@ -1,8 +1,7 @@
 package main;
 
-import dao.ReimbursementsDao;
-import dao.ReimbursementsDaoImpl;
-import models.Reimbursements;
+import dao.EmployeesDao;
+import dao.EmployeesDaoImpl;
 
 public class Driver {
 	
@@ -16,17 +15,17 @@ public class Driver {
 //			e.printStackTrace();
 //		} 
 //		
-//	EmployeesDao ed = new EmployeesDaoImpl();
+	EmployeesDao ed = new EmployeesDaoImpl();
 //	ed.createEmployee(new Employees("Javier","Rodriguez","August12641","Jar1126","1"));
 //	ed.createEmployee(new Employees("Peter","Parker","pparker","spiderman","0"));
 //	ed.createEmployee(new Employees("Peyton","Shriver","pshriver","passpass","0"));
-	
-		ReimbursementsDao rd = new ReimbursementsDaoImpl();
-		Reimbursements a = rd.getReimById(1000);
-		a.setReimStatus("DENIED");
-		a.setResolvedId(1);
-		int updated = rd.updateReims(a);
-		System.out.println(updated);
+	System.out.println(ed.getAll());
+//		ReimbursementsDao rd = new ReimbursementsDaoImpl();
+//		Reimbursements a = rd.getReimById(1000);
+//		a.setReimStatus("DENIED");
+//		a.setResolvedId(1);
+//		int updated = rd.updateReims(a);
+//		System.out.println(updated);
 	}
 		
 	
