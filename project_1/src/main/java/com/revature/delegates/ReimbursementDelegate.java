@@ -162,4 +162,64 @@ public class ReimbursementDelegate {
 		}
 
 	}
+	
+	public void declinesReimbursement(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String requestBodyText = request.getReader().readLine();
+
+		ObjectMapper om = new ObjectMapper();
+		
+		
+		Integer r_id = om.readValue(requestBodyText, Integer.class);
+		
+		if(r_id == null) {
+			response.setStatus(400);
+			return;
+		}
+		
+		int manager_id = (int) request.getSession().getAttribute("id");
+
+		PrintWriter pw = response.getWriter();
+		if (rService.rejectReimbursementById(manager_id, r_id)) {
+			pw.write("Request declined.");
+			response.setStatus(201);
+			
+		} else {
+			pw.write("Unable to decline request.");
+			response.sendError(400, "Invalid");
+			System.out.println("Unable to update reimbursement.");
+			
+		}
+		pw.close();
+
+	}
+	
+	public void validateReimbursement(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String requestBodyText = request.getReader().readLine();
+
+		ObjectMapper om = new ObjectMapper();
+		
+		
+		Integer r_id = om.readValue(requestBodyText, Integer.class);
+		
+		if(r_id == null) {
+			response.setStatus(400);
+			return;
+		}
+		
+		int manager_id = (int) request.getSession().getAttribute("id");
+
+		PrintWriter pw = response.getWriter();
+		if (rService.authorizeReimbursementById(manager_id, r_id)) {
+			pw.write("Request validated.");
+			response.setStatus(201);
+			
+		} else {
+			pw.write("Unable to decline request.");
+			response.sendError(400, "Invalid");
+			System.out.println("Unable to update reimbursement.");
+			
+		}
+		pw.close();
+
+	}
 }

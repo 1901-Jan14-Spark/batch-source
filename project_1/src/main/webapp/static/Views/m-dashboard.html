@@ -20,34 +20,46 @@
 			aria-controls="navbarSupportedContent" aria-expanded="false"
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span> <a class="navbar-brand"
-				href="index.html">Manager Dashboard</a>
+				href="http://localhost:8080/ReimbursementApp/api/mdashboard"></a>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="navbar-brand"
-					href="index.html">Manager Dashboard</a> <span class="sr-only">(current)</span>
-					</a></li>
+					href="http://localhost:8080/ReimbursementApp/mdashboard">Manager
+						Dashboard</a> <span class="sr-only">(current)</span></li>
+				<li class="nav-item "><a class="nav-link "
+					href="http://localhost:8080/ReimbursementApp/mReimbursement-list">
+						Reimbursement List </a></li>
+				<li class="nav-item "><a class="nav-link "
+					href="http://localhost:8080/ReimbursementApp/mEmployee-list">
+						Employee List </a></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Menu </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="pages/patientList.html">Patient
-							List</a> <a class="dropdown-item" href="pages/patientStatistics.html">Patient
-							Statistics</a>
+						<a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/reimbursement-form">Create
+							reimbursement</a> <a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/update-reimbursement">Update
+							Reimbursement</a> <a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/viewReimbursements">Reimbursement
+							List</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="pages/patientFormSubmission.html">New
-							Patient Form</a> <a class="dropdown-item"
+						<a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/update-information">
+							Update Information</a> <a class="dropdown-item"
 							href="http://localhost:8080/ReimbursementApp/api/logout">Logout</a>
 					</div></li>
-				<li class="nav-item "><a class="nav-link " href="#"> View
-						Reimbursement </a></li>
-						<li class="nav-item "><a class="nav-link " href="http://localhost:8080/ReimbursementApp/mReimbursement-list"> View
-						Reimbursement List </a></li>
-						<li class="nav-item nav-link"> <span id="firstname"></span></li>
 			</ul>
 		</div>
 	</nav>
+	<main>
+	<div class = " container">
+	<span id="firstname"></span>
+	</div>
+	</main>
+	
 	<!-- <div id="carouselExampleSlidesOnly" class="carousel slide"
 		data-ride="carousel">
 		<div class="carousel-inner">

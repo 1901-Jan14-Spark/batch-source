@@ -6,23 +6,40 @@
 </head>
 <body>
 
-	<h4>Reimbursements:</h4>
-	<br>
-	<div>
-		Email: <span id="eemail"></span>
+
+	<div id="reimbursementInfo">
+		<div>
+			Reimbursement ID: <span id="rId"></span>
+		</div>
+		<div>
+			Employee ID: <span id="reId"></span>
+		</div>
+		<div>
+			Reimbursement Title: <span id="rTitle"></span>
+		</div>
+		<div>
+			Reimbursement Description: <span id="rDescription"></span>
+		</div>
+		<div>
+			Reimbursement Amount: <span id="rAmount"></span>
+		</div>
+		<div>
+			Reimbursement State: <span id="rState"></span>
+		</div>
+		<div>
+			Reimbursement ManagerID: <span id="rmId"></span>
+		</div>
 	</div>
+
+	<form>
+		<input type="submit" value="Validate" id="validate">
+	</form>
+	<form>
+		<input type="submit" value="Decline" id="decline">
+		<!-- <button id="decline">Decline</button> -->
+	</form>
 	<br>
-	<div>
-		Password: <span id="epass"></span>
-	</div>
-	<br>
-	<div>
-		Firstname: <span id="efirst"></span>
-	</div>
-	<br>
-	<div>
-		Lastname: <span id="elast"></span>
-	</div>
+	<div id="info"></div>
 	<br>
 	<br>
 	<button id="view">View</button>
