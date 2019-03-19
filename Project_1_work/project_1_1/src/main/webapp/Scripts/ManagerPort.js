@@ -19,6 +19,7 @@ function popRTable(xhr){
 	for(request of requests){
 		let aButtonId = "A" + request.employeeId+request.reason+request.amount;
 		let dButtonId = "D" + request.employeeId+request.reason+request.amount;
+		let statusId = request.employeeId+request.reason+request.amount;
 		let bo = request.approved;
 		let req = "pending";
 		if (bo === true){
@@ -26,11 +27,11 @@ function popRTable(xhr){
 			else{
 				req = "Pending";
 			}
-		addRowP(request.employeeId,  request.dateSubmitted.substr(0,10),request.reason, request.amount, req, aButtonId, dButtonId);
+		addRowP(request.employeeId,  request.dateSubmitted.substr(0,10),request.reason, request.amount, req, aButtonId, dButtonId, statusId);
 	}
 }
 
-function addRowP(id, date, amount, reason, status, aBId, dBid){
+function addRowP(id, date, amount, reason, status, aBId, dBId, statusId){
 	let row = document.createElement("tr");
 	let cell1 = document.createElement("td");
 	let cell2 = document.createElement("td");
@@ -51,10 +52,17 @@ function addRowP(id, date, amount, reason, status, aBId, dBid){
 	cell3.innerHTML=amount;
 	cell4.innerHTML=reason;
 	cell5.innerHTML=status;
+	cell5.id = statusId;
 	buttonA.innerHTML="Approve";
 	buttonA.name = aBId;
+	buttonA.addEventListener("click",function(statusId){
+		cell5.innerHTML="Approved";
+	});
 	buttonD.innerHTML ="Deny";
 	buttonD.name = dBId;
+	buttonD.addEventListener("click",function(statusId){
+		cell5.innerHTML="Dennied";
+	});
 	document.getElementById("view").appendChild(row);
 	
 }
