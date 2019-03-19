@@ -49,8 +49,8 @@ public class ReimbursementService {
 		return query > 0 ? true : false;
 	}
 	
-	public List<Reimbursement> getAssociatedReimbursements(Employee e) {
-		return rd.getReimbursementsFromEmployeeId(e.getId());
+	public List<Reimbursement> getAssociatedReimbursements(int id) {
+		return rd.getReimbursementsFromEmployeeId(id);
 	}
 
 	public List<Reimbursement> getReimbursements() {

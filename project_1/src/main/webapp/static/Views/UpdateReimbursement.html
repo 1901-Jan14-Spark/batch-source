@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h4>Update Reimbursement form</h4>
+<form id="reimbform">
+	<label>Title:</label>
+	<input type="text" name="title" id="title"> 
+
+	<br> <br>
+	<label>Amount:</label>
+	<input type="number" name="amount" id="amount">
+	<br> <br>
+	<input type="submit" value="Update" id="submitButton">
+ </form>
+<br><br>
+<label>Description:</label>
+<br>
+<textarea rows="4" cols="50" name="comment" form="reimbform" placeholder="Enter description here." id ="description">
+</textarea>
+<button id="cancelButton">Cancel</button>
+<script src = "static/scripts/reimbursementUpdate.js"></script>
+</body>
+</html>

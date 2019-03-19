@@ -50,12 +50,35 @@ public class ReimbursementDelegate {
 		pw.close();
 	}
 
+	public void getsReimbursementsAssociated(HttpServletRequest request, HttpServletResponse response)
+			throws IOException {
+		System.out.println("inside reim associated");
+		ObjectMapper om = new ObjectMapper();
+
+		String ReimbursementJSON;
+
+		int tempId = (int) request.getSession().getAttribute("id");
+
+		List<Reimbursement> Reimbursements = rService.getAssociatedReimbursements(tempId);
+		System.out.println(Reimbursements);
+		ReimbursementJSON = om.writeValueAsString(Reimbursements);
+
+		PrintWriter pw = response.getWriter();
+		pw.write(ReimbursementJSON);
+		pw.close();
+	}
+
 	public void createsReimbursement(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String requestBodyText = request.getReader().readLine();
 
 		ObjectMapper om = new ObjectMapper();
 		Reimbursement r = om.readValue(requestBodyText, Reimbursement.class);
 
+		int id = (int) request.getSession().getAttribute("id");
+
+		r.setEmployee_id(id);
+
+		System.out.println("Incoming reimbursement:" + r);
 		if (!InputValidator.validateId(((Integer) r.getEmployee_id()).toString())) {
 			response.sendError(400, "Invalid Employee id: " + r.getEmployee_id());
 			return;
@@ -133,7 +156,7 @@ public class ReimbursementDelegate {
 		if (rService.updateReimbursement(r)) {
 			response.setStatus(201);
 			System.out.println("Reimbursement was updated: " + r);
-		}else {
+		} else {
 			response.sendError(400, "Invalid description: " + r.getDescription());
 			System.out.println("Unable to update reimbursement.");
 		}

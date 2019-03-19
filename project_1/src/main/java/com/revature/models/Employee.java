@@ -150,5 +150,10 @@ public class Employee implements Serializable{
 		return "Employee [id=" + id + ", email=" + email + ", password=" + password + ", firstname=" + firstname
 				+ ", lastname=" + lastname + ", managerLevel=" + managerLevel + "]";
 	}
+
+	public void setId(int id) {
+		this.id=id;
+		
+	}
 	
 }

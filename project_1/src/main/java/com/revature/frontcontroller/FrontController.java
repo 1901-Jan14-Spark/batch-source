@@ -1,15 +1,18 @@
 package com.revature.frontcontroller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.servlets.DefaultServlet;
+
 /**
  * Servlet implementation class FrontController
  */
-public class FrontController extends HttpServlet {
+public class FrontController extends DefaultServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private RequestHelper rh = new RequestHelper();   
@@ -26,8 +29,12 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		rh.process(request, response);
+		System.out.println(request.getRequestURI().substring(request.getContextPath().length()));
+		if (request.getRequestURI().substring(request.getContextPath().length()).startsWith("/static/")) {
+			super.doGet(request, response);
+		} else {;
+			rh.process(request, response);
+		}
 	}
 
 	/**

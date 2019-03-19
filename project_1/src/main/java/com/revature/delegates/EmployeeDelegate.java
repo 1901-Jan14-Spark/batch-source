@@ -73,37 +73,45 @@ public class EmployeeDelegate {
 
 		ObjectMapper om = new ObjectMapper();
 		Employee temp = om.readValue(requestBodyText, Employee.class);
-		
+		int id = (int) request.getSession().getAttribute("id");
 
-		if (!InputValidator.validateId(((Integer)temp.getId()).toString())) {
+		temp.setId(id);
+
+		System.out.println("Incoming employee:" + temp);
+
+		if (!InputValidator.validateId(((Integer) temp.getId()).toString())) {
 			response.sendError(400, "Invalid id: " + temp.getId());
 			return;
 		}
 		if (!InputValidator.validateEmail(temp.getEmail())) {
-			if (temp.getEmail() != null) {
+//			if (temp.getEmail() != null) {
+				if (!temp.getEmail().contentEquals("")) {
 				response.sendError(400, "Invalid email: " + temp.getEmail());
 				return;
 			}
 		}
 		if (!InputValidator.validatePassword(temp.getPassword())) {
-			if (temp.getPassword() != null) {
+//			if (temp.getPassword() != null) {
+				if (!temp.getPassword().contentEquals("")) {
 				response.sendError(400, "Invalid password: " + temp.getPassword());
 				return;
 			}
 		}
 		if (!InputValidator.validateName(temp.getFirstname())) {
-			if (temp.getFirstname() != null) {
+//			if (temp.getFirstname() != null) {
+				if (!temp.getFirstname().contentEquals("")) {
 				response.sendError(400, "Invalid firstname: " + temp.getFirstname());
 				return;
 			}
 		}
 		if (!InputValidator.validateName(temp.getLastname())) {
-			if (temp.getLastname() != null) {
+//			if (temp.getLastname() != null) {
+			if (!temp.getLastname().contentEquals("")) {
 				response.sendError(400, "Invalid lastname: " + temp.getLastname());
 				return;
 			}
 		}
-		
+
 		if (eService.updateEmployeeInformation(temp)) {
 			response.setStatus(200);
 			System.out.println("Employee successfully updated.");

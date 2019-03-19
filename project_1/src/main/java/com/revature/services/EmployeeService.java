@@ -26,16 +26,16 @@ public class EmployeeService {
 
 	public boolean updateEmployeeInformation(Employee e) {
 		Employee temp = this.getEmployeeById(e.getId());
-		if (e.getEmail()  == null) {
+		if (e.getEmail()  == null|| e.getEmail().equals("")) {
 			e.setEmail(temp.getEmail());
 		}
-		if (e.getPassword()  == null) {
+		if (e.getPassword()  == null|| e.getPassword().equals("")) {
 			e.setPassword(temp.getPassword());
 		}
-		if (e.getFirstname() == null) {
+		if (e.getFirstname() == null|| e.getPassword().equals("")) {
 			e.setFirstname(temp.getFirstname());
 		}
-		if (e.getLastname() == null) {
+		if (e.getLastname() == null|| e.getPassword().equals("")) {
 			e.setLastname(temp.getLastname());
 		}
 
