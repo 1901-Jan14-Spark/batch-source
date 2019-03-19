@@ -1,0 +1,11 @@
+<p>Highlight Component</p>
+
+<select [(ngModel)]='selectedColor' name='selectedColor'>
+      <option *ngFor='let color of colors' [value]='color'>{{color}}</option>
+</select>
+
+<div [ngStyle]="{'background-color': style}" (mouseover)="changeStyle(selectedColor)">
+<p>
+  the background of the text should change to the color when hovered over it.
+</p>
+</div>
