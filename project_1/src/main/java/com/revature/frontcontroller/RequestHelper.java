@@ -41,8 +41,14 @@ public class RequestHelper {
 					response.sendError(405, "Method not supported for /" + record);
 				}
 				break;
+			case "employees/emp":
+				if ("GET".equals(request.getMethod())) {
+					ed.getsEmployee(request, response);
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
+				}
+				break;
 			case "reimbursements/emp":
-				System.out.println("YES");
 				if ("GET".equals(request.getMethod())) {
 					rd.getsReimbursementsAssociated(request, response);
 				} else {

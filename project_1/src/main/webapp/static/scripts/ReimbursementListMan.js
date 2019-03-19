@@ -1,3 +1,7 @@
+/**
+ * 
+ */
+
 window.onload=function(){
 	document.getElementById("view").addEventListener("click", repopulate);
 	ajaxGetRequest( populateTable);
@@ -10,7 +14,7 @@ function ajaxGetRequest( process) {
 
 	let xhr = new XMLHttpRequest();
 
-	xhr.open("get", "http://localhost:8080/ReimbursementApp/api/reimbursements/emp");
+	xhr.open("get", "http://localhost:8080/ReimbursementApp/api/reimbursements");
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
@@ -31,7 +35,6 @@ function repopulate(){
 	let setting = document.getElementById("viewSettings").value;
 	 var new_tbody = document.createElement('tbody');
 	 new_tbody.id = "reimbBody";
-	console.log("Setting" + setting);
 	if(setting === "all"){
 		for(reimbursement of table){
 			let row = document.createElement("tr");
@@ -40,8 +43,6 @@ function repopulate(){
 			id.innerHTML = reimbursement.id;
 			let title = document.createElement("td");
 			title.innerHTML = reimbursement.title;
-			let description = document.createElement("td");
-			description.innerHTML = reimbursement.description;
 			let amount = document.createElement("td");
 			amount.innerHTML = reimbursement.amount;
 			let state = document.createElement("td");
@@ -49,7 +50,6 @@ function repopulate(){
 			
 			row.appendChild(id);
 			row.appendChild(title);
-			row.appendChild(description);
 			row.appendChild(amount);
 			row.appendChild(state);
 			new_tbody.appendChild(row);
@@ -62,8 +62,6 @@ function repopulate(){
 				id.innerHTML = reimbursement.id;
 				let title = document.createElement("td");
 				title.innerHTML = reimbursement.title;
-				let description = document.createElement("td");
-				description.innerHTML = reimbursement.description;
 				let amount = document.createElement("td");
 				amount.innerHTML = reimbursement.amount;
 				let state = document.createElement("td");
@@ -71,7 +69,6 @@ function repopulate(){
 				
 				row.appendChild(id);
 				row.appendChild(title);
-				row.appendChild(description);
 				row.appendChild(amount);
 				row.appendChild(state);
 				new_tbody.appendChild(row);
@@ -85,8 +82,6 @@ function repopulate(){
 		id.innerHTML = reimbursement.id;
 		let title = document.createElement("td");
 		title.innerHTML = reimbursement.title;
-		let description = document.createElement("td");
-		description.innerHTML = reimbursement.description;
 		let amount = document.createElement("td");
 		amount.innerHTML = reimbursement.amount;
 		let state = document.createElement("td");
@@ -94,7 +89,6 @@ function repopulate(){
 		
 		row.appendChild(id);
 		row.appendChild(title);
-		row.appendChild(description);
 		row.appendChild(amount);
 		row.appendChild(state);
 		new_tbody.appendChild(row);
@@ -111,11 +105,9 @@ function populateTable(reimbursements){
 		let row = document.createElement("tr");
 
 		let id = document.createElement("td");
-		id.innerHTML = reimbursement.id;
+		id.innerHTML = `<a href="http://localhost:8080/ReimbursementApp/api/reimbursement?id=${reimbursement.id}">${reimbursement.id}</a>`;
 		let title = document.createElement("td");
 		title.innerHTML = reimbursement.title;
-		let description = document.createElement("td");
-		description.innerHTML = reimbursement.description;
 		let amount = document.createElement("td");
 		amount.innerHTML = reimbursement.amount;
 		let state = document.createElement("td");
@@ -123,10 +115,8 @@ function populateTable(reimbursements){
 		
 		row.appendChild(id);
 		row.appendChild(title);
-		row.appendChild(description);
 		row.appendChild(amount);
 		row.appendChild(state);
 		document.getElementById("reimbBody").appendChild(row);
 	}
-	console.log(table);
 }

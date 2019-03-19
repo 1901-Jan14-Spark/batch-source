@@ -47,6 +47,26 @@ public class EmployeeDelegate {
 		pw.close();
 	}
 
+	public void getsEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		ObjectMapper om = new ObjectMapper();
+
+		int id = (int) request.getSession().getAttribute("id");
+
+		String employeeJSON;
+
+		Employee e = eService.getEmployeeById(id);
+		if (e == null) {
+			employeeJSON = "";
+			response.setStatus(404);
+		} else {
+			employeeJSON = om.writeValueAsString(e);
+		}
+
+		PrintWriter pw = response.getWriter();
+		pw.write(employeeJSON);
+		pw.close();
+	}
+
 	public void createsEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String email = request.getParameter("email");
 
@@ -85,21 +105,21 @@ public class EmployeeDelegate {
 		}
 		if (!InputValidator.validateEmail(temp.getEmail())) {
 //			if (temp.getEmail() != null) {
-				if (!temp.getEmail().contentEquals("")) {
+			if (!temp.getEmail().contentEquals("")) {
 				response.sendError(400, "Invalid email: " + temp.getEmail());
 				return;
 			}
 		}
 		if (!InputValidator.validatePassword(temp.getPassword())) {
 //			if (temp.getPassword() != null) {
-				if (!temp.getPassword().contentEquals("")) {
+			if (!temp.getPassword().contentEquals("")) {
 				response.sendError(400, "Invalid password: " + temp.getPassword());
 				return;
 			}
 		}
 		if (!InputValidator.validateName(temp.getFirstname())) {
 //			if (temp.getFirstname() != null) {
-				if (!temp.getFirstname().contentEquals("")) {
+			if (!temp.getFirstname().contentEquals("")) {
 				response.sendError(400, "Invalid firstname: " + temp.getFirstname());
 				return;
 			}

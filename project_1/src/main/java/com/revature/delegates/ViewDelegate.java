@@ -25,7 +25,7 @@ public class ViewDelegate {
 			}
 			return;
 		case "mdashboard":
-			if (request.getSession().getAttribute("id") == null) {
+			if (request.getSession().getAttribute("id") == null && (int)request.getSession().getAttribute("managerLevel") == 1) {
 				request.getSession().invalidate();
 				response.sendRedirect("/ReimbursementApp/login");
 			} else {
@@ -62,6 +62,14 @@ public class ViewDelegate {
 				response.sendRedirect("/ReimbursementApp/login");
 			} else {
 				request.getRequestDispatcher("/static/Views/ViewReimbursements.html").forward(request, response);
+			}
+			return;
+		case "mReimbursement-list":
+			if (request.getSession().getAttribute("id") == null || (int)request.getSession().getAttribute("managerLevel") != 1) {
+				request.getSession().invalidate();
+				response.sendRedirect("/ReimbursementApp/login");
+			} else {
+				request.getRequestDispatcher("/static/Views/ReimbursementListMan.html").forward(request, response);
 			}
 			return;
 		default:

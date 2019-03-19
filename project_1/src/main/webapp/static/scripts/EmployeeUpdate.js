@@ -3,6 +3,33 @@
  */
 window.onload = function(){
 	document.getElementById("submitButton").addEventListener("click", sendPut);
+	ajaxGetRequest(populateInfo);
+}
+
+function ajaxGetRequest( process) {
+
+	let xhr = new XMLHttpRequest();
+
+	xhr.open("get", "http://localhost:8080/ReimbursementApp/api/employees/emp");
+
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4) {
+			if (xhr.status >= 200 && xhr.status < 300) {
+				process(JSON.parse(xhr.response));
+			} else {
+				console.log(xhr.statusText);
+			}
+		}
+	}
+	xhr.send();
+}
+
+function populateInfo(employee){
+
+		document.getElementById("eemail").innerHTML = employee.email;
+		document.getElementById("epass").innerHTML = employee.password;
+		document.getElementById("efirst").innerHTML = employee.firstname;
+		document.getElementById("elast").innerHTML = employee.lastname;
 }
 
 function ajaxPostRequest(callback, objectJS) {
