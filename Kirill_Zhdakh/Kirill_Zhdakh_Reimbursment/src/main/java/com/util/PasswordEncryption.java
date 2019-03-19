@@ -16,7 +16,7 @@ public class PasswordEncryption {
 			in = new FileInputStream("encryption.properties");
 			prop.load(in);
 			int upshift =  Integer.parseInt(prop.getProperty("upshift"));
-			int downshift =  Integer.parseInt(prop.getProperty("upshift"));
+			int downshift =  Integer.parseInt(prop.getProperty("downshift"));
 			StringBuilder sb = new StringBuilder();
 			int i; int length = password.length();
 			for(i = 0; i < length; ++i)
@@ -52,7 +52,7 @@ public class PasswordEncryption {
 			in = new FileInputStream("encryption.properties");
 			prop.load(in);
 			int upshift =  Integer.parseInt(prop.getProperty("upshift"));
-			int downshift =  Integer.parseInt(prop.getProperty("upshift"));
+			int downshift =  Integer.parseInt(prop.getProperty("downshift"));
 			StringBuilder sb = new StringBuilder();
 			int i; int length = encryption.length();
 			for(i = 0; i < length; ++i)

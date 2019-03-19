@@ -11,11 +11,11 @@ public class User implements Serializable {
 	private String password;
 	private String email;
 	private String title;
-	private int reportsTo;
+	private Integer reportsTo;
 	
 	public User() {}
 	
-	public User(String firstName, String lastName, String username, String password, String email, String title, int reportsTo)
+	public User(String firstName, String lastName, String username, String password, String email, String title, Integer reportsTo)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -68,10 +68,10 @@ public class User implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getReportsTo() {
+	public Integer getReportsTo() {
 		return reportsTo;
 	}
-	public void setReportsTo(int reportsTo) {
+	public void setReportsTo(Integer reportsTo) {
 		this.reportsTo = reportsTo;
 	}	
 }

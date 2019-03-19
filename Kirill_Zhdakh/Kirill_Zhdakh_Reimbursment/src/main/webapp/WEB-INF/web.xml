@@ -13,13 +13,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ProfileServlet</display-name>
-    <servlet-name>ProfileServlet</servlet-name>
-    <servlet-class>com.servlet.ProfileServlet</servlet-class>
+    <display-name>DashboardServlet</display-name>
+    <servlet-name>DashboardServlet</servlet-name>
+    <servlet-class>com.servlet.DashboardServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ProfileServlet</servlet-name>
-    <url-pattern>/profile</url-pattern>
+    <servlet-name>DashboardServlet</servlet-name>
+    <url-pattern>/dashboard</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -40,5 +40,25 @@
   <servlet-mapping>
     <servlet-name>SessionServlet</servlet-name>
     <url-pattern>/session</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegisterServlet</display-name>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/registeremployee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TicketCreateServlet</display-name>
+    <servlet-name>TicketCreateServlet</servlet-name>
+    <servlet-class>com.servlet.TicketCreateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TicketCreateServlet</servlet-name>
+    <url-pattern>/createticket</url-pattern>
   </servlet-mapping>
 </web-app>

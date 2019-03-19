@@ -13,6 +13,11 @@ private static Connection connection;
 	
 	public static Connection getConnectionFromFile() throws IOException, SQLException
 	{
+		try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 		Properties prop = new Properties();
 		InputStream in = new FileInputStream("connection.properties");
 		prop.load(in);

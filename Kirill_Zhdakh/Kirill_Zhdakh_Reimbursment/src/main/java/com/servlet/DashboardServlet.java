@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ProfileServlet extends HttpServlet {
+public class DashboardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -15,7 +15,7 @@ public class ProfileServlet extends HttpServlet {
 			response.sendRedirect("login");
 		} else {
 			request.getSession().removeAttribute("error");
-			request.getRequestDispatcher("Views/Profile.html").forward(request, response);
+			request.getRequestDispatcher("Views/Dashboard.html").forward(request, response);
 		}
 	}
 }
