@@ -6,7 +6,7 @@
   <packaging>war</packaging>
   
   <build>
-  	<finalName>HelloWorld</finalName>
+  	<finalName>Project1</finalName>
   </build>
   
   <properties>
