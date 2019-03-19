@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.revature.delegate.EmployeeDelegate;
+import com.revature.delegate.LoginDelegate;
 import com.revature.delegate.ReimbursementDelegate;
 import com.revature.delegate.ViewDelegate;
 
@@ -15,6 +16,7 @@ public class RequestHelper {
 	EmployeeDelegate ed = new EmployeeDelegate();
 	ReimbursementDelegate rd = new ReimbursementDelegate();
 	ViewDelegate vd = new ViewDelegate();
+	LoginDelegate ld = new LoginDelegate();
 	
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		String uri = request.getRequestURI().substring(request.getContextPath().length());
@@ -55,6 +57,15 @@ public class RequestHelper {
 				else {
 					response.sendError(405, "Method Not Supported for /" + record);
 				}
+				break;
+			case "login":
+				if("GET".equals(request.getMethod())){
+					ld.getLogin(request, response);
+				}
+				break;
+			case "logout":
+				request.getSession(false).invalidate();
+				response.sendRedirect("../login");
 				break;
 			default:
 				response.sendError(404, "Record Not Supported");

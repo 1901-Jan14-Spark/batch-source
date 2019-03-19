@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.models.Employee;
-import com.revature.models.Reimbursement;
 import com.revature.services.EmployeeService;
 
 public class EmployeeDelegate {
@@ -73,8 +72,8 @@ public class EmployeeDelegate {
 		ObjectMapper om = new ObjectMapper();
 		Employee newE = om.readValue(requestBodyText, Employee.class);
 		
-		int reimbursementsUpdated = eService.update(newE);
-		if(reimbursementsUpdated == 1) {
+		int employeesUpdated = eService.update(newE);
+		if(employeesUpdated == 1) {
 			response.setStatus(202);
 		}
 		else {
@@ -87,8 +86,8 @@ public class EmployeeDelegate {
 		ObjectMapper om = new ObjectMapper();
 		Employee newE = om.readValue(requestBodyText, Employee.class);
 		
-		int reimbursementsUpdated = eService.deleteById(newE.getId());
-		if(reimbursementsUpdated == 1) {
+		int employeesDeleted = eService.deleteById(newE.getId());
+		if(employeesDeleted == 1) {
 			response.setStatus(202);
 		}
 		else {

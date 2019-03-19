@@ -88,8 +88,8 @@ public class ReimbursementDelegate {
 		ObjectMapper om = new ObjectMapper();
 		Reimbursement newR = om.readValue(requestBodyText, Reimbursement.class);
 		
-		int reimbursementsUpdated = rService.deleteById(newR.getR_id());
-		if(reimbursementsUpdated == 1) {
+		int reimbursementsDeleted = rService.deleteById(newR.getR_id());
+		if(reimbursementsDeleted == 1) {
 			response.setStatus(202);
 		}
 		else {
