@@ -39,4 +39,44 @@
     <servlet-name>EHomeServlet</servlet-name>
     <url-pattern>/eHome</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReqDataServlet</display-name>
+    <servlet-name>ReqDataServlet</servlet-name>
+    <servlet-class>servlets.ReqDataServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReqDataServlet</servlet-name>
+    <url-pattern>/reqdata</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmpServlet</display-name>
+    <servlet-name>EmpServlet</servlet-name>
+    <servlet-class>servlets.EmpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmpServlet</servlet-name>
+    <url-pattern>/employees</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProfileServlet</display-name>
+    <servlet-name>ProfileServlet</servlet-name>
+    <servlet-class>servlets.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProfileServlet</servlet-name>
+    <url-pattern>/profile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CurrEmpServlet</display-name>
+    <servlet-name>CurrEmpServlet</servlet-name>
+    <servlet-class>servlets.CurrEmpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CurrEmpServlet</servlet-name>
+    <url-pattern>/curremp</url-pattern>
+  </servlet-mapping>
 </web-app>

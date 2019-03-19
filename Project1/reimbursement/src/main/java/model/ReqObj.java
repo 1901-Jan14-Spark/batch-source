@@ -1,39 +1,31 @@
 package model;
 
 public class ReqObj {
-	private int rId;
-	private EmpObj eId;
-	private double amount;
+	private String eName;
+	private String email;
 	private String Desc;
-	private int status;
-	private EmpObj resovledBy;
+	private double amount;
+	private String status;
+	private EmpObj resolvedBy;
 	
 	public ReqObj() {
 		super();
 	}
 
-	public int getrId() {
-		return rId;
+	public String geteName() {
+		return eName;
 	}
 
-	public void setrId(int rId) {
-		this.rId = rId;
+	public void seteName(String eName) {
+		this.eName = eName;
 	}
 
-	public EmpObj geteId() {
-		return eId;
+	public String getEmail() {
+		return email;
 	}
 
-	public void seteId(EmpObj eId) {
-		this.eId = eId;
-	}
-
-	public double getAmount() {
-		return amount;
-	}
-
-	public void setAmount(double amount) {
-		this.amount = amount;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getDesc() {
@@ -44,20 +36,28 @@ public class ReqObj {
 		Desc = desc;
 	}
 
-	public int getStatus() {
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public EmpObj getResovledBy() {
-		return resovledBy;
+	public EmpObj getResolvedBy() {
+		return resolvedBy;
 	}
 
-	public void setResovledBy(EmpObj resovledBy) {
-		this.resovledBy = resovledBy;
+	public void setResolvedBy(EmpObj resovledBy) {
+		this.resolvedBy = resovledBy;
 	}
 
 	@Override
@@ -68,10 +68,10 @@ public class ReqObj {
 		long temp;
 		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((eId == null) ? 0 : eId.hashCode());
-		result = prime * result + rId;
-		result = prime * result + ((resovledBy == null) ? 0 : resovledBy.hashCode());
-		result = prime * result + status;
+		result = prime * result + ((eName == null) ? 0 : eName.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((resolvedBy == null) ? 0 : resolvedBy.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
 	}
 
@@ -91,26 +91,32 @@ public class ReqObj {
 			return false;
 		if (Double.doubleToLongBits(amount) != Double.doubleToLongBits(other.amount))
 			return false;
-		if (eId == null) {
-			if (other.eId != null)
+		if (eName == null) {
+			if (other.eName != null)
 				return false;
-		} else if (!eId.equals(other.eId))
+		} else if (!eName.equals(other.eName))
 			return false;
-		if (rId != other.rId)
-			return false;
-		if (resovledBy == null) {
-			if (other.resovledBy != null)
+		if (email == null) {
+			if (other.email != null)
 				return false;
-		} else if (!resovledBy.equals(other.resovledBy))
+		} else if (!email.equals(other.email))
 			return false;
-		if (status != other.status)
+		if (resolvedBy == null) {
+			if (other.resolvedBy != null)
+				return false;
+		} else if (!resolvedBy.equals(other.resolvedBy))
+			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
 			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "ReqObj [rId=" + rId + ", eId=" + eId + ", amount=" + amount + ", Desc=" + Desc + ", status=" + status
-				+ ", resovledBy=" + resovledBy + "]";
+		return "ReqObj [eName=" + eName + ", email=" + email + ", Desc=" + Desc + ", amount=" + amount + ", status="
+				+ status + ", resolvedBy=" + resolvedBy + "]";
 	}
 }

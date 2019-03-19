@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+
 /**
  * Servlet implementation class MHomeServlet
  */
@@ -35,9 +36,21 @@ public class MHomeServlet extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("mHome.html");
 				rd.forward(request, response);
 			}
+			else {
+				response.sendError(403, "You are not authorized to view this page.");
+			}
 		}
 		else {
-			response.sendError(401, "You are not authorized to view this page.");
+			response.sendError(403, "You are not authorized to view this page.");
 		}
+	}
+	
+	//TODO replace with updating requests table
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name = request.getParameter("newName");
+		String email = request.getParameter("newEmail");
+		String password = request.getParameter("newPassword");
+		//TODO update request method here
+		doGet(request, response);
 	}
 }

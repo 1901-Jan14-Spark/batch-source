@@ -10,6 +10,13 @@
   <meta name="author" content="">
 
   <title>Reimbursement - Dashboard</title>
+  
+  <!-- custom datatables plugin -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+		
+  <script src="js/tablesPracScript.js"></script>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -152,8 +159,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <!--<span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>-->
+                <i class="fa fa-user"></i>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -162,7 +169,7 @@
                   Profile
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal" href="#">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -185,106 +192,52 @@
           <!-- Content Row -->
           <div class="row">
 
-            <!-- Earnings (Monthly) Card Example -->
-
-            <!-- Earnings (Monthly) Card Example -->
-
-            <!-- Earnings (Monthly) Card Example -->
-
-            <!-- Pending Requests Card Example -->
-
-          <!-- Content Row -->
-
-          <div class="row">
-
             <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-12">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Reimbursement Requests</h6>
                   <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    <a class="dropdown-item" data-toggle="modal" data-target="#expenseModal">
+                  	  <button type="button" class="btn btn-danger">Create New Expense</button>
+                  	</a>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-area">
+                  <!--<div class="chart-area">
                     <canvas id="myAreaChart"></canvas>
-                  </div>
+                  </div>-->
+                  <table id="table_id" class="display">
+    				<thead>
+            		  <tr>
+                		<th>Name</th>
+                    	<th>Employee email</th>
+                    	<th>Amount</th>
+                    	<th>Description</th>
+                    	<th>Status</th>
+                    	<th>Manager</th>
+                    	<th>Manager email</th>
+                	  </tr>
+           			</thead>
+            		<tfoot>
+            		  <tr>
+                		<th>Name</th>
+                    	<th>Employee email</th>
+                    	<th>Amount</th>
+                    	<th>Description</th>
+                    	<th>Status</th>
+                    	<th>Manager</th>
+                    	<th>Manager email</th>
+                	  </tr>
+            		</tfoot>
+				  </table>
                 </div>
               </div>
             </div>
 
             <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Content Column -->
-            <div class="col-lg-6 mb-4">
-
-              <!-- Project Card Example -->
-
-              <!-- Color System -->
-
-            </div>
-
-            <div class="col-lg-6 mb-4">
-
-              <!-- Illustrations -->
-
-              <!-- Approach -->
-
-            </div>
-          </div>
 
         </div>
         <!-- /.container-fluid -->
@@ -333,9 +286,50 @@
       </div>
     </div>
   </div>
+  
+  <!-- New Expense Modal-->
+  <div class="modal fade" id="expenseModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create New Expense</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        	<form class="expense" action="eHome" method="POST">
+                <div class="form-group">
+               	  <input type="number" step="0.01" name="amount" class="form-control form-control-user" id="amountInput" placeholder="Amount">
+                </div>
+                <div class="form-group">
+                  <textarea maxlength="50" name="description" class="form-control form-control-user" id="descriptionInput" placeholder="Description"></textarea>
+                  <div id="the-count">
+    				<span id="current">0</span><span id="maximum">/ 50</span>
+    				<script>
+    				$('textarea').keyup(function() {
+    				    
+    					  var characterCount = $(this).val().length,
+    					      current = $('#current'),
+    					      maximum = $('#maximum'),
+    					      theCount = $('#the-count');
+    					    
+    					  current.text(characterCount);
+    				});
+    				</script>
+  				  </div>
+                </div>
+                <div class="modal-footer">
+	              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+	              <input class="btn btn-primary" type="submit" value="Confirm">
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
@@ -348,8 +342,7 @@
   <script src="vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+
 
 </body>
 
