@@ -2,9 +2,12 @@ package driver;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 import daos.EmployeeDao;
 import daos.EmployeeDaoImp;
+import daos.Request;
 
 public class Driver {
 
@@ -22,6 +25,13 @@ public class Driver {
 //		System.out.println(dtf.format(now));
 //		System.out.println(tester.getRequests("gmarle1m"));
 		tester.updatePassword("agilaydones", "854");
+		System.out.println(tester.checkManager());
+		//System.out.println(tester.getIdbyMngUser("chaliburn17"));
+		List<Integer> test = tester.getIdbyMngUser("chaliburn17");
+		System.out.println(test);
+		List<Request> req = tester.getRequestById("chaliburn17");
+		System.out.println(req);
+		
 	}
 	
 	

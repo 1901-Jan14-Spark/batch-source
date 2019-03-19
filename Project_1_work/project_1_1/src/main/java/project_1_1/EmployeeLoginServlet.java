@@ -35,37 +35,32 @@ public class EmployeeLoginServlet extends HttpServlet implements Runnable{
 		rd.forward(request, response);
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		
-		
-		
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		
 		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		//HttpSession session = request.getSession();
-		if(emp.getEmployeeCredentials().containsKey(username)&&emp.getEmployeeCredentials().get(username).equals(password)) {
-			
+		if(emp.checkManager().containsKey(username)&&emp.checkManager().get(username).equals(password)) {
 			HttpSession session = request.getSession();
 			session.setAttribute("username", username);
+			response.sendRedirect("MngHome");
+			System.out.println("Mangager");
+			System.out.println();
 			
-			
-			
+		}else if(emp.getEmployeeCredentials().containsKey(username)&&emp.getEmployeeCredentials().get(username).equals(password)) {
+
+			HttpSession session = request.getSession();
+			session.setAttribute("username", username);
 			response.sendRedirect("EmpHome");
 			System.out.println("contaains");
 			System.out.println();
-			
-			
 			
 		}else{
 			System.out.println("Not a thing");
 			System.out.println(emp.getEmployeeCredentials());
 			response.sendRedirect("eLogin");
 		}
-		
-		
-		//System.out.println(username +" " +password);
-		
 	}
 
 	@Override

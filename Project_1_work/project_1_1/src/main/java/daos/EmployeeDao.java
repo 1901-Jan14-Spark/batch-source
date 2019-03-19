@@ -17,5 +17,9 @@ public interface EmployeeDao {
 	public void postRequest(String username, int id, double cost, String reason);
 	public List<Request> apiRequest();
 	public void updatePassword(String username, String password);
+	public List<Request> yourEmployeesRequests(String username);
+	public List<Integer> getIdbyMngUser(String username);
+	public List<Request> getRequestById(String username);
+
 	
 }

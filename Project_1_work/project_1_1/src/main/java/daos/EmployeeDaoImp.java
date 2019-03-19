@@ -80,21 +80,21 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 
 	@Override
 	public HashMap<String, String> checkManager() {
-		
-		String sql = "SELECT USERNAME, EMP_PASSWORD FROM EMPPLOYEE_INFO WHERE REPORSTO = NULL";
+		HashMap<String,String> mngCred = new HashMap<>();
+		String sql = "SELECT USERNAME, EMP_PASSWORD FROM EMPLOYEE_INFO WHERE REPORSTO IS NULL";
 		try(Connection con = ConnetionSrc.getConnection();
 				Statement s = con.createStatement();
 				ResultSet rs = s.executeQuery(sql);){
 				while(rs.next()) {
 					String pass = rs.getString("USERNAME");
-					String user = rs.getString("PASSWORD");
-					creds.put(pass, user);
+					String user = rs.getString("EMP_PASSWORD");
+					mngCred.put(pass, user);
 				}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return creds;
+		return mngCred;
 	}
 
 	@Override
@@ -286,7 +286,67 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 		
 		
 	}
-	
+
+
+
+	@Override
+	public List<Request> yourEmployeesRequests(String username) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public List<Integer> getIdbyMngUser(String username) {
+		List<Integer> IdList = new ArrayList<Integer>();
+		int repo = getEmployeeId(username);
+		String sql= "SELECT EMPLOYEE_ID FROM EMPLOYEE_INFO WHERE REPORSTO = ? ";
+		
+		
+		try(Connection con = ConnetionSrc.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+				ps.setInt(1, repo);
+				ResultSet rs = ps.executeQuery();
+				while(rs.next()) {
+				int	id = rs.getInt("EMPLOYEE_ID");
+				IdList.add(id);
+				}
+				
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+		return IdList;
+	}
+
+
+
+	@Override
+	public List<Request> getRequestById(String username) {
+		List<Integer> ids = getIdbyMngUser(username);
+		List<Request> requests = new ArrayList<Request>();
+		String sql = "SELECT * FROM REIMBURSEMENT_REQUEST WHERE EMPLOYEE_ID = ? ";
+		for(int eid :ids) {
+			try(Connection con = ConnetionSrc.getConnection();
+					PreparedStatement ps = con.prepareStatement(sql)){
+					ps.setInt(1, eid);
+					ResultSet rs = ps.executeQuery();
+					while(rs.next()) {
+					int empId = rs.getInt("EMPLOYEE_ID");	
+					boolean	approval = rs.getBoolean("APPROVED");
+					String date = rs.getString("DATE_SUBMITTED");
+					String reason = rs.getString("REASON");
+					double amount = rs.getDouble("AMOUNT");
+					requests.add(new Request(empId, approval, date, reason, amount));
+					}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return requests;
+	}
 	
 
 

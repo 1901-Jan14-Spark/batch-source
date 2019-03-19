@@ -1,31 +1,23 @@
 package project_1_1;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import daos.Employee;
-import daos.EmployeeDaoImp;
-
 /**
- * Servlet implementation class ManagersEmployeeServlet
+ * Servlet implementation class ManagerHomeServlet
  */
-public class ManagersEmployeeServlet extends HttpServlet {
+public class ManagerHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	
-	private EmployeeDaoImp mangServ = new EmployeeDaoImp();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ManagersEmployeeServlet() {
+    public ManagerHomeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,17 +26,8 @@ public class ManagersEmployeeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		///replace with a check box input form attribute
-		String user = (String) request.getSession().getAttribute("username");
-		ObjectMapper om = new ObjectMapper();
-		String managersJSON;
-		List<Employee> employees = mangServ.getManagersEmployee(user);
-		managersJSON = om.writeValueAsString(employees);
-		PrintWriter pw = response.getWriter();
-		//System.out.println(employees);
-		pw.write(managersJSON);
-		pw.close();
+		RequestDispatcher rd = request.getRequestDispatcher("ManagerPort.html");
+		rd.forward(request, response);
 		
 	}
 

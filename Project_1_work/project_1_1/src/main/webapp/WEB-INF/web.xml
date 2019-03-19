@@ -87,4 +87,24 @@
     <servlet-name>UpdateEmployeeServlet</servlet-name>
     <url-pattern>/UpdatePassword</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ManagerHomeServlet</display-name>
+    <servlet-name>ManagerHomeServlet</servlet-name>
+    <servlet-class>project_1_1.ManagerHomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManagerHomeServlet</servlet-name>
+    <url-pattern>/MngHome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EmployeesRequestApiServlet</display-name>
+    <servlet-name>EmployeesRequestApiServlet</servlet-name>
+    <servlet-class>project_1_1.EmployeesRequestApiServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EmployeesRequestApiServlet</servlet-name>
+    <url-pattern>/EmpReqApi</url-pattern>
+  </servlet-mapping>
 </web-app>
