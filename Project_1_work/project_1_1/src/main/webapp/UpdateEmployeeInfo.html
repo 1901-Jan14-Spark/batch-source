@@ -3,17 +3,20 @@
 <title>Update Employee</title>
 </head>
 <body>
-<h4>First Name</h4><p id = "EmpfirstName"></p>
-<h4>Last Name</h4><p id = "EmpLastName"></p>
+<h4>First Name</h4><p id = "employeeName"></p>
+
 <h4>Change Password</h4>
-<input type = "password" placeholder ="Old password">
-<input type = "password" placeholder="New Password">
-<h4>Manager</h4><p id = "EmpManagerName"></p>
-<h4>Manager ID</h4><p id = "EmpMangerId"></p>
-<button  id = "updateManager">Change Manager</button>
+<form action= "UpdatePassword" method = "POST">
+<input type = "password" placeholder ="Old password" name = "oldPass">
+<input type = "password" placeholder="New Password" name = "newPass">
+<h4>Manager</h4><p id = "ManagerName"></p>
+<h4>Manager ID</h4><p id = "MangerID"></p>
+<input type = "submit" value = "Save Changes">
+</form>
 <a href = "EmployeeHome.html">Save Changes</a>
 
 </body>
-
+<script src = "Scripts/ManagerName.js"></script>
+<script src = "Scripts/EmployeeInfoPop.js"></script>
 
 </html>

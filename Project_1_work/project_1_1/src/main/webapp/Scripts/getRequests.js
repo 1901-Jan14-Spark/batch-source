@@ -17,10 +17,17 @@ function popRTable(xhr){
 	console.log(requests);
 	let employeeTable = document.getElementById("employeeReimbursementStatus");
 	for(request of requests){
-		addRow(request.approved, request.dateSubmitted);
-		
+		let bo = request.approved;
+		let req = "pending";
+		if (bo === true){
+			req = "approved"}
+			else{
+				req = "Pending";
+			}
+		addRow(req, request.dateSubmitted.substr(0,10));
 	}
 }
+
 function addRow(name, id){
 	let row = document.createElement("tr");
 	let cell1 = document.createElement("td");
@@ -32,6 +39,7 @@ function addRow(name, id){
 	document.getElementById("employeeReimbursementStatus").appendChild(row);
 }
 
+document.getElementById("view").addEventListener("click", popRTable);
+ sendjaxGet(rurl, popRTable);
 
 
-sendjaxGet(rurl, popRTable);

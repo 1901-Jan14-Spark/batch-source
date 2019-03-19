@@ -39,6 +39,7 @@ public class EmployeeRequestApiServlet extends HttpServlet {
 		List<Request> requests = empRequest.getRequests(user);
 		requestJSON = om.writeValueAsString(requests);
 		PrintWriter pw = response.getWriter();
+		pw.flush();
 		pw.write(requestJSON);
 		pw.close();
 	}
@@ -47,8 +48,15 @@ public class EmployeeRequestApiServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+//		ObjectMapper om = new ObjectMapper();
+//		String requestJSON;
+//		String user= (String) request.getSession().getAttribute("username");
+//		
+//		List<Request> requests = empRequest.getRequests(user);
+//		requestJSON = om.writeValueAsString(requests);
+//		PrintWriter pw = response.getWriter();
+//		pw.write(requestJSON);
+//		pw.close();
 	}
 
 }

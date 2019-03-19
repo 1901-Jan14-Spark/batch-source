@@ -17,10 +17,11 @@ public class Driver {
 		//System.out.println(tester.getManager("nskeen2e"));
 		//System.out.println(tester.getEmpByUser("rjedrzejewski1j"));
 		//System.out.println(tester.getManagerName("rjedrzejewski1j"));
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
-		LocalDateTime now = LocalDateTime.now();
-		System.out.println(dtf.format(now));
-		System.out.println(tester.getRequests("gmarle1m"));
+//		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+//		LocalDateTime now = LocalDateTime.now();
+//		System.out.println(dtf.format(now));
+//		System.out.println(tester.getRequests("gmarle1m"));
+		tester.updatePassword("agilaydones", "854");
 	}
 	
 	

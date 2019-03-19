@@ -5,20 +5,19 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import daos.EmployeeDaoImp;
 
 /**
- * Servlet implementation class EmployeeReimbursmentServlet
+ * Servlet implementation class UpdateEmployeeServlet
  */
-public class EmployeeReimbursmentServlet extends HttpServlet {
+public class UpdateEmployeeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmployeeReimbursmentServlet() {
+    public UpdateEmployeeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,17 +34,13 @@ public class EmployeeReimbursmentServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	String reason = request.getParameter("reason");	
-	double cost = Double.parseDouble(request.getParameter("amount"));	
-	EmployeeDaoImp tester = new EmployeeDaoImp();		
-	String user = (String) request.getSession().getAttribute("username");
-	int id = tester.getEmployeeId(user);
-	tester.postRequest(user, id, cost, reason);
-	response.sendRedirect("EmpHome");
-	
-	
-		//doGet(request, response);
+		
+		String user = (String) request.getSession().getAttribute("username");
+		String pass = request.getParameter("newPass");
+		EmployeeDaoImp emp = new EmployeeDaoImp();
+		emp.updatePassword(user, pass);
+		System.out.println(user);
+		doGet(request, response);
 	}
 
 }

@@ -16,8 +16,8 @@ import utilities.ConnetionSrc;
 
 public class EmployeeDaoImp implements EmployeeDao, Runnable{
 			List<Employee> employees = new ArrayList<>();
-			List<Employee> MngEmployees = new ArrayList<>();
-			List<Request> request = new ArrayList<>();
+		
+			
 	static HashMap<String, String> creds = new HashMap<String, String>();
 	
 	public HashMap<String, String> getEmployeeCredentials() {
@@ -105,7 +105,7 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 
 	@Override
 	public List<Request> getRequests(String username) {
-		
+		List<Request> request = new ArrayList<>();
 		int id = getEmployeeId(username);
 		String sql = "SELECT * FROM REIMBURSEMENT_REQUEST WHERE EMPLOYEE_ID = ?";
 		try(Connection con = ConnetionSrc.getConnection();
@@ -188,7 +188,7 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 
 	@Override
 	public List<Employee> getManagersEmployee(String username) {
-
+		List<Employee> MngEmployees = new ArrayList<>();
 		String sql = "SELECT * FROM EMPLOYEE_INFO WHERE REPORSTO = ?";
 		int id = getEmployeeId(username);
 		try(Connection con = ConnetionSrc.getConnection();
@@ -264,6 +264,27 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 	public List<Request> apiRequest() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+
+	@Override
+	public void updatePassword(String username, String password) {
+		
+		String sql = "UPDATE EMPLOYEE_INFO SET EMP_PASSWORD = ? WHERE USERNAME = ? ";
+		try(Connection con = ConnetionSrc.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+				ps.setString(1, password);
+			 	ps.setString(2, username);
+			 	ps.executeUpdate();
+			 	
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 	

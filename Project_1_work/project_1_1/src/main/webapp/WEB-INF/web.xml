@@ -77,4 +77,14 @@
     <servlet-name>EmployeeRequestApiServlet</servlet-name>
     <url-pattern>/EmployeeRequestApi</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateEmployeeServlet</display-name>
+    <servlet-name>UpdateEmployeeServlet</servlet-name>
+    <servlet-class>project_1_1.UpdateEmployeeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateEmployeeServlet</servlet-name>
+    <url-pattern>/UpdatePassword</url-pattern>
+  </servlet-mapping>
 </web-app>

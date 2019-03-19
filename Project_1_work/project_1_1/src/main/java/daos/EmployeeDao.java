@@ -16,5 +16,6 @@ public interface EmployeeDao {
 	public int getEmployeeId(String username);
 	public void postRequest(String username, int id, double cost, String reason);
 	public List<Request> apiRequest();
+	public void updatePassword(String username, String password);
 	
 }

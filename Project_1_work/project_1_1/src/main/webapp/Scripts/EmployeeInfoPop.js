@@ -20,8 +20,9 @@ function popInfo(xhr){
 	console.log(employee);
 	
 	 document.getElementById("employeeName").innerHTML = employee.firstName;
-	 document.getElementById("employeeId").innerHTML = employee.employeeId;
 	 document.getElementById("MangerID").innerHTML = employee.managerId;
+	 document.getElementById("employeeId").innerHTML = employee.employeeId;
+	 
 	
 	
 }
