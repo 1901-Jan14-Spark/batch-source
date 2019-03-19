@@ -44,6 +44,29 @@ public class EmployeeDelegate {
 	}
 	
 	public void createEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		String firstName = "";
+		String lastName = "";
+		String email = "";
+		String username = "";
+		String password = "";
+		int deptId = 2;
+		
+		Employee e = new Employee();
+		e.setFirstName(firstName);
+		e.setLastName(lastName);
+		e.setEmail(email);
+		e.setUsername(username);
+		e.setPassword(password);
+		
+		Department d = new Department();
+		d.setDeptId(deptId);
+		e.setD(d);
+		
+		int employeesCreated = eService.create(e);
+		
+		response.sendRedirect("../login");
+		
+		
 		
 	}
 	

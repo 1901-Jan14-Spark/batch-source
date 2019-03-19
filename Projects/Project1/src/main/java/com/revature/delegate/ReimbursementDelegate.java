@@ -1,0 +1,64 @@
+package com.revature.delegate;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.company.Reimbursement;
+import com.revature.services.ReimbursementService;
+
+public class ReimbursementDelegate {
+	
+	private ReimbursementService rbService = new ReimbursementService();
+	
+	public void getRefunds(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		ObjectMapper om = new ObjectMapper();
+		
+		String idStr = request.getParameter("reimbId");
+		
+		String reimbJSON;
+		
+		if(idStr != null && idStr != "") {
+			int id = Integer.parseInt(idStr);
+			Reimbursement rb = rbService.getById(id);
+			if(rb == null) {
+				reimbJSON = "";
+				response.setStatus(404);
+			} else {
+				reimbJSON = om.writeValueAsString(rb);
+			}
+		} else {
+			List<Reimbursement> reimbursements = rbService.getAll();
+			reimbJSON = om.writeValueAsString(reimbursements);
+		}
+		
+		PrintWriter pw = response.getWriter();
+		pw.write(reimbJSON);
+		pw.close();		
+	}
+	
+	public void createRefundRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		int reimbId = 0;
+		int empId = 0;
+		double amount = 0.0;
+		boolean approved = false;
+		Date reqDate;
+		Date appDate;
+		
+		Reimbursement rb = new Reimbursement();
+		rb.setReimbursementId(reimbId);
+		rb.setEmployeeId(empId);
+		rb.setAmount(amount);
+		rb.setApproved(approved);
+		rb.setRequestDate(reqDate);
+		rb.setApprovalDate(appDate);
+		
+	}
+	
+}

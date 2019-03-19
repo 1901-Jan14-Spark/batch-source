@@ -71,10 +71,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		}	
 		return e;
 	}
-
+	
 	@Override
 	public Employee getEmployeeByName(String firstname, String lastname) {
-		String sql = "SELECT * FROM EMPLOYEES WHERE EMP_FIRSTNAME = ? AND EMP_LASTNAME = ?";
+		String sql = "SELECT * FROM EMPLOYEES WHERE EMP_FIRSTNAME = ? AND EMP_LASTNAME =?";
 		Employee emp = null;
 		
 		try(Connection c = ConnectionUtil.getConnection();
@@ -90,9 +90,36 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				String firstName = rs.getString("EMP_FIRSTNAME");
 				String lastName = rs.getString("EMP_LASTNAME");
 				String email = rs.getString("EMP_EMAIL");
-				String username = rs.getString("EMP_USERNAME");
+				String empUsername = rs.getString("EMP_USERNAME");
 				String password = rs.getString("EMP_PASS");
-				emp = new Employee(empId, firstName, lastName, email, username, password, new Department(deptId));
+				emp = new Employee(empId, firstName, lastName, email, empUsername, password, new Department(deptId));
+			}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+		return emp;
+	}
+
+	@Override
+	public Employee getEmployeeByUsername(String username) {
+		String sql = "SELECT * FROM EMPLOYEES WHERE EMP_USERNAME = ?";
+		Employee emp = null;
+		
+		try(Connection c = ConnectionUtil.getConnection();
+				PreparedStatement ps = c.prepareStatement(sql)){
+			
+			ps.setString(1,  username);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int empId = rs.getInt("EMP_ID");
+				int deptId = rs.getInt("DEPT_ID");
+				String firstName = rs.getString("EMP_FIRSTNAME");
+				String lastName = rs.getString("EMP_LASTNAME");
+				String email = rs.getString("EMP_EMAIL");
+				String empUsername = rs.getString("EMP_USERNAME");
+				String password = rs.getString("EMP_PASS");
+				emp = new Employee(empId, firstName, lastName, email, empUsername, password, new Department(deptId));
 			}	
 		} catch (SQLException e) {
 			e.printStackTrace();

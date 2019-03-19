@@ -21,6 +21,10 @@ public class EmployeeService{
 	public Employee getByName(String firstName, String lastName) {
 		return eDao.getEmployeeByName(firstName, lastName);
 	}
+	
+	public Employee getByUsername(String username) {
+		return eDao.getEmployeeByUsername(username);
+	}
 
 	public int create(Employee e) {
 		return eDao.addNewEmployee(e);
@@ -33,9 +37,4 @@ public class EmployeeService{
 	public int deleteById(int id) {
 		return eDao.deleteEmployee(id);
 	}
-
-	
-	
-	
-
 }
