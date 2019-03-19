@@ -36,18 +36,22 @@
 	</form>
 	<form>
 		<input type="submit" value="Decline" id="decline">
-		<!-- <button id="decline">Decline</button> -->
+		
 	</form>
 	<br>
 	<div id="info"></div>
 	<br>
 	<br>
 	<button id="view">View</button>
-	<select id="viewSettings">
+	<select id="viewSettings" onchange="toggleInput()">
 		<option value="all">All</option>
 		<option value="solved">Solved</option>
 		<option value="unresolved">Unresolved</option>
+		<option value="employee">Employee</option>
 	</select>
+	<input type="number" id="searchId" placeholder = "employeeId" hidden>
+	<br>
+	<br>
 	<br>
 	<table id="reimbTable">
 		<thead>
@@ -63,6 +67,7 @@
 
 	</table>
 
+	<a href="http://localhost:8080/ReimbursementApp/dashboard"><button >Back to dashboard</button></a>
 	<script src="static/scripts/ReimbursementListMan.js"></script>
 </body>
 </html>

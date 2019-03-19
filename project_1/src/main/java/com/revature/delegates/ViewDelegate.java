@@ -20,18 +20,21 @@ public class ViewDelegate {
 			if (request.getSession().getAttribute("id") == null) {
 				request.getSession().invalidate();
 				response.sendRedirect("/ReimbursementApp/login");
-			} else {
+			} else if((int)request.getSession().getAttribute("managerLevel") == 1){
+				request.getRequestDispatcher("/static/Views/m-dashboard.html").forward(request, response);
+			}
+			else {
 				request.getRequestDispatcher("/static/Views/dashboard.html").forward(request, response);
 			}
 			return;
-		case "mdashboard":
-			if (request.getSession().getAttribute("id") == null && (int)request.getSession().getAttribute("managerLevel") == 1) {
-				request.getSession().invalidate();
-				response.sendRedirect("/ReimbursementApp/login");
-			} else {
-				request.getRequestDispatcher("/static/Views/m-dashboard.html").forward(request, response);
-			}
-			return;
+//		case "mdashboard":
+//			if (request.getSession().getAttribute("id") == null && (int)request.getSession().getAttribute("managerLevel") == 1) {
+//				request.getSession().invalidate();
+//				response.sendRedirect("/ReimbursementApp/login");
+//			} else {
+//				request.getRequestDispatcher("/static/Views/m-dashboard.html").forward(request, response);
+//			}
+//			return;
 		case "reimbursement-form":
 			if (request.getSession().getAttribute("id") == null) {
 				request.getSession().invalidate();

@@ -31,12 +31,12 @@ public class LoginDelegate {
 
 			System.out.println("Successful login");
 
-			if (e.getManagerLevel() > 0) {
-				response.sendRedirect("/ReimbursementApp/mdashboard");
-			} else {
+//			if (e.getManagerLevel() > 0) {
+//				response.sendRedirect("/ReimbursementApp/mdashboard");
+//			} else {
 				response.sendRedirect("/ReimbursementApp/dashboard");
 				
-			}
+//			}
 
 		} else {
 			response.sendRedirect("/ReimbursementApp/login");
