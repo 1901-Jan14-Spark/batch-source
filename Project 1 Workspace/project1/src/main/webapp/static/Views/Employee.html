@@ -2,10 +2,66 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Employee Portal</title>
 </head>
 <body>
+<div id = "profile">
+	<table id = "profileInfo">
+		<tr>
+			<th >Employee ID</th>
+			<th >Username</th>
+			<th >Password</th>
+			<th >Email</th>
+			<th >Address</th>
+			<th >Phone</th>
+			<th >Manager</th>
+		<tr>
+			<td id = "empId"></td>
+			<td id = "username"></td>
+			<td id = "password"></td>
+			<td id = "email"></td>
+			<td id = "address"></td>
+			<td id = "phone"></td>
+			<td id = "isManager"></td>
+		</tr>
+	</table>
+
+</div>
+
+
+<div id= "profileEdit">	
+	<form id = "edit">
+		<input type = "password" id = "password1" placeholder = "password">
+		<input type = "password" id = "password2" placeholder = "password check">
+		<input type = "email" id = "email" placeholder = "Email">
+		<input type = "text" id = "address" placeholder = "Address">
+		<input type = "text" id = "phone" placeholder = "Phone">
+		<input type = "submit" class = "Edit" value = "Edit Info">
+	</form>
+</div>
+<div id = "accessChoice">
+<form id = "access">
+	<input type = "submit" value = "Access">
+</form>
+	<select name = "getAccess" form = "access" id = accessOption>
+		<option id = "ALL" value = "ALL">ALL</option>
+		<option id = "PENDING" value = "PENDING">PENDING</option>
+		<option id = "RESOLVED/DENIED" value = "RESOLVED/DENIED">RESOLVED/DENIED</option>
+	</select>
+</div>
 	
+<div id = "reimbursement">
+<table id = "rTable">
+	<tr>
+			<th >ID</th>
+			<th >Amount</th>
+			<th >Status</th>
+			<th >Type</th>
+			<th>Submitted Date</th>
+			<th>Resolved Date</th>
+		<tr>
+</table>
+</div>
 	<script src="static/Scripts/Employee.js"></script>
 </body>
 </html>

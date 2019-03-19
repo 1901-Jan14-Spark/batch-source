@@ -5,7 +5,29 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action = "api/employees" method ="GET" id = "access">
+	<input type = "submit" value = "Access">
+</form>
+	<select name = "getAccess" form = "access" id = accessOption>
+		<option id = "ALL" value = "ALL">ALL</option>
+		<option id = "PENDING" value = "PENDING">PENDING</option>
+		<option id = "RESOLVED/DENIED" value = "RESOLVED/DENIED">RESOLVED/DENIED</option>
+	</select>
+	
+<div id = "reimbursementsM">
+<table id = "rTable">
+		<tr>
+			<th >ID</th>
+			<th >Amount</th>
+			<th >Status</th>
+			<th >Type</th>
+			<th>Submitted Date</th>
+			<th>Resolved Date</th>
+			<th>Manager ID</th>
+		<tr>
+</div>
+</table>
 	<script src="static/Scripts/Manager.js"></script>
+	<script src="static/Scripts/Employee.js"></script>
 </body>
 </html>
