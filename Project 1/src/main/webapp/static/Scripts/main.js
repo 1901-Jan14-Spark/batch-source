@@ -18,8 +18,6 @@ function showError(xhr){
 		let errorP = document.getElementById("hiddenMessage");
 		errorP.removeAttribute("hidden");
 		errorP.innerHTML = "Your email or password seem to be incorrect. Please try again.";
-	} else {
-		errorP.setAttribute("hidden", true);
+	
 	}
-
 }

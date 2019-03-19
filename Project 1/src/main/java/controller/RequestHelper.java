@@ -46,10 +46,10 @@ public class RequestHelper {
 			viewDel.returnView(request, response);
 		}
 		
-		if(uri.startsWith("/createReimb")) {
-			reimbDel.createReimbursement(request, response);
-			
+		if(uri.startsWith("/redirectAfterPost")) {
+			viewDel.returnView(request, response);
 		}
+		
 		//logging a user out
 		if(uri.startsWith("/logout")) {
 			logoutDel.logoutUser(request, response);
@@ -81,9 +81,14 @@ public class RequestHelper {
 					reimbDel.getReimbursements(request, response);
 				}	
 				else if ("POST".equals(request.getMethod())){
-					reimbDel.resolveReimbursements(request, response);
+					if(request.getParameter("amount") != null){
+						reimbDel.createReimbursement(request, response);
+						return;
+					} else {
+						reimbDel.resolveReimbursements(request, response);
+						return;
 				}
-				return;
+				}
 			default: 
 				response.setStatus(404);
 			}

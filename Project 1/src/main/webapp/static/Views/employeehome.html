@@ -42,27 +42,26 @@
 		<br>
 		
 		<div id ="showForm">
-			<form id="createReimb" hidden action="/Project1/createReimb" method="POST">
-			<!--	<div class="form-group">
-                	<label for="contentType" class="col-md-6 col-form-label">Reimbursement Content</label>
-                      <div class="col-md-7">
-                       	<input type="text" id="contentInp" class="form-control" name="content" aria-describedby="contentHelp" placeholder="Enter content">
-                       	<small id="emailHelp" class="form-text">What is this reimbursement request for?</small>
-                      </div>
-                   </div> -->
+			<form id="createReimb" hidden action="http://localhost:9393/Project1/api/reimbursements" method="post"> 
                <div class="form-group">
+               		<input type="number" name="reimbursementId" id="hiddenLength" hidden>
+               		<input type="number" name="formempId" id="hiddenId" hidden>
+               		<input type="text" name="formResolved" id="formIsRes" hidden>
+               		<input type="text" name="formResMess" id="formResMess" hidden>
+               		<input type="text" name="formMngRes" id="formMng" hidden>
                 	<label for="amountType" class="col-md-6 col-form-label">Amount Requested</label>
                       <div class="col-md-7">
                        	<input type="number" id="amountInp" class="form-control" name="amount" aria-describedby="amountHelp" placeholder="Enter amount requested ($xx.xx)" required>
                        	<small id="amountHelp" class="form-text">What is the monetary amount you are requesting to be reimbursed for?</small>
                       </div>
                    </div>  
-                	<textarea rows="3" cols="50" name="content" form="createReimb" maxlength="2000" placeholder="Please enter the reason for your reimbursement request. Be as specific as possible." required></textarea>
+                	<textarea rows="3" cols="50" name="content" id="reqReason" form="createReimb" maxlength="2000" placeholder="Please enter the reason for your reimbursement request. Be as specific as possible." required></textarea>
                	
                <div class ="submitLogin">
-                   <button id="submitRequest" type="submit" class="col-md-3 btn btn-success">Submit Reimbursement Request</button>
+                   <button id="submitRequest" value="Submit Reimbursement Request" class="col-md-3 btn btn-success">Submit Reimbursement Request</button>
                </div> <br>
                </form>
+               <p hidden id="successPost"></p>
                
        
 		</div>
@@ -91,7 +90,6 @@
 		</div>
 		
 	<p hidden id="sessionEmail"></p>
-	<p hidden id="hiddenId"></p>
    
 <script src="static/Scripts/employeehome.js"></script>
 </body>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,6 +17,7 @@ import services.ReimbursementService;
 public class ReimbursementDelegate {
 
 	ReimbursementService reimbService = new ReimbursementService();
+	ViewDelegate viewDel = new ViewDelegate();
 	
 	public void getReimbursements(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		ObjectMapper om = new ObjectMapper();
@@ -45,15 +47,29 @@ public class ReimbursementDelegate {
 		}
 	}
 	
-	public void createReimbursement(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String requestBodyText = request.getReader().readLine();
+	public void createReimbursement(HttpServletRequest request, HttpServletResponse response) throws IOException {	
+		int reimbId = Integer.parseInt(request.getParameter("reimbursementId"));
+		int empId = Integer.parseInt(request.getParameter("formempId"));
+		String content = request.getParameter("content");
+		int amount = Integer.parseInt(request.getParameter("amount"));
+		String formRes = request.getParameter("formResolved");
+		int isResolved = Integer.parseInt(formRes);
+		String formResMess = request.getParameter("formResMess");
+		String mngRes = request.getParameter("formMngRes");
 		
-		ObjectMapper om = new ObjectMapper();
-		Reimbursements newReim = om.readValue(requestBodyText, Reimbursements.class);
+		Reimbursements newReim = new Reimbursements(reimbId, empId, content, amount, isResolved, formResMess, mngRes);
 		
 		int reimbursementsUpdated = reimbService.createReimbursement(newReim);
 		if (reimbursementsUpdated == 1) {
 			response.setStatus(201);
+			System.out.println("Woot");
+			try {
+				viewDel.returnView(request, response);
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		} else {
 			response.setStatus(400);
 		}

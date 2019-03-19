@@ -107,8 +107,22 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 
 	@Override
 	public int createReimbursement(Reimbursements reimb) {
-		String sql = "INSERT INTO REIMBURSEMENTS (EMP_ID, CONTENT, AmountRequested) VALUES ?, ?, ?";
-		return 0;
+		String sql = "INSERT INTO REIMBURSEMENTS (emp_id, content, AmountRequested) VALUES (?, ?, ?)";
+		int numbCreated = 0;
+		
+		try (Connection con = DBConnection.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)) {
+			
+			ps.setInt(1, reimb.getEmp_id());
+			ps.setString(2, reimb.getContent());
+			ps.setInt(3, reimb.getReimbursementAmount());
+			numbCreated = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return numbCreated;
 	}
 	
 	

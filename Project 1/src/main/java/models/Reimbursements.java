@@ -26,6 +26,16 @@ public class Reimbursements {
 		this.resolvedMessage = resolvedMessage;
 		this.mngResolved = mngResolved;
 	}
+	
+	public Reimbursements(int reimbursementId, int emp_id, String content, int reimbursementAmount, int isResolved, String mngResolved) {
+		super();
+		this.reimbursementId = reimbursementId;
+		this.emp_id = emp_id;
+		this.content = content;
+		this.reimbursementAmount = reimbursementAmount;
+		this.isResolved = isResolved;
+		this.mngResolved = mngResolved;
+	}
 
 	public int getReimbursementId() {
 		return reimbursementId;
