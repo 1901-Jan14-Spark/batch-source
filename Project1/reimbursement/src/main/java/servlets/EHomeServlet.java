@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.EmpDao;
+import dao.EmpDaoImpl;
 import services.NewReqService;
 
 /**
@@ -17,6 +19,7 @@ import services.NewReqService;
 public class EHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	EmpDao ed = new EmpDaoImpl();
 	NewReqService nrs = new NewReqService();
 	
     /**
@@ -35,7 +38,7 @@ public class EHomeServlet extends HttpServlet {
 			//get the first number of userId
 			String id = session.getAttribute("userId").toString().substring(0, 1);
 			//check userId is employee
-			if("1".equals(id)) {
+			if("1".equals(id)) {				
 				RequestDispatcher rd = request.getRequestDispatcher("eHome.html");
 				rd.forward(request, response);
 			}

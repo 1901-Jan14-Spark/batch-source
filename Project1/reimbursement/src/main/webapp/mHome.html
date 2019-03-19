@@ -14,8 +14,8 @@
   <!-- custom datatables plugin -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-		
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>	
+  
   <script src="js/tablesPracScript.js"></script>
 
   <!-- Custom fonts for this template-->
@@ -24,13 +24,13 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link href="css/loginStyles.css" rel="stylesheet">
 </head>
 
-<body id="page-top">
+<body id="bg">
 
   <!-- Page Wrapper -->
-  <div id="wrapper">
+  <div>
 
     <!-- Sidebar -->
   
@@ -84,7 +84,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <!--<span class="mr-2 d-none d-lg-inline text-gray-600 small" id="currentName">Valerie Luna</span>-->
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="currUserName"></span>
                 <i class="fa fa-user"></i>
               </a>
               <!-- Dropdown - User Information -->
@@ -94,7 +94,7 @@
                   Profile
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal" href="#">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                   Logout
                 </a>
@@ -133,6 +133,7 @@
                   <table id="reqTable" class="display">
     				<thead>
             		  <tr>
+            		  	<th>Exp. ID</th>
                 		<th>Name</th>
                     	<th>Employee email</th>
                     	<th>Amount</th>
@@ -144,6 +145,7 @@
            			</thead>
             		<tfoot>
             		  <tr>
+            		  	<th>Exp. ID</th>
                 		<th>Name</th>
                     	<th>Employee email</th>
                     	<th>Amount</th>
@@ -199,10 +201,10 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer>
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Andrew Ha's reimbursement site 2019</span>
           </div>
         </div>
       </footer>
@@ -240,30 +242,37 @@
     </div>
   </div>
 
-  <!-- Profile Modal -->
-  <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  	<div class="modal-dialog" role="document">
+  <!-- Approve/Reject Requests Modal -->
+   <div class="modal" id="arReqModal" tabindex="-1" role="dialogs" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="profileModalLabel">Edit profile</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <h5 class="modal-title" id="exampleModalLabel">Approve/Reject Request</h5>
+          <button id="arReqCancel" type="button" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body">
         	<form class="user" action="mHome" method="POST">
-                <div class="form-group">
-               	  <input type="text" name="newName" class="form-control form-control-user" id="firstNameInput" placeholder="Name">
+        		<div class="form-group">
+        		  <label>Exp. ID:</label>
+               	  <input type="number" name="reqId" class="form-control form-control-user" id="reqIdInfo" value="" readonly="readonly">
                 </div>
                 <div class="form-group">
-                  <input type="email" name="newEmail" class="form-control form-control-user" id="emailInput" placeholder="Email Address">
+                  <label>Name:</label>
+               	  <input type="text" name="empName" class="form-control form-control-user" id="empNameInfo" value="" readonly="readonly">
                 </div>
                 <div class="form-group">
-                  <input type="password" name="newPassword" class="form-control form-control-user" id="passInput" placeholder="Password">
+                  <label>Amount:</label>
+                  <input type="number" step="0.01" name="amount" class="form-control form-control-user" id="amountInfo" value="" readonly="readonly">
+                </div>
+                <div class="form-group">
+                  <label>Description:</label>
+                  <input type="text" name="description" class="form-control form-control-user" id="descInfo" value="" readonly="readonly">
                 </div>
                 <div class="modal-footer">
-	              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-	              <input class="btn btn-primary" type="submit" value="Confirm">
+                  <input class="btn btn-success" type="submit" name="statSel" value="Approve">
+	              <input class="btn btn-danger" type="submit" name="statSel" value="Reject">
                 </div>
             </form>
         </div>

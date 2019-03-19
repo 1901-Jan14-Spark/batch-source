@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import services.UpdateReqService;
+
 
 /**
  * Servlet implementation class MHomeServlet
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpSession;
 public class MHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	UpdateReqService urs = new UpdateReqService();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -47,10 +51,22 @@ public class MHomeServlet extends HttpServlet {
 	
 	//TODO replace with updating requests table
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("newName");
-		String email = request.getParameter("newEmail");
-		String password = request.getParameter("newPassword");
-		//TODO update request method here
-		doGet(request, response);
+		HttpSession session = request.getSession(false);
+		
+		String idStr = session.getAttribute("userId").toString();
+		int id = Integer.parseInt(idStr);
+		
+		String rIdStr = request.getParameter("reqId");
+		int rId = Integer.parseInt(rIdStr);
+		
+		String status = request.getParameter("statSel");
+		
+		boolean success = urs.createReqAns(rId, id, status);
+		
+		if(success)
+			doGet(request, response);
+		
+		else
+			response.sendError(500, "Failed update");
 	}
 }

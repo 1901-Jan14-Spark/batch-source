@@ -24,91 +24,16 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link href="css/loginStyles.css" rel="stylesheet">
 </head>
 
-<body id="page-top">
+<body id="bg">
 
   <!-- Page Wrapper -->
-  <div id="wrapper">
+  <div>
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="mHome.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="mHome.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-
-      <!-- Nav Item - Pages Collapse Menu -->
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-
-      <!-- Divider -->
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Addons
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
-        </a>
-        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-          </div>
-        </div>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-    </ul>
+    
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -121,9 +46,6 @@
         <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
           <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
 
           <!-- Topbar Search -->
 
@@ -131,24 +53,6 @@
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
 
             <!-- Nav Item - Alerts -->
 
@@ -159,12 +63,12 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <!--<span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>-->
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="currUserName"></span>
                 <i class="fa fa-user"></i>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="http://localhost:8080/RefundSite/profile">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -186,13 +90,13 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Employee's Dashboard</h1>
+            <h1 class="h3 mb-0 text-primary">Employee's Dashboard</h1>
           </div>
 
           <!-- Content Row -->
           <div class="row">
 
-            <!-- Area Chart -->
+            <!-- reimbursement requests table -->
             <div class="col-xl-12">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -209,9 +113,10 @@
                   <!--<div class="chart-area">
                     <canvas id="myAreaChart"></canvas>
                   </div>-->
-                  <table id="table_id" class="display">
+                  <table id="reqTable" class="display">
     				<thead>
             		  <tr>
+            		  	<th>Exp. ID</th>
                 		<th>Name</th>
                     	<th>Employee email</th>
                     	<th>Amount</th>
@@ -223,6 +128,7 @@
            			</thead>
             		<tfoot>
             		  <tr>
+            		  	<th>Exp. ID</th>
                 		<th>Name</th>
                     	<th>Employee email</th>
                     	<th>Amount</th>
@@ -246,10 +152,10 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer>
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Andrew Ha's reimbursement site 2019</span>
           </div>
         </div>
       </footer>
@@ -257,7 +163,7 @@
 
     </div>
     <!-- End of Content Wrapper -->
-
+	</div>
   </div>
   <!-- End of Page Wrapper -->
 
@@ -343,7 +249,7 @@
 
   <!-- Page level custom scripts -->
 
-
+  <script src="js/eHomeScript.js"></script>
 </body>
 
 </html>

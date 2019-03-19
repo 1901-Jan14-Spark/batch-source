@@ -27,16 +27,31 @@ public class ServiceTests {
 	
 	@Test
 	public void test0ForConvStat() {
-		assertEquals("Pending", ReqDaoImpl.convStat(0));
+		assertEquals("", ReqDaoImpl.convStat(0));
 	}
 	
 	@Test
 	public void test1ForConvStat() {
-		assertEquals("Approved", ReqDaoImpl.convStat(1));
+		assertEquals("Pending", ReqDaoImpl.convStat(1));
 	}
 	
 	@Test
 	public void test2ForConvStat() {
-		assertEquals("Rejected", ReqDaoImpl.convStat(2));
+		assertEquals("Approved", ReqDaoImpl.convStat(2));
+	}
+	
+	@Test
+	public void test3ForConvStat() {
+		assertEquals("Rejected", ReqDaoImpl.convStat(3));
+	}
+	
+	@Test
+	public void testApproveStringInputForEncodeStat() {
+		assertEquals(2, ReqDaoImpl.encodeStat("Approve"));
+	}
+	
+	@Test
+	public void testRejectStringInputForEncodeStat() {
+		assertEquals(3, ReqDaoImpl.encodeStat("Reject"));
 	}
 }

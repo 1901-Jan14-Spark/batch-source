@@ -1,6 +1,7 @@
 package model;
 
 public class ReqObj {
+	private int rId;
 	private String eName;
 	private String email;
 	private String Desc;
@@ -12,6 +13,14 @@ public class ReqObj {
 		super();
 	}
 
+	public int getrId() {
+		return rId;
+	}
+
+	public void setrId(int rId) {
+		this.rId = rId;
+	}
+	
 	public String geteName() {
 		return eName;
 	}
@@ -70,6 +79,7 @@ public class ReqObj {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((eName == null) ? 0 : eName.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + rId;
 		result = prime * result + ((resolvedBy == null) ? 0 : resolvedBy.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		return result;
@@ -101,6 +111,8 @@ public class ReqObj {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
+		if (rId != other.rId)
+			return false;
 		if (resolvedBy == null) {
 			if (other.resolvedBy != null)
 				return false;
@@ -116,7 +128,8 @@ public class ReqObj {
 
 	@Override
 	public String toString() {
-		return "ReqObj [eName=" + eName + ", email=" + email + ", Desc=" + Desc + ", amount=" + amount + ", status="
-				+ status + ", resolvedBy=" + resolvedBy + "]";
+		return "ReqObj [rId=" + rId + ", eName=" + eName + ", email=" + email + ", Desc=" + Desc + ", amount=" + amount
+				+ ", status=" + status + ", resolvedBy=" + resolvedBy + "]";
 	}
+
 }
