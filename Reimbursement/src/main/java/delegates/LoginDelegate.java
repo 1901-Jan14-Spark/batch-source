@@ -16,7 +16,7 @@ public class LoginDelegate {
 	public LoginDelegate() {
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/static/Login.html").forward(request, response);
 		System.out.println("GOT TO LOGIN");
 		
@@ -30,18 +30,19 @@ public class LoginDelegate {
 		System.out.println(pass);
 
 		Employees Employee = es.getEmployeeByUser(user, pass);
-		System.out.println(Employee.toString());
 		
 		HttpSession session = request.getSession();
 		
 		
-		if(user.equals(Employee.getUsername()) && pass.equals(Employee.getPassword())) {
+		if(Employee != null && (user.equals(Employee.getUsername()) && pass.equals(Employee.getPassword()) && Employee.IsMana()==1)) {
 			session.setAttribute("username", user);
 			response.sendRedirect("static/Manager.html");
-		} else {
-			response.sendRedirect("static/Login.html");
+		} else if(Employee != null && (user.equals(Employee.getUsername()) && pass.equals(Employee.getPassword()) && Employee.IsMana()==0)){
+			session.setAttribute("username", user);
+			response.sendRedirect("static/Employees.html");
+		}else {
+			response.sendRedirect("./login");	
 		}
-		
 	}
 
 }

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ViewsDelegate {
 	LoginDelegate ld = new LoginDelegate();
-	
+	LogoutDelegate lout = new LogoutDelegate();
 	public void returnView(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String address = request.getRequestURI().substring(request.getContextPath().length()+1);
 		switch(address) {
@@ -26,9 +26,8 @@ public class ViewsDelegate {
 			}else {
 				response.sendError(403,"login only supports get and post");
 			}
-//		request.getRequestDispatcher("/static/Login.html").forward(request, response);
-		break;
-		default:
+			break;
+			default:
 			response.sendError(404,"Static Resource Not Found");
 		}
 	}

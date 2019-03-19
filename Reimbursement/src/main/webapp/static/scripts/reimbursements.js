@@ -10,8 +10,8 @@ function sendAjaxGet(url, func){
 }
 
 
-	let url ="http://localhost:8080/Reimbursement/api/reimbursementslist";
-	sendAjaxGet(url, populate);
+//	let url ="http://localhost:8080/Reimbursement/api/reimbursementslist";
+	sendAjaxGet("http://localhost:8080/Reimbursement/api/reimbursementslist", populate);
 
 	function populate(xhr){
 		reims = JSON.parse(xhr.response)

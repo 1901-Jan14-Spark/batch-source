@@ -190,13 +190,18 @@ public class EmployeesDaoImpl implements EmployeesDao{
 			String sql = "SELECT * FROM EMPLOYEES WHERE EMP_USER = ? AND EMP_PASS = ?";
 			try(Connection con = ConnectionUtil.systemVar();
 					PreparedStatement ps = con.prepareStatement(sql);){
+				
 				ps.setString(1,user);
 				ps.setString(2, pass);
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
-					String username = rs.getString("EMP_USER");
+					int id = rs.getInt("EMP_ID");
+					String first = rs.getString("EMP_FIRST");
+					String last = rs.getString("EMP_LAST");
+					String username =rs.getString("EMP_USER");
 					String password = rs.getString("EMP_PASS");
-					employees= new Employees(username,password);
+					int isMana = rs.getInt("IS_MANA");
+					employees= new Employees(id,first,last,username, password, isMana);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
