@@ -23,10 +23,10 @@
 	    		<button class="btn buttonDrop dropdown-toggle" type="button" data-toggle="dropdown" id="greetingEmp"></button>
 	    		  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 	    		  	<a class="dropdown-item" href="employeeLogin">Dashboard Home</a>
-	    		 	<a class="dropdown-item" href="#">My Profile</a>
-				    <a class="dropdown-item" href="#">Create Reimbursement Requests</a>
-				    <a class="dropdown-item" href="#">View Pending Requests</a>
-				    <a class="dropdown-item" href="#">View Resolved Requests</a>
+	    		 	<a class="dropdown-item" id="toProfile" href="#">My Profile</a>
+				    <a class="dropdown-item" id="toCreate" href="#">Create Reimbursement Requests</a>
+				    <a class="dropdown-item" id="toPending" href="#">View Pending Requests</a>
+				    <a class="dropdown-item" id="toResolve" href="#">View Resolved Requests</a>
 				    <a class="dropdown-item" href="logout">Logout</a>
 				 </div>
 			 </div>
@@ -42,15 +42,15 @@
 		<br>
 		
 		<div id ="showForm">
-			<form id="createReimb" hidden action="http://localhost:9393/Project1/api/reimbursements" method="post"> 
-               <div class="form-group">
+			<form id="createReimb" hidden action="http://localhost:9393/Project1/employeeLogin" method="post"> 
+               <div id="bigDiv" class="form-group">
                		<input type="number" name="reimbursementId" id="hiddenLength" hidden>
                		<input type="number" name="formempId" id="hiddenId" hidden>
                		<input type="text" name="formResolved" id="formIsRes" hidden>
                		<input type="text" name="formResMess" id="formResMess" hidden>
                		<input type="text" name="formMngRes" id="formMng" hidden>
                 	<label for="amountType" class="col-md-6 col-form-label">Amount Requested</label>
-                      <div class="col-md-7">
+                      <div id="amountDiv" class="col-md-4">
                        	<input type="number" id="amountInp" class="form-control" name="amount" aria-describedby="amountHelp" placeholder="Enter amount requested ($xx.xx)" required>
                        	<small id="amountHelp" class="form-text">What is the monetary amount you are requesting to be reimbursed for?</small>
                       </div>
@@ -70,9 +70,10 @@
 			<table class="table table-bordered table-hover" id="pending">
 				<tr>
 					<th style="background-color:#428bca" id="sticky">Employee Id#</th>
-					<th style="background-color:#428bca" id="sticky">Name</th>
-					<th style="background-color:#428bca" id="sticky">Email</th>
-					<th style="background-color:#428bca" id="sticky">Managers' Id#</th>
+					<th style="background-color:#428bca" id="sticky">Reimbursement Id#</th>
+					<th style="background-color:#428bca" id="sticky">Content</th>
+					<th style="background-color:#428bca" id="sticky">Amount Requested</th>
+					<th style="background-color:#428bca" id="sticky">Status</th>
 				</tr>
 			</table>
 		</div>
@@ -87,6 +88,30 @@
 					<th style="background-color:#428bca" id="sticky">Resolved By</th>
 				</tr>
 			</table>
+		</div>
+		
+		<div id="accountProfile" hidden>
+			<h2 id="profileWelcome">Profile Information</h2>
+			<form>
+				<div class="form-group">
+					<span style="display: block" id="span1">
+						<label id="firstName" for="firstName">First Name:</label>
+							<p style="display: inline" id="empFN"></p>
+							<input style="display: inline" id="empFNInp" type="text" name="empFNInp" hidden>
+					</span>
+					<span style="display: block" id="span2">
+						<label id="lastName" for="lastName">Last Name:</label>
+							<p style="display: inline" id="empLN"></p>
+							<input style="display: inline" id="empLNInp" type="text" name="empLNInp" hidden>
+					</span>
+					<span style="display: block" id="span3">
+						<label id="profEmail" for="email">Email:</label>
+							<p style="display: inline" id="empEmail"></p>
+							<input style="display: inline" id="empEmailInp" type="text" name="empEmailInp" hidden>
+					</span>
+						
+					</div>
+			</form>
 		</div>
 		
 	<p hidden id="sessionEmail"></p>

@@ -43,7 +43,13 @@ public class RequestHelper {
 		}
 		
 		if(uri.startsWith("/employeeLogin")) {
+			if("POST".equals(request.getMethod())) {
+				reimbDel.createReimbursement(request, response);
+				viewDel.returnView(request, response);
+				return;
+			} else {
 			viewDel.returnView(request, response);
+			}
 		}
 		
 		if(uri.startsWith("/redirectAfterPost")) {
@@ -68,10 +74,8 @@ public class RequestHelper {
 				//direct to EmployeeDelegate
 				if("GET".equals(request.getMethod())) {
 					empDel.getEmployees(request, response);
+					return;
 				} 
-//				else if("POST".equals(request.getMethod())) {
-//					empDel.createEmployee(request, response);
-//				} 
 			else {
 					response.sendError(405, "Method not supported for /"+record);
 				}
@@ -79,15 +83,11 @@ public class RequestHelper {
 			case "reimbursements":
 				if("GET".equals(request.getMethod())) {
 					reimbDel.getReimbursements(request, response);
+					return;
 				}	
-				else if ("POST".equals(request.getMethod())){
-					if(request.getParameter("amount") != null){
-						reimbDel.createReimbursement(request, response);
-						return;
-					} else {
+				else {
 						reimbDel.resolveReimbursements(request, response);
 						return;
-				}
 				}
 			default: 
 				response.setStatus(404);

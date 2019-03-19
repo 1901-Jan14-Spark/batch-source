@@ -62,3 +62,22 @@ form {
 	width: 100%;
 	text-align: center;
 }
+
+#bigDiv {
+	width:100%
+	text-align: center;
+}
+
+#amountDiv {
+	margin: auto;
+	width: 100%;
+}
+
+#submitRequest {
+	background-color: #228B22;
+}
+
+#pending, #resolved {
+	width: 70%;
+	margin: auto;
+}

@@ -19,8 +19,9 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		String sql = "SELECT * FROM REIMBURSEMENTS";
 		
 		try (Connection con = DBConnection.getConnection();
-				Statement s = con.createStatement();
-				ResultSet rs = s.executeQuery(sql)){
+				Statement s = con.createStatement()){
+			
+			ResultSet rs = s.executeQuery(sql);
 			
 			while (rs.next()) {
 				int reimbId = rs.getInt("R_ID");
@@ -32,6 +33,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				String mngResolved = rs.getString("MngResolved");
 				reimbursements.add(new Reimbursements(reimbId, empId, content, reimbursementAmount, isResolved, resolvedMess, mngResolved));
 			}
+			rs.close();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

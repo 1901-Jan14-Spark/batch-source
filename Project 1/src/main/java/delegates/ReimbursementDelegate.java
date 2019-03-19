@@ -63,12 +63,7 @@ public class ReimbursementDelegate {
 		if (reimbursementsUpdated == 1) {
 			response.setStatus(201);
 			System.out.println("Woot");
-			try {
-				viewDel.returnView(request, response);
-			} catch (ServletException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 			
 		} else {
 			response.setStatus(400);
