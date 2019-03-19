@@ -79,16 +79,16 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public int createR(double rAmount, String rDesc, int eId) {
+	public int createReimbursement(Reimbursement r) {
 		
 		String sql = "INSERT INTO REIMBURSEMENTS (REIMBURSEMENT_AMOUNT, REIMBURSEMENT_DESC EMPLOYEE_ID) VALUES(?, ?, ?)";
 
 		int rBoolean = 0;
 		try (Connection con = ConnectionUtil.getConnectionFromFile();
 				PreparedStatement ps = con.prepareStatement(sql)) {
-			ps.setDouble(1, rAmount);
-			ps.setString(2, rDesc);
-			ps.setInt(3, eId);
+			ps.setDouble(1, r.getrAmount());
+			ps.setString(2, r.getDescription() );
+			ps.setInt(3, r.getEmployee_id() );
 			rBoolean = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -105,9 +105,37 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public boolean updateR(Reimbursement r) {
-		// TODO Auto-generated method stub
-		return false;
+	public int resolveReimbursementsById(Reimbursement r) {
+		int re = 0;
+		if (r.getrStatus() == 1) {
+			String sql = "UPDATE REIMBURSEMENTS SET REIMBURSEMENT_STATUS = 1,  STATUS_CHANGER = ? WHERE REIMBUSERMENT_ID= ?";
+			try (Connection con = ConnectionUtil.getConnectionFromFile();
+					PreparedStatement ps = con.prepareStatement(sql)) {
+				
+				ps.setInt(1, r.getEmployee_id());
+				ps.setInt(2, r.getrId());
+				re = ps.executeUpdate();
+				
+			} catch (SQLException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return re;	
+		} else {
+			String sql = "UPDATE REIMBURSEMENTS SET REIMBURSEMENT_STATUS = 2,  STATUS_CHANGER = ? WHERE REIMBUSERMENT_ID= ?";
+			try (Connection con = ConnectionUtil.getConnectionFromFile();
+					PreparedStatement ps = con.prepareStatement(sql)) {
+				
+				ps.setInt(1, r.getEmployee_id());
+				ps.setInt(2, r.getrId());
+				re = ps.executeUpdate();
+				
+			} catch (SQLException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return re;	
+		}	
 	}
 
 }

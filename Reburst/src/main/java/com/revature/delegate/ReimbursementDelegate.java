@@ -27,4 +27,34 @@ ReimbursementService rService = new ReimbursementService();
 		pw.close();
 		
 	}
-}
+	
+	public void resolveReimbursements(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String requestBodyText = request.getReader().readLine();
+		
+		ObjectMapper om = new ObjectMapper();
+		Reimbursement newR = om.readValue(requestBodyText, Reimbursement.class);
+		
+		int reimbursementsUpdated = rService.resolveReimbursements(newR);
+		if (reimbursementsUpdated == 1) {
+			response.setStatus(201);
+		} else {
+			response.setStatus(400);
+		}
+	}
+	
+	public void createReimbursement(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String requestBodyText = request.getReader().readLine();
+		
+		ObjectMapper om = new ObjectMapper();
+		Reimbursement newR = om.readValue(requestBodyText, Reimbursement.class);
+		
+		int reimbursementsUpdated = rService.createReimbursement(newR);
+		if (reimbursementsUpdated == 1) {
+			response.setStatus(201);
+		} else {
+			response.setStatus(400);
+		}
+	}
+		
+	}
+

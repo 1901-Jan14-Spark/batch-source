@@ -12,6 +12,6 @@ public interface ReimbursementDao {
 	public List<Reimbursement> getRWaiting();
 	public List<Reimbursement> getRApproved();
 	public Reimbursement getReimbursement(Reimbursement r);
-	public int createR(double rAmount, String rDesc, int eId);
-	public boolean updateR(Reimbursement r);
+	public int createReimbursement(Reimbursement r);
+	public int resolveReimbursementsById(Reimbursement r);
 }

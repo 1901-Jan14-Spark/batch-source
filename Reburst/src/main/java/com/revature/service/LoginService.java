@@ -10,7 +10,6 @@ public class LoginService {
 	
 	public String validation(String email, String password) {
 		Employee emp = empDao.getUserByEmail(email);
-		System.out.println(emp.geteId()== 4);
 		try {
 			if (emp.getEmail() == null) {
 			String theError="Employee has no EMail: No Email of Invalid Email";

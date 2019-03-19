@@ -20,4 +20,11 @@ public class ReimbursementService {
 		return 0;
 	}
 
+	public int resolveReimbursements(Reimbursement r) {
+		return rDao.resolveReimbursementsById(r);
+	}
+	
+	public int createReimbursement(Reimbursement r) {
+		return rDao.createReimbursement(r);
+	}
 }

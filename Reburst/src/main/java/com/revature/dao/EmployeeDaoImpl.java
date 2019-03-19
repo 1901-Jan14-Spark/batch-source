@@ -144,9 +144,23 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public int updateEmp(String fname, String lName, String email, String pass) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateEmp(String fname, String lName, String email, String pass, int id) {
+		String sql ="UPDATE EMPLOYEES SET FIRST_NAME = ?, LAST_NAME = ?, EMPLOYEE_EMAIL = ?, EMPLOYEE_PASSWORD = ? WHERE EMPLOYEE_ID = ?";
+		 int eBoolean = 0;
+		try (Connection con = ConnectionUtil.getConnectionFromFile();
+				PreparedStatement ps = con.prepareStatement(sql)) {
+			ps.setString(1, fname);
+			ps.setString(2, lName);
+			ps.setString(3, email);
+			ps.setString(4, pass);
+			eBoolean = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
+		return eBoolean;
 	}
 
 	@Override
