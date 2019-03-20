@@ -1,0 +1,25 @@
+@media (max-width: 767px) {
+  .navbar-toggleable-sm {
+    clear: both;
+  }
+}
+
+.container h5{
+
+  text-align: right;
+
+
+}
+#lbl{
+
+  text-align: center;
+}
+
+th {
+  background-color: rgb(16, 103, 216);
+  color: white;
+}
+tr:hover {
+  background-color:lightgray;
+}
+

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Website</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+
+
+  
+  
+      <link rel="stylesheet" href="HomePage.css">
+
+  
+</head>
+
+<body>
+
+  <body id="page-top">
+    <nav class="navbar navbar-expand-xl navbar-dark bg-primary">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://localhost:8080/project-one/login-out">Logout</a>
+    </div>
+    <button class="navbar-toggler hidden-md-up pull-xs-right" data-target="#collapsenav" data-toggle="collapse" type="button">
+            ☰
+        </button>
+    <div class="navbar-toggleable-sm collapse pull-md-right text-xs-center" id="collapsenav">
+      <ul class="nav navbar-nav">
+        
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1 id="name">Name goes here</h1>
+    
+
+      
+      <p id="title">title</p>
+      <h5 id="email">Email</h5>
+      <h5 id="salary" >Salary</h5>
+      <h5 id="hiredate">HireDate</h5>
+      <h5 id="tid">TID</h5>
+      
+      <p class="lead"></p>
+      <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Edit</a>
+    </div>
+
+
+
+
+    
+    <div class="jumbotron" id = "tableblock">
+      <h4>Submitted Reimbursement</h4>
+      <table class="table table-hover" id="reimbursementTable">
+        <thead >
+          <tr>
+           
+            <th scope="col">ID</th>
+            <th scope="col">Description</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Submitted Date</th>
+            <th scope="col">Approval Status</th>
+            <th scope="col">Approver</th>
+            <th scope="col">Last Activity</th>
+        
+          </tr>
+        </thead>
+        <tbody>
+          
+        </tbody>
+      </table>
+      
+
+
+
+    </div>
+
+
+
+
+
+    <div class="jumbotron"  id = "detailblock">
+        <button class="btn btn-lg btn-primary" id="gobckButton" onclick="goBack()">Go Back</button>
+      <h5 id="detail-Id">ID</h5>
+      <h5  id="detail-submit">Submitted Date</h5>
+      <h5  id="detail-amount">Amount</h5>
+      <p   id="detail-description" class="lead" id="description">....</p>
+      <div id="formContainer">
+        
+
+          <h3>Add new reimbursement</h3>
+
+
+
+        </br> <b> <label for="amount" id="amountclaimed">Amount claim</label> <input type="number" id="amount"
+          name="amount" placeholder="$"></br>
+
+
+
+        <div class="form-group">
+            <label id="notes" for="exampleFormControlTextarea2">Description</label>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3"></textarea>
+          </div>
+
+        <input class="btn btn-lg btn-primary" type="submit" id="sbmtButton" onclick="formSubmit()">
+       
+      </div>
+      
+      
+    </div>
+   
+
+
+  <!--
+
+    
+    <div class="jumbotron"  id = "userdetailblock">
+      <h5>ID</h5>
+      <h5>Submitted Date</h5>
+      <h5>Amount</h5>
+           
+
+
+
+
+
+
+    
+      <div id="formContainer">
+        <button class="btn btn-lg btn-primary" id="gobckButton" onclick="goBack()">Go Back</button>
+        </br> <b> <label for="firstName">First Name:</label> <label id="fName"></label></br>
+          <label for="lasttName">Last Name:</label> <label id="lName"></label></br>
+          <label for="isLbl">ID:</label> <label id="idLabel"></label></br> </br></b> <label
+          for="text">Call Time:</label> <input type="number" id="callTime"
+          name="firstName" placeholder="enter call time if applicable">
+        <label for="resolved">Resolved</label> <select id="resolvedStatus"
+          name="status">
+          <option value="true">True</option>
+          <option value="false">False</option>
+        </select> <label for="description">Notes</label>
+        <textarea id="issueDescription" name="subject"
+          placeholder="Issue description..." style="height: 200px">frmhbkjb</textarea>
+        <input class="btn btn-lg btn-primary" type="submit" id="sbmtButton" onclick="formSubmit()">
+        <input class="btn btn-lg btn-primary" type="button" id="deleteButton" onclick="deletionFormSubmit()">
+      </div>
+      <p class="lead" id="description">....</p>
+      <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs »</a>
+    </div>
+   
+-->
+
+
+
+
+
+
+
+
+  </div>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="scripts.js"></script>
+</body>
+  
+  
+
+</body>
+
+</html>
