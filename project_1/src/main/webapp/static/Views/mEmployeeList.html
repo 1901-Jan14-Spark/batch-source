@@ -54,6 +54,19 @@
 			<h4>Employee List:</h4>
 		</div>
 		<hr>
+				<form method="POST" action="http://localhost:8080/ReimbursementApp/api/employees">
+			<div class="form-row justify-content-center">
+				<label>Email:</label>
+			</div>
+			<div class="form-row justify-content-center">
+				<input type="text" name="email" id="createemail">
+			</div>
+			<div class="form-row justify-content-center">
+				<input type="submit" value="Create Employee">
+			</div>
+			
+		</form>
+		<br>
 		<table id="empTable"
 			class="table table-striped table-light table-hover">
 			<thead>

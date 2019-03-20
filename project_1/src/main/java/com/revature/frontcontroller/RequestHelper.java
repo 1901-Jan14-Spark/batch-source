@@ -26,7 +26,9 @@ public class RequestHelper {
 
 		String uri = request.getRequestURI().substring(request.getContextPath().length());
 		System.out.println(uri);
-		if (uri.startsWith("/api/")) {
+		if (uri.equals("/")) {
+			response.sendRedirect("/ReimbursementApp/dashboard");
+		} else if (uri.startsWith("/api/")) {
 			String record = uri.substring(5);
 			switch (record) {
 			case "employees":

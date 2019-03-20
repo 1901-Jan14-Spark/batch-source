@@ -73,6 +73,7 @@ public class EmployeeDelegate {
 		if (InputValidator.validateEmail(email)) {
 			try {
 				if (eService.createEmployee(email)) {
+					response.sendRedirect("/ReimbursementApp/dashboard");
 					response.setStatus(201);
 					System.out.println("Employee was created: " + email);
 				}
