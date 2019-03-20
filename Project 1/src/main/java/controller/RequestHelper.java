@@ -44,11 +44,13 @@ public class RequestHelper {
 		
 		if(uri.startsWith("/employeeLogin")) {
 			if("POST".equals(request.getMethod())) {
-				if(request.getHeader("requestType") != null) {
+				if(request.getParameter("amount") != null) {
+					System.out.println("Going to createReimb...");
 					reimbDel.createReimbursement(request, response);
 					viewDel.returnView(request, response);
 					return;
 				} else {
+					System.out.println("Going to updateUser.....");
 					empDel.updateUser(request, response);
 					viewDel.returnView(request, response);
 					return;

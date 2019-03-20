@@ -1,7 +1,7 @@
 body, html {
     height:100%;
     width:100%;
-    font-family: 'Spectral' !important;
+    font-family: font-family: 'Ubuntu', sans-serif !important;
     font-size: 12.5pt !important;
 }
 
@@ -32,12 +32,17 @@ body, html {
     margin-right: auto;
 }
 
-button {
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-    background-color: black;
-    
+#loginButton {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    color: black !important;
+    background-color: #F5F5F5 !important;
+    border: 1px solid black;
+}
+
+#loginButton:hover {
+	background-color: black !important;
+	color: white !important;
 }
 
 .login {

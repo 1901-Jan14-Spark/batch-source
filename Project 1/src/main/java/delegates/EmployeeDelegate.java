@@ -34,28 +34,40 @@ public class EmployeeDelegate {
 	
 		int employeesUpdated;
 		String fn = request.getParameter("empFNInp");
+			if (fn == "") {
+				fn = request.getSession().getAttribute("firstName").toString();
+			}
 		String ln = request.getParameter("empLNInp");
+			if (ln == "") {
+				ln = request.getSession().getAttribute("lastName").toString();
+			}
 		String email = request.getParameter("empEmailInp");
-		if (email == "") {
+//		if (email == "") {
+//			email = request.getSession().getAttribute("email").toString();
+//			request.getSession().setAttribute("email", email);
+//			System.out.println(email);
+//		} 
+		
+		if (email != "" ) {
+			request.getSession().setAttribute("email", request.getParameter("empEmailInp"));
+		} else {
 			email = request.getSession().getAttribute("email").toString();
-			System.out.println(email);
 		}
+		
 		String pass = request.getParameter("empPassInp");
+		if (pass == "") {
+			pass = (String) request.getSession().getAttribute("password");
+		}
+		
 		String idNum = request.getParameter("empFormId");
 		System.out.println(idNum);
-		int employeeId = Integer.parseInt(idNum);
+		
+		int employeeId = (int) request.getSession().getAttribute("id");
 		String reports = request.getParameter("empReports");
-		int reportsTo = Integer.parseInt(reports);
+		int reportsTo = (int) (request.getSession().getAttribute("reportsTo"));
 		
-		request.getSession().setAttribute("email", request.getParameter("empEmailInp"));
-		
-		if(pass == "") {
-			Employee emp = new Employee(employeeId, fn, ln, email, reportsTo);
-			employeesUpdated = empService.updateEmployeeInfo(emp);
-		} else {
-			Employee emp = new Employee(employeeId, fn, ln, email, pass, reportsTo);
-			employeesUpdated = empService.updateEmployeeInfo(emp);
-		}
+		Employee emp = new Employee(employeeId, fn, ln, email, pass, reportsTo);
+		employeesUpdated = empService.updateEmployeeInfo(emp);
 		
 		if(employeesUpdated == 1) {
 			response.setStatus(201);

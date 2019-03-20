@@ -11,7 +11,6 @@ document.getElementById("toProfile").addEventListener("click", showProfile);
 document.getElementById("editProfileBtn").addEventListener("click", toggleToInput);
 document.getElementById("cancelEditBtn").addEventListener("click", cancelEdits);
 document.getElementById("saveEditBtn").addEventListener("click", checkNulls);
-document.getElementById("saveEditBtn").addEventListener("click", updateSession);
 
 function unhideForm(){
 	let form = document.getElementById("createReimb");
@@ -92,23 +91,11 @@ function ajaxPost(url, newReimbObj){
 		}
 	}
 	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.setRequestHeader("requestType", "postNew");
 	let jsonEmp = JSON.stringify(newReimbObj);
-	console.log(jsonEmp);
 	xhr.send(jsonEmp);
 }
 
-function updateSession(){
-	let newEmail = document.getElementById("empEmailInp").value;
-	let id = parseInt(document.getElementById("empFormId").value);
-	
-	session = {
-		"email": newEmail,
-		"id": id
-	}
-	
-	ajaxPost(sessionUrl, session);
-}
+
 //function to hide employeeId -- needed when submitting reimbursements.
 function grabInfo(){
 	sendAjaxGet(employeeUrl, storeId);
@@ -135,18 +122,17 @@ function storeId(xhr){
 }
 
 function viewReimbursements(xhr){
-	let idNum = document.getElementById("hiddenId").value;
+	let idNum = document.getElementById("empFormId").value
 	let reimbs = JSON.parse(xhr.response);
 	document.getElementById("hiddenLength").value = reimbs.length;
 	for(r of reimbs){
-		if(r.emp_id = idNum){
-			if(r.isResolved == 0){
+		if(idNum == r.emp_id && r.isResolved == 0){
 				addPendingRow(r.emp_id, r.reimbursementId, r.content, r.reimbursementAmount, r.resolvedMessage);
-			} else if (r.isResolved > 0){
+			}
+		if(idNum == r.emp_id && r.isResolved > 0){
 				addResolvedRow(r.reimbursementId, r.content, r.reimbursementAmount, r.resolvedMessage, r.mngResolved);
 			}
 		}
-	}
 }
 
 function addPendingRow(empId, reimbId, content, reqAmt, resMess){
@@ -294,19 +280,19 @@ function cancelEdits() {
 	location.reload();
 }
 
-function ajaxPost(url, newEmployeeObj){
-	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
-	xhr.open("POST", url);
-	xhr.onreadystatechange = function (){
-		if(this.readyState === 4 && xhr.status === 201){
-			console.log('post worked');
-		}
-	}
-	xhr.setRequestHeader("Content-Type", "application/json");
-	let jsonEmp = JSON.stringify(newEmployeeObj);
-	console.log(jsonEmp);
-	xhr.send(jsonEmp);
-}
+//function ajaxPost(url, newEmployeeObj){
+//	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
+//	xhr.open("POST", url);
+//	xhr.onreadystatechange = function (){
+//		if(this.readyState === 4 && xhr.status === 201){
+//			console.log('post worked');
+//		}
+//	}
+//	xhr.setRequestHeader("Content-Type", "application/json");
+//	let jsonEmp = JSON.stringify(newEmployeeObj);
+//	console.log(jsonEmp);
+//	xhr.send(jsonEmp);
+//}
 
 function checkNulls(){
 //	newEmployeeObj = {

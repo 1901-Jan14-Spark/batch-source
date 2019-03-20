@@ -9,10 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Employee;
+import services.EmployeeService;
+import services.LoginService;
 import util.DBConnection;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 	
+	public EmployeeDaoImpl() {
+		super();
+	}
+	
+	public EmployeeDaoImpl(LoginService loginServiceMock) {
+	}
+
 	@Override
 	//getting all employees, excluding managers
 	public List<Employee> getOnlyEmployees() {

@@ -17,7 +17,7 @@ function runWelcome(xhr){
 	document.getElementById("sessionEmail").innerHTML = `${response.email}`;
 	
 	if(response.email != null){
-		document.getElementById("greeting").innerHTML = `Welcome back, ${response.email} <i class="	fa fa-angle-double-down" style="font-size:20px"></i>`;
+		document.getElementById("greeting").innerHTML =  `Welcome back, ${response.email} <i class="	fa fa-angle-double-down" style="font-size:20px"></i>`;
 		
 	} else {
 		window.location = "http://localhost:9393/Project1/login";
@@ -64,7 +64,6 @@ function unhideReimbTable(){
 	let div = document.getElementById("select");
 	div.removeAttribute("hidden");
 }
-
 
 //Making reimbursement table
 function addReimbursementRow(reimbId, empId, content, reimbAmt, resolvedMess){
@@ -319,8 +318,7 @@ function addOptions(id, firstName, lastName){
 	let selectEmp =  document.getElementById("empSelect");
 	let opt = document.createElement("option");
 	
-	opt.innerHTML = `${id} -- ${firstName}`;
-	
+	opt.innerHTML = `${id} -- ${firstName} ${lastName}`;
 	selectEmp.appendChild(opt);
 }
 
@@ -337,6 +335,9 @@ function thisEmpsReimbs(xhr){
 		if (r.title != empId){
 			r.setAttribute("hidden", true);
 		} else {
+			r.removeAttribute("hidden");
+		}
+		if (empString == "-- All Employee Reimbursements --"){
 			r.removeAttribute("hidden");
 		}
 		

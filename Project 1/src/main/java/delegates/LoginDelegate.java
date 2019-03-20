@@ -38,16 +38,18 @@ public class LoginDelegate {
 			newSession.setAttribute("firstName", attemptedEmp.getFirstName());
 			newSession.setAttribute("lastName", attemptedEmp.getLastName());
 			newSession.setAttribute("id", attemptedEmp.getId());
+			newSession.setAttribute("password", attemptedEmp.getPassword());
 			newSession.setAttribute("reportsTo", attemptedEmp.getReportsTo());
 			response.sendRedirect("http://localhost:9393/Project1/managerLogin");
 		} else {
 			HttpSession error = request.getSession();
 			error.invalidate();
 			HttpSession newSession = request.getSession();
-			newSession.setAttribute("email", email);
+			newSession.setAttribute("email", attemptedEmp.getEmail());
 			newSession.setAttribute("firstName", attemptedEmp.getFirstName());
 			newSession.setAttribute("lastName", attemptedEmp.getLastName());
 			newSession.setAttribute("id", attemptedEmp.getId());
+			newSession.setAttribute("password", attemptedEmp.getPassword());
 			newSession.setAttribute("reportsTo", attemptedEmp.getReportsTo());
 			response.sendRedirect("http://localhost:9393/Project1/employeeLogin");
 		}		

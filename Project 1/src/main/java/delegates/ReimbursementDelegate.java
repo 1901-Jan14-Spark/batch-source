@@ -49,11 +49,10 @@ public class ReimbursementDelegate {
 	
 	public void createReimbursement(HttpServletRequest request, HttpServletResponse response) throws IOException {	
 		int reimbId = Integer.parseInt(request.getParameter("reimbursementId"));
-		int empId = Integer.parseInt(request.getParameter("formempId"));
+		int empId = (int) request.getSession().getAttribute("id");
 		String content = request.getParameter("content");
 		int amount = Integer.parseInt(request.getParameter("amount"));
-		String formRes = request.getParameter("formResolved");
-		int isResolved = Integer.parseInt(formRes);
+		int isResolved = (int) request.getSession().getAttribute("reportsTo");
 		String formResMess = request.getParameter("formResMess");
 		String mngRes = request.getParameter("formMngRes");
 		

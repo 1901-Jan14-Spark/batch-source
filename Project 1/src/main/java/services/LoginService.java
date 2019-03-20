@@ -10,18 +10,15 @@ public class LoginService {
 	
 	public Employee confirmLogin(String email, String password) {
 		Employee temp = empDao.getEmployeeByUsername(email);
-		
 		try {
-			if (temp.getEmail() == null) {
-			temp.setEmail("nullEmail");
-			System.out.println(temp.getEmail());
-			return temp;
-		}
+			if (temp.getEmail().equals(null)) {
+				temp.setEmail("nullEmail");
+				return temp;
+		} 
 		} catch (NullPointerException e) {
-			temp.setEmail("nullEmail");
-			System.out.println(temp.getEmail());
-			return temp;
-		}
+				temp.setEmail("nullEmail");
+				return temp;
+			}
 		if(email.matches(temp.getEmail()) && password.matches(temp.getPassword()) && temp.getReportsTo() == 0) {
 				//invoke method that changes loggedIn value in SQL table from 0 to 1
 				return temp;

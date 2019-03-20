@@ -47,6 +47,15 @@ public class Employee {
 		this.email = email;
 	}
 
+	public Employee() {
+		super();
+	}
+
+	public Employee(String email, String pass) {
+		this.email = email;
+		this.password = pass;
+	}
+
 	public int getId() {
 		return id;
 	}
