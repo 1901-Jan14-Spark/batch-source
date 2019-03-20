@@ -12,7 +12,6 @@ import com.dao.TicketDao;
 import com.model.Ticket;
 import com.model.User;
 import com.util.ConnectionUtil;
-import com.util.PasswordEncryption;
 
 public class TicketDaoImp implements TicketDao {
 
@@ -57,10 +56,10 @@ public class TicketDaoImp implements TicketDao {
 	}
 	
 	@Override
-	public List<Ticket> getTicketsByStatusEmp(String status, int id) {
+	public List<Ticket> getTicketsByStatusEmp(String status, String firstname, String lastname, String title, int id) {
 		List<Ticket> ticketList = new ArrayList<>();
 		Ticket ticket = new Ticket();
-		String sql = "SELECT T.*, UT.USER_FIRSTNAME, UT.USER_LASTNAME, UT.USER_TITLE FROM TICKET T JOIN USER_TABLE UT ON T.TICKET_USERID = ? AND T.TICKET_STATUS = ? ORDER BY T.TICKET_AMOUNT DESC";
+		String sql = "SELECT * FROM TICKET WHERE TICKET_USERID = ? AND TICKET_STATUS = ?";
 		try(Connection c = ConnectionUtil.getConnectionFromFile();
 			PreparedStatement ps = c.prepareStatement(sql))
 		{		
@@ -72,9 +71,9 @@ public class TicketDaoImp implements TicketDao {
 			{
 				User user = new User();
 				ticket = new Ticket(rs.getInt("TICKET_ID"),rs.getInt("TICKET_USERID"), rs.getString("TICKET_NAME"), rs.getString("TICKET_RESOLVER"), rs.getFloat("TICKET_AMOUNT"), rs.getString("TICKET_STATUS"));
-				user.setFirstName(rs.getString("USER_FIRSTNAME"));
-				user.setLastName(rs.getString("USER_LASTNAME"));
-				user.setTitle(rs.getString("USER_TITLE"));
+				user.setFirstName(firstname);
+				user.setLastName(lastname);
+				user.setTitle(title);
 				ticket.setTicketOpener(user);
 				ticketList.add(ticket);
 			}

@@ -19,7 +19,7 @@ public class DeclinedTicketEmpServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TicketDao ticketdao = new TicketDaoImp();
-		List<Ticket> tickets = ticketdao.getTicketsByStatusEmp("Denied", (int)request.getSession().getAttribute("id"));
+		List<Ticket> tickets = ticketdao.getTicketsByStatusEmp("Denied", (String)request.getSession().getAttribute("firstname"), (String)request.getSession().getAttribute("lastname"), (String)request.getSession().getAttribute("title"), (int)request.getSession().getAttribute("id"));
 		ObjectMapper om = new ObjectMapper();
 		String ticketJSON = om.writeValueAsString(tickets);
 		PrintWriter pw = response.getWriter();

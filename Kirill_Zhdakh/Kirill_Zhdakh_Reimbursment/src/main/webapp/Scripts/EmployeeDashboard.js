@@ -42,14 +42,7 @@ function createPendingTicketTable(xhr)
 		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
 		"<td>"+response[i].ticketOpener.title+"</td>"+
 		"<td>"+response[i].name+"</td>"+
-		"<td>"+"$"+response[i].amount+"</td>"+
-		"<td>"+"<div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">"+ 
-			   "<label class=\"btn btn-outline-success btn-sm\" style=\"margin-right: 10px;\" onclick>"+ 
-			   "<input type=\"radio\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Accept"+
-			   "</label>"+
-			   "<label class=\"btn btn-outline-danger btn-sm\">"+ 
-			   "<input type=\"radio\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Deny"+
-			   "</label></div></td></tr>";
+		"<td>"+"$"+response[i].amount+"</td></tr>";
 	}
 	table += "</tbody>";
 	document.getElementById("ptTable").innerHTML = table;
