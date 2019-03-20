@@ -1,6 +1,13 @@
 #ReimsTab{
 	display: block;
-    height: 630px;       /* Just for the demo          */
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
+    height: 630px;      
+    overflow-y: auto;  
+    overflow-x: hidden;  
 }
+#EmpTab{
+	display: block;
+    height: 630px;       
+    overflow-y: auto;  
+    overflow-x: hidden; 
+}
+

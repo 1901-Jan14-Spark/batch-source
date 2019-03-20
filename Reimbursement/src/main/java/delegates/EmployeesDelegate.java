@@ -25,10 +25,8 @@ public void getEmployees(HttpServletRequest request, HttpServletResponse respons
 //	String managerStat = request.getParameter("isMana");
 	
 	String empJSON;
-	System.out.println(allEmps);
 	ObjectMapper om = new ObjectMapper();
 	empJSON = om.writeValueAsString(allEmps);
-	System.out.println(empJSON);
 	
 	
 	  

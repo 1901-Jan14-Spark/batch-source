@@ -41,6 +41,8 @@ public class RequestHelper {
 					rdel.getReimbursements(request, response);
 				} else if ("POST".equals(request.getMethod())) {
 					rdel.CreateReims(request, response);
+				} else if ("PUT".equals(request.getMethod())) {
+					rdel.updateReims(request, response);
 				} else {
 					response.sendError(405, "Method "+ record +" Not Available");
 				}

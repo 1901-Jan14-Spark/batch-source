@@ -10,8 +10,8 @@ body{
     text-align: center;
     background-image: url(office.jpeg);
     background-repeat: no-repeat;
-    background-size: 100%;
-
+	background-width = 100%;
+	background-heaight=100%;
 }
 
 header{

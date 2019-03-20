@@ -2,13 +2,47 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
 <title>Employee Home</title>
 </head>
 <body>
 	<h3>Employee Page</h3>
 	<div id="user"></div>
 	<a href="http://localhost:8080/Reimbursement/api/logout">Log Out</a>
+	
+	
+	<p class="h2">Employees Directory</p>
+				<table class="table table-hover table-dark" id="EmpTab">
+					<tr id="empHead">
+						<th>Id</th>
+						<th>First</th>
+						<th>Last</th>
+						<th>Username</th>
+						<th>Pasword</th>
+					</tr>
+				</table>
+	
+	<table  class="table table-hover table-dark" id="ReimsTab">
+						<tr id="reimHead">
+							<th>Id</th>
+							<th>Name</th>
+							<th>Requester</th>
+							<th>Amount</th>
+							<th>Status</th>
+							<th>Resolved_By</th>
+						</tr>
+					</table>
 
-<script src="http://localhost:8080/Reimbursement/static/scripts/session.js"></script>
+<script src="session.js"></script>
 </body>
 </html>

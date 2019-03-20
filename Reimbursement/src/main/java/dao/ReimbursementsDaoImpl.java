@@ -19,7 +19,7 @@ public class ReimbursementsDaoImpl implements ReimbursementsDao{
 		String sql = "SELECT * FROM REIMBURSEMENTS";
 		try(Connection con = ConnectionUtil.systemVar();
 		Statement s = con.createStatement();
-				ResultSet rs = s.executeQuery(sql);){
+				ResultSet rs = s.executeQuery(sql)){
 			while(rs.next()) {
 				int id = rs.getInt("REIM_ID");
 				String name = rs.getString("REIM_NAME");
