@@ -10,8 +10,17 @@
 <link href="https://fonts.googleapis.com/css?family=Acme"
 	rel="stylesheet" />
 
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
 <!-- Main CSS -->
 <link rel="stylesheet" type="text/css" href="static/assets/css/main.css" />
+
+<script src="static/assets/javascript/employee.js"></script>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
@@ -26,12 +35,12 @@
 		<div class="bg-light border-right sideNav" id="sidebar-wrapper">
 			<div class="sidebar-heading sideTop">Re-Burst</div>
 			<div class="list-group list-group-flush">
-					<form class="leftNav" method="POST" action="eReimbursement">
-							<input class="lookGOOD" type="submit" value="Reimbursements" />
-						</form>
-					<form class="leftNav" method="POST" action="eProfile">
-							<input class="lookGOOD" type="submit" value="Profile" />
-						</form>
+				<form class="leftNav" method="POST" action="eReimbursement">
+					<input class="lookGOOD" type="submit" value="Reimbursements" />
+				</form>
+				<form class="leftNav" method="POST" action="eProfile">
+					<input class="lookGOOD" type="submit" value="Profile" />
+				</form>
 			</div>
 		</div>
 		<!-- /#sidebar-wrapper -->
@@ -49,7 +58,8 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-						<li class="nav-item"> <form method="POST" action="employee">
+						<li class="nav-item">
+							<form method="POST" action="employee">
 								<input class="lookGOOD" type="submit" value="Home" />
 							</form>
 						</li>
@@ -65,31 +75,67 @@
 							<div class="dropdown-menu dropdown-menu-right"
 								aria-labelledby="navbarDropdown">
 								<form method="POST" action="eProfile">
-										<input class="lookGOOD" type="submit" value="Profile" />
-									</form>
+									<input class="lookGOOD" type="submit" value="Profile" />
+								</form>
 							</div></li>
 					</ul>
 				</div>
 			</nav>
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12 ">
+					<div class="form-style-8">
+						<h2>Create Reimbursement</h2>
+						<form>
+							<input id="rAmount" type="Number" name="amount"
+								placeholder="Enter Amount" /> <input id="rDesc" type="text"
+								name="description" placeholder="Description" /> <input
+								id="createRButton" type="submit" value="Create" />
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="card bg-light">
+				<h5 class="card-title text-center">Employees Reimbursements</h5>
+				<table id="table_id" class="display">
+					<thead>
+						<tr>
+							<th>Reimbursement Id</th>
+							<th>Reimbursement Amount</th>
+							<th>Reimbursement Status</th>
+							<th>Description</th>
+							<th>Approved/Denied By</th>
+							<th>Employee ID</th>
+						</tr>
+					</thead>
+					<tfoot>
+						<tr>
+							<th>Reimbursement Id</th>
+							<th>Reimbursement Amount</th>
+							<th>Reimbursement Status</th>
+							<th>Description</th>
+							<th>Approved/Denied By</th>
+							<th>Employee ID</th>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
 		</div>
 		<!-- /#page-content-wrapper -->
+
 	</div>
 	<!-- /#wrapper -->
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="vendor/jquery/jquery.min.js"></script>
+
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Menu Toggle Script -->
-	<script>
-      $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-      });
-    </script>
+
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<!-- 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
@@ -101,5 +147,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+ -->
 </body>
 </html>
