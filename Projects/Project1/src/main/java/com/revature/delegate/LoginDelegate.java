@@ -30,19 +30,13 @@ public class LoginDelegate {
 
 			System.out.println("Successful login");
 			
-			if (username.equals("user") && password.equals("password")) {
-				response.sendRedirect("/Project1/MangDash");
+			if ((e.getEmpId() == 2) || (e.getEmpId() == 4) || (e.getEmpId() == 11) || (e.getEmpId() == 13) || (e.getEmpId() == 18)) {
+				response.sendRedirect("./Project1/MangDash.html");
 			} else {
-				response.sendRedirect("/Project1/EmpDash");			
+				response.sendRedirect("./Project1/EmpDash.html");			
 			}
-
-//			if ((e.getEmpId() == 2) || (e.getEmpId() == 4) || (e.getEmpId() == 11) || (e.getEmpId() == 13) || (e.getEmpId() == 18)) {
-//				response.sendRedirect("/Project1/MangDash");
-//			} else {
-//				response.sendRedirect("/Project1/EmpDash");			
-//			}
 		} else {
-			response.sendRedirect("/Project1/login");
+			response.sendRedirect("./Project1/login");
 		}
 
 	}

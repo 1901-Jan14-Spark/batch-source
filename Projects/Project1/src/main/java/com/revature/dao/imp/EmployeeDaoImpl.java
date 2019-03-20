@@ -41,6 +41,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		System.out.println(employees);
 		return employees;
 	}
 

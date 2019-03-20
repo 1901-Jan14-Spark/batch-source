@@ -40,6 +40,14 @@ public class RequestHelper {
 					response.sendError(405, "Method Not Supported For /" + record);
 				}
 				break;
+			case "departments":
+				// direct request and response to employee delegate
+				if ("GET".equals(request.getMethod())) {
+					dd.getDepartments(request, response);
+				} else {
+					response.sendError(405, "Method Not Supported For /" + record);
+				}
+				break;
 			case "employees/emp":
 				if ("GET".equals(request.getMethod())) {
 					ed.getEmployee(request, response);
@@ -61,7 +69,7 @@ public class RequestHelper {
 				break;
 			case "reimbursements/emp":
 				if ("GET".equals(request.getMethod())) {
-					rd.getRefunds(request, response);
+					rd.getIndividualRefund(request, response);
 				} else {
 					response.sendError(405, "Method not supported for /" + record);
 				}
@@ -83,6 +91,13 @@ public class RequestHelper {
 			case "login":
 				if ("POST".equals(request.getMethod())) {
 					lid.login(request, response);
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
+				}
+				break;
+			case "edash":
+				if ("GET".equals(request.getMethod())) {
+					ed.createEmployee(request, response);
 				} else {
 					response.sendError(405, "Method not supported for /" + record);
 				}

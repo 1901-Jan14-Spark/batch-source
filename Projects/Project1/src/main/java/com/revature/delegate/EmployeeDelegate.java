@@ -84,7 +84,7 @@ public class EmployeeDelegate {
 		
 		int employeesCreated = eService.create(e);
 		
-		response.sendRedirect("../login");
+		response.sendRedirect("login");
 		
 		
 		

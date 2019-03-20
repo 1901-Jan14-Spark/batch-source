@@ -9,7 +9,6 @@ public class UnitTests {
 
 	LoginService ls = new LoginService();
 	
-	@Test
 	
 	
 }
