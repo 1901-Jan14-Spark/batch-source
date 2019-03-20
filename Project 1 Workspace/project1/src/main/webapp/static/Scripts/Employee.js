@@ -9,6 +9,7 @@ const rTable = document.getElementById("rTable");
 const rBody = document.getElementById("rTableBody");
 const updatebtn = document.getElementById("updateBtn");
 const profileBody = document.getElementById("profileBody");
+const createbtn = document.getElementById("createbtn");
 
 function sendAjaxGet(url, func){
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
@@ -33,6 +34,20 @@ function sendAjaxPut(url, func){
 	let jsonEmployee = JSON.stringify(currentEmployee);
 	console.log(jsonEmployee);
 	xhr.send(jsonEmployee);
+}
+
+function sendAjaxPost(url, func){
+	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
+	xhr.open("POST", url);
+	xhr.onreadystatechange = function(){
+		if(this.readyState === 4 && this.status === 201){
+			console.log(xhr.response);
+		}
+	}
+	xhr.setRequestHeader("Content-Type", "application/json");
+	let jsonReimbursement = JSON.stringify(newReimbursement);
+	console.log(jsonReimbursement);
+	xhr.send(jsonReimbursement);
 }
 
 function displayReimbursements(xhr){
@@ -103,6 +118,37 @@ let currentEmployee = {
 	isManager: 0
 }
 
+let newReimbursement = {
+		r_id: 0,
+		e_id: 0,
+		amount: 0,
+		status: "",
+		r_Type: "",
+		submitted: "",
+		resolved: null,
+		m_id: 0
+}
+
+function createReimbursement(){
+	sendAjaxGet("http://localhost:8080/HelloWorld/api/reimbursements", countReimbursements);
+	newReimbursement.e_id = currentEmployee.id;
+	newReimbursement.amount = document.getElementById("amount").value;
+	newReimbursement.status = "PENDING";
+	newReimbursement.r_Type = document.getElementById("r_Type").value;
+	newReimbursement.submitted = document.getElementById("submitted").value;
+	sendAjaxPost("http://localhost:8080/HelloWorld/api/reimbursements", newReimbursement);
+	console.log(newReimbursement);
+}
+createbtn.addEventListener("click", createReimbursement);
+
+function countReimbursements(xhr){
+	reimbursements = JSON.parse(xhr.response);
+	let count = 0;
+	for(i in reimbursements){
+		count++;
+	}
+	newReimbursement.r_id = count;
+}
 function saveEmployee(xhr){
 	emp = JSON.parse(xhr.response);
 	currentEmployee.id = emp.id;

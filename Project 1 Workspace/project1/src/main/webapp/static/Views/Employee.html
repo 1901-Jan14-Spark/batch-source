@@ -89,6 +89,25 @@
     		</div>
    		 </div>
     	</form>
+    	<br><hr>
+    	<div id ="rDiv">
+    	<label>Create Reimbursement:</label>
+    	<form class = "form-group" id = "createReimbursement">
+    	<div class = "row">
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "number" id = "amount" placeholder = "Amount">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "text" id = "r_Type" placeholder = "Type">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "text" id = "submitted" placeholder = "Date">
+    		</div>
+    		<div class = "col">
+    		<button type = "button" class="btn btn-outline-success btn-lg" id = "createbtn">Create</button>
+    		</div>
+   		 </div>
+    	</form>
     	<form action = "logout" method = "post">
     		<div class = "col">
     		<input type = "submit" class="btn btn-outline-danger btn-lg" value = "Logout" id = "logout">
