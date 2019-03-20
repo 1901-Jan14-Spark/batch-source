@@ -69,6 +69,11 @@ public class EmployeeDelegate {
 		
 		
 	}
+
+	public void updateEmployee(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

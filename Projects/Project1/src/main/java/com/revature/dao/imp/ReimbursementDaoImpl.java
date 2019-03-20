@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +31,8 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				int empId = rs.getInt("EMP_ID");
 				double amount = rs.getDouble("RB_AMOUNT");
 				String status = rs.getString("STATUS");
-				Date reqDate = rs.getDate("SUB_DATE");
-				Date approvalDate = rs.getDate("APP_DATE");
+				Timestamp reqDate = rs.getTimestamp("SUB_DATE");
+				Timestamp approvalDate = rs.getTimestamp("APP_DATE");
 				boolean approved;
 				if(status.equalsIgnoreCase("approved")) {
 					approved = true;
@@ -43,6 +44,40 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return refunds;
+	}
+	
+	@Override
+	public List<Reimbursement> getAllRefundsForEmployee(int id) {
+List<Reimbursement> refunds = new ArrayList<>();
+		
+		String sql = "SELECT * FROM RBREQUEST WHERE EMP_ID = ?";
+		
+		try(Connection c = ConnectionUtil.getConnection();
+				PreparedStatement ps = c.prepareStatement(sql)){
+			
+				ps.setInt(1, id);
+				ResultSet rs = ps.executeQuery();
+				
+				while(rs.next()) {
+					int refundId = rs.getInt("RB_ID");
+					int empId = rs.getInt("EMP_ID");
+					double amount = rs.getDouble("RB_AMOUNT");
+					String status = rs.getString("STATUS");
+					Timestamp reqDate = rs.getTimestamp("SUB_DATE");
+					Timestamp approvalDate = rs.getTimestamp("APP_DATE");
+					boolean approved;
+					if(status.equalsIgnoreCase("approved")) {
+						approved = true;
+					} else {
+						approved = false;
+					}
+					refunds.add(new Reimbursement(refundId, empId, amount, approved, reqDate, approvalDate));		
+				}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
 		return refunds;
 	}
 
@@ -62,8 +97,8 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 					int empId = rs.getInt("EMP_ID");
 					double amount = rs.getDouble("RB_AMOUNT");
 					String status = rs.getString("STATUS");
-					Date reqDate = rs.getDate("SUB_DATE");
-					Date approvalDate = rs.getDate("APP_DATE");
+					Timestamp reqDate = rs.getTimestamp("SUB_DATE");
+					Timestamp approvalDate = rs.getTimestamp("APP_DATE");
 					boolean approved;
 					if(status.equalsIgnoreCase("approved")) {
 						approved = true;
@@ -95,8 +130,8 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 					int empId = rs.getInt("EMP_ID");
 					double amount = rs.getDouble("RB_AMOUNT");
 					String status = rs.getString("STATUS");
-					Date reqDate = rs.getDate("SUB_DATE");
-					Date approvalDate = rs.getDate("APP_DATE");
+					Timestamp reqDate = rs.getTimestamp("SUB_DATE");
+					Timestamp approvalDate = rs.getTimestamp("APP_DATE");
 					boolean approved;
 					if(status.equalsIgnoreCase("approved")) {
 						approved = true;
@@ -130,8 +165,8 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 			ps.setInt(2, rb.getReimbursementId());
 			ps.setDouble(3, rb.getAmount());
 			ps.setBoolean(4, rb.isApproved());
-			ps.setDate(5, rb.getRequestDate());
-			ps.setDate(6, rb.getApprovalDate());
+			ps.setTimestamp(5, rb.getRequestDate());
+			ps.setTimestamp(6, rb.getApprovalDate());
 			requestCreated = ps.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -154,8 +189,8 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 			ps.setInt(2, rb.getReimbursementId());
 			ps.setDouble(3, rb.getAmount());
 			ps.setBoolean(4, rb.isApproved());
-			ps.setDate(5, rb.getRequestDate());
-			ps.setDate(6, rb.getApprovalDate());
+			ps.setTimestamp(5, rb.getRequestDate());
+			ps.setTimestamp(6, rb.getApprovalDate());
 			requestUpdated = ps.executeUpdate();
 			
 		} catch (SQLException e) {

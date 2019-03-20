@@ -1,8 +1,15 @@
-<h1>Angular Assignment 1</h1>
-<br> <br>
-<app-filler-text></app-filler-text>
-<app-profile></app-profile>
-<app-select></app-select>
-<app-table></app-table>
-<app-user></app-user>
-
+<div class="container">
+    <div class="jumbotron">
+        <h1>Angular Assignment 1</h1>
+        <hr>
+        <nav>
+            <button class="btn btn-info" routerLink="/">Home</button>
+            <button class="btn btn-info" routerLink="/filler">Filler</button>
+            <button class="btn btn-info" routerLink="/profiles">Profiles</button>
+            <button class="btn btn-info" routerLink="/list">List</button>
+            <button class="btn btn-info" routerLink="table">Table</button>
+            <button class="btn btn-info" routerLink="/users">Users</button>
+        </nav> 
+        <router-outlet></router-outlet>
+    </div>
+</div>

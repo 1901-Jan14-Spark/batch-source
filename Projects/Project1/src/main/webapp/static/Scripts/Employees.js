@@ -1,0 +1,34 @@
+/**
+ * JavaScript used to render employee information on Directory.html
+ */
+
+//console.log("Hello world from directory.js");
+
+function sendAjaxGet(url, func){
+	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
+	
+	xhr.onreadystatechange = function(){
+		if(this.readyState === 4 && this.status === 200){
+			func(this);
+		}
+	}
+	xhr.open("GET", url);
+	xhr.send();
+}
+
+sendAjaxGet("http://localhost:8080/Project1/api/employees", display);
+
+function display(xhr){
+	employees = JSON.parse(xhr.response);
+	
+	let table = document.getElementById("table");
+	
+	for(i in employees){
+		let nextRow = document.createElement("tr");	
+		nextRow.innerHTML = `<td>employees[i].empId</td><td>${employees[i].firstname} + " " + ${employees[i].lastname}</td><td>${employees[i].username}</td><td>${employees[i].password}</td><td>${employees[i].email}<td>${employees[i].department.name}</td></td>`;
+		
+		table.appendChild(nextRow);
+		
+	}
+	
+}

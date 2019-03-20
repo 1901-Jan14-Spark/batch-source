@@ -6,20 +6,19 @@ import com.revature.dao.imp.EmployeeDaoImpl;
 
 public class LoginService {
 	
-	public int loginResult(String username, String password) {
-		int result = 0;
-		EmployeeDao ed = new EmployeeDaoImpl();
+	EmployeeDao ed = new EmployeeDaoImpl();
+	
+	public Employee loginResult(String username, String password) {		
 		Employee currentEmp = ed.getEmployeeByUsername(username);
-		
 		if(username != null && password != null) {
 			String passwordString = currentEmp.getPassword();	
 			if(password.equals(passwordString)){
-				result = 1;
+				return currentEmp;
+			} else {
+				return null;
 			}
+		} else {
+			return null;
 		}
-		return result;
 	}
-	
-	
-
 }

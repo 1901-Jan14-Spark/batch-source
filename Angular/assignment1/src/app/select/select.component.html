@@ -1,10 +1,10 @@
 <hr>
-<h2>Selected Lists</h2>
-<div>
-  <input type="radio" (click)='show($event)' name="option" value="animals">Animals<br>
-  <input type="radio" (click)='show($event)' name="option" value="colors">Colors<br>
-  <input type="radio" (click)='show($event)' name="option" value="days">Days<br>
- <div>
+<div class="container">
+  <h2>Selected Lists</h2>
+  <div>
+    <input type="radio" (click)='show($event)' name="option" value="animals">Animals<br>
+    <input type="radio" (click)='show($event)' name="option" value="colors">Colors<br>
+    <input type="radio" (click)='show($event)' name="option" value="days">Days<br>
     <p *ngFor="let i of option">{{ i }}</p>
   </div>
 </div>

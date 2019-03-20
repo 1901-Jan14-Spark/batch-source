@@ -10,14 +10,25 @@ public class ViewDelegate {
 	
 	public void returnView(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		String address = request.getRequestURI().substring(request.getContextPath().length()+1);
-		switch(address) {
+		switch(address) {		
 		case "login":
-			request.getRequestDispatcher("/Views/Login.html").forward(request, response);
+			request.getRequestDispatcher("/static/Views/Login.html").forward(request, response);
+			break;
 		case "edash":
-			request.getRequestDispatcher("/Views/EmpDash.html").forward(request, response);
+			if(request.getSession().getAttribute("id") == null) {
+				request.getSession().invalidate();
+				response.sendRedirect("/login");
+			} else {
+				request.getRequestDispatcher("/static/Views/EmpDash.html").forward(request, response);
+			}
 			break;
 		case "mdash":
-			request.getRequestDispatcher("/Views/MangDash.html").forward(request, response);
+			if(request.getSession().getAttribute("id") == null) {
+				request.getSession().invalidate();
+				response.sendRedirect("/login");
+			} else {
+				request.getRequestDispatcher("/static/Views/EmpDash.html").forward(request, response);
+			}
 			break;
 		default:
 			response.sendError(404, "Page Not Found");

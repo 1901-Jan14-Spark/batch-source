@@ -1,8 +1,9 @@
 <hr>
+<div>
 <h2>Person Table</h2>
 <div class="container">
     <div *ngIf='people.length>0'>
-      <table [ngClass]="style ? '' : 'table'">
+      <table [class]="styled">
         <tr>
           <th>First Name</th>
           <th>LastName</th>
@@ -19,7 +20,8 @@
     </div>
     <br>
     <p>Click the button to add styling to the table!</p>
-    <button class="btn btn-primary" (click)="style = !style">
+    <button class="btn btn-primary" (click)="changeStyle()">
       {{ style ? "Styled Table" : "Unstyled Table"}}
     </button>
   </div>
+</div>

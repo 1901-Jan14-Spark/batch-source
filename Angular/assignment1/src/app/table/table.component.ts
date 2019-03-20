@@ -26,6 +26,16 @@ export class TableComponent implements OnInit {
     birthday: '12/25/1994'
   }];
 
+  styled: string = "";
+
+  changeStyle(){
+    if(this.styled === ""){
+      this.styled = "table";
+    } else {
+      this.styled = "";
+    }
+  }
+
   constructor() { }
 
   ngOnInit() {

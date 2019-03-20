@@ -5,9 +5,8 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   
-  
   <build>
-  	<finalName>Project 1</finalName>
+  	<finalName>Project1</finalName>
   </build>
   
   <properties>

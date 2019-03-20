@@ -1,6 +1,6 @@
 package com.revature.company;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Reimbursement {
 
@@ -9,8 +9,8 @@ public class Reimbursement {
 	private int employeeId;
 	private double amount;
 	private boolean approved;
-	private Date requestDate;
-	private Date approvalDate;
+	private Timestamp requestDate;
+	private Timestamp approvalDate;
 	
 	
 	public Reimbursement() {
@@ -18,8 +18,8 @@ public class Reimbursement {
 	}
 
 
-	public Reimbursement(int reimbursementId, int employeeId, double amount, boolean approved, Date requestDate,
-			Date approvalDate) {
+	public Reimbursement(int reimbursementId, int employeeId, double amount, boolean approved, Timestamp requestDate,
+			Timestamp approvalDate) {
 		super();
 		this.reimbursementId = reimbursementId;
 		this.employeeId = employeeId;
@@ -70,22 +70,22 @@ public class Reimbursement {
 	}
 
 
-	public Date getRequestDate() {
+	public Timestamp getRequestDate() {
 		return requestDate;
 	}
 
 
-	public void setRequestDate(Date requestDate) {
+	public void setRequestDate(Timestamp requestDate) {
 		this.requestDate = requestDate;
 	}
 
 
-	public Date getApprovalDate() {
+	public Timestamp getApprovalDate() {
 		return approvalDate;
 	}
 
 
-	public void setApprovalDate(Date approvalDate) {
+	public void setApprovalDate(Timestamp approvalDate) {
 		this.approvalDate = approvalDate;
 	}
 
@@ -136,9 +136,9 @@ public class Reimbursement {
 		return true;
 	}
 
+	
 
-	
-	
+
 	
 	
 	

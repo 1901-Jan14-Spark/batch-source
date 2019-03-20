@@ -11,6 +11,7 @@ import { TableComponent } from './table/table.component';
 import { UserComponent } from './user/user.component';
 import { NavComponent } from './nav/nav.component';
 import { FirstCapPipe } from './first-cap.pipe';
+
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
@@ -30,7 +31,6 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

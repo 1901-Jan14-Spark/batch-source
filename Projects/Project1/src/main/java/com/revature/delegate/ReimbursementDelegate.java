@@ -2,7 +2,7 @@ package com.revature.delegate;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -48,8 +48,8 @@ public class ReimbursementDelegate {
 		int empId = 0;
 		double amount = 0.0;
 		boolean approved = false;
-		Date reqDate;
-		Date appDate;
+		Date reqDate = new Date();
+		Date appDate = new Date();
 		
 		Reimbursement rb = new Reimbursement();
 		rb.setReimbursementId(reimbId);
@@ -59,6 +59,7 @@ public class ReimbursementDelegate {
 		rb.setRequestDate(reqDate);
 		rb.setApprovalDate(appDate);
 		
-	}
-	
+		int refundrequestCreated = rbService.newRequest(rb);
+		response.sendRedirect("/");
+	}	
 }

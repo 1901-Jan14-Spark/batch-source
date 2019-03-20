@@ -13,22 +13,32 @@ import org.apache.catalina.servlets.DefaultServlet;
 import com.revature.services.LoginService;
 
 public class FrontController extends DefaultServlet {
+	
 	private static final long serialVersionUID = 1L;
 	
 	RequestHelper rh = new RequestHelper();
 	
+	public FrontController() {
+		super();
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		
+
+		System.out.println("get request to front controller");
+		System.out.println(request.getContextPath());
+				
 		if(request.getRequestURI().substring(request.getContextPath().length()).startsWith("/static/")) {
 			super.doGet(request, response);
 		} else {
-			//response.getWriter().append("Served at: ").append(request.getContextPath());
 			rh.process(request, response);
-		}
-		
+		}	
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+	
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
 	
