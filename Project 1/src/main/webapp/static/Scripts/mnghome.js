@@ -161,7 +161,7 @@ function approveReimbursement(){
 			"mngResolved": document.getElementById("sessionEmail").innerHTML
 	}
 	ajaxPost(reimbAllURL, newReimbObj);
-	window.location.reload();
+	location.reload();
 	
 }
 

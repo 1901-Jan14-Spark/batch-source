@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,30 +26,32 @@ class JUnitTests {
 	Employee testEmp = new Employee("mockUser@gmail.com", "correct");
 	
 	@Before
-	public void createMockData() {		
-		String sql = "{call INSERT_MOCKACC(?,?)}";
+	public int createMockData() {		
+		String sql = "INSERT INTO EMPLOYEE (EMAIL, PASSWORD) VALUES (?, ?)";
+		int mockNumCreated = 0;
 		try(Connection con = DBConnection.getConnection();
-				CallableStatement cs = con.prepareCall(sql)){
+				PreparedStatement ps = con.prepareStatement(sql)){
 			
-			cs.setString(1, testEmp.getEmail());
-			cs.setString(2, testEmp.getPassword());
-			cs.execute();
+			ps.setString(1, testEmp.getEmail());
+			ps.setString(2, testEmp.getPassword());
+			mockNumCreated = ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return mockNumCreated;
 	}
 	
 	@After
 	public void removeMockAcc() {
 		String emailToDelete;
 		emailToDelete = testEmp.getEmail();
-		String sql = "{call DELETE_MOCKACC(?)}";
+		String sql = "DELETE FROM EMPLOYEE WHERE EMAIL = ?";
 		try(Connection con = DBConnection.getConnection();
-				CallableStatement cs = con.prepareCall(sql)){
+				PreparedStatement ps = con.prepareStatement(sql)){
 			
-			cs.setString(1, emailToDelete);
-			cs.execute();
+			ps.setString(1, emailToDelete);
+			ps.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -79,5 +82,6 @@ class JUnitTests {
 		List<Employee> newList = empDaoMock.getOnlyEmployees();
 		assertEquals(newList, testList);
 	}
+
 	
 }
