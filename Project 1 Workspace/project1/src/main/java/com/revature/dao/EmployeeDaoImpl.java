@@ -117,18 +117,20 @@ public class EmployeeDaoImpl implements EmployeeDao{
 				+ "EMAIL = ?,"
 				+ "ADDRESS = ?,"
 				+ "PHONE = ?,"
-				+ "IS_MANAGER = ?";
+				+ "IS_MANAGER = ?"
+				+ "WHERE EMPLOYEE_ID = ?";
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)){
 			
 			ps.setInt(1, e.getId());
-			ps.setString(1, e.getUsername());
+			ps.setString(2, e.getUsername());
 			ps.setString(3, e.getPassword());
 			ps.setString(4, e.getEmail());
 			ps.setString(5, e.getAddress());
 			ps.setString(6, e.getPhone());
 			ps.setInt(7, e.getIsManager());
+			ps.setInt(8, e.getId());
 			employeeUpdate = ps.executeUpdate();
 			
 		}catch(SQLException x) {

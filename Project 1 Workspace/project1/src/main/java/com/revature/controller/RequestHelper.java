@@ -124,9 +124,9 @@ public class RequestHelper {
 		else if(uri.startsWith("/getlogin")) {
 				ld.getLogin(request, response);
 		}
-		else if(uri.startsWith("/logout"))	{
+		else if(uri.endsWith("/logout"))	{
 			request.getSession(false).invalidate();
-			response.sendRedirect("../login");
+			response.sendRedirect("/HelloWorld/login");
 		}
 		else if(uri.startsWith("/session")) {
 				sd.session(request, response);

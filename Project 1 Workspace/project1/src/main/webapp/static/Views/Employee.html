@@ -64,13 +64,13 @@
 	<hr>
     <div id ="formDiv">
     	<label>Profile Update:</label>
-    	<form class = "form-group" action = "" id = "updateReimbursement">
+    	<form class = "form-group" id = "updateEmployee">
     	<div class = "row">
     		<div class = "col">
     		<input class="form-control form-control-lg" type = "text" id = "username" placeholder = "Username">
     		</div>
     		<div class = "col">
-    		<input class="form-control form-control-lg" type = "text" id = "password1" placeholder = "password">
+    		<input class="form-control form-control-lg" type = "text" id = "password" placeholder = "Password">
     		</div>
     		<div class = "col">
     		<input class="form-control form-control-lg" type = "text" id = "email" placeholder = "Email">
@@ -87,11 +87,13 @@
     		<div class = "col">
     		<button type = "button" class="btn btn-outline-warning btn-lg" id = "updateBtn">Update</button>
     		</div>
-    		<div class = "col">
-    		<button type = "button" class="btn btn-outline-danger btn-lg" id = "logout">Logout</button>
-    		</div>
    		 </div>
     	</form>
+    	<form action = "logout" method = "post">
+    		<div class = "col">
+    		<input type = "submit" class="btn btn-outline-danger btn-lg" value = "Logout" id = "logout">
+    		</div>
+    		</form>
     </div>
 </div>
 	<script src="static/Scripts/Employee.js"></script>

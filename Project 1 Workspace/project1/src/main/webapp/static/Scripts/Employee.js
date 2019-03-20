@@ -7,15 +7,8 @@ const other = document.getElementById("RESOLVED/DENIED");
 const submitAccess = document.getElementById("submitAccess");
 const rTable = document.getElementById("rTable");
 const rBody = document.getElementById("rTableBody");
-const update = document.getElementById("updateBtn");
-const logout = document.getElementById("logout");
+const updatebtn = document.getElementById("updateBtn");
 const profileBody = document.getElementById("profileBody");
-
-//window.onload = function(){
-//	all.addEventListener("click", sendAjaxGet("http://localhost:8080/HelloWorld/api/reimbursements/empId", displayReimbursements));
-//	pending.addEventListener("click", sendAjaxGet("http://localhost:8080/HelloWorld/api/reimbursements/pending/id", displayReimbursements));
-//	other.addEventListener("click", sendAjaxGet("http://localhost:8080/HelloWorld/api/reimbursements/resolved/id", displayReimbursements));
-//}
 
 function sendAjaxGet(url, func){
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
@@ -30,13 +23,16 @@ function sendAjaxGet(url, func){
 
 function sendAjaxPut(url, func){
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
+	xhr.open("PUT", url);
 	xhr.onreadystatechange = function(){
 		if(this.readyState === 4 && this.status === 202){
-			func(this);
+			console.log(xhr.response);
 		}
 	}
-	xhr.open("PUT", url);
-	xhr.send();
+	xhr.setRequestHeader("Content-Type", "application/json");
+	let jsonEmployee = JSON.stringify(currentEmployee);
+	console.log(jsonEmployee);
+	xhr.send(jsonEmployee);
 }
 
 function displayReimbursements(xhr){
@@ -56,9 +52,6 @@ function displayReimbursements(xhr){
 							<td>${reimbursements[i].resolved}</td>`;
 		table.appendChild(nextRow);
 	}
-}
-function displayPending(xhr){
-	
 }
 
 function displayProfile(xhr){
@@ -93,3 +86,54 @@ function rOther(){
 all.addEventListener("click", runall);
 pending.addEventListener("click", rPending);
 other.addEventListener("click", rOther);
+
+//logout.addEventListener("click", logoutApp);
+//function logoutApp(){
+//	sendAjaxGet("http://localhost:8080/HelloWorld/logout", displayProfile);
+//}
+
+
+let currentEmployee = {
+	id: 0,
+	username: "",
+	password: "",
+	email: "",
+	address: "",
+	phone: "",
+	isManager: 0
+}
+
+function saveEmployee(xhr){
+	emp = JSON.parse(xhr.response);
+	currentEmployee.id = emp.id;
+	currentEmployee.username = emp.username;
+	currentEmployee.password = emp.password;
+	currentEmployee.email = emp.email;
+	currentEmployee.address = emp.address;
+	currentEmployee.phone = emp.phone;
+	currentEmployee.isManager = emp.isManager;
+}
+sendAjaxGet("http://localhost:8080/HelloWorld/api/employees/id", saveEmployee)
+
+updatebtn.addEventListener("click", updateEmployee);
+
+function updateEmployee(){
+//	if(document.getElementById("username").value != ""){
+		currentEmployee.username = document.getElementById("username").value;
+		console.log(document.getElementById("username").value);
+//	}
+	if(document.getElementById("password").value != ""){
+		currentEmployee.username = document.getElementById("password").value;
+	}
+	if(document.getElementById("email").value != ""){
+		currentEmployee.username = document.getElementById("email").value;
+	}
+	if(document.getElementById("address").value != ""){
+		currentEmployee.username = document.getElementById("address").value;
+	}
+	if(document.getElementById("phone").value != ""){
+		currentEmployee.username = document.getElementById("phone").value;
+	}
+	console.log(currentEmployee);
+	sendAjaxPut("http://localhost:8080/HelloWorld/api/employees", currentEmployee);
+}
