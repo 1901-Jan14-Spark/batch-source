@@ -1,3 +1,22 @@
+$(document).ready( function () {
+    $('#reqTable').DataTable({
+    	ajax: {
+    		url: 'http://localhost:8080/RefundSite/reqdata', //where to find the data
+    		dataSrc:''
+    	},
+    	columns:[
+    		{data: "rId"},
+    		{data: "eName"},
+    		{data: "email"},
+    		{data: "amount"},
+    		{data: "desc"},
+    		{data: "status"},
+    		{data: "resolvedBy.eName"},
+    		{data: "resolvedBy.email"}
+    	]
+    });
+} );
+
 function sendAjaxGet(url, func){
 	let xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = function(){
