@@ -3,26 +3,6 @@
   <display-name>ERS</display-name>
   <servlet>
     <description></description>
-    <display-name>ManagerServlet</display-name>
-    <servlet-name>ManagerServlet</servlet-name>
-    <servlet-class>com.revature.servlets.ManagerServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ManagerServlet</servlet-name>
-    <url-pattern>/manager</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>LoginServlet</display-name>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>com.revature.servlets.LoginServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>FrontController</display-name>
     <servlet-name>FrontController</servlet-name>
     <servlet-class>com.revature.controller.FrontController</servlet-class>

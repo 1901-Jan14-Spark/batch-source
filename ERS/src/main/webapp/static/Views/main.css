@@ -1,22 +1,16 @@
-@font-face {
-    font-family:"Indonesiana" !important;
-    src:url("css/fonts/Indonesiana_Serif____Free_RePackaged.eot?") format("eot"),
-    url("css/fonts/Indonesiana_Serif____Free_RePackaged.woff") format("woff"),
-    url("css/fonts/Indonesiana_Serif____Free_RePackaged.ttf") format("truetype"),
-    url("css/fonts/Indonesiana_Serif____Free_RePackaged.svg#IndonesianaSerif") format("svg") !important;
-    font-weight:normal !important;
-    font-style:normal !important;
-}
-   
 body {
     background: url("https://ih0.redbubble.net/image.239742048.6551/flat,1000x1000,075,f.u3.jpg") !important;
-    font-family: Indonesiana !important;
+    font-family: 'Raleway', sans-serif; !important;
+}
+
+body, html{
+	font-family: 'Raleway', sans-serif; !important;
 }
 
 #header {
     background-image: url("https://i.ytimg.com/vi/bjkeZlCb8Nw/maxresdefault.jpg");
     color: rgb(250, 191, 103);
-    font-family: Indonesiana !important;
+    font-family: 'Raleway', sans-serif; !important;
     text-align: center;
     font-size: 100px;
     height: 150px;
@@ -54,4 +48,41 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: rgb(250, 191, 103);
     color: black;
+}
+
+div.tableContainer table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+html>body div.tableContainer table {
+	width: 850px;
+}
+
+thead.fixedHeader tr {
+    position: relative
+}
+
+html>body thead.fixedHeader tr {
+	display: block
+}
+
+thead.fixedHeader th {
+	font-weight: normal;
+	padding: 4px 3px;
+	text-align: left
+}
+
+html>body tbody.scrollContent {
+	display: block;
+	height: 400px;
+	overflow: auto;
+}
+
+html>body thead.fixedHeader th {
+	width: 200px
+}
+
+tbody > tr > td{
+    padding-right: 98px;
 }

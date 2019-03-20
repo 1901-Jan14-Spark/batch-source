@@ -17,28 +17,27 @@
             <div>Ember</div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" style="color:rgb(250, 191, 103)" href="http://localhost:8080/ERS/manager"><img src="https://www.freeiconspng.com/uploads/lens-flare-icon-symbol-26.png" style="width:100px;height:100px;"></a>
+        <a class="navbar-brand" style="color:rgb(250, 191, 103)" href="http://localhost:8080/ERS/employee"><img src="https://www.freeiconspng.com/uploads/lens-flare-icon-symbol-26.png" style="width:100px;height:100px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: black">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8080/ERS/employee" style="color:rgb(250, 191, 103)">Employees</a>
-            </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" style="color:rgb(250, 191, 103)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="http://localhost:8080/ERS/resolvedreqs" style="color:rgb(250, 191, 103)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Requests
               </a>
+              
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="http://localhost:8080/ERS/managerreq">All Requests</a>
+              <a class="dropdown-item" href="http://localhost:8080/ERS/allemployeereqs">My Requests</a>
+                <a class="dropdown-item" href="http://localhost:8080/ERS/resolvedreqs">Resolved Requests</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="http://localhost:8080/ERS/allactivity">All Activity</a>
+                <a class="dropdown-item" href="http://localhost:8080/ERS/pendingreqs">Pending Requests</a>
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8080/ERS/profile" style="color:rgb(250, 191, 103)">Profile</a>
+              <a class="nav-link" href="http://localhost:8080/ERS/eprofile" style="color:rgb(250, 191, 103)">Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="http://localhost:8080/ERS/logout" style="color:rgb(250, 191, 103)">Logout</a>
@@ -50,20 +49,21 @@
           </form>
         </div>
       </nav>
-      <div class="container-fluid headerbackground" style="height: 15px"><h1 style="text-align: center; color:rgb(250, 191, 103)">All Employees</h1></div>
+      <div class="container-fluid headerbackground" style="height: 15px"><h1 style="text-align: center; color:rgb(250, 191, 103)">Pending Request</h1></div>
     <div class="container-fluid navbackground" style="height: 50px"></div>
         <div class="tableContainer">
-            <table id = "allEmployees" class="table table-sm table-dark">
+            <table id = "pendingReqs" class="table table-sm table-dark">
               <th>ID:</th>
-              <th>First Name:</th>
-              <th>Last Name:</th>
-              <th>E-mail:</th>
-              <th>Reports To:</th>
+              <th>Email:</th>
+              <th>Price:</th>
+              <th>Status:</th>
+              <th>Resolved by:</th>
             </table>
         </div>
     <br>
  <div style="text-align: center">
     
-      <script src="./static/Views/manager.js"></script>
+    
+      <script src="./static/Views/pendingreqs.js"></script>
 </body>
 </html>

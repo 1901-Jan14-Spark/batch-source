@@ -32,7 +32,6 @@ public class FrontController extends DefaultServlet {
 		} else {	
 			rh.process(request, response);
 		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**

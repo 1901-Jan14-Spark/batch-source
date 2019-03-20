@@ -9,6 +9,13 @@ public class ConnectionUtil {
 private static Connection connection;
 	
 	public static Connection getConnection() throws SQLException {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		String url = System.getenv("DV_URL");
 		String user = System.getenv("DV_USER");
 		String password = System.getenv("DV_PASS");

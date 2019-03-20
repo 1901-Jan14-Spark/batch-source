@@ -5,6 +5,7 @@ import java.util.List;
 import com.revature.dao.EmployeeDao;
 import com.revature.dao.im.EmployeeDaoImpl;
 import com.revature.model.Employee;
+import com.revature.model.Reimbursement;
 
 public class EmployeeService {
 

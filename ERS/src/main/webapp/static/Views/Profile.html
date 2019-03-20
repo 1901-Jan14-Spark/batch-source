@@ -17,7 +17,7 @@
             <div>Ember</div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" style="color:rgb(250, 191, 103)" href="http://localhost:8080/ERS/manager"><img src="https://www.freeiconspng.com/uploads/lens-flare-icon-symbol-26.png" style="width:100px;height:100px;"></a>
+        <a class="navbar-brand" style="color:rgb(250, 191, 103)" href="#"><img src="https://www.freeiconspng.com/uploads/lens-flare-icon-symbol-26.png" style="width:100px;height:100px;"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,21 +49,27 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="color:rgb(250, 191, 103)">Search</button>
           </form>
         </div>
-      </nav>
-      <div class="container-fluid headerbackground" style="height: 15px"><h1 style="text-align: center; color:rgb(250, 191, 103)">All Employees</h1></div>
-    <div class="container-fluid navbackground" style="height: 50px"></div>
-        <div class="tableContainer">
-            <table id = "allEmployees" class="table table-sm table-dark">
-              <th>ID:</th>
-              <th>First Name:</th>
-              <th>Last Name:</th>
-              <th>E-mail:</th>
-              <th>Reports To:</th>
-            </table>
+        </nav>
+        <div class="container-fluid headerbackground" style="height: 50px"><h1 style="text-align: center; color:rgb(250, 191, 103)">My Profile</h1></div>
+        <div class="form">
+    <form method="POST" action="updateEmp">
+    	<label for="First Name" style="margin-right: 155px;">First Name:</label><br>
+		<input id="fname" type="text" name="fname" disabled><br>
+		<label for="Last Name" style="margin-right: 140px;">Last Name:</label><br>
+		<input id ="lname" type="text" name="lname" disabled><br>
+        <label for="email" style="margin-right: 155px;">Email:</label><br>
+		<input type="email" name="email" placeholder="Change Email" required><br>
+		<label for="password" style="margin-right: 140px;">Password:</label><br>
+        <input type="password" name="password" placeholder="Change Password" required><br>
+        <label for="password" style="margin-right: 140px;">Confirm Password:</label><br>
+        <input type="password" name="password2" placeholder="Confirm Password" required><br>
+        <div id="lower">
+            <br>
+                <input type="submit" value="Update Profile"><br>
+                
         </div>
-    <br>
- <div style="text-align: center">
-    
-      <script src="./static/Views/manager.js"></script>
-</body>
-</html>
+    </form>
+    </div>
+    <script src="./static/Views/profile.js"></script>
+   </body>
+   </html>	

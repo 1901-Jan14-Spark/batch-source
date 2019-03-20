@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.revature.dao.EmployeeDao;
 import com.revature.model.Employee;
+import com.revature.model.Reimbursement;
 import com.revature.util.ConnectionUtil;
 
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -32,10 +33,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				e.setId(employeeId);
 				
 				String email = rs.getString("EMAIL");
-				e.setFname(email);
-				
-				String pass = rs.getString("PASS");
-				e.setPass(pass);
+				e.setEmail(email);
 				
 				String fname = rs.getString("FIRST_NAME");
 				e.setFname(fname);
@@ -113,17 +111,33 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		String sql = "UPDATE EMPLOYEE "
 				+ "SET EMAIL = ?, "
 				+ "PASS = ? "
-				+ "WHERE EMAIL = ?";
+				+ "WHERE EMP_ID = ?";
 		
 		try (Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)){
-			
-			//con.setAutoCommit(false);
+
 			ps.setString(1, employee.getEmail());
 			ps.setString(2, employee.getPass());
-			ps.setString(3, employee.getEmail());
+			ps.setInt(3, employee.getId());
 			employeeUpdated = ps.executeUpdate();
-			//con.commit();
+
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		String sql2 = "UPDATE EXPENSE "
+				+ "SET EMAIL = ? "
+				+ "WHERE EXP_ID = ?";
+		
+		try (Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql2)){
+			
+
+			ps.setString(1, employee.getEmail());
+			ps.setInt(2, employee.getId());
+			employeeUpdated = ps.executeUpdate();
+
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -136,6 +150,34 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public int deleteEmployeeById(int id) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Employee getEmployeeByEmail(String email) {
+		String sql = "SELECT * FROM EMPLOYEE WHERE EMAIL = ?";
+		Employee e = null;
+		
+		try(Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			
+			ps.setString(1, email);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				int employeeId = rs.getInt("EMP_ID");
+				String name = rs.getString("EMAIL");
+				String pass = rs.getString("PASS");
+				String fname = rs.getString("FIRST_NAME");
+				String lname = rs.getString("LAST_NAME");
+				int reportsto = rs.getInt("REPORTSTO");
+				e = new Employee(employeeId, name, pass, fname, lname, reportsto);
+			}
+			
+		} catch (SQLException x) {
+			x.printStackTrace();
+		}
+		
+		return e;
 	}
 
 }

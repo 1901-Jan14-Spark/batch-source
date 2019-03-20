@@ -108,17 +108,16 @@ List<Reimbursement> reimbursements = new ArrayList<>();
 		String sql = "UPDATE EXPENSE "
 				+ "SET STATUS = ?, "
 				+ "RESOLVEDBY = ? "
-				+ "WHERE EMAIL = ?";
+				+ "WHERE EXP_ID = ?";
 		
 		try (Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)){
 			
-			//con.setAutoCommit(false);
 			ps.setString(1, r.getStatus());
 			ps.setString(2, r.getResolvedby());
-			ps.setString(3, r.getEmail());
+			ps.setInt(3, r.getId());
 			expUpdated = ps.executeUpdate();
-			//con.commit();
+		
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -132,5 +131,33 @@ List<Reimbursement> reimbursements = new ArrayList<>();
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public Reimbursement getReimbursementByEmail(String email) {
+		String sql = "SELECT * FROM EXPENSE WHERE EMAIL = ?";
+		Reimbursement r = null;
+		
+		try(Connection con = ConnectionUtil.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			
+			ps.setString(1, email);
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				int expId = rs.getInt("EXP_ID");
+				String name = rs.getString("EMAIL");
+				int price = rs.getInt("PRICE");
+				String status = rs.getString("STATUS");
+				String resolvedby = rs.getString("RESOVLEDBY");
+				r = new Reimbursement(expId, name, price, status, resolvedby);
+			}
+			
+		} catch (SQLException x) {
+			x.printStackTrace();
+		}
+		
+		return r;
+	}
+	
 
 }
