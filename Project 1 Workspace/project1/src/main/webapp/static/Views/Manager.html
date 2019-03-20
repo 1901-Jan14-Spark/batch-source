@@ -12,7 +12,6 @@
 <h1 class = "center">Manager Portal</h1>
 <form id = "access">
 	<div class = "row">
-	
 	<div class = "col">
 	<select class = "form-control form-control-lg" name = "getAccess" form = "access" id = "accessOption">
 		<option id = "ALL" value = "ALL">ALL</option>
@@ -21,21 +20,23 @@
 	</select>
 	</div>
 	<div class = "col">
-	<select class = "form-control form-control-lg" name = "selectEmployee" id = "employeeId">
-		
-	</select>
-	</div>
+    		<select class = "form-control form-control-lg" id = "employeeSelect">
+    			<option value="All">All</option>
+    		</select>
+    	</div>
 	<div class = "col">
 	<input type = "submit" class="btn btn-outline-success btn-lg" value = "Access">
 	</div>
 	</div>
 </form>
 <br>
+<h3>Reimbursements:</h3>
 <div id = "reimbursementsM">
 <table class="table table-striped table-hover table-hover-cells table-bordered" id = "rTable">
 	<thead class = "thead-dark">
 		<tr>
-			<th >ID</th>
+			<th >Reimbursement ID</th>
+			<th >Employee IDD</th>
 			<th >Amount</th>
 			<th >Status</th>
 			<th >Type</th>
@@ -49,29 +50,39 @@
 	</tbody>
 </table>
 </div>
+<h3>Employees:</h3>
+<div id = "employees">
+	<table class = "table table-striped table-bordered table-hover-cells" id = "employeeInfo">
+	<thead>
+		<tr>
+			<th >Employee ID</th>
+			<th >Username</th>
+			<th >Password</th>
+			<th >Email</th>
+			<th >Address</th>
+			<th >Phone</th>
+		</thead>
+		<tbody id = employeeBody>
+		
+		</tbody>
+	</table>
+</div>
 	<hr>
+	<h3>Update Reimbursement:</h3>
     <div id ="formDiv">
     	<form class = "form-group" id = "updateReimbursement">
     	<div class = "row">
     		<div class = "col">
-    		<input class="form-control form-control-lg" type = "number" id = "expenseId" placeholder = "Expense ID">
+    		<input class="form-control form-control-lg" type = "number" id = "r_Id" placeholder = "Reimbursement ID">
     		</div>
     		<div class = "col">
-    		<input class="form-control form-control-lg" type = "number" id = "cost" placeholder = "Cost">
+    		<input class="form-control form-control-lg" type = "text" id = "status" placeholder = "Status">
+    		</div>
+			<div class = "col">
+    		<input class="form-control form-control-lg" type = "text" id = "resolved" placeholder = "Date Updated">
     		</div>
     		<div class = "col">
-    		<input class="form-control form-control-lg" type = "text" id = "category" placeholder = "Category">
-    		</div>
-    		<div class = "col">
-    		<input class="form-control form-control-lg" type = "text" id = "merchant" placeholder = "Merchant">
-    		</div>
-    	</div>
-    	<br>
-    	<div class = "row">
-    		<div class = "col">
-    		<select class = "form-control form-control-lg" id = "employeeSelect">
-    			<option value="" disabled selected>Select Employee</option>
-    		</select>
+    		<input class="form-control form-control-lg" type = "number" id = "m_id" placeholder = "Manager Id">
     		</div>
     		<div class = "col">
     		<button type = "button" class="btn btn-outline-warning btn-lg" id = "updateBtn">Update</button>
@@ -86,7 +97,6 @@
     		</form>
 </div>
 	<script src="static/Scripts/Manager.js"></script>
-	<script src="static/Scripts/Employee.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
