@@ -19,7 +19,7 @@ function populateUser(xhr){
 		window.location = "http://localhost:8080/Reimbursement/login";
 	}
 
-	//sendGet(("http://localhost:8080/Reimbursement/api/employeeslist"), populate2);
+	//sendGet(("http://localhost:8080/Reimbursement/api/employeeslist ), populate2);
 
 //	function populate2(xhr){
 //		employees = JSON.parse(xhr.response)
