@@ -18,10 +18,11 @@ public class EmployeeDelegate {
 		ObjectMapper om = new ObjectMapper();
 		String uri = request.getRequestURI().substring(request.getContextPath().length());
 		int empId = (int) request.getSession().getAttribute("id");
+		System.out.println("empId: " + empId);
 		
 		String employeeJSON;
-		
-		if(uri.endsWith("employee/id")) {
+		System.out.println(uri);
+		if(uri.endsWith("/employees/id")) {
 			int id = empId;
 			Employee e = eService.getById(id);
 			if(e == null) {

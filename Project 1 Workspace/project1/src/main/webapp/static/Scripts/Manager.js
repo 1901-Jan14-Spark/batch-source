@@ -32,7 +32,7 @@ function sendAjaxPut(url, func){
 	xhr.open("PUT", url);
 	xhr.send();
 }
-sendAjaxGet("http://localhost:8080/HelloWorld/api/employees/", display);
+sendAjaxGet("http://localhost:8080/HelloWorld/api/employees", display);
 
 function sendAjaxGet(url, func){
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");

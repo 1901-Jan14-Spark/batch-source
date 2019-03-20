@@ -28,15 +28,10 @@ public class LoginDelegate {
 			uri = "/manager";
 			session.setAttribute("id", id);
 		}
-		else if(!"true".equals(asM)) {
+		else if(!"true".equals(asM) && !(e == null)) {
 			uri = "/employee";
-			if(e==null) {
-			response.setStatus(404);
-			}
-			else {
-				int id = e.getId();
-				session.setAttribute("id", id);
-			}
+			int id = e.getId();
+			session.setAttribute("id", id);
 		}
 		else {
 			uri = "/login";

@@ -22,6 +22,7 @@ public class RequestHelper {
 	
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		String uri = request.getRequestURI().substring(request.getContextPath().length());
+		System.out.println(uri);
 		if(uri.startsWith("/api/")) {
 			String record = uri.substring(5);
 			System.out.println(record);
@@ -43,6 +44,14 @@ public class RequestHelper {
 					response.sendError(405, "Method Not Supported for /" + record);
 				}
 				break;
+			case "employees/id":
+				if("GET".equals(request.getMethod())) {
+					ed.getEmployees(request, response);
+				}
+				else {
+					response.sendError(405, "Method Not Supported for /" + record);
+				}
+				break;
 			case "reimbursements":
 				if("GET".equals(request.getMethod())) {
 					rd.getReimbursements(request, response);
@@ -55,6 +64,54 @@ public class RequestHelper {
 				}
 				else if ("DELETE".equals(request.getMethod())){
 					rd.deleteReimbursement(request, response);
+				}
+				else {
+					response.sendError(405, "Method Not Supported for /" + record);
+				}
+				break;
+			case "reimbursements/pending/id":
+				if("GET".equals(request.getMethod())) {
+					rd.getReimbursements(request, response);
+				}
+				else {
+					response.sendError(405, "Method Not Supported for /" + record);
+				}
+				break;
+			case "reimbursements/pending":
+				if("GET".equals(request.getMethod())) {
+					rd.getReimbursements(request, response);
+				}
+				else {
+					response.sendError(405, "Method Not Supported for /" + record);
+				}
+				break;
+			case "reimbursements/resolved/id":
+				if("GET".equals(request.getMethod())) {
+					rd.getReimbursements(request, response);
+				}
+				else {
+					response.sendError(405, "Method Not Supported for /" + record);
+				}
+				break;
+			case "reimbursements/resolved":
+				if("GET".equals(request.getMethod())) {
+					rd.getReimbursements(request, response);
+				}
+				else {
+					response.sendError(405, "Method Not Supported for /" + record);
+				}
+				break;
+			case "reimbursements/id":
+				if("GET".equals(request.getMethod())) {
+					rd.getReimbursements(request, response);
+				}
+				else {
+					response.sendError(405, "Method Not Supported for /" + record);
+				}
+				break;
+			case "reimbursements/empId":
+				if("GET".equals(request.getMethod())) {
+					rd.getReimbursements(request, response);
 				}
 				else {
 					response.sendError(405, "Method Not Supported for /" + record);

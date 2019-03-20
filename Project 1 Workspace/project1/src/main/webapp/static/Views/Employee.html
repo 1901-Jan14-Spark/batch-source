@@ -11,6 +11,7 @@
 <h1 class = "center">Employee Portal</h1>
 <div id = "profile">
 	<table class = "table table-striped table-bordered table-hover-cells" id = "profileInfo">
+	<thead>
 		<tr>
 			<th >Employee ID</th>
 			<th >Username</th>
@@ -18,33 +19,29 @@
 			<th >Email</th>
 			<th >Address</th>
 			<th >Phone</th>
-			<th >Manager</th>
-		<tr>
-			<td id = "empId"></td>
-			<td id = "username"></td>
-			<td id = "password"></td>
-			<td id = "email"></td>
-			<td id = "address"></td>
-			<td id = "phone"></td>
-			<td id = "isManager"></td>
-		</tr>
+		</thead>
+		<tbody id = profileBody>
+		
+		</tbody>
 	</table>
 </div>
 
 <div id = "accessChoice">
-<form class = "form-group" id = "access">
-	<div class = "row">
+<form class = "form-group">
+<div class = "row">
 	<div class = "col">
-	<select class = "form-control form-control-lg" name = "getAccess" form = "access" id = "accessOption">
-		<option id = "ALL" value = "ALL">ALL</option>
-		<option id = "PENDING" value = "PENDING">PENDING</option>
-		<option id = "RESOLVED/DENIED" value = "RESOLVED/DENIED">RESOLVED/DENIED</option>
-	</select>
+		<label>ALL:</label>
+		<input type = "radio" name = "selector" id = "ALL" value = "ALL">
 	</div>
 	<div class = "col">
-	<input type = "submit"  id = "submitAccess" value = "Access" class = "btn btn-outline-success btn-lg">
+		<label>PENDING:</label>
+		<input type = "radio" name = "selector" id = "PENDING" value = "PENDING">
 	</div>
+	<div class = "col">
+		<label>RESOLVED/DENIED:</label>
+		<input type = "radio" name = "selector" id = "RESOLVED/DENIED" value = "RESOLVED/DENIED">
 	</div>
+</div>
 </form>
 </div>
 <div id = "reimbursement">
@@ -103,6 +100,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
       crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="../Employee.js"></script>
 </body>
 </html>
