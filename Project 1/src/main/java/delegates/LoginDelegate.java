@@ -24,6 +24,7 @@ public class LoginDelegate {
 	
 	PrintWriter pw = response.getWriter();
 	if(attemptedEmp == null || attemptedEmp.getEmail() == "incorrect" ) {
+		request.getSession().invalidate();
 		response.sendRedirect("login");
 	} else {
 		if(attemptedEmp.getReportsTo() == 0) {
