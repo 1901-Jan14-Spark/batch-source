@@ -14,6 +14,10 @@ public class ReimbursementService {
 		return rbDao.getRefunds();
 	}
 	
+	public List<Reimbursement> getEmployeesReimbursements(int id){
+		return rbDao.getAllRefundsForEmployee(id);
+	}
+	
 	public Reimbursement getById(int id) {
 		return rbDao.getRefundById(id);
 	}
@@ -29,4 +33,14 @@ public class ReimbursementService {
 	public int updateRequest(Reimbursement rb) {
 		return rbDao.updateReimbursementStatus(rb);
 	}
+	
+	public int approveRequest(Reimbursement rb) {
+		return rbDao.approveReimbursement(rb);
+	}
+	
+	public int denyRequest(Reimbursement rb) {
+		return rbDao.denyReimbursement(rb);
+	}
+	
+	
 }

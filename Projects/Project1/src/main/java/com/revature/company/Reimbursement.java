@@ -135,14 +135,5 @@ public class Reimbursement {
 			return false;
 		return true;
 	}
-
-	
-
-
-	
-	
-	
-	
-	
 	
 }

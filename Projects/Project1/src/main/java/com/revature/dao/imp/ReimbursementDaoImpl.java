@@ -180,22 +180,65 @@ List<Reimbursement> refunds = new ArrayList<>();
 		int requestUpdated = 0;
 		String sql = "UPDATE RBREQUEST "
 				+ "SET "
-				+ "RB_ID = ?, EMP_ID = ?, RB_AMOUNT = ?, STATUS = ?, SUB_DATE = ?, APP_DATE = ?";
+				+ "EMP_ID = ?, RB_AMOUNT = ?, STATUS = ?, SUB_DATE = ?, APP_DATE = ? "
+				+ "WHERE RB_ID = ?";
 		
 		try(Connection c = ConnectionUtil.getConnection();
 				PreparedStatement ps = c.prepareStatement(sql)){
 			
 			ps.setInt(1, rb.getReimbursementId());
-			ps.setInt(2, rb.getReimbursementId());
-			ps.setDouble(3, rb.getAmount());
-			ps.setBoolean(4, rb.isApproved());
-			ps.setTimestamp(5, rb.getRequestDate());
-			ps.setTimestamp(6, rb.getApprovalDate());
+			ps.setDouble(2, rb.getAmount());
+			ps.setBoolean(3, rb.isApproved());
+			ps.setTimestamp(4, rb.getRequestDate());
+			ps.setTimestamp(5, rb.getApprovalDate());
+			ps.setInt(6, rb.getReimbursementId());
 			requestUpdated = ps.executeUpdate();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		
 		return requestUpdated;
+	}
+
+	@Override
+	public int approveReimbursement(Reimbursement rb) {
+		int requestApproved = 0;
+		String sql = "UPDATE RBREQUEST "
+				+ "SET "
+				+ "STATUS = ? "
+				+ "WHERE RB_ID = ?";
+		
+		try(Connection c = ConnectionUtil.getConnection();
+				PreparedStatement ps = c.prepareStatement(sql)){
+			
+			ps.setString(1, "Approved");
+			ps.setInt(2, rb.getReimbursementId());
+			requestApproved = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+		return requestApproved;
+	}
+
+	@Override
+	public int denyReimbursement(Reimbursement rb) {
+		int requestDenied = 0;
+		String sql = "UPDATE RBREQUEST "
+				+ "SET "
+				+ "STATUS = ? "
+				+ "WHERE RB_ID = ?";
+		
+		try(Connection c = ConnectionUtil.getConnection();
+				PreparedStatement ps = c.prepareStatement(sql)){
+			
+			ps.setString(1, "Approved");
+			ps.setInt(2, rb.getReimbursementId());
+			requestDenied = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}		
+		return requestDenied;
 	}
 }

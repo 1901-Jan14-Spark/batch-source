@@ -6,7 +6,7 @@ function ajaxGetRequest(process) {
 	
 	let xhr = new XMLHttpRequest();
 	
-	xhr.open("get", "http://localhosts:8080/Project1/api/reimbursements");
+	xhr.open("GET", "http://localhosts:8080/Project1/api/reimbursements");
 	
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState === 4){

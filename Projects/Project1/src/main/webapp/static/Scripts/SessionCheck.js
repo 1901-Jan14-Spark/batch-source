@@ -13,14 +13,14 @@ function sendAjaxGet(url, func){
 	xhr.send();
 }
 
-sendAjaxGet("http://localhost:8080/Project1/api/session", populateUser);
+sendAjaxGet("http://localhost:8080/Project1/session", populateUser);
 
 function populateUser(xhr){
 	let response = JSON.parse(xhr.response);
 	console.log(response);
-	if(response.firstname != null){
-		document.getElementById("firstname").innerHTML = "Welcome "+response.firstname;
+	if(response.username != null){
+		document.getElementById("currentUser").innerHTML = "Welcome back "+ response.firstname + "!";
 	} else {
-		
+		window.location = "http://localhost:8080/Project1/login";
 	}
 }

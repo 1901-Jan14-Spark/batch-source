@@ -27,7 +27,6 @@ public class LoginDelegate {
 			session.setAttribute("username", e.getUsername());
 			session.setAttribute("firstname", e.getFirstName());
 			session.setAttribute("lastname", e.getLastName());
-//			session.setAttribute("managerLevel", e.getManagerLevel());
 
 			System.out.println("Successful login");
 

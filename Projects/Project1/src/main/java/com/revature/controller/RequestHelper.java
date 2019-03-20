@@ -34,10 +34,17 @@ public class RequestHelper {
 				// direct request and response to employee delegate
 				if ("GET".equals(request.getMethod())) {
 					ed.getEmployees(request, response);
-				} else if ("PUT".equals(request.getMethod())) {
+				} else if ("POST".equals(request.getMethod())) {
 					ed.updateEmployee(request, response);
 				} else {
 					response.sendError(405, "Method Not Supported For /" + record);
+				}
+				break;
+			case "employees/emp":
+				if ("GET".equals(request.getMethod())) {
+					ed.getEmployee(request, response);
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
 				}
 				break;
 			case "reimbursements":
@@ -52,12 +59,53 @@ public class RequestHelper {
 					response.sendError(405, "Method Not Supported For /" + record);
 				}
 				break;
+			case "reimbursements/emp":
+				if ("GET".equals(request.getMethod())) {
+					rd.getRefunds(request, response);
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
+				}
+				break;
+			case "reimbursement/validate":
+				if ("PUT".equals(request.getMethod())) {
+					
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
+				}
+				break;
+			case "reimbursement/decline":
+				if ("PUT".equals(request.getMethod())) {
+					rd.approveRequest(request, response);
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
+				}
+				break;
+			case "login":
+				if ("POST".equals(request.getMethod())) {
+					lid.login(request, response);
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
+				}
+				break;
+			case "logout":
+				if ("GET".equals(request.getMethod())) {
+					lod.logout(request, response);
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
+				}
+				break;
+			case "session":
+				if ("GET".equals(request.getMethod())) {
+					sd.check(request, response);
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
+				}
+				break;
 			default:
 				response.sendError(404, "Record Not Supported");
+				break;
 			}
 		} else {
-			// direct request and response to view delegate
-			// invoke its method which handles forwarding to the appropriate static web page
 			vd.returnView(request, response);
 		}
 	}

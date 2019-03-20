@@ -43,13 +43,33 @@ public class EmployeeDelegate {
 		pw.close();
 	}
 	
+	public void getEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		ObjectMapper om = new ObjectMapper();
+		
+		int empId = (int) request.getSession().getAttribute("id");
+		
+		String employeeJSON;
+		
+		Employee e = eService.getById(empId);
+		if (e == null) {
+			employeeJSON = "";
+			response.setStatus(404);
+		} else {
+			employeeJSON = om.writeValueAsString(e);
+		}
+
+		PrintWriter pw = response.getWriter();
+		pw.write(employeeJSON);
+		pw.close();
+	}
+	
 	public void createEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String firstName = "";
 		String lastName = "";
 		String email = "";
 		String username = "";
 		String password = "";
-		int deptId = 2;
+		int deptId = 0;
 		
 		Employee e = new Employee();
 		e.setFirstName(firstName);
@@ -71,7 +91,7 @@ public class EmployeeDelegate {
 	}
 
 	public void updateEmployee(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	
 		
 	}
 	

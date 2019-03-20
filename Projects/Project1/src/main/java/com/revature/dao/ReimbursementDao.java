@@ -12,4 +12,6 @@ public interface ReimbursementDao {
 	public Reimbursement getRefundByEmployeeId(int id);
 	public int addNewReimbursement(Reimbursement rb);
 	public int updateReimbursementStatus(Reimbursement rb);
+	public int approveReimbursement(Reimbursement rb);
+	public int denyReimbursement(Reimbursement rb);
 }

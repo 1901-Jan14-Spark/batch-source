@@ -44,23 +44,46 @@ public class ReimbursementDelegate {
 		pw.close();		
 	}
 	
+	public void getIndividualRefund(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+		ObjectMapper om = new ObjectMapper();
+
+		String ReimbursementJSON;
+
+		int id = (int) request.getSession().getAttribute("id");
+
+		List<Reimbursement> Reimbursements = rbService.getEmployeesReimbursements(id);
+		System.out.println(Reimbursements);
+		ReimbursementJSON = om.writeValueAsString(Reimbursements);
+
+		PrintWriter pw = response.getWriter();
+		pw.write(ReimbursementJSON);
+		pw.close();
+	}
+	
 	public void createRefundRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		int reimbId = 0;
 		int empId = 0;
 		double amount = 0.0;
 		boolean approved = false;
-		Timestamp reqDate = new Timestamp(empId);
-		Timestamp appDate = new Timestamp(empId);
+//		Timestamp reqDate = new Timestamp(empId);
+//		Timestamp appDate = new Timestamp(empId);
 		
 		Reimbursement rb = new Reimbursement();
 		rb.setReimbursementId(reimbId);
 		rb.setEmployeeId(empId);
 		rb.setAmount(amount);
 		rb.setApproved(approved);
-		rb.setRequestDate(reqDate);
-		rb.setApprovalDate(appDate);
+//		rb.setRequestDate(reqDate);
+//		rb.setApprovalDate(appDate);
 		
 		int refundrequestCreated = rbService.newRequest(rb);
-		response.sendRedirect("/");
+		response.sendRedirect("/edash");
 	}	
+	
+	public void approveRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	
+		
+	}
+
+	
 }
