@@ -58,19 +58,29 @@ public class RequestHelper {
 					String record = uri.substring(5);
 					switch(record) {
 					case "employees":
+						System.out.println("Request Method: " + request.getMethod());
 						if("GET".equals(request.getMethod())) {
 							ed.getEmployees(request, response);
 						} 
+						else if ("POST".equals(request.getMethod())) {
+							ed.createTheEmployee(request, response);	
+						} else if ("PUT".equals(request.getMethod())) {
+							ed.updateTheEmployee(request, response);
+						}
 					else {
 							response.sendError(405, "Method not supported for /"+record);
 						}
 						return;
 					case "reimbursements":
+						System.out.println("Request Method: " + request.getMethod());
 						if("GET".equals(request.getMethod())) {
 							rd.getReimbursements(request, response);
 						} else if ("POST".equals(request.getMethod())) {
 							rd.createReimbursement(request, response);	
-						}
+						} else if ("PUT".equals(request.getMethod())) {
+							System.out.println("we made it to put");
+							rd.resolveReimbursements(request, response);
+						}	
 						return;
 					default: 
 						response.setStatus(404);

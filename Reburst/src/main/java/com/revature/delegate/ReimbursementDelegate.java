@@ -37,12 +37,19 @@ EmployeeService eService = new EmployeeService();
 		
 		ObjectMapper om = new ObjectMapper();
 		Reimbursement newR = om.readValue(requestBodyText, Reimbursement.class);
+		String emailSession = (String) request.getSession().getAttribute("email");
+		Employee temp = eService.getEmployeeByEmail(emailSession);
+		newR.setrStatusChange(temp.geteId());
+		System.out.println(newR + "nothing");
 		
 		int reimbursementsUpdated = rService.resolveReimbursements(newR);
+		System.out.println(reimbursementsUpdated + "nothing");
 		if (reimbursementsUpdated == 1) {
 			response.setStatus(201);
+			System.out.println("woo");
 		} else {
 			response.setStatus(400);
+			System.out.println("boo");
 		}
 	}
 	

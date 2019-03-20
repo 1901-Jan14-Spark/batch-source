@@ -28,5 +28,44 @@ EmployeeService eService = new EmployeeService();
 		pw.write(employeeJSON);
 		pw.close();
 	}
+	
+	public void updateTheEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String requestBodyText = request.getReader().readLine();
+		
+		ObjectMapper om = new ObjectMapper();
+		Employee newE = om.readValue(requestBodyText, Employee.class);
+		String emailSession = (String) request.getSession().getAttribute("email");
+		Employee temp = eService.getEmployeeByEmail(emailSession);
+		newE.seteId(temp.geteId());
+		System.out.println(newE + "nothing");
+		
+		int employeesUpdated = eService.resolveEmployees(newE);
+		System.out.println(employeesUpdated + "nothing");
+		if (employeesUpdated == 1) {
+			response.setStatus(201);
+			System.out.println("woo");
+		} else {
+			response.setStatus(400);
+			System.out.println("boo");
+		}
+	}
+	
+	public void createTheEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String requestBodyText = request.getReader().readLine();
+		
+		ObjectMapper om = new ObjectMapper();
+		Employee newE = om.readValue(requestBodyText, Employee.class);
+		System.out.println(newE + "nothing");
+		
+		int employeesCreated = eService.createEmployee(newE);
+		System.out.println(employeesCreated + "nothing");
+		if (employeesCreated == 1) {
+			response.setStatus(201);
+			System.out.println("woo");
+		} else {
+			response.setStatus(400);
+			System.out.println("boo");
+		}
+	}
 
 }

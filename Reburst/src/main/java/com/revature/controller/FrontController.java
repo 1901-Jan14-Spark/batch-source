@@ -35,5 +35,10 @@ public class FrontController extends DefaultServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
 
 }

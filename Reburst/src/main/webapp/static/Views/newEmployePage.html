@@ -14,7 +14,7 @@
 <script type="text/javascript" charset="utf8"
 	src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
-<script src="static/assets/javascript/hrmanager.js"></script>
+<script src="static/assets/javascript/employeecreate.js"></script>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Acme"
@@ -22,7 +22,7 @@
 
 <!-- Main CSS -->
 <link rel="stylesheet" type="text/css" href="static/assets/css/main.css" />
-<link rel="stylesheet" type="text/css" href="../assets/css/manager.css" />
+
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
@@ -96,11 +96,13 @@
 						<div class="form-style-8">
 							<h2>Create Employee</h2>
 							<form>
-								<input type="text" name="field1" placeholder="First Name" />
-								<input type="text" name="field1" placeholder="last Name" />  
-								<input type="email" name="field2" placeholder="Email" /> 
-								<input type="password" name="field3" placeholder="Password" />
-								<input type="submit" value="Create" />
+								<input id="cfname" type="text" name="field1" placeholder="First Name" />
+								<input id="clname" type="text" name="field1" placeholder="Last Name" />  
+								<input id="ctitle" type="text" name="field1" placeholder="Title" /> 
+								<input id="cemail" type="email" name="field2" placeholder="Email" /> 
+								<input id="cpassword" type="password" name="field3" placeholder="Password" />
+								<input id="cmanager" type="number" name="field3" placeholder="Manager" />
+								<input id="createEmp" type="submit" value="Create" />
 							</form>
 						</div>
 					</div>
@@ -108,12 +110,13 @@
 						<div class="form-style-8">
 							<h2>Update Information</h2>
 							<form>
-								<input type="text" name="field1" placeholder="First Name" />
-								<input type="text" name="field1" placeholder="last Name" />  
-								<input type="email" name="field2" placeholder="Email" /> 
-								<input type="password" name="field3" placeholder="Password" />
-								<input type="submit" value="Update" />
+								<input id="ufname" type="text" name="field1" placeholder="First Name" />
+								<input id="ulname" type="text" name="field1" placeholder="Last Name" />  
+								<input id="uemail" type="email" name="field2" placeholder="Email" /> 
+								<input id="upassword" type="password" name="field3" placeholder="Password" />
+								<input id="updateEmp"type="submit" value="Update" />
 							</form>
+							
 						</div>
 					</div>
 				</div>

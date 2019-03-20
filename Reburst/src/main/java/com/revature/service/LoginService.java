@@ -18,7 +18,7 @@ public class LoginService {
 		} catch (NullPointerException e) {
 			String theError="Employee Does not Exist: No Email of Invalid Email";
 			return theError;
-		}if(email.matches(emp.getEmail()) && password.matches(emp.getPassword()) && emp.geteId()== 4 && emp.getIsManager()==1) {
+		}if(email.matches(emp.getEmail()) && password.matches(emp.getPassword()) && emp.geteId()== 44544 && emp.getIsManager()==1) {
 			String hrmanager = "hrmanager";
 			
 			return hrmanager;

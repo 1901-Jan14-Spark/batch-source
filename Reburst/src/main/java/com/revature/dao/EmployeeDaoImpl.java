@@ -121,18 +121,19 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		return employees;
 	}
 	@Override
-	public int createEmp(String fname, String lName, String email, String pass, String title, int mId) {
+	public int createEmp(Employee em) {
 		
-		String sql ="INSERT INTO EMPLOYEE(FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASS, TITLE, MANAGERS_ID) VALUES(?, ?, ?, ?, ?, ?)";
+		System.out.println("in employee creation dao");
+		String sql ="INSERT INTO EMPLOYEE (FIRST_NAME, LAST_NAME, EMPLOYEE_EMAIL, EMPLOYEE_PASSWORD, TITLE, MANAGERS_ID) VALUES(?, ?, ?, ?, ?, ?)";
 		 int eBoolean = 0;
 		try (Connection con = ConnectionUtil.getConnectionFromFile();
 				PreparedStatement ps = con.prepareStatement(sql)) {
-			ps.setString(1, fname);
-			ps.setString(2, lName);
-			ps.setString(3, email);
-			ps.setString(4, pass);
-			ps.setString(5, title);
-			ps.setInt(6, mId);
+			ps.setString(1, em.getFName());
+			ps.setString(2, em.getLName());
+			ps.setString(3, em.getEmail());
+			ps.setString(4, em.getPassword());
+			ps.setString(5, em.getTitle());
+			ps.setInt(6, em.getmId());
 			eBoolean = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -144,15 +145,16 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public int updateEmp(String fname, String lName, String email, String pass, int id) {
-		String sql ="UPDATE EMPLOYEES SET FIRST_NAME = ?, LAST_NAME = ?, EMPLOYEE_EMAIL = ?, EMPLOYEE_PASSWORD = ? WHERE EMPLOYEE_ID = ?";
+	public int updateEmp(Employee em) {
+		String sql ="UPDATE EMPLOYEE SET FIRST_NAME = ?, LAST_NAME = ?, EMPLOYEE_EMAIL = ?, EMPLOYEE_PASSWORD = ? WHERE EMPLOYEE_ID = ?";
 		 int eBoolean = 0;
 		try (Connection con = ConnectionUtil.getConnectionFromFile();
 				PreparedStatement ps = con.prepareStatement(sql)) {
-			ps.setString(1, fname);
-			ps.setString(2, lName);
-			ps.setString(3, email);
-			ps.setString(4, pass);
+			ps.setString(1, em.getFName());
+			ps.setString(2, em.getLName());
+			ps.setString(3, em.getEmail());
+			ps.setString(4, em.getPassword());
+			ps.setInt(5, em.geteId());
 			eBoolean = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

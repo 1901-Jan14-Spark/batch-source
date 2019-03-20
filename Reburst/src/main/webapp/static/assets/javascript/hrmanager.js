@@ -1,11 +1,10 @@
-/**
- * 
- */
 window.onload = function(){
-	document.getElementById("createRButton").addEventListener("click", createReimbursement);	
+	document.getElementById("createRButton").addEventListener("click", createReimbursement);
+	document.getElementById("updateRButton").addEventListener("click", updateReimbursement);
 }
 
 var URL = "http://localhost:8080/EmployeePortal/api/reimbursements";
+
 
 console.log("hello");
 $(document).ready( function () {
@@ -38,6 +37,10 @@ $(document).ready( function () {
     	]
     });
 } );
+
+///////////////////////////////
+//////REIMBURSMENT AJAX////////
+////////////////////////////////
 
 
 function createReimbursement() {
@@ -78,3 +81,47 @@ function makeAjaxPost(url, callback, newFlightObject) {
   console.log(JSON.stringify(newFlightObject));
   xhr.send(flightCreated);
 }
+
+function updateReimbursement() {
+	
+	let identification = document.getElementById("rID").value;
+	let rstatus = document.getElementById("rStatusChange").value;
+	
+	
+	
+    let reimbursement = 
+         {
+            rId: identification,
+            rStatus: rstatus
+          };
+
+    console.log(reimbursement);
+  makeAjaxPut(URL, printFlightResponse, reimbursement);
+}
+
+
+
+// // Put Function // // 
+
+function makeAjaxPut(url, callback, newFlightObject) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("PUT", url);
+  xhr.onreadystatechange = function() {
+    if (xhr.readystate===4&&xhr.status===201) {
+      callback(this);
+    }else {
+      //console.log(xhr.response);
+    }
+  }
+  xhr.setRequestHeader("Content-Type", "application/json");
+  let flightCreated = JSON.stringify(newFlightObject);
+  console.log(JSON.stringify(newFlightObject));
+  xhr.send(flightCreated);
+}
+  
+
+//////////////////////////////////////
+//////END of REIMBURSMENT AJAX////////
+/////////////////////////////////////
+  
+  

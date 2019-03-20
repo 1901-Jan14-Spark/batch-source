@@ -25,5 +25,14 @@ public class EmployeeService{
 	public Employee getEmployeeByEmail(String email) {
 		return eDao.getUserByEmail(email);
 	}
+	
+	public int resolveEmployees(Employee e) {
+		return eDao.updateEmp(e);
+	}
+	
+	public int createEmployee(Employee e) {
+		System.out.println("create employee service");
+		return eDao.createEmp(e);
+	}
 
 }
