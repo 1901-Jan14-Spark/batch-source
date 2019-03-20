@@ -37,11 +37,15 @@ EmployeeService eService = new EmployeeService();
 		String emailSession = (String) request.getSession().getAttribute("email");
 		Employee temp = eService.getEmployeeByEmail(emailSession);
 		newE.seteId(temp.geteId());
+		newE.setTitle(temp.getTitle());;
 		System.out.println(newE + "nothing");
 		
 		int employeesUpdated = eService.resolveEmployees(newE);
 		System.out.println(employeesUpdated + "nothing");
 		if (employeesUpdated == 1) {
+			request.getSession().setAttribute("email", newE.getEmail());
+			request.getSession().setAttribute("fullname", newE.getFName() +" "+ newE.getLName());
+			request.getSession().setAttribute("title", newE.getTitle());
 			response.setStatus(201);
 			System.out.println("woo");
 		} else {

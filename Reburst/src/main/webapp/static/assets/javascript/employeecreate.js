@@ -3,7 +3,7 @@
  */
 window.onload = function(){
 	document.getElementById("createEmp").addEventListener("click", createEmployee);
-	document.getElementById("updateEmp").addEventListener("click", updateEmployee);
+//	document.getElementById("updateEmp").addEventListener("click", updateEmployee);
 }
 
 var URL2 = "http://localhost:8080/EmployeePortal/api/employees";

@@ -14,7 +14,7 @@ public class LoginService {
 			if (emp.getEmail() == null) {
 			String theError="Employee has no EMail: No Email of Invalid Email";
 			return theError;
-			}
+			} 
 		} catch (NullPointerException e) {
 			String theError="Employee Does not Exist: No Email of Invalid Email";
 			return theError;

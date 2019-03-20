@@ -6,6 +6,9 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
+<script src="static/assets/javascript/profile.js"></script>
+
+
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Acme"
 	rel="stylesheet" />
@@ -26,20 +29,16 @@
 		<div class="bg-light border-right sideNav" id="sidebar-wrapper">
 			<div class="sidebar-heading sideTop">Re-Burst</div>
 			<div class="list-group list-group-flush">
-					<form class="leftNav" method="POST" action="mReimbursement">
-							<input
-								class="lookGOOD list-group-item list-group-item-action bg-light"
-								type="submit"
-								value="Reimbursements"
-							/>
-						</form>
-					<form class="leftNav" method="POST" action="Mprofile">
-							<input
-								class="lookGOOD list-group-item list-group-item-action bg-light"
-								type="submit"
-								value="Profile"
-							/>
-						</form>
+				<form class="leftNav" method="POST" action="mReimbursement">
+					<input
+						class="lookGOOD list-group-item list-group-item-action bg-light"
+						type="submit" value="Reimbursements" />
+				</form>
+				<form class="leftNav" method="POST" action="Mprofile">
+					<input
+						class="lookGOOD list-group-item list-group-item-action bg-light"
+						type="submit" value="Profile" />
+				</form>
 			</div>
 		</div>
 		<!-- /#sidebar-wrapper -->
@@ -57,12 +56,11 @@
 
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-						<li class="nav-item"> <form method="POST" action="managerLogin">
+						<li class="nav-item">
+							<form method="POST" action="managerLogin">
 								<input
 									class="lookGOOD list-group-item list-group-item-action bg-light"
-									type="submit"
-									value="Home"
-								/>
+									type="submit" value="Home" />
 							</form>
 						</li>
 						<li class="nav-item">
@@ -77,17 +75,52 @@
 							<div class="dropdown-menu dropdown-menu-right"
 								aria-labelledby="navbarDropdown">
 								<form method="POST" action="mReimbursement">
-										<input
-											class="lookGOOD list-group-item list-group-item-action bg-light"
-											type="submit"
-											value="Reimbursements"
-										/>
-									</form>
+									<input
+										class="lookGOOD list-group-item list-group-item-action bg-light"
+										type="submit" value="Reimbursements" />
+								</form>
 							</div></li>
 					</ul>
 				</div>
 			</nav>
+
+
+			<div class="container">
+				<div class="row">
+					<div id ="empInfo" class="col-md-12 col-lg-3">
+						<div class="card text-center">
+							<div class="card-header">Employee InformationFeatured</div>
+							<div>
+								Full Name: <span id="fullname"></span>
+							</div>
+							<div>
+								Email: <span id="email"></span>
+							</div>
+							<div>
+								Title: <span id="title"></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12">
+						<div class="form-style-8">
+							<h2>Update Information</h2>
+							<form>
+								<input id="ufname" type="text" name="field1"
+									placeholder="First Name" /> <input id="ulname" type="text"
+									name="field1" placeholder="Last Name" /> <input id="uemail"
+									type="email" name="field2" placeholder="Email" /> <input
+									id="upassword" type="password" name="field3"
+									placeholder="Password" /> <input id="updateEmp" type="submit"
+									value="Update" />
+							</form>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
+
 	</div>
 	<!-- /#page-content-wrapper -->
 
@@ -100,11 +133,11 @@
 
 	<!-- Menu Toggle Script -->
 	<script>
-      $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-      });
-    </script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -1,10 +1,10 @@
 window.onload = function(){
 	document.getElementById("createRButton").addEventListener("click", createReimbursement);
 	document.getElementById("updateRButton").addEventListener("click", updateReimbursement);
+	
 }
 
 var URL = "http://localhost:8080/EmployeePortal/api/reimbursements";
-
 
 console.log("hello");
 $(document).ready( function () {
@@ -118,7 +118,7 @@ function makeAjaxPut(url, callback, newFlightObject) {
   console.log(JSON.stringify(newFlightObject));
   xhr.send(flightCreated);
 }
-  
+ 
 
 //////////////////////////////////////
 //////END of REIMBURSMENT AJAX////////

@@ -64,6 +64,11 @@
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 						<li class="nav-item">
+							<form method="POST" action="hrmanagerLogin">
+								<input class="lookGOOD" type="submit" value="Home" />
+							</form>
+						</li>
+						<li class="nav-item">
 							<form method="POST" action="logout">
 								<input class="lookGOOD" type="submit" value="Logout" />
 							</form>
@@ -88,6 +93,7 @@
 				</div>
 			</nav>
 
+			
 
 
 			<div class="container">
@@ -96,27 +102,16 @@
 						<div class="form-style-8">
 							<h2>Create Employee</h2>
 							<form>
-								<input id="cfname" type="text" name="field1" placeholder="First Name" />
-								<input id="clname" type="text" name="field1" placeholder="Last Name" />  
-								<input id="ctitle" type="text" name="field1" placeholder="Title" /> 
-								<input id="cemail" type="email" name="field2" placeholder="Email" /> 
-								<input id="cpassword" type="password" name="field3" placeholder="Password" />
-								<input id="cmanager" type="number" name="field3" placeholder="Manager" />
-								<input id="createEmp" type="submit" value="Create" />
+								<input id="cfname" type="text" name="field1"
+									placeholder="First Name" /> <input id="clname" type="text"
+									name="field1" placeholder="Last Name" /> <input id="ctitle"
+									type="text" name="field1" placeholder="Title" /> <input
+									id="cemail" type="email" name="field2" placeholder="Email" />
+								<input id="cpassword" type="password" name="field3"
+									placeholder="Password" /> <input id="cmanager" type="number"
+									name="field3" placeholder="Manager" /> <input id="createEmp"
+									type="submit" value="Create" />
 							</form>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-12">
-						<div class="form-style-8">
-							<h2>Update Information</h2>
-							<form>
-								<input id="ufname" type="text" name="field1" placeholder="First Name" />
-								<input id="ulname" type="text" name="field1" placeholder="Last Name" />  
-								<input id="uemail" type="email" name="field2" placeholder="Email" /> 
-								<input id="upassword" type="password" name="field3" placeholder="Password" />
-								<input id="updateEmp"type="submit" value="Update" />
-							</form>
-							
 						</div>
 					</div>
 				</div>
