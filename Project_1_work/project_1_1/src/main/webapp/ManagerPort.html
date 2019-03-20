@@ -1,8 +1,7 @@
 <html>
 	<head>
-
-
-
+<title>Manager Home</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
 
 	<body>
@@ -13,14 +12,34 @@
 			
 		</select>
 		<button id = "logout">Logout</button>
-		
-		<h4>Your Employees</h4>
-	<table id = "Employees">
+		<div class = "container">
+		<h2>Your Employees</h2>
+	<table class = "table" id = "Employees">
 		<tr>
 			<th>Name</th>
 			<th>Employee ID</th>
 		</tr>
 	</table>
+	</div>
+	<div class = "container">
+	<h3>Your Employees Requests</h3>
+	<table class= "table" id = "view">
+		<tr>
+			<th>Employee ID</th>
+			<th>Date Submitted</th>
+			<th>Reason</th>
+			<th>Amount</th>
+			<th>Status</th>
+		</tr>
+	</table>
+	</div>
+	
+	
+	<!-- <button type ="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalTable">	
+	View All Pending Requests</button>
+	<div class = "modal fade" id="ModalTable"> -->
+	<div class = "container">
+	<h5>All Pending Requests</h5>
 	
 	<table id = "modalTable">
 		<tr>
@@ -28,20 +47,11 @@
 			<th>Date Submitted</th>
 			<th>Reason</th>
 			<th>Amount</th>
-			
 		</tr>
-	
 	</table>
+	</div>
+	<!-- </div> -->
 	
-	<table id = "view">
-		<tr>
-			<th>Employee ID</th>
-			<th>Date Submitted</th>
-			<th>Amount</th>
-			<th>Reason</th>
-			<th>Status</th>
-		</tr>
-	</table>	
 	<form id = "form" action = "UpdateRequest" method = "POST"></form>
 	</body>
 

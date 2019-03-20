@@ -1,48 +1,84 @@
 <!Doctype html>
 
 <html>
-<head>
-<title>Employee Profile</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="LoginStyle.css">
-</head>
-<body>
-<button id = "logout" class = "butin">Logout</button>
-<a href = "Login.html">Replace the Logout Button</a>
-<header class ="container text-center">
-<div class = "col-md-6">
-<h1>Employee Information</h1>
-</div>
-<hr>
-</header>
-<div class = "row">
-<div class ="col-md-4" ><h4>Name</h4><p id = "employeeName"></p></div>
-<div class ="col-md-4" ><h4>Employee ID</h4><p id = "employeeId"></p></div>
-<div class ="col-md-4" ><h4>Manager</h4><p id = "ManagerName"></p></div>
-<div class ="col-md-4" ><h4>Manager ID</h4><p id = "MangerID"></p></div>
-</div>
-
-<h4>Reimbursement Requests</h4>
-<!-- <button id = "view">View Requests</button> -->
-<form action = "EmployeeReimburs" method = "POST">
-	<h5>Submit Request</h5>
-	<label>Reason</label>
-	<input name = "reason">
-	<label>Amount</label>
-	<input name ="amount">
-	<input type= "submit">
-</form>
-<table id = "employeeReimbursementStatus">
-	<tr>
-		<th>Reimbursement Status</th>
-		<th>Date Submitted</th>
-	</tr>
-</table>
-
-<a href ="UpdateEmployeeInfo.html" id = "updateLink">Update your information</a>
-<script src = "Scripts/EmployeeInfoPop.js"></script>
-<script src = "Scripts/ManagerName.js"></script>
-<script src = "Scripts/getRequests.js"></script>
-</body>
-
+	<head>
+		<title>Employee Profile</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="LoginStyle.css"> -->
+		<link rel = "styleSheet" href = "EmpHomeStyle.css">
+	</head>
+	<body>
+		<button id = "logout" class = "butin">Logout</button>
+		<header class ="container text-center">	
+			<div class = "col-md-6">
+				<h1>Employee Information</h1>
+			</div>
+			<hr>
+		</header>
+		<div class = "container">
+		<div class = "row">
+			<div class ="col-md-3" >
+				<h4>Name</h4>
+				<p id = "employeeName"></p>
+			</div>
+			<div class ="col-md-3" >
+				<h4>Employee ID</h4>
+				<p id = "employeeId"></p>
+			</div>
+			<div class ="col-md-3" >
+				<h4>Manager</h4>
+				<p id = "ManagerName"></p>
+			</div>
+			<div class ="col-md-3" >
+				<h4>Manager ID</h4>
+				<p id = "MangerID"></p>
+			</div>
+		</div>
+		</div>
+		<div class = "container">
+		<div class = "row">
+		<div class = "col-md-12">
+		<h4>Reimbursement Requests</h4>	
+		</div>
+		<div class = "col-md-12">	
+			<h5>Submit Request</h5>
+			</div>
+			<form action = "EmployeeReimburs" method = "POST">
+			<div class = "col-md-12">	
+			<label>Reason</label>
+			<input id = "c" name = "reason">
+			</div>
+			<div class = "col-md-12">
+			<label>Amount</label>
+			<input id = "c" name ="amount">
+			</div>
+			<div class = "col-md-12">
+			<input type= "submit">
+			</div>
+			</form>
+		</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div class = "container">
+		<div class = "row">
+		<div class = "col-md-6">
+		<table class="table">
+  			<thead class="thead-dark" id = "employeeReimbursementStatus">
+			<tr>
+				<th>Reimbursement Status</th>
+				<th>Date Submitted</th>
+			</tr>
+		</table>
+		</div>
+		</div>
+		</div>
+		
+		<a href ="UpdateEmployeeInfo.html" id = "updateLink">Update your information</a>
+	
+		<script src = "Scripts/EmployeeInfoPop.js"></script>
+		<script src = "Scripts/ManagerName.js"></script>
+		<script src = "Scripts/getRequests.js"></script>
+	</body>
 </html>

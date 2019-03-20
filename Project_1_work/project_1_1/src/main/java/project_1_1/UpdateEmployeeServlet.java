@@ -41,7 +41,7 @@ public class UpdateEmployeeServlet extends HttpServlet {
 		emp.updatePassword(user, pass);
 		System.out.println(user);
 		doGet(request, response);
-		response.sendRedirect("Emp");
+		response.sendRedirect("EmpHome");
 		
 	}
 
