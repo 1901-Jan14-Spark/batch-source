@@ -11,3 +11,11 @@
     overflow-x: hidden; 
 }
 
+body{
+	 color: white;
+    text-align: center;
+    background-image: url(flower.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}

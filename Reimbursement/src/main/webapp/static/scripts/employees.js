@@ -10,7 +10,7 @@ function sendGet(url, callback){
 }
 
 let url ="http://localhost:8080/Reimbursement/api/employeeslist";
-sendGet(url, populate);
+sendGet("http://localhost:8080/Reimbursement/api/employeeslist", populate);
 
 function populate(xhr){
 	employees = JSON.parse(xhr.response)

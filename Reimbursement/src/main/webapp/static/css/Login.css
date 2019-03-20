@@ -8,10 +8,10 @@ h1{
 body{
     color: white;
     text-align: center;
-    background-image: url(office.jpeg);
+    background-image: url(galaxy.jpg);
     background-repeat: no-repeat;
-	background-width = 100%;
-	background-heaight=100%;
+	background-size: cover;
+	
 }
 
 header{

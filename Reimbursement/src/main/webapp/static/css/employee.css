@@ -1,0 +1,8 @@
+body{
+	color: white;
+    text-align: center;
+    background-image: url(book.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}

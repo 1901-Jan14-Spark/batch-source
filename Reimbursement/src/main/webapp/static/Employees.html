@@ -13,15 +13,32 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
 	crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="css/employee.css">
+
 <title>Employee Home</title>
 </head>
+<h3>Employee Page</h3>
+<h4 id="user"></h4>
+<a href="http://localhost:8080/Reimbursement/api/logout">Log Out</a>
+
 <body>
-	<h3>Employee Page</h3>
-	<div id="user"></div>
-	<a href="http://localhost:8080/Reimbursement/api/logout">Log Out</a>
+
+
+	<form action="" method="POST">
+		<div class="form-group">
+			<b>Reimbursement Name:</b> <input id="reimID" type="text"
+				placeholder="Reim Name"> 
+				<b>Requester:</b> <input id="requester"
+				type="text" placeholder="Amount"> <b>Amount:</b> <input id="amount"
+				type="text" placeholder="Amount"> <input type="submit"
+				value="Submit" id="formbutt">
+		</div>
+	</form>
 	
-	
-	<p class="h2">Employees Directory</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<p class="h2">My Info</p>
 				<table class="table table-hover table-dark" id="EmpTab">
 					<tr id="empHead">
 						<th>Id</th>
@@ -31,8 +48,11 @@
 						<th>Pasword</th>
 					</tr>
 				</table>
-	
-	<table  class="table table-hover table-dark" id="ReimsTab">
+			</div>
+			<div class="col-md-6">
+				<div class="table-responsive">
+					<p class="h2" id = "remP">My Reimbursements</p>
+					<table class="table table-hover table-dark" id="ReimsTab">
 						<tr id="reimHead">
 							<th>Id</th>
 							<th>Name</th>
@@ -42,7 +62,11 @@
 							<th>Resolved_By</th>
 						</tr>
 					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<script src="session.js"></script>
+	<script src="scripts/employee.js"></script>
 </body>
 </html>
