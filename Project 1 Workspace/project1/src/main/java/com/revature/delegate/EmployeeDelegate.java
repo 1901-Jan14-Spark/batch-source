@@ -16,13 +16,13 @@ public class EmployeeDelegate {
 	
 	public void getEmployees(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		ObjectMapper om = new ObjectMapper();
-		
-		String idStr = request.getParameter("id");
+		String uri = request.getRequestURI().substring(request.getContextPath().length());
+		int empId = (int) request.getSession().getAttribute("id");
 		
 		String employeeJSON;
 		
-		if(idStr !=null && idStr != "") {
-			int id = Integer.parseInt(idStr);
+		if(uri.endsWith("employee/id")) {
+			int id = empId;
 			Employee e = eService.getById(id);
 			if(e == null) {
 				employeeJSON = "";

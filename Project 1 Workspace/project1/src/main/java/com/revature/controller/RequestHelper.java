@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.revature.delegate.EmployeeDelegate;
 import com.revature.delegate.LoginDelegate;
 import com.revature.delegate.ReimbursementDelegate;
+import com.revature.delegate.SessionDelegate;
 import com.revature.delegate.ViewDelegate;
 
 public class RequestHelper {
@@ -17,6 +18,7 @@ public class RequestHelper {
 	ReimbursementDelegate rd = new ReimbursementDelegate();
 	ViewDelegate vd = new ViewDelegate();
 	LoginDelegate ld = new LoginDelegate();
+	SessionDelegate sd = new SessionDelegate();
 	
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		String uri = request.getRequestURI().substring(request.getContextPath().length());
@@ -58,21 +60,19 @@ public class RequestHelper {
 					response.sendError(405, "Method Not Supported for /" + record);
 				}
 				break;
-			case "login":
-				if("POST".equals(request.getMethod())){
-					ld.getLogin(request, response);
-				}
-				else {
-					response.sendError(405, "Mehtod Not Supported for /" +record);
-				}
-				break;
-			case "logout":
-				request.getSession(false).invalidate();
-				response.sendRedirect("../login");
-				break;
 			default:
 				response.sendError(404, "Record Not Supported");
 			}
+		}
+		else if(uri.startsWith("/getlogin")) {
+				ld.getLogin(request, response);
+		}
+		else if(uri.startsWith("/logout"))	{
+			request.getSession(false).invalidate();
+			response.sendRedirect("../login");
+		}
+		else if(uri.startsWith("/session")) {
+				sd.session(request, response);
 		}
 		else {
 			vd.returnView(request, response);

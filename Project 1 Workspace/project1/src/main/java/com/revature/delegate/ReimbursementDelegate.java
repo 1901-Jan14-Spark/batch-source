@@ -18,32 +18,32 @@ public class ReimbursementDelegate {
 	
 	String reimbursementJSON;
 	
-	//get int for id from session
-	int id = 0;
 	
 	public void getReimbursements(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		int empId = (int) request.getSession().getAttribute("id");
 		String uri = request.getRequestURI().substring(request.getContextPath().length());
-		if(uri.endsWith("reimbursements/")) {
+		if(uri.endsWith("/reimbursements/")) {
 			List<Reimbursement> reimbursements = rService.getAll();
 			reimbursementJSON = om.writeValueAsString(reimbursements);
 		}
-		else if(uri.endsWith("pending/id/")) {
-			List<Reimbursement> reimbursements = rService.getPendingReimbursementsByEmpId(id);
+		else if(uri.endsWith("/pending/id")) {
+			List<Reimbursement> reimbursements = rService.getPendingReimbursementsByEmpId(empId);
 			reimbursementJSON = om.writeValueAsString(reimbursements);
 		}
-		else if(uri.endsWith("pending/")) {
+		else if(uri.endsWith("/pending")) {
 			List<Reimbursement> reimbursements = rService.getPendingReimbursements();
 			reimbursementJSON = om.writeValueAsString(reimbursements);
 		}
-		else if(uri.endsWith("resolved/id/")) {
-			List<Reimbursement> reimbursements = rService.getResolvedReimbursementsByEmpId(id);
+		else if(uri.endsWith("/resolved/id")) {
+			List<Reimbursement> reimbursements = rService.getResolvedReimbursementsByEmpId(empId);
 			reimbursementJSON = om.writeValueAsString(reimbursements);
 		}
-		else if(uri.endsWith("resolved/")) {
+		else if(uri.endsWith("/resolved")) {
 			List<Reimbursement> reimbursements = rService.getResolvedReimbursements();
 			reimbursementJSON = om.writeValueAsString(reimbursements);
 		}
-		else if (uri.endsWith("reimbursements/id")) {
+		else if (uri.endsWith("/reimbursements/id")) {
+			int id = Integer.parseInt(request.getParameter("rId"));
 			Reimbursement r = rService.getById(id);
 			reimbursementJSON = om.writeValueAsString(r);
 			
