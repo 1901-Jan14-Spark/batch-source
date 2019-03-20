@@ -50,13 +50,13 @@ public class EmployeeDaoJdbc implements EmployeeDao {
 			
 			while (rs.next()) {
 				int cId = rs.getInt("E_ID");
-				boolean isM = (rs.getString("IS_MANAGER") == "Y")? true: false;
+				boolean isM = (rs.getString("IS_MANAGER").contentEquals("Y"))? true: false;
 				String fname = rs.getString("F_NAME");
 				String lname = rs.getString("L_NAME");
 				String phone = rs.getString("PHONE");
 				String eml = rs.getString("EMAIL");
 				String pw = rs.getString("PASSWD");
-				elist.add( new Employee(cId,isM, phone, fname, lname, eml, pw));
+				elist.add( new Employee(cId,isM, fname, lname, phone, eml, pw));
 			}
 			
 		} catch (SQLException e) {
@@ -67,17 +67,16 @@ public class EmployeeDaoJdbc implements EmployeeDao {
 
 	@Override
 	public void createEmployee(Employee e) {
-		String sql = "INSERT INTO EMPLOYEE VALUES (EMP_ID_SEQ.NEXTVAL,?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO EMPLOYEE VALUES (EMP_ID_SEQ.NEXTVAL,'N', ?, ?, ?, ?, ?)";
 	
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql)){
-			ps.setString(1, (e.isManager())?"Y":"N");
-			ps.setString(2, e.getfName());
-			ps.setString(3, e.getlName());
-			ps.setString(4, e.getPhone());
-			ps.setString(5, e.getEmail());
-			ps.setString(6, e.getPassword());
+			ps.setString(1, e.getfName());
+			ps.setString(2, e.getlName());
+			ps.setString(3, e.getPhone());
+			ps.setString(4, e.getEmail());
+			ps.setString(5, e.getPassword());
 			ps.executeQuery();
 		} catch (SQLException exc) {
 			exc.printStackTrace();
@@ -90,6 +89,21 @@ public class EmployeeDaoJdbc implements EmployeeDao {
 	@Override
 	public void updateEmployee(Employee e) {
 		// TODO Auto-generated method stub
+	String sql = "UPDATE EMPLOYEE SET F_NAME = NVL(?,F_NAME), L_NAME = NVL(?,L_NAME) PHONE = NVL(?,PHONE), EMAIL = NVL(?,EMAIL), PASSWD = NVL(?,PASSWD) WHERE E_ID = ?";
+	
+		
+		try(Connection con = ConnectionUtil.getConnection();
+			PreparedStatement ps = con.prepareStatement(sql)){
+			ps.setString(1, e.getfName());
+			ps.setString(2, e.getlName());
+			ps.setString(3, e.getPhone());
+			ps.setString(4, e.getEmail());
+			ps.setString(5, e.getPassword());
+			ps.setInt(6, e.geteID());
+			ps.executeQuery();
+		} catch (SQLException exc) {
+			exc.printStackTrace();
+		}
 		
 	}
 

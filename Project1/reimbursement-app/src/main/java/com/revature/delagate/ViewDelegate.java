@@ -23,7 +23,7 @@ public class ViewDelegate {
 		case "home":
 			if (session != null) {
 				if ((boolean) session.getAttribute("isManager")) {
-					request.getRequestDispatcher("/static/Views/Manager.html");
+					request.getRequestDispatcher("/static/Views/Manager.html").forward(request, response);
 				} else {
 					request.getRequestDispatcher("/static/Views/Employee.html").forward(request, response);
 				}

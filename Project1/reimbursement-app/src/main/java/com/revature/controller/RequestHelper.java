@@ -7,11 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.revature.delagate.EmployeeDelegate;
+import com.revature.delagate.ReimbursementDelegate;
 import com.revature.delagate.ViewDelegate;
 
 public class RequestHelper {
 	ViewDelegate vd = new ViewDelegate();
 	EmployeeDelegate ed = new EmployeeDelegate();
+	ReimbursementDelegate rd = new ReimbursementDelegate();
 	public void process(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String uri = request.getRequestURI().substring(request.getContextPath().length());
 		if (uri.startsWith("/api/")) {
@@ -21,21 +23,26 @@ public class RequestHelper {
 			case "employee":
 				// direct req/resp to employee delegate
 				if ("GET".equals(request.getMethod())) {
-					//ed.getEmployees(request, response);
+					ed.getEmployees(request, response);
 				} else if ("POST".equals(request.getMethod())) {
-					//ed.createEmployee(request, response);
-				} else {
+					ed.createEmployee(request, response);
+				} else if ("PUT".equals(request.getMethod())) {
+					ed.updateEmployee(request, response);
+				}else {
 					response.sendError(405, "Method Not Supported for /" + record);
 				}
 				break;
 			case "reimbursement":
 				if ("GET".equals(request.getMethod())) {
-					//ed.getEmployees(request, response);
+					rd.getReimbursement(request, response);
 				} else if ("POST".equals(request.getMethod())) {
-					//ed.createEmployee(request, response);
-				} else {
+					rd.createReimbursement(request, response);
+				}else if ("PUT".equals(request.getMethod())) {
+					rd.updateReimbursement(request, response);
+				}else { 
 					response.sendError(405, "Method Not Supported for /" + record);
 				}
+				break;
 			default:
 				response.sendError(404, "Record Not Supported");
 			}
