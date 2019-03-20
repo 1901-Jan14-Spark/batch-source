@@ -31,12 +31,13 @@ function getDeclinedTickets()
 function createPendingTicketTable(xhr)
 {
 	let response = JSON.parse(xhr.response);
-	let table = "<thead>" +
-				"<tr>" +
+	let table = "<thead>"+
+				"<tr>"+
 				"<th scope=\"col\">"+"Sender"+"</th>"+
 				"<th scope=\"col\">"+"Title"+"</th>"+
 				"<th scope=\"col\">"+"Description"+"</th>"+
 				"<th scope=\"col\">"+"Amount"+"</th>"+
+				"<th scope=\"col\">"+"Options"+"</th>"+
 				"</tr>"+
 				"</thead>"+
 				"<tbody>";
@@ -46,7 +47,14 @@ function createPendingTicketTable(xhr)
 		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
 		"<td>"+response[i].ticketOpener.title+"</td>"+
 		"<td>"+response[i].name+"</td>"+
-		"<td>"+"$"+response[i].amount+"</td>";
+		"<td>"+"$"+response[i].amount+"</td>"+
+		"<td>"+"<div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">"+ 
+			   "<label class=\"btn btn-outline-success btn-sm\" style=\"margin-right: 10px;\">"+ 
+			   "<input type=\"radio\" name=\"pendingoptions\" autocomplete=\"off\">Accept"+
+			   "</label>"+
+			   "<label class=\"btn btn-outline-danger btn-sm\">"+ 
+			   "<input type=\"radio\" name=\"pendingoptions\" autocomplete=\"off\">Deny"+
+			   "</label></div></td></tr>";
 	}
 	table += "</tbody>";
 	document.getElementById("ptTable").innerHTML = table;
@@ -70,7 +78,7 @@ function createAcceptedTicketTable(xhr)
 		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
 		"<td>"+response[i].ticketOpener.title+"</td>"+
 		"<td>"+response[i].name+"</td>"+
-		"<td>"+"$"+response[i].amount+"</td>";
+		"<td>"+"$"+response[i].amount+"</td></tr>";
 	}
 	table += "</tbody>";
 	document.getElementById("atTable").innerHTML = table;
@@ -94,7 +102,7 @@ function createDeclinedTicketTable(xhr)
 		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
 		"<td>"+response[i].ticketOpener.title+"</td>"+
 		"<td>"+response[i].name+"</td>"+
-		"<td>"+"$"+response[i].amount+"</td>";
+		"<td>"+"$"+response[i].amount+"</td><tr>";
 	}
 	table += "</tbody>";
 	document.getElementById("dtTable").innerHTML = table;
@@ -125,7 +133,7 @@ function createEmployeeTable(xhr)
 		"<td>"+response[i].firstName+" "+response[i].lastName+"</td>"+
 		"<td>"+response[i].username+"</td>"+
 		"<td>"+response[i].email+"</td>"+
-		"<td>"+response[i].title+"</td>";
+		"<td>"+response[i].title+"</td></tr>";
 	}
 	table += "</tbody>";
 	document.getElementById("employeeTable").innerHTML = table;

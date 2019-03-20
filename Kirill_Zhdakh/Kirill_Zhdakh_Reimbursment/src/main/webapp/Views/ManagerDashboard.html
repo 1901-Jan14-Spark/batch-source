@@ -81,7 +81,7 @@
 
 	<!-- Pending Tickets Modal -->
 	<div class="modal fade" id="ptModal" tabindex="-1" role="dialog"
-		aria-hidden="true">
+		aria-hidden="true" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content bg-dark">
 				<div class="modal-header">
@@ -95,13 +95,15 @@
 						</table>
 					</div>
 				</div>
+				<button type="button" class="btn btn-primary">Submit</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 			</div>
 		</div>
 	</div>
 
 	<!-- Accepted Tickets Modal -->
 	<div class="modal fade" id="atModal" tabindex="-1" role="dialog"
-		aria-hidden="true">
+		aria-hidden="true" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content bg-dark">
 				<div class="modal-header">
@@ -115,13 +117,14 @@
 						</table>
 					</div>
 				</div>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
 
 	<!-- Declined Tickets Modal -->
 	<div class="modal fade" id="dtModal" tabindex="-1" role="dialog"
-		aria-hidden="true">
+		aria-hidden="true" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content bg-dark">
 				<div class="modal-header">
@@ -135,6 +138,7 @@
 						</table>
 					</div>
 				</div>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>

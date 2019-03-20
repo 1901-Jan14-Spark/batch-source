@@ -17,7 +17,7 @@ import com.model.Ticket;
 public class DeclinedTicketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TicketDao ticketdao = new TicketDaoImp();
 		List<Ticket> tickets = ticketdao.getTicketsByStatus("Declined");
 		ObjectMapper om = new ObjectMapper();
