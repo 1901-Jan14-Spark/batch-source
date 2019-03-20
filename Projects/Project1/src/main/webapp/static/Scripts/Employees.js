@@ -1,8 +1,8 @@
 /**
- * JavaScript used to render employee information on Directory.html
+ * JavaScript used to render employee information on View Employees.html
  */
 
-//console.log("Hello world from directory.js");
+
 
 function sendAjaxGet(url, func){
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");

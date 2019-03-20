@@ -66,9 +66,9 @@ public class RequestHelper {
 					response.sendError(405, "Method not supported for /" + record);
 				}
 				break;
-			case "reimbursement/validate":
+			case "reimbursement/approve":
 				if ("PUT".equals(request.getMethod())) {
-					
+					rd.approveRequest(request, response);
 				} else {
 					response.sendError(405, "Method not supported for /" + record);
 				}

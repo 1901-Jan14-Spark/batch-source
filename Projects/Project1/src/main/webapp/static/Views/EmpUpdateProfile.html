@@ -8,10 +8,10 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
-<title>Employee Dash</title>
+<title>Update Profile</title>
 <style>
 body {
-	background: url('../../Images/NYC5.jpg') no-repeat center center fixed;
+	background: url('../Images/NYC5.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
@@ -39,7 +39,7 @@ h1 {
 <body>
 
 	<nav
-		class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+		class="navbar navbar-expand-lg navbar-light bg-dark static-top mb-5 shadow">
 		<div class="container">
 			<a class="navbar-brand" href="#">Meye Kalite</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -49,16 +49,11 @@ h1 {
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="EmpDash.html">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="NewEmployee.html">New
-							Request</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Pending
-							Requests</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Completed
-							Requests</a></li>
-					<li class="nav-item"><a class="nav-link" href="DashBoard.html">Profile</a></li>
+					<li class="nav-item active"><a class="nav-link" href="EmpDash.html">Home</a></li>
+					<li class="nav-item"><a class="nav-link" href="EmpReimbursementRequest.html">New Request</a></li>
+        	<li class="nav-item"><a class="nav-link" href="EmpReimbursmentList.html">Pending Requests</a></li>
+          <li class="nav-item"><a class="nav-link" href="EmpCompletedRequests.html">Completed Requests</a></li>
+					<li class="nav-item"><a class="nav-link" href="EmpProfile.html">Profile</a></li>
 					<li class="nav-item"><a class="nav-link" href="Login.html">Log Out</a></li>
 				</ul>
 			</div>
@@ -69,18 +64,33 @@ h1 {
 		<div class="card shadow my-5">
 			<h1 class="font-weight-light border-0 shadow my-0">Stuff</h1>
 			<div class="card-body p-5" id="card-data">
-            
-                <form id="reimbform">
-                    <label>Request Amount:</label>
-                    <input type="number" name="amount" id="amount">
+                <h6>Current information</h6>
+                <br>
+                <div> Firstname: <span id="empfirst"></span></div><br>
+                <div> Lastname: <span id="emplast"></span></div><br>
+                <div> Email: <span id="empemail"></span></div><br>
+                <div> Username: <span id="empusername"></span></div><br>
+                <div> Password: <span id="emppass"></span></div><br>
+                <form id="UpdateForm">
+                    <label>Firstname:</label><br>
+                    <input type="text" name="firstname" id="firstname"> <br>
+                    <label>Lastname:</label><br>
+                    <input type="text" name="lastname" id="lastname"> <br>
+                    <label>Username:</label><br>
+                    <input type="text" name="username" id="username"> <br>
+                    <label>Email:</label><br>
+                    <input type="text" name="email" id="email"> <br>
+                    <label>Password:</label><br>
+                    <input type="password" name="password" id="password1"><br> 
+                    <label>Re-enter Password:</label><br>
+                    <input type="password" name="password" id="password2"> <br>
                     <br> <br>
-                    <input type="submit" value="Submit" id="submitButton">
+                    <input type="submit" value="Save Changes" id="submitButton">
                  </form>
-				<div style="height: 700px"></div>
 			</div>
 		</div>
     </div>
-    <script src = "static/scripts/reimbursementcreate.js"></script>
+    <script src="static/Scripts/UpdateEmployee.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

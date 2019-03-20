@@ -19,8 +19,11 @@ public class ConnectionUtil {
 		String url = System.getenv("P1_URL");
 		String user = System.getenv("P1_USER");
 		String password = System.getenv("P1_PASS");
+		
+		
 		if (connection == null || connection.isClosed()) {
-			connection = DriverManager.getConnection(url,  user,  password);
+			connection = DriverManager.getConnection(url, user, password);
+			System.out.println(connection);
 		}
 		return connection;
 	}

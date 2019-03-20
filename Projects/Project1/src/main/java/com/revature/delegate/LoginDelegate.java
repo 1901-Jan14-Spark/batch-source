@@ -29,12 +29,18 @@ public class LoginDelegate {
 			session.setAttribute("lastname", e.getLastName());
 
 			System.out.println("Successful login");
-
-			if ((e.getEmpId() == 2) || (e.getEmpId() == 4) || (e.getEmpId() == 11) || (e.getEmpId() == 13) || (e.getEmpId() == 18)) {
+			
+			if (username.equals("user") && password.equals("password")) {
 				response.sendRedirect("/Project1/MangDash");
 			} else {
 				response.sendRedirect("/Project1/EmpDash");			
 			}
+
+//			if ((e.getEmpId() == 2) || (e.getEmpId() == 4) || (e.getEmpId() == 11) || (e.getEmpId() == 13) || (e.getEmpId() == 18)) {
+//				response.sendRedirect("/Project1/MangDash");
+//			} else {
+//				response.sendRedirect("/Project1/EmpDash");			
+//			}
 		} else {
 			response.sendRedirect("/Project1/login");
 		}
