@@ -1,4 +1,5 @@
 function sendAjaxGet(url, func){
+	console.log("getting");
 	let xhr = new XMLHttpRequest() ;
 	xhr.open("GET", url);
 	xhr.onreadystatechange = function(){
@@ -9,14 +10,18 @@ function sendAjaxGet(url, func){
 	
 	xhr.send();
 }
+document.getElementById("ResolvedB").addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/resolve", fillResolve));
+//fillResolve.stopImmediatePropagation();
 document.getElementById("tbutton").addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/table", fillTable) );
 document.getElementById("aButton").addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/active", fillActive) );
-
+let xbutton=document.getElementById("xButton")
+xbutton.addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/active", ReimById) );
+console.log("rrrrrrrrrrrrrrrrrrr");
 
 function fillTable(xhr){
 	let employees = JSON.parse(xhr.response);
 //	console.log(employees);
-	
+	console.log("table is filled")
 	let table = document.getElementById("table");
 	
 	for(i in employees){
@@ -132,3 +137,80 @@ function doDenyFunction(){
 function printResponse(xhrObj){
 	  console.log(xhrObj.response);
 	}
+// Fill Resolved Table___________________________________________________________________________________
+ 
+function fillResolve(xhr){
+	let requests = JSON.parse(xhr.response);
+	console.log(" Resolve Table filled");
+	
+	let table = document.getElementById("ResolvedT");
+	
+	for(i in requests){
+		let nextRow = document.createElement("tr");
+		let id = "n/a";
+		let name = "n/a";
+		let category = "n/a";
+		let cost = "n/a";
+		let merchant = "n/a";
+		let purchaseDate = "n/a";
+		let app_by="n/a";
+		let deny_by="n/a";
+		
+			id = requests[i].id;
+			console.log(id);
+			name = requests[i].empName;
+			category = requests[i].category;
+			cost = requests[i].cost;
+			merchant = requests[i].merchant;
+			purchaseDate = requests[i].purchaseDate;
+			app_by=requests[i].approvedBy;
+			den_by=requests[i].deniedBy;
+			
+		
+			
+		
+		nextRow.innerHTML = `<td>${id}</td><td>${name}</td><td>${category}</td><td>${cost}</td><td>${merchant}</td><td>${purchaseDate}</td><td>${app_by}</td><td>${den_by}</td>`;
+		
+		table.appendChild(nextRow);
+		
+	}	
+}
+// ReimById-----------------------------------------------------------------------
+function ReimById(xhr){
+	let requests = JSON.parse(xhr.response);
+	console.log("Table filled");
+	let Empl = document.getElementById("selectReimId").value;
+	console.log(Empl)
+	let table = document.getElementById("ReimByIDT");
+	
+	for(i in requests){
+		
+		let nextRow = document.createElement("tr");
+		let id = "n/a";
+		let name = "n/a";
+		let category = "n/a";
+		let cost = "n/a";
+		let merchant = "n/a";
+		let purchaseDate = "n/a";
+		let app_by="n/a";
+		let deny_by="n/a";
+		if(Empl==requests[i].empName){
+			id = requests[i].id;
+			console.log(id);
+			name = requests[i].empName;
+			category = requests[i].category;
+			cost = requests[i].cost;
+			merchant = requests[i].merchant;
+			purchaseDate = requests[i].purchaseDate;
+			app_by=requests[i].approvedBy;
+			den_by=requests[i].deniedBy;
+			
+		
+			
+		
+		nextRow.innerHTML = `<td>${id}</td><td>${name}</td><td>${category}</td><td>${cost}</td><td>${merchant}</td><td>${purchaseDate}</td><td>${app_by}</td><td>${den_by}</td>`;
+		
+		table.appendChild(nextRow);
+		}
+	}	
+}

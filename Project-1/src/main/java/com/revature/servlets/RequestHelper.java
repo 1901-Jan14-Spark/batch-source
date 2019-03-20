@@ -79,10 +79,25 @@ public class RequestHelper {
 					td.getActive(request, response);
 				}
 				break;
+			case "resolve":
+				// direct req/resp to department delegate
+				System.out.println("rrrrrrrrrrrrrrrrrrrrrrrrrrrrr");
+				if ("GET".equals(request.getMethod())) {
+					System.out.println("session");
+					td.getResolve(request, response);
+				}
+				break;
 			case "createReimbursement":
 				if ("POST".equals(request.getMethod())) {
 					System.out.println("Creating Reimbursment");
 					rd.createReimbursement(request, response);
+				}
+				break;
+			
+			case "changeInfo":
+				if ("POST".equals(request.getMethod())) {
+					System.out.println("Creating Reimbursment");
+					td.changeInfo(request, response);
 				}
 				break;
 			default:

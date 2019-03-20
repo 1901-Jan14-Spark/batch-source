@@ -241,4 +241,49 @@ List<Request> requests = new ArrayList<>();
 
 	}
 
+	@Override
+	public List<Request> getResolvedRequests() {
+List<Request> requests = new ArrayList<>();
+		
+		String sql = "SELECT * FROM REIMBURSEMENTS WHERE  APP_BY!=0 OR DEN_BY!=0";
+		Request req = null;
+		
+		try(Connection con = Connections.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			
+			
+			
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				int Id = rs.getInt("REIM_ID");
+				System.out.println(Id);
+				String empName= rs.getString("EMP_NAME");
+				String category=rs.getString("CATEGORY");
+				int cost = rs.getInt("COST");
+				String merchant = rs.getString("MERCHANT");
+				String purchaseDate = rs.getString("PURCHASE_DATE");
+
+				int approvedBy = rs.getInt("APP_BY");
+				int deniedBy = rs.getInt("DEN_BY");
+				System.out.println("Request" + category);
+				
+				
+				req = new Request(Id, empName, category, cost, merchant, purchaseDate, approvedBy, deniedBy);
+				requests.add(req);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("threw exception");
+		}catch (IOException e1) {
+			e1.printStackTrace();
+			System.out.println("IO exception");
+		}
+		
+		return requests;
+
+	}
+
 }

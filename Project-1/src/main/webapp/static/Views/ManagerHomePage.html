@@ -56,10 +56,58 @@
 			
 		</div>
 	</div>
+	<br>
+	<br>
+	<button id="QButton" class="btn btn-success" type="button" data-toggle="collapse"
+		data-target="#ReimById" aria-expanded="false"
+		aria-controls="collapseExample">View Reimbursements by Employee id</button>
 	
+	<div class="collapse" id="ReimById"
+		style="Background-color: rgb(112, 196, 137)">
+		<div class="card card-body"
+			style="Background-color: rgb(112, 196, 137)">
+			<form style="Background-color: rgb(112, 196, 137)">
+			<select id="selectReimId">
+			<option value="MICHAEL SCOTT">MICHAEL SCOTT</option>
+			<option value="DWIGHT SHRUTE">DWIGHT SCHRUTE</option>
+			<option value="JIM HALPERT">JIM HALPERT</option>
+			<option value="PAM BEASELY">PAM BEASELY</option>
+			<option value="RYAN HOWARD">RYAN HOWARD</option>
+			<option value="ANGELA MARTIN">ANGELA MARTIN</option>
+			<option value="KEVIN MALONE">KEVIN MALONE</option>
+			<option value="OSCAR MARTINEZ">OSCAR MARTINEZ</option>
+			<option value="STANLEY HUDSON">STANLEY HUDSON</option>
+			<option value="CREED BRATTON">CREED BRATTON</option>
+			<option value="PHYLLIS VANCE">PHYLLIS VANCE</option>
+			<option value="KELLY KAPOOR">KELLY KAPOOR</option>
+			<option value="MEREDITH PALMER">MEREDITH PALMER</option>
+			<option value="TOBY FLENDERSON">TOBY FLENDERSON</option>
+			</select>
+			<button type="button" class="btn btn-success" id="xButton" >Submit</button>
+			
+			
+				<table id="ReimByIDT" class="table">
+					<tr id="headerRow">
+						<th>Reimbursement ID</th>
+						<th>Employee</th>
+						<th>Category</th>
+						<th>Cost</th>
+						<th>Merchant</th>
+						<th>Purchase Date</th>
+						
+					</tr>
+				</table>
+				
+				<br><br>
+				<button id="Approve" class="btn btn-success" type="button">Approve</button>
+				<button id="Deny" class="btn btn-success" type="button">Deny</button>
+			</form>
+			
+		</div>
+	</div>
 	<br>
 	<br>
-	<button class="btn btn-success" type="button" data-toggle="collapse"
+	<button id="ResolvedB" class="btn btn-success" type="button" data-toggle="collapse"
 		data-target="#Resolved" aria-expanded="false"
 		aria-controls="collapseExample">View Resolved Reimburesments
 	</button>
@@ -69,8 +117,18 @@
 		<div class="card card-body"
 			style="Background-color: rgb(112, 196, 137)">
 			<form style="Background-color: rgb(112, 196, 137)">
-				<p>Resolved reimbursements
-				</p>
+				<table id="ResolvedT" class="table">
+					<tr id="headerRow">
+						<th>Reimbursement ID</th>
+						<th>Employee</th>
+						<th>Category</th>
+						<th>Cost</th>
+						<th>Merchant</th>
+						<th>Purchase Date</th>
+						<th>Approved By</th>
+						<th>Denied By</th>
+					</tr>
+				</table>
 			</form>
 			>
 		</div>
@@ -102,9 +160,10 @@
 			>
 		</div>
 	</div>
-
-
+<br><br>
+<form action="LogOut" method="GET">
 	<button class="btn btn-success" type="submit">Log out</button>
+	</form>
 	<script src="static/Scripts/ManagerHomePage.js"></script>
 </body>
 </html>

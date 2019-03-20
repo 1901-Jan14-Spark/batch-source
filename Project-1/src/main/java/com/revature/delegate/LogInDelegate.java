@@ -17,15 +17,33 @@ public class LogInDelegate {
 		System.out.println(address);
 		switch(address) {
 		case "LogIn":
+//			HttpSession session = request.getSession();
+//			session.invalidate();
 			request.getRequestDispatcher("/static/Views/LogIn.html").forward(request, response);
 			break;
-		case "employees":
+		case "LogOut":
+//			HttpSession session = request.getSession();
+//			session.invalidate();
 			//			request.getRequestDispatcher("/static/Views/Directory.html").forward(request, response);
-			response.sendError(404,"Static Resource Employees Not Found");
+			request.getRequestDispatcher("/static/Views/LogIn.html").forward(request, response);
 			break;
 		default:
 			response.sendError(404,"Static Resource Was Not Found");
 		}
+	}
+		public void logOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			String address = request.getRequestURI().substring(request.getContextPath().length()+1);
+			System.out.println(address);
+			switch(address) {
+			case "LogOut":
+//				HttpSession session = request.getSession();
+//				session.invalidate();
+				request.getRequestDispatcher("/static/Views/LogIn.html").forward(request, response);
+				break;
+			
+			default:
+				response.sendError(404,"Static Resource Was Not Found");
+			}
 	}
 
 	public void validation(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{

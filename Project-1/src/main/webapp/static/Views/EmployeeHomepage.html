@@ -102,8 +102,26 @@
              </form>>
             </div>
             </div>
+            <br><br>
+            <button id="changeEmpInfo" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#ChangeInfo" aria-expanded="false" aria-controls="collapseExample">
+            Change Employee Information 
+          </button>
+          <br>
+        <div class="collapse" id="ChangeInfo" style="Background-color:rgb(118, 118, 167)">
+            <div class="card card-body" style="Background-color:rgb(87, 156, 177)">
+             <form id="infoForm" style="Background-color:rgb(87, 156, 177)">
+                 <input type="text" class="form-control" placeholder="Name" name="CName" id="CName"><br>
+                 <input type="text" class="form-control" placeholder="UserName" name="CUserName" id="CUserName"><br>
+                 <input type="text" class="form-control" placeholder="Password" name="CPassword" id="CPassword"><br>
+                <button type="button" class="btn btn-primary" id="CButton">Change</button>
+               
+             </form>>
+            </div>
+            </div>
         <br>
-        <button class="btn btn-primary" type="submit">Log out</button>
+        <form action="LogOut" method="GET">
+	<button class="btn btn-primary" type="submit">Log out</button>
+	</form>
         <script src="static/Scripts/EmployeeHomepage.js"></script>
 </body>
 </html>

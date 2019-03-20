@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.models.Employee;
+import com.revature.models.Request;
 import com.revature.util.Connections;
 
 
@@ -38,18 +39,18 @@ public class EmployeeDAO_Impl implements EmployeeDAO{
 				int Id = rs.getInt("EMP_ID");
 				System.out.println(Id);
 				String wholeName= rs.getString("EMP_NAME");
-//				Date birthday = rs.getDate("BIRTHDAY");
+				String birthday = rs.getString("BIRTHDAY");
 				int salary = rs.getInt("MONTHLY_SALARY");
 
 				String position=rs.getString("POSITION");
 				int reportsto = rs.getInt("MANAGER_ID");
-//				Date hireDate = rs.getDate("HIRE_DATE");
+				String hireDate = rs.getString("HIRE_DATE");
 				String name = rs.getString("USERNAME");
 				String pass = rs.getString("PASSWORD");
 				System.out.println("username"+ name);
 				
 				
-				emp = new Employee(Id, wholeName, "1998-02-12", salary, position, reportsto, "1996-02-02", name, pass);
+				emp = new Employee(Id, wholeName, birthday, salary, position, reportsto, hireDate, name, pass);
 			}
 			
 		} catch (SQLException e) {
@@ -90,18 +91,18 @@ public class EmployeeDAO_Impl implements EmployeeDAO{
 				int Id = rs.getInt("EMP_ID");
 				System.out.println(Id);
 				String wholeName= rs.getString("EMP_NAME");
-//				Date birthday = rs.getDate("BIRTHDAY");
+				String birthday = rs.getString("BIRTHDAY");
 				int salary = rs.getInt("MONTHLY_SALARY");
 
 				String position=rs.getString("POSITION");
 				int reportsto = rs.getInt("MANAGER_ID");
-//				Date hireDate = rs.getDate("HIRE_DATE");
+				String hireDate = rs.getString("HIRE_DATE");
 				String name = rs.getString("USERNAME");
 				String pass = rs.getString("PASSWORD");
 				System.out.println("username"+ name);
 				
 				
-				emp = new Employee(Id, wholeName, "1998-02-12", salary, position, reportsto, "1996-02-02", name, pass);
+				emp = new Employee(Id, wholeName, birthday, salary, position, reportsto, hireDate, name, pass);
 				employees.add(emp);
 			}
 			
@@ -137,18 +138,18 @@ public class EmployeeDAO_Impl implements EmployeeDAO{
 				int Id = rs.getInt("EMP_ID");
 				System.out.println(Id);
 				String wholeName= rs.getString("EMP_NAME");
-//				Date birthday = rs.getDate("BIRTHDAY");
+				String birthday = rs.getString("BIRTHDAY");
 				int salary = rs.getInt("MONTHLY_SALARY");
 
 				String position=rs.getString("POSITION");
 				int reportsto = rs.getInt("MANAGER_ID");
-//				Date hireDate = rs.getDate("HIRE_DATE");
+				String hireDate = rs.getString("HIRE_DATE");
 				String name = rs.getString("USERNAME");
 				String pass = rs.getString("PASSWORD");
 				System.out.println("username"+ name);
 				
 				
-				emp = new Employee(Id, wholeName, "1998-02-12", salary, position, reportsto, "1996-02-02", name, pass);
+				emp = new Employee(Id, wholeName, birthday, salary, position, reportsto, hireDate, name, pass);
 			}
 			
 		} catch (SQLException e) {
@@ -164,6 +165,34 @@ public class EmployeeDAO_Impl implements EmployeeDAO{
 		
 		
 	
+	}
+
+	@Override
+	public void changeInfo(int id, String name, String user, String pass) {
+		String sql = "UPDATE EMPLOYEES  SET EMP_NAME = ?,  USERNAME = ?,  PASSWORD = ? WHERE EMP_ID = ?";
+		Request req = null;
+		
+		try(Connection con = Connections.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			System.out.println("Changing information");
+			System.out.println(id);
+			System.out.println(user);
+			ps.setString(1, name);
+			ps.setString(2, user);
+			ps.setString(3, pass);
+			ps.setInt(4, id);
+			ps.executeQuery();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("threw exception");
+		}catch (IOException e1) {
+			e1.printStackTrace();
+			System.out.println("IO exception");
+		}
+		
+		
+		
 	}
 	
 

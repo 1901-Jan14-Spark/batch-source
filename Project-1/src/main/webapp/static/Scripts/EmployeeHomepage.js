@@ -16,6 +16,7 @@ function sendAjaxGet(url, func){
  empInfo.addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/session", listInfo)) ;
  let ResolvedB=document.getElementById("ResolvedB");
  ResolvedB.addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/viewResolved", getResolved)) ;
+
 function listInfo(xhr){
 	let session = JSON.parse(xhr.response);
 	let id = "n/a";
@@ -112,7 +113,7 @@ function getActive(xhr){
 			cost = requests[i].cost;
 			merchant = requests[i].merchant;
 			purchaseDate = requests[i].purchaseDate;
-			app_by=requests[i].aprovedBy;
+			app_by=requests[i].approvedBy;
 			den_by=requests[i].deniedBy;
 			
 		
@@ -147,7 +148,7 @@ function getResolved(xhr){
 			cost = requests[i].cost;
 			merchant = requests[i].merchant;
 			purchaseDate = requests[i].purchaseDate;
-			app_by=requests[i].aprovedBy;
+			app_by=requests[i].approvedBy;
 			den_by=requests[i].deniedBy;
 			
 		
@@ -157,4 +158,29 @@ function getResolved(xhr){
 		
 		table.appendChild(nextRow);
 	}	
+}
+// change info_______________________________________________________________________________________________________
+let CButton=document.getElementById("CButton");
+CButton.addEventListener("click",  changeInfo);
+function changeInfo(){
+	let NewName=document.getElementById("CName").value;
+	let NewUserName=document.getElementById("CUserName").value;
+	let NewPassword=document.getElementById("CPassword").value;
+	
+	
+	
+	
+	
+	
+	let NewRequest = {
+	 "name": NewName,
+	 "user": NewUserName,
+	 "pass":NewPassword,
+	 
+	}
+	console.log(NewRequest);
+	
+	let request=JSON.stringify(NewRequest)
+	console.log(request);
+   sendAjaxPost("http://localhost:8080/Project-1/api/changeInfo", printResponse, request);
 }

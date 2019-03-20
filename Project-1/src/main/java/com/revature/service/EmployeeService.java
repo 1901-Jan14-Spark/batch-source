@@ -18,12 +18,18 @@ public class EmployeeService {
 	public List<Request> getActive() {
 		return reqDao.getActiveRequests();
 	}
+	public List<Request> getResolve() {
+		return reqDao.getResolvedRequests();
+	}
 	public  Employee getEmployeeByUsername(String username) {
 		
 		return empDao.getEmpByUsername(username);
 	}
 	public int createRequest(Request r) {
 		return reqDao.createRequest(r);
+	}
+	public void changeInfo(int id, String name, String user, String pass) {
+		 empDao.changeInfo(id, name, user, pass);
 	}
 	public void approveRequest(int ReimId, int EmpId) {
 		 reqDao.approveRequest(ReimId, EmpId);
