@@ -41,7 +41,7 @@ public class RequestHelper {
 				}
 				break;
 			case "departments":
-				// direct request and response to employee delegate
+				// direct request and response to department delegate
 				if ("GET".equals(request.getMethod())) {
 					dd.getDepartments(request, response);
 				} else {

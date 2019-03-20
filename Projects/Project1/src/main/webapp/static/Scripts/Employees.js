@@ -25,7 +25,7 @@ function display(xhr){
 	
 	for(i in employees){
 		let nextRow = document.createElement("tr");	
-		nextRow.innerHTML = `<td>employees[i].empId</td><td>${employees[i].firstName} + " " + ${employees[i].lastName}</td><td>${employees[i].username}</td><td>${employees[i].password}</td><td>${employees[i].email}<td>${employees[i].d.name}</td></td>`;
+		nextRow.innerHTML = `<td>${employees[i].empId}</td><td>${employees[i].firstName} + " " + ${employees[i].lastName}</td><td>${employees[i].username}</td><td>${employees[i].password}</td><td>${employees[i].email}<td>${employees[i].d.name}</td></td>`;
 		table.appendChild(nextRow);
 	}
 }

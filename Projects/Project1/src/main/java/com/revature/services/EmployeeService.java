@@ -18,6 +18,10 @@ public class EmployeeService{
 		return eDao.getEmployeeById(id);
 	}
 	
+	public Employee getByStringId(String id) {
+		return eDao.getEmployeeByStringId(id);
+	}
+	
 	public Employee getByName(String firstName, String lastName) {
 		return eDao.getEmployeeByName(firstName, lastName);
 	}
