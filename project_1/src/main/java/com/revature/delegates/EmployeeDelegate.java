@@ -134,6 +134,7 @@ public class EmployeeDelegate {
 
 		if (eService.updateEmployeeInformation(temp)) {
 			response.setStatus(200);
+			request.getSession().setAttribute("firstname", temp.getFirstname());
 			System.out.println("Employee successfully updated.");
 		} else {
 			response.setStatus(400);

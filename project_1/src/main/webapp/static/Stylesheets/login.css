@@ -3,30 +3,41 @@
 html{
     height:100%;
 }
-body{
-/*     background-image: url("../images/book_Steto.jpg");
- */  height: 90%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  
-}
 
-.container{
+body {
+   overflow-x: hidden;
+   background: url("../images/aerial-shot-bird-s-eye-view-buildings-1720029.jpg") no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+
+ }
+
+#loginForm{
     border-radius: 15px;
-    background: white;
-    width: 560px;
+    background: grey;
+    width: 33%;
     border: 2px solid rgb(68, 137, 135);
     margin-block-start: 3.5em;
     padding-block-start: 1em;
     padding: 1.5em;
+    color: orange;
+    font-weight: 700;
 }
 
 .display-4{
     font-size : 2.5rem;
 }
 
+.inputstyle{
+	border: 2px solid orange;
+}
+
 .btn-primary{
     background-color: rgb(68, 137, 135);
+}
+
+#bottomBorder{
+	border-bottom: 2px solid orange;
 }

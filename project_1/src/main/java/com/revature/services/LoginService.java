@@ -11,7 +11,7 @@ public class LoginService {
 	public Employee login(String email, String password) {
 		System.out.println();
 		Employee e = ed.getEmployeeByEmail(email);
-		if(e.getPassword().equals(password)) {
+		if(e != null && e.getPassword().equals(password)) {
 			return e;
 		}else {
 			return null;

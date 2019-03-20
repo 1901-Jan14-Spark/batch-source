@@ -20,62 +20,120 @@
 			aria-controls="navbarSupportedContent" aria-expanded="false"
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span> <a class="navbar-brand"
-				href="index.html">Employee Dashboard</a>
+				href="http://localhost:8080/ReimbursementApp/dashboard"></a>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="navbar-brand"
-					href="index.html">Employee Dashboard</a> <span class="sr-only">(current)</span>
-					</a></li>
+					href="http://localhost:8080/ReimbursementApp/dashboard">Employee
+						Dashboard</a> <span class="sr-only">(current)</span></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> Menu </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="http://localhost:8080/ReimbursementApp/viewReimbursements">Reimbursement List</a> 
-							<a class="dropdown-item" href="pages/patientStatistics.html">Reimbursement
-							Statistics</a>
+						<a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/reimbursement-form">Create
+							reimbursement</a> <a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/viewReimbursements">Reimbursement
+							List</a>
 						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="http://localhost:8080/ReimbursementApp/update-reimbursement">Update Reimbursement</a>
-						<a class="dropdown-item" href="http://localhost:8080/ReimbursementApp/reimbursement-form">Create reimbursement</a>
-						<a class="dropdown-item" href="http://localhost:8080/ReimbursementApp/api/logout">Logout</a>
-						<a class="dropdown-item" href="http://localhost:8080/ReimbursementApp/update-information">Update Information</a>
-						
+						<a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/update-information">
+							Update Information</a> <a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/api/logout">Logout</a>
 					</div></li>
 			</ul>
 		</div>
 	</nav>
-	<!-- <div id="carouselExampleSlidesOnly" class="carousel slide"
-		data-ride="carousel">
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img class="d-block w-100" src="images/whiteClinic.jpg"
-					alt="First slide">
-				<h1 class="hero-text" id="hero1">Lorem ipsum dolor sit amet.</h1>
+	<div class="container">
+
+
+		<h1 class="my-4">
+			<span id="firstname"></span>
+		</h1>
+		<hr>
+		<div class="row">
+			<div class="col-lg-6">
+				<h2>Maven</h2>
+				<p>Project management tool that manages distribution of JAVA
+					projects :</p>
+				<ul>
+					<li>Angular</li>
+					<li>HTML</li>
+					<li>CSS</li>
+					<li>Bootstrap</li>
+				</ul>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					Corporis, omnis doloremque non cum id reprehenderit, quisquam totam
+					aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis
+					quia dolorum ducimus unde.</p>
 			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="images/science.jpg"
-					alt="Second slide">
-				<h2 class="hero-text" id="hero2">Consectetur adipiscing elit</h2>
-			</div>
-			<div class="carousel-item">
-				<img class="d-block w-100" src="images/Hands.jpg" alt="Third slide">
-				<h3 class="hero-text" id="hero3">"Sed do eiusmod tempor
-					incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-					veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-					ex ea commodo consequat."</h3>
+			<div class="col-lg-6">
+				<img class="img-fluid rounded"
+					src="static/images/advice-business-colleagues-1161465.jpg" alt="">
 			</div>
 		</div>
-	</div> -->
-	<footer class="page-footer font-small blue">
 
-		<div class="footer-copyright text-center py-3">&copy; Kevin Tran
-			Huu 2019</div>
+		<br> <br>
+		<div class="row">
+			<div class="col-lg-4 mb-4">
+				<div class="card h-100">
+					<h4 class="card-header">Article of the week</h4>
+					<div class="card-body">
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+							adipisicing elit. Sapiente esse necessitatibus neque.</p>
+					</div>
+					<div class="card-footer">
+						<a href="#" class="btn btn-primary">Learn More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 mb-4">
+				<div class="card h-100">
+					<h4 class="card-header">Don't forget to submit your QC
+						feedback!</h4>
+					<div class="card-body">
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+							adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus
+							commodi similique totam consectetur praesentium molestiae atque
+							exercitationem ut consequuntur, sed eveniet, magni nostrum sint
+							fuga.</p>
+					</div>
+					<div class="card-footer">
+						<a href="#" class="btn btn-primary">Learn More</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 mb-4">
+				<div class="card h-100">
+					<h4 class="card-header">More and more employees are forgetting
+						their timesheets...</h4>
+					<div class="card-body">
+						<p class="card-text">Lorem ipsum dolor sit amet, consectetur
+							adipisicing elit. Sapiente esse necessitatibus neque.</p>
+					</div>
+					<div class="card-footer">
+						<a href="#" class="btn btn-primary">Learn More</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
+	<hr>
+
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Kevin Tran
+				Huu 2019</p>
+		</div>
 	</footer>
 
 
-<script src = "static/scripts/checkSession.js"></script>
+
+
+	<script src="static/scripts/checkSession.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>

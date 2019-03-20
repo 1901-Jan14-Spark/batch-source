@@ -3,7 +3,7 @@
  */
 window.onload = function(){
 	document.getElementById("submitButton").addEventListener("click", sendPut);
-	ajaxGetRequest(populateInfo);
+	setTimeout(delayPopulate, 1000);
 }
 
 function ajaxGetRequest( process) {
@@ -24,10 +24,19 @@ function ajaxGetRequest( process) {
 	xhr.send();
 }
 
+function delayPopulate(){
+	ajaxGetRequest(populateInfo);
+}
+
 function populateInfo(employee){
 
+	let hiddenpw = "";
+	for(let i = 0; i < employee.password.length;i++){
+		
+		hiddenpw += "*";
+	}
 		document.getElementById("eemail").innerHTML = employee.email;
-		document.getElementById("epass").innerHTML = employee.password;
+		document.getElementById("epass").innerHTML = hiddenpw;
 		document.getElementById("efirst").innerHTML = employee.firstname;
 		document.getElementById("elast").innerHTML = employee.lastname;
 }

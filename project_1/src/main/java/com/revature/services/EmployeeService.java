@@ -32,13 +32,13 @@ public class EmployeeService {
 		if (e.getPassword()  == null|| e.getPassword().equals("")) {
 			e.setPassword(temp.getPassword());
 		}
-		if (e.getFirstname() == null|| e.getPassword().equals("")) {
+		if (e.getFirstname() == null|| e.getFirstname().equals("")) {
 			e.setFirstname(temp.getFirstname());
 		}
-		if (e.getLastname() == null|| e.getPassword().equals("")) {
+		if (e.getLastname() == null|| e.getLastname().equals("")) {
 			e.setLastname(temp.getLastname());
-		}
 
+		}
 		e.setManagerLevel(temp.getManagerLevel());
 
 		int query = ed.updateEmployee(e);

@@ -1,27 +1,113 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Update Employee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
 </head>
 <body>
-<h4>Reimbursement form</h4>
-<form id="reimbform">
-	<label>Title:</label>
-	<input type="text" name="title" id="title"> 
 
-	<br> <br>
-	<label>Amount:</label>
-	<input type="number" name="amount" id="amount">
-	<br> <br>
-	<input type="submit" value="Submit" id="submitButton">
- </form>
-<br><br>
-<label>Description:</label>
-<br>
-<textarea rows="4" cols="50" name="comment" form="reimbform" placeholder="Enter description here." id ="description">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span> <a class="navbar-brand"
+				href="http://localhost:8080/ReimbursementApp/dashboard"></a>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="navbar-brand"
+					href="http://localhost:8080/ReimbursementApp/dashboard">Dashboard</a>
+					<span class="sr-only">(current)</span></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Menu </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/reimbursement-form">Create
+							reimbursement</a> <a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/viewReimbursements">Reimbursement
+							List</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/update-information">
+							Update Information</a> <a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/api/logout">Logout</a>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<br>
+		<div class="form-row justify-content-center">
+			<h4>Reimbursement Form</h4>
+		</div>
+		<hr>
+		<div class="row justify-content-center">
+			<div class="col-lg-6 mb-6">
+				<div class="card h-85">
+					<h4 class="card-header">Current information</h4>
+					<form id="reimbform">
+						<br>
+						<div class="form-row justify-content-center">
+							<label>Title:</label>
+						</div>
+						<div class="form-row justify-content-center">
+							<input type="text" name="title" id="title">
+						</div>
+						<div class="form-row justify-content-center"></div>
+						<div class="form-row justify-content-center">
+							<label>Amount:</label>
+						</div>
+						<div class="form-row justify-content-center">
+							<input type="number" name="amount" id="amount">
+						</div>
+						<br> <br>
+						<div class="form-row justify-content-center">
+							<input type="submit" value="Submit" id="submitButton">
+						</div>
+
+					</form>
+					<br>
+					<div class="form-row justify-content-center">
+						<label>Description:</label>
+					</div>
+					<div class="form-row justify-content-center">
+						<textarea rows="4" cols="50" name="comment" form="reimbform"
+							placeholder="Enter description here." id="description">
 </textarea>
-<a href="http://localhost:8080/ReimbursementApp/dashboard"><button >Back to dashboard</button></a>
-<script src = "static/scripts/reimbursementcreate.js"></script>
+					</div>
+					<br> <br>
+
+					<div class="card-footer"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Kevin Tran
+				Huu 2019</p>
+		</div>
+	</footer>
+	<script src="static/scripts/reimbursementcreate.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 </body>
 </html>

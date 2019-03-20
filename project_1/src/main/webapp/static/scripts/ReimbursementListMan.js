@@ -102,6 +102,8 @@ function repopulate(){
 
 			let id = document.createElement("td");
 			id.innerHTML = reimbursement.id;
+			let eid = document.createElement("td");
+			eid.innerHTML = reimbursement.employee_id;
 			let title = document.createElement("td");
 			title.innerHTML = reimbursement.title;
 			let amount = document.createElement("td");
@@ -110,6 +112,7 @@ function repopulate(){
 			state.innerHTML = reimbursement.state;
 
 			row.appendChild(id);
+			row.appendChild(eid);
 			row.appendChild(title);
 			row.appendChild(amount);
 			row.appendChild(state);
@@ -123,6 +126,8 @@ function repopulate(){
 
 					let id = document.createElement("td");
 					id.innerHTML = reimbursement.id;
+					let eid = document.createElement("td");
+					eid.innerHTML = reimbursement.employee_id;
 					let title = document.createElement("td");
 					title.innerHTML = reimbursement.title;
 					let amount = document.createElement("td");
@@ -131,6 +136,7 @@ function repopulate(){
 					state.innerHTML = reimbursement.state;
 
 					row.appendChild(id);
+					row.appendChild(eid);
 					row.appendChild(title);
 					row.appendChild(amount);
 					row.appendChild(state);
@@ -146,6 +152,8 @@ function repopulate(){
 
 						let id = document.createElement("td");
 						id.innerHTML = reimbursement.id;
+						let eid = document.createElement("td");
+						eid.innerHTML = reimbursement.employee_id;
 						let title = document.createElement("td");
 						title.innerHTML = reimbursement.title;
 						let amount = document.createElement("td");
@@ -154,6 +162,7 @@ function repopulate(){
 						state.innerHTML = reimbursement.state;
 
 						row.appendChild(id);
+						row.appendChild(eid);
 						row.appendChild(title);
 						row.appendChild(amount);
 						row.appendChild(state);
@@ -168,6 +177,8 @@ function repopulate(){
 
 							let id = document.createElement("td");
 							id.innerHTML = reimbursement.id;
+							let eid = document.createElement("td");
+							eid.innerHTML = reimbursement.employee_id;
 							let title = document.createElement("td");
 							title.innerHTML = reimbursement.title;
 							let amount = document.createElement("td");
@@ -176,6 +187,7 @@ function repopulate(){
 							state.innerHTML = reimbursement.state;
 
 							row.appendChild(id);
+							row.appendChild(eid);
 							row.appendChild(title);
 							row.appendChild(amount);
 							row.appendChild(state);
@@ -195,6 +207,8 @@ function populateTable(reimbursements){
 
 		let id = document.createElement("td");
 		id.innerHTML = reimbursement.id;
+		let eid = document.createElement("td");
+		eid.innerHTML = reimbursement.employee_id;
 		let title = document.createElement("td");
 		title.innerHTML = reimbursement.title;
 		let amount = document.createElement("td");
@@ -203,6 +217,7 @@ function populateTable(reimbursements){
 		state.innerHTML = reimbursement.state;
 
 		row.appendChild(id);
+		row.appendChild(eid);
 		row.appendChild(title);
 		row.appendChild(amount);
 		row.appendChild(state);

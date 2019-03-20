@@ -21,7 +21,7 @@ function populateUser(xhr){
 	let response = JSON.parse(xhr.response);
 	console.log(response);
 	if(response.firstname != null){
-		document.getElementById("firstname").innerHTML = "Welcome "+response.firstname;
+		document.getElementById("firstname").innerHTML = "Welcome "+response.firstname+",";
 	} else {
 //		window.location = "http://localhost:8080/ReimbursementApp/login";
 	}

@@ -1,36 +1,154 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Update Employee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+<!-- <link rel="stylesheet" type="text/css" media="screen"
+	href="static/Stylesheets/main.css" /> -->
 </head>
 <body>
-<h4>Update Employee Information Form</h4>
-<a href="http://localhost:8080/ReimbursementApp/dashboard"><button >Back to dashboard</button></a>
-<h6>Current information</h6>
-<br>
-<div> Email: <span id="eemail"></span></div><br>
-<div> Password: <span id="epass"></span></div><br>
-<div> Firstname: <span id="efirst"></span></div><br>
-<div> Lastname: <span id="elast"></span></div><br>
 
-<form id="Empform">
-	<label>Email:</label><br>
-	<input type="text" name="email" id="email"> <br>
-	<label>Password:</label><br>
-	<input type="password" name="password" id="password1"><br> 
-	<label>Re-enter Password:</label><br>
-	<input type="password" name="password" id="password2"> <br>
-	<label>Firstname:</label><br>
-	<input type="text" name="firstname" id="firstname"> <br>
-	<label>Lastname:</label><br>
-	<input type="text" name="lastname" id="lastname"> <br>
-	<br> <br>
-<!-- 	<input type="submit" value="Update" id="submitButton">
- --> </form>
-<br><br>
-<button id = "submitButton">Hit me</button>
-<a href="http://localhost:8080/ReimbursementApp/dashboard"><button >Back to dashboard</button></a>
-<script src = "static/scripts/EmployeeUpdate.js"></script>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span> <a class="navbar-brand"
+				href="http://localhost:8080/ReimbursementApp/dashboard"></a>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="navbar-brand"
+					href="http://localhost:8080/ReimbursementApp/dashboard">
+						Dashboard</a> <span class="sr-only">(current)</span></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Menu </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/reimbursement-form">Create
+							reimbursement</a> <a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/viewReimbursements">Reimbursement
+							List</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/update-information">
+							Update Information</a> <a class="dropdown-item"
+							href="http://localhost:8080/ReimbursementApp/api/logout">Logout</a>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container" id="cont">
+		<br>
+		<div class="form-row justify-content-center">
+			<h4>Update Employee Information Form</h4>
+
+		</div>
+		<hr>
+		<br>
+		<div class="row">
+			<div class="col-lg-6 mb-6">
+				<div class="card h-85">
+					<h4 class="card-header">Current information</h4>
+					<div class="card-body">
+						<div>
+							Email: <span id="eemail"></span>
+						</div>
+						<br>
+						<div>
+							Password: <span id="epass"></span>
+						</div>
+						<br>
+						<div>
+							Firstname: <span id="efirst"></span>
+						</div>
+						<br>
+						<div>
+							Lastname: <span id="elast"></span>
+						</div>
+					</div>
+					<div class="card-footer"></div>
+				</div>
+			</div>
+
+			<div class="col-lg-6 mb-6">
+				<div class="card h-85">
+					<h4 class="card-header">New information</h4>
+					<div class="card-body">
+						<form id="Empform">
+							<div class="form-row justify-content-center">
+								<label>Email:</label>
+							</div>
+							<div class="form-row justify-content-center">
+								<input type="text" name="email" id="email">
+							</div>
+							<div class="form-row justify-content-center">
+								<label>Password:</label>
+							</div>
+							<div class="form-row justify-content-center">
+								<input type="password" name="password" id="password1">
+							</div>
+							<div class="form-row justify-content-center">
+								<label>Re-enter Password:</label>
+							</div>
+							<div class="form-row justify-content-center">
+								<input type="password" name="password" id="password2">
+							</div>
+							<div class="form-row justify-content-center">
+								<label>Firstname:</label>
+							</div>
+							<div class="form-row justify-content-center">
+								<input
+								type="text" name="firstname" id="firstname">
+							</div>
+							<div class="form-row justify-content-center">
+								<label>Lastname:</label>
+							</div>
+							<div class="form-row justify-content-center">
+								<input type="text" name="lastname" id="lastname">
+							</div>
+							<br> <br>
+							<div class="form-row justify-content-center">
+								<input type="submit" value="Update"
+								id="submitButton">
+							</div>
+						</form>
+					</div>
+					<div class="card-footer"></div>
+				</div>
+			</div>
+
+
+			<br> <br>
+
+		</div>
+	</div>
+	<footer class="py-5 bg-dark">
+		<div class="container">
+			<p class="m-0 text-center text-white">Copyright &copy; Kevin Tran
+				Huu 2019</p>
+		</div>
+	</footer>
+	<script src="static/scripts/EmployeeUpdate.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
 </body>
 </html>
