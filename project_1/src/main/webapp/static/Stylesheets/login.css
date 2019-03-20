@@ -18,7 +18,7 @@ body {
     border-radius: 15px;
     background: grey;
     width: 33%;
-    border: 2px solid rgb(68, 137, 135);
+    border: 2px solid orange;
     margin-block-start: 3.5em;
     padding-block-start: 1em;
     padding: 1.5em;
@@ -35,7 +35,7 @@ body {
 }
 
 .btn-primary{
-    background-color: rgb(68, 137, 135);
+    background-color: orange;
 }
 
 #bottomBorder{
