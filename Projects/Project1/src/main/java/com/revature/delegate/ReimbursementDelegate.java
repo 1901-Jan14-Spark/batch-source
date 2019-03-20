@@ -2,6 +2,7 @@ package com.revature.delegate;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -48,8 +49,8 @@ public class ReimbursementDelegate {
 		int empId = 0;
 		double amount = 0.0;
 		boolean approved = false;
-		Date reqDate = new Date();
-		Date appDate = new Date();
+		Timestamp reqDate = new Timestamp(empId);
+		Timestamp appDate = new Timestamp(empId);
 		
 		Reimbursement rb = new Reimbursement();
 		rb.setReimbursementId(reimbId);
