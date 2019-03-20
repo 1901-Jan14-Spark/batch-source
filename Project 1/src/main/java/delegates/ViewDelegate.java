@@ -16,16 +16,18 @@ public class ViewDelegate {
 			address = "employeeLogin";
 		}
 		
-//		if(request.getSession().getAttribute("email") == null && "managerLogin".equals(address) || request.getSession().getAttribute("email") == null && "employeeLogin".equals(address) ) {
-//			System.out.println("are we checking the right session?!?");
-//			address = "login";
-//			System.out.println(address);
-//			request.getSession().invalidate();
-//		}
+		if(request.getSession().getAttribute("email") == null && "managerLogin".equals(address) || request.getSession().getAttribute("email") == null && "employeeLogin".equals(address) ) {
+			System.out.println("are we checking the right session?!?");
+			address = "login";
+			response.sendRedirect("http://localhost:9393/Project1/login");
+			return;
+		}
 		
 		if("managerLogin".equals(address) || "employeeLogin".equals(address)) {
 			if(request.getSession().getAttribute("email") == null) {
 				address = "login";
+				response.sendRedirect("http://localhost:9393/Project1/login");
+				return;
 			}
 		}
 		

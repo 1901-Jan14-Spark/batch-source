@@ -10,7 +10,7 @@ public class LogoutDelegate {
 
 	public void logoutUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		HttpSession session = request.getSession(false);
-		if(session != null) {
+		if(session != null || session == null) {
 			session.invalidate();
 		}
 		
