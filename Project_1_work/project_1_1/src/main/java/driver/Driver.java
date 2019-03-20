@@ -24,13 +24,14 @@ public class Driver {
 //		LocalDateTime now = LocalDateTime.now();
 //		System.out.println(dtf.format(now));
 //		System.out.println(tester.getRequests("gmarle1m"));
-		tester.updatePassword("agilaydones", "854");
-		System.out.println(tester.checkManager());
+//		tester.updatePassword("agilaydones", "854");
+//		System.out.println(tester.checkManager());
 		//System.out.println(tester.getIdbyMngUser("chaliburn17"));
-		List<Integer> test = tester.getIdbyMngUser("chaliburn17");
-		System.out.println(test);
-		List<Request> req = tester.getRequestById("chaliburn17");
-		System.out.println(req);
+//		List<Integer> test = tester.getIdbyMngUser("chaliburn17");
+//		System.out.println(test);
+//		List<Request> req = tester.getRequestById("chaliburn17");
+//		System.out.println(req);
+		System.out.println(tester.getEmpByUser("aspurr1e"));
 		
 	}
 	
