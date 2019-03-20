@@ -2,20 +2,39 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Manager Portal</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+  <link rel = "stylesheet" type="text/css" href = "styling.css">
 </head>
 <body>
-<form action = "api/employees" method ="GET" id = "access">
-	<input type = "submit" value = "Access">
-</form>
-	<select name = "getAccess" form = "access" id = accessOption>
+
+<div class = "container">
+<h1 class = "center">Manager Portal</h1>
+<form id = "access">
+	<div class = "row">
+	
+	<div class = "col">
+	<select class = "form-control form-control-lg" name = "getAccess" form = "access" id = "accessOption">
 		<option id = "ALL" value = "ALL">ALL</option>
 		<option id = "PENDING" value = "PENDING">PENDING</option>
 		<option id = "RESOLVED/DENIED" value = "RESOLVED/DENIED">RESOLVED/DENIED</option>
 	</select>
-	
+	</div>
+	<div class = "col">
+	<select class = "form-control form-control-lg" name = "selectEmployee" id = "employeeId">
+		
+	</select>
+	</div>
+	<div class = "col">
+	<input type = "submit" class="btn btn-outline-success btn-lg" value = "Access">
+	</div>
+	</div>
+</form>
+<br>
 <div id = "reimbursementsM">
-<table id = "rTable">
+<table class="table table-striped table-hover table-hover-cells table-bordered" id = "rTable">
+	<thead class = "thead-dark">
 		<tr>
 			<th >ID</th>
 			<th >Amount</th>
@@ -25,9 +44,53 @@
 			<th>Resolved Date</th>
 			<th>Manager ID</th>
 		<tr>
-</div>
+	</thead>
+	<tbody id = "tableBodyM">
+	
+	</tbody>
 </table>
+</div>
+	<hr>
+    <div id ="formDiv">
+    	<form class = "form-group" id = "updateReimbursement">
+    	<div class = "row">
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "number" id = "expenseId" placeholder = "Expense ID">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "number" id = "cost" placeholder = "Cost">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "text" id = "category" placeholder = "Category">
+    		</div>
+    		<div class = "col">
+    		<input class="form-control form-control-lg" type = "text" id = "merchant" placeholder = "Merchant">
+    		</div>
+    	</div>
+    	<br>
+    	<div class = "row">
+    		<div class = "col">
+    		<select class = "form-control form-control-lg" id = "employeeSelect">
+    			<option value="" disabled selected>Select Employee</option>
+    		</select>
+    		</div>
+    		<div class = "col">
+    		<button type = "button" class="btn btn-outline-warning btn-lg" id = "updateBtn">Update</button>
+    		</div>
+    		<div class = "col">
+    		<button type = "button" class="btn btn-outline-danger btn-lg" id = "Logout">Logout</button>
+    		</div>
+   		 </div>
+    	</form>
+    </div>
+</div>
 	<script src="static/Scripts/Manager.js"></script>
 	<script src="static/Scripts/Employee.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="../Manager.js"></script>
 </body>
 </html>

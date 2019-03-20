@@ -59,8 +59,11 @@ public class RequestHelper {
 				}
 				break;
 			case "login":
-				if("GET".equals(request.getMethod())){
+				if("POST".equals(request.getMethod())){
 					ld.getLogin(request, response);
+				}
+				else {
+					response.sendError(405, "Mehtod Not Supported for /" +record);
 				}
 				break;
 			case "logout":

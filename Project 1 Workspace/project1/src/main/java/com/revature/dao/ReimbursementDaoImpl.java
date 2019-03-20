@@ -206,7 +206,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 	@Override
 	public List<Reimbursement> getResolvedReimbursementsByEmpId(int id) {
 		List<Reimbursement> reimbursements = new ArrayList<>();
-		String sql = "SELECT * FROM REIMBURSEMENT WHERE STATUS NOT STATUS = 'PENDING' AND EMPLOYEE_ID = ?";
+		String sql = "SELECT * FROM REIMBURSEMENT WHERE NOT STATUS = 'PENDING' AND EMPLOYEE_ID = ?";
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				PreparedStatement ps = con.prepareStatement(sql);){
@@ -294,7 +294,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao{
 	@Override
 	public List<Reimbursement> getResolvedReimbursements() {
 		List<Reimbursement> reimbursements = new ArrayList<>();
-		String sql = "SELECT * FROM REIMBURSEMENT WHERE STATUS NOT STATUS = 'PENDING'";
+		String sql = "SELECT * FROM REIMBURSEMENT WHERE NOT STATUS = 'PENDING'";
 		
 		try(Connection con = ConnectionUtil.getConnection();
 				Statement s = con.createStatement();

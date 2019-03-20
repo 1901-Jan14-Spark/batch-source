@@ -1,0 +1,57 @@
+h1{
+    background-color: rgb(255, 174, 0);
+     padding: 0px;
+     margin: 0px;
+     color: #343a40;
+}
+
+#metricsHead{
+	background-color: #212529;
+}
+
+body{
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-top: 210px;
+	padding-bottom: 185px;
+}
+#reimbursementsM{
+	margin-bottom: 0px;
+}
+hr{
+	height: 5px;
+	background-color: #212529;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.col{
+	padding-top: 5px;
+}
+button{
+	margin: 2px;
+}
+h4{
+	background-color: #212529;
+	color: white;
+	margin-bottom: 0px;
+	padding: 0px;
+}
+.table tbody tr:hover td, .table tbody tr:hover th {
+    background-color: rgb(255, 174, 0);
+    opacity: 0.9;
+}
+header{
+	background-color: white;
+	margin-left: 13%;
+	margin-right: 13%;
+	
+}
+footer{
+	background-color: white;
+	margin-left: 13%;
+	margin-right: 13%;
+}
+p{
+	text-align: center;
+	color: rgb(255, 174, 0);
+}

@@ -5,8 +5,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class = "container">
 	<h4>Please enter your information</h4>
-<form action="login" method="get">
+<form action="/api/login" method="post">
 	<label>Username:</label>
 	<input type="text" name="username"> 
 	<br> <br>
@@ -16,8 +17,9 @@
 	<label>Sign In As Manager:</label>
 	<input type="checkbox" name = "asManager">
 	<br> <br>
-	<input type="submit" value="login">
+	<input type="submit" value="login" id = "lsubmit">
 </form>
+</div>
 <script src="static/Scripts/Login.js"></script>
 </body>
 </html>

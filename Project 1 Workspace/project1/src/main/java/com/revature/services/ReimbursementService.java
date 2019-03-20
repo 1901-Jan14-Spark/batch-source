@@ -12,7 +12,7 @@ public class ReimbursementService implements CrudService<Reimbursement>{
 	
 	@Override
 	public List<Reimbursement> getAll() {
-		return null;
+		return rd.getReimbursements();
 	}
 	
 	@Override

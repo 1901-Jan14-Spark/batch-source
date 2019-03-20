@@ -28,7 +28,7 @@ public class LoginDelegate {
 		String uri;
 		Employee e = lService.getLogin(user, pass);
 		if("false".equals(asM)) {
-			uri = "../employee";
+			uri = "./employee";
 			if(e==null) {
 			loginJSON = "";
 			response.setStatus(404);
@@ -41,13 +41,13 @@ public class LoginDelegate {
 		}
 		else if("true".equals(asM) && e.getIsManager() == 1) {
 			Employee dummy = new Employee(e.getId());
-			uri = "../manager";
+			uri = "./manager";
 			loginJSON = om.writeValueAsString(e);
 			request.getSession().setAttribute("currentUser", dummy);
 		}
 		else {
 			loginJSON = "";
-			uri = "../login";
+			uri = "./login";
 			response.setStatus(404);
 		}
 		PrintWriter pw = response.getWriter();

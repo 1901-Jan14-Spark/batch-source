@@ -8,6 +8,11 @@ public class ConnectionUtil {
 private static Connection connection;
 	
 	public static Connection getConnection() throws SQLException {
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 		String url = System.getenv("DB_URL");
 		String user = System.getenv("DB_USER");
 		String password = System.getenv("DB_PASS");
