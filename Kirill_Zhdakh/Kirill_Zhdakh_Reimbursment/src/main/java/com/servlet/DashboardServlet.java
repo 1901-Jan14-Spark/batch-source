@@ -15,7 +15,10 @@ public class DashboardServlet extends HttpServlet {
 			response.sendRedirect("login");
 		} else {
 			request.getSession().removeAttribute("error");
-			request.getRequestDispatcher("Views/Dashboard.html").forward(request, response);
+			if ("Employee".equals(request.getSession().getAttribute("title")))
+				request.getRequestDispatcher("Views/EmployeeDashboard.html").forward(request, response);
+			else
+				request.getRequestDispatcher("Views/ManagerDashboard.html").forward(request, response);
 		}
 	}
 }

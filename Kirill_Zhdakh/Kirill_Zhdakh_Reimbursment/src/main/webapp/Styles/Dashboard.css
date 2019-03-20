@@ -28,10 +28,6 @@ align-content: center;
 	padding-bottom: 0px;
 }
 
-.modal {
- overflow-y: auto;
-}
-
 .modal-open {
  overflow: auto;
 }
@@ -49,4 +45,32 @@ color: red;
 text-align: center;
 position: relative;
 top: 10px;
+}
+
+.d-flex{
+color: white;
+text-align: center;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='number']:focus{
+  box-shadow: none;
+}
+
+.my-custom-scrollbar {
+  position: relative;
+  height: 500px;
+  overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+  display: block;
+}
+
+.btn:focus{
+	box-shadow: none;
 }

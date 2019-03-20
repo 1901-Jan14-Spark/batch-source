@@ -30,7 +30,7 @@ public class UserDaoImp implements UserDao {
 		{
 			while(rs.next())
 			{
-				user = new User(rs.getString("USER_FIRSTNAME"), rs.getString("USER_LASTNAME"), rs.getString("USER_USERNAME"), PasswordEncryption.decodePassword(rs.getString("USER_PASSWORD")), rs.getString("USER_EMAIL"), rs.getString("USER_TITLE"), rs.getInt("USER_REPORTSTO"));
+				user = new User(rs.getString("USER_FIRSTNAME"), rs.getString("USER_LASTNAME"), rs.getString("USER_USERNAME"), PasswordEncryption.decodePassword(rs.getString("USER_PASSWORD")), rs.getString("USER_EMAIL").toLowerCase(), rs.getString("USER_TITLE"), rs.getInt("USER_REPORTSTO"));
 				user.setId(rs.getInt("USER_ID"));
 				userList.add(user);
 			}
@@ -47,16 +47,17 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public List<User> getUsersById(int id) {
-		List<User> userList = new ArrayList<>();
-		String sql = "SELECT * FROM USER_TABLE WHERE USER_REPORTSTO = " + id;
+	public User getUserById(int id) {
+		User user = null;
+		String sql = "SELECT * FROM USER_TABLE WHERE USER_ID = ?";
 		try(Connection c = ConnectionUtil.getConnectionFromFile();
-			Statement s = c.createStatement();
-			ResultSet rs = s.executeQuery(sql))
+			PreparedStatement ps = c.prepareStatement(sql))
 		{
+			ps.setInt(1, id);
+			ResultSet rs = ps.executeQuery();
 			while(rs.next())
 			{
-				userList.add(new User(rs.getString("USER_FIRSTNAME"), rs.getString("USER_LASTNAME"), rs.getString("USER_USERNAME"), rs.getString("USER_PASSWORD"), rs.getString("USER_EMAIL"), rs.getString("USER_TITLE"), rs.getInt("USER_REPORTSTO")));			
+				user = new User(rs.getString("USER_FIRSTNAME"), rs.getString("USER_LASTNAME"), rs.getString("USER_USERNAME"), rs.getString("USER_PASSWORD"), rs.getString("USER_EMAIL"), rs.getString("USER_TITLE"), rs.getInt("USER_REPORTSTO"));			
 			}
 		}
 		catch (IOException e)
@@ -68,7 +69,7 @@ public class UserDaoImp implements UserDao {
 			e.printStackTrace();
 		}
 		
-		return userList;
+		return user;
 	}
 
 	@Override
@@ -106,23 +107,17 @@ public class UserDaoImp implements UserDao {
 	}
 
 	@Override
-	public boolean updateUser(User user) {
+	public boolean updateUserPassword(String password, int id) {
 		
 			String sql = "UPDATE USER_TABLE"
-					+" SET USER_FIRSTNAME = ?,"
-					+" USER_LASTNAME = ?,"
-					+" USER_PASSWORD = ?,"
-					+" USER_EMAIL = ?"
-					+" WHERE USER_USERNAME = ?";
+					+" SET USER_PASSWORD = ?"
+					+" WHERE USER_ID = ?";
 			
 		try(Connection c = ConnectionUtil.getConnectionFromFile();
 				PreparedStatement ps = c.prepareStatement(sql))
 		{
-			ps.setString(1, user.getFirstName());
-			ps.setString(2, user.getLastName());
-			ps.setString(3, PasswordEncryption.encodePassword(user.getPassword()));
-			ps.setString(4, user.getEmail());
-			ps.setString(5, user.getUsername());
+			ps.setString(1, PasswordEncryption.encodePassword(password));
+			ps.setInt(2, id);
 			ps.executeUpdate();
 			return true;
 		}

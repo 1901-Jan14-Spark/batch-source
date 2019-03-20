@@ -61,4 +61,54 @@
     <servlet-name>TicketCreateServlet</servlet-name>
     <url-pattern>/createticket</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetEmployeesServlet</display-name>
+    <servlet-name>GetEmployeesServlet</servlet-name>
+    <servlet-class>com.servlet.GetEmployeesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetEmployeesServlet</servlet-name>
+    <url-pattern>/getemployees</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdatePasswordServlet</display-name>
+    <servlet-name>UpdatePasswordServlet</servlet-name>
+    <servlet-class>com.servlet.UpdatePasswordServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdatePasswordServlet</servlet-name>
+    <url-pattern>/updatepassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PendingTicketServlet</display-name>
+    <servlet-name>PendingTicketServlet</servlet-name>
+    <servlet-class>com.servlet.PendingTicketServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PendingTicketServlet</servlet-name>
+    <url-pattern>/pendingtickets</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AcceptedTicketServlet</display-name>
+    <servlet-name>AcceptedTicketServlet</servlet-name>
+    <servlet-class>com.servlet.AcceptedTicketServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AcceptedTicketServlet</servlet-name>
+    <url-pattern>/acceptedtickets</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeclinedTicketServlet</display-name>
+    <servlet-name>DeclinedTicketServlet</servlet-name>
+    <servlet-class>com.servlet.DeclinedTicketServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeclinedTicketServlet</servlet-name>
+    <url-pattern>/declinedtickets</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		for(int i = 0; i < users.size(); ++i)
 		{
-			if (users.get(i).getUsername().equals(username) || users.get(i).getEmail().equals(username))
+			if (users.get(i).getUsername().equals(username) || users.get(i).getEmail().toLowerCase().equals(username))
 			{
 				if (users.get(i).getPassword().equals(password))
 				{
@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 					session.setAttribute("username", username);
 					session.setAttribute("firstname", users.get(i).getFirstName());
 					session.setAttribute("lastname", users.get(i).getLastName());
-					session.setAttribute("email", users.get(i).getEmail());
+					session.setAttribute("email", users.get(i).getEmail().toLowerCase());
 					session.setAttribute("title", users.get(i).getTitle());
 					response.sendRedirect("dashboard");
 					return;

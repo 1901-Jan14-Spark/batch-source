@@ -9,13 +9,16 @@ public class Ticket implements Serializable{
 	private String name;
 	private float amount;
 	private String status;
+	private String ticketResolver;
+	private User ticketOpener;
 	
 	public Ticket() {}
 	
-	public Ticket(int userId, String name, float amount, String status)
+	public Ticket(int userId, String name, String ticketResolver, float amount, String status)
 	{
-		this.setUserId(userId);
+		this.userId = userId;
 		this.name = name;
+		this.ticketResolver = ticketResolver;
 		this.amount = amount;
 		this.status = status;
 	}
@@ -50,5 +53,21 @@ public class Ticket implements Serializable{
 
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public String getTicketResolver() {
+		return ticketResolver;
+	}
+
+	public void setTicketResolver(String ticketResolver) {
+		this.ticketResolver = ticketResolver;
+	}
+
+	public User getTicketOpener() {
+		return ticketOpener;
+	}
+
+	public void setTicketOpener(User ticketOpener) {
+		this.ticketOpener = ticketOpener;
 	}
 }
