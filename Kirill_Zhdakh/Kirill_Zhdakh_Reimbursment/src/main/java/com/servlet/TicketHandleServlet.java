@@ -20,13 +20,12 @@ public class TicketHandleServlet extends HttpServlet {
 		TicketDao ticketdao = new TicketDaoImp();
 		ObjectMapper om = new ObjectMapper();
 		HttpSession session = request.getSession();
-		String[] strArr = request.getReader().readLine().replaceAll("[\\[\\]]+", "").split("[^,]+,[^,]+");
-		System.out.println(strArr.length);
-		for(int i = 0; i < strArr.length; ++i)
+
+		TicketHandler[] th = om.readValue(request.getReader().readLine(), TicketHandler[].class);
+		for(int i = 0; i < th.length; ++i)
 		{
-			System.out.println(strArr[i]);
+			ticketdao.updateTicket(th[i].getTicketId(), th[i].getStatus(), session.getAttribute("firstname") +" "+ session.getAttribute("lastname"));			
 		}
-//		TicketHandler th = om.readValue(request.getReader().readLine(), TicketHandler.class);
-//		ticketdao.updateTicket(th.getUserId(), th.getStatus(), session.getAttribute("firstname") +" "+ session.getAttribute("lastname"));
+		response.sendRedirect("dashboard");
 	}
 }

@@ -36,7 +36,42 @@ public class TicketDaoImp implements TicketDao {
 			while(rs.next())
 			{
 				User user = new User();
-				ticket = new Ticket(rs.getInt("TICKET_USERID"), rs.getString("TICKET_NAME"), rs.getString("TICKET_RESOLVER"), rs.getFloat("TICKET_AMOUNT"), rs.getString("TICKET_STATUS"));
+				ticket = new Ticket(rs.getInt("TICKET_ID"),rs.getInt("TICKET_USERID"), rs.getString("TICKET_NAME"), rs.getString("TICKET_RESOLVER"), rs.getFloat("TICKET_AMOUNT"), rs.getString("TICKET_STATUS"));
+				user.setFirstName(rs.getString("USER_FIRSTNAME"));
+				user.setLastName(rs.getString("USER_LASTNAME"));
+				user.setTitle(rs.getString("USER_TITLE"));
+				ticket.setTicketOpener(user);
+				ticketList.add(ticket);
+			}
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		
+		return ticketList;
+	}
+	
+	@Override
+	public List<Ticket> getTicketsByStatusEmp(String status, int id) {
+		List<Ticket> ticketList = new ArrayList<>();
+		Ticket ticket = new Ticket();
+		String sql = "SELECT T.*, UT.USER_FIRSTNAME, UT.USER_LASTNAME, UT.USER_TITLE FROM TICKET T JOIN USER_TABLE UT ON T.TICKET_USERID = ? AND T.TICKET_STATUS = ? ORDER BY T.TICKET_AMOUNT DESC";
+		try(Connection c = ConnectionUtil.getConnectionFromFile();
+			PreparedStatement ps = c.prepareStatement(sql))
+		{		
+			ps.setInt(1, id);
+			ps.setString(2, status);
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next())
+			{
+				User user = new User();
+				ticket = new Ticket(rs.getInt("TICKET_ID"),rs.getInt("TICKET_USERID"), rs.getString("TICKET_NAME"), rs.getString("TICKET_RESOLVER"), rs.getFloat("TICKET_AMOUNT"), rs.getString("TICKET_STATUS"));
 				user.setFirstName(rs.getString("USER_FIRSTNAME"));
 				user.setLastName(rs.getString("USER_LASTNAME"));
 				user.setTitle(rs.getString("USER_TITLE"));
@@ -85,18 +120,18 @@ public class TicketDaoImp implements TicketDao {
 	}
 
 	@Override
-	public boolean updateTicket(int userId, String status, String resolvedBy) {
+	public boolean updateTicket(int ticketId, String status, String resolvedBy) {
 		String sql = "UPDATE TICKET"
-				+" SET TICKET_STATUS = ?"
-				+" SET TICKET_RESOLVER = ?"
-				+" WHERE TICKET_USERID = ?";
+				+" SET TICKET_STATUS = ?,"
+				+" TICKET_RESOLVER = ?"
+				+" WHERE TICKET_ID = ?";
 		
 	try(Connection c = ConnectionUtil.getConnectionFromFile();
 			PreparedStatement ps = c.prepareStatement(sql))
 	{
 		ps.setString(1, status);
 		ps.setString(2, resolvedBy);
-		ps.setInt(3, userId);
+		ps.setInt(3, ticketId);
 		ps.executeUpdate();
 		return true;
 	}

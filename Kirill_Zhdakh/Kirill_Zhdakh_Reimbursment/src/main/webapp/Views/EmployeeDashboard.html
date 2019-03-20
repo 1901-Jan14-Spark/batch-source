@@ -31,8 +31,12 @@
 						<div class="dropdown-menu">
 							<a class="dropdown-item" href="#ticketModal" data-toggle="modal"
 								data-target="#ticketModal">Create</a> <a class="dropdown-item"
-								href="#">Pending</a> <a class="dropdown-item" href="#">Resolved</a>
-							<a class="dropdown-item" href="#">Declined</a>
+								href="#ptModal" data-toggle="modal" data-target="#ptModal"
+								onclick="getPendingTickets()">Pending</a> <a
+								class="dropdown-item" href="#atModal" data-toggle="modal"
+								data-target="#atModal" onclick="getAcceptedTickets()">Accepted</a>
+							<a class="dropdown-item" href="#dtModal" data-toggle="modal"
+								data-target="#dtModal" onclick="getDeclinedTickets()">Declined</a>
 						</div></li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
@@ -49,14 +53,15 @@
 		</nav>
 		<div class="card"></div>
 	</div>
-	
+
 	<!-- Pending Tickets Modal -->
 	<div class="modal fade" id="ptModal" tabindex="-1" role="dialog"
-		aria-hidden="true">
+		aria-hidden="true" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content bg-dark">
 				<div class="modal-header">
-					<h5 class="modal-title" style="color: white; margin: 0 auto;">Employees</h5>
+					<h5 class="modal-title" style="color: white; margin: 0 auto;">Pending
+						Tickets</h5>
 					<br>
 				</div>
 				<div class="modal-body">
@@ -65,17 +70,19 @@
 						</table>
 					</div>
 				</div>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Accepted Tickets Modal -->
 	<div class="modal fade" id="atModal" tabindex="-1" role="dialog"
-		aria-hidden="true">
+		aria-hidden="true" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content bg-dark">
 				<div class="modal-header">
-					<h5 class="modal-title" style="color: white; margin: 0 auto;">Employees</h5>
+					<h5 class="modal-title" style="color: white; margin: 0 auto;">Accepted
+						Tickets</h5>
 					<br>
 				</div>
 				<div class="modal-body">
@@ -84,17 +91,19 @@
 						</table>
 					</div>
 				</div>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Declined Tickets Modal -->
 	<div class="modal fade" id="dtModal" tabindex="-1" role="dialog"
-		aria-hidden="true">
+		aria-hidden="true" data-backdrop="static" data-keyboard="false">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content bg-dark">
 				<div class="modal-header">
-					<h5 class="modal-title" style="color: white; margin: 0 auto;">Employees</h5>
+					<h5 class="modal-title" style="color: white; margin: 0 auto;">Declined
+						Tickets</h5>
 					<br>
 				</div>
 				<div class="modal-body">
@@ -103,10 +112,11 @@
 						</table>
 					</div>
 				</div>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- Profile Modal -->
 	<div class="modal fade" id="profileModal" tabindex="-1" role="dialog"
 		aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -165,7 +175,7 @@
 						<label for="amount" style="color: white;">Amount</label>
 						<div class="input-group form-group">
 							<div class="input-group-prepend">
-								<span class="input-group-text bg-dark" style="color: white;">$</span>
+								<span class="input-group-text">$</span>
 							</div>
 							<input type="number" class="form-control" min="10" max="5000"
 								name="amount" step=".01">

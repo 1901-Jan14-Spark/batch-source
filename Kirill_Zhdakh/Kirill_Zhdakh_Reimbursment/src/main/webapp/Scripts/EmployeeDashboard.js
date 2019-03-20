@@ -9,6 +9,103 @@ function sendAjaxGet(url, func){
 	xhr.send();
 }
 
+function getPendingTickets()
+{
+	sendAjaxGet("http://localhost:8080/PEAKReimbursment/pendingticketsemp", createPendingTicketTable);
+}
+
+function getAcceptedTickets()
+{
+	sendAjaxGet("http://localhost:8080/PEAKReimbursment/acceptedticketsemp", createAcceptedTicketTable);
+}
+
+function getDeclinedTickets()
+{
+	sendAjaxGet("http://localhost:8080/PEAKReimbursment/declinedticketsemp", createDeclinedTicketTable);
+}
+
+function createPendingTicketTable(xhr)
+{
+	let response = JSON.parse(xhr.response);
+	let table = "<thead>"+
+				"<tr>"+
+				"<th scope=\"col\">"+"Sender"+"</th>"+
+				"<th scope=\"col\">"+"Title"+"</th>"+
+				"<th scope=\"col\">"+"Description"+"</th>"+
+				"<th scope=\"col\">"+"Amount"+"</th></tr>"+
+				"</thead>"+
+				"<tbody>";
+	for(let i = 0; i < response.length; ++i)
+	{
+		table += "<tr>"+
+		"<td hidden>"+response[i].ticketId+"</td>"+
+		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
+		"<td>"+response[i].ticketOpener.title+"</td>"+
+		"<td>"+response[i].name+"</td>"+
+		"<td>"+"$"+response[i].amount+"</td>"+
+		"<td>"+"<div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">"+ 
+			   "<label class=\"btn btn-outline-success btn-sm\" style=\"margin-right: 10px;\" onclick>"+ 
+			   "<input type=\"radio\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Accept"+
+			   "</label>"+
+			   "<label class=\"btn btn-outline-danger btn-sm\">"+ 
+			   "<input type=\"radio\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Deny"+
+			   "</label></div></td></tr>";
+	}
+	table += "</tbody>";
+	document.getElementById("ptTable").innerHTML = table;
+}
+
+function createAcceptedTicketTable(xhr)
+{
+	let response = JSON.parse(xhr.response);
+	let table = "<thead>" +
+				"<tr>" +
+				"<th scope=\"col\">"+"Sender"+"</th>"+
+				"<th scope=\"col\">"+"Title"+"</th>"+
+				"<th scope=\"col\">"+"Description"+"</th>"+
+				"<th scope=\"col\">"+"Amount"+"</th>"+
+				"<th scope=\"col\">"+"Resolved By"+"</th>"+
+				"</tr>"+
+				"</thead>"+
+				"<tbody>";
+	for(let i = 0; i < response.length; ++i)
+	{
+		table += "<tr>"+
+		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
+		"<td>"+response[i].ticketOpener.title+"</td>"+
+		"<td>"+response[i].name+"</td>"+
+		"<td>"+"$"+response[i].amount+"</td>" +
+		"<td>"+response[i].ticketResolver+"</td></tr>";
+	}
+	table += "</tbody>";
+	document.getElementById("atTable").innerHTML = table;
+}
+
+function createDeclinedTicketTable(xhr)
+{
+	let response = JSON.parse(xhr.response);
+	let table = "<thead>" +
+				"<tr>" +
+				"<th scope=\"col\">"+"Sender"+"</th>"+
+				"<th scope=\"col\">"+"Title"+"</th>"+
+				"<th scope=\"col\">"+"Description"+"</th>"+
+				"<th scope=\"col\">"+"Amount"+"</th>"+
+				"<th scope=\"col\">"+"Resolved By"+"</th>"+
+				"</tr>"+
+				"</thead>"+
+				"<tbody>";
+	for(let i = 0; i < response.length; ++i)
+	{
+		table += "<tr>"+
+		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
+		"<td>"+response[i].ticketOpener.title+"</td>"+
+		"<td>"+response[i].name+"</td>"+
+		"<td>"+"$"+response[i].amount+"</td>" +
+		"<td>"+response[i].ticketResolver+"</td></tr>";
+	}
+	table += "</tbody>";
+	document.getElementById("dtTable").innerHTML = table;
+}
 
 sendAjaxGet("http://localhost:8080/PEAKReimbursment/session", checkLogin);
 

@@ -4,18 +4,19 @@ import java.io.Serializable;
 
 public class TicketHandler implements Serializable {
 	private static final long serialVersionUID = 1L;
-	private int userId;
+	private int ticketId;
 	private String status;
-	public TicketHandler(int userId, String status)
+	TicketHandler(){}
+	public TicketHandler(int ticketId, String status)
 	{
-		this.userId = userId;
+		this.ticketId = ticketId;
 		this.status = status;
 	}
-	public int getUserId() {
-		return userId;
+	public int getTicketId() {
+		return ticketId;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setTicketId(int userId) {
+		this.ticketId = userId;
 	}
 	public String getStatus() {
 		return status;

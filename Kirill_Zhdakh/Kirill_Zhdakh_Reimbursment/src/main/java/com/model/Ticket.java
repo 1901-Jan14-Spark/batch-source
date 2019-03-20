@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Ticket implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	private int ticketId;
 	private int userId;
 	private String name;
 	private float amount;
@@ -14,8 +15,9 @@ public class Ticket implements Serializable{
 	
 	public Ticket() {}
 	
-	public Ticket(int userId, String name, String ticketResolver, float amount, String status)
+	public Ticket(int ticketId, int userId, String name, String ticketResolver, float amount, String status)
 	{
+		this.ticketId = ticketId;
 		this.userId = userId;
 		this.name = name;
 		this.ticketResolver = ticketResolver;
@@ -69,5 +71,13 @@ public class Ticket implements Serializable{
 
 	public void setTicketOpener(User ticketOpener) {
 		this.ticketOpener = ticketOpener;
+	}
+
+	public int getTicketId() {
+		return ticketId;
+	}
+
+	public void setTicketId(int ticketId) {
+		this.ticketId = ticketId;
 	}
 }

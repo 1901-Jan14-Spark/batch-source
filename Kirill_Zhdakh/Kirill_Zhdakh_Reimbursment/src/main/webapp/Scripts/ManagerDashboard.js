@@ -47,30 +47,32 @@ function submitPendingTickets()
 	let jsonObj = new Array();
 	for (i = 0; i < size; ++i)
 	{
-		if(document.getElementsByName("pendingoptions" + i)[0].checked)
+		if (document.getElementsByName("pendingoptions" + i)[0].checked || document.getElementsByName("pendingoptions" + i)[1].checked)
 		{
-			let obj = 
+			if(document.getElementsByName("pendingoptions" + i)[0].checked)
 			{
-				userId: 0,
-				status: ""
-			};
-			obj.userId = document.getElementById("ptTable").tBodies[0].children[i].children[0].innerHTML;
-			obj.status = "Accepted";
-			jsonObj.push(obj);
-		}
-		else
-		{
-			let obj = 
+				let obj = 
+				{
+						ticketId: 0,
+						status: ""
+				};
+				obj.ticketId = document.getElementById("ptTable").tBodies[0].children[i].children[0].innerHTML;
+				obj.status = "Accepted";
+				jsonObj.push(obj);
+			}
+			else
 			{
-				userId: 0,
-				status: ""
-			};
-			obj.userId = document.getElementById("ptTable").tBodies[0].children[i].children[0].innerHTML;
-			obj.status = "Denied";
-			jsonObj.push(obj);
+				let obj = 
+				{
+						ticketId: 0,
+						status: ""
+				};
+				obj.ticketId = document.getElementById("ptTable").tBodies[0].children[i].children[0].innerHTML;
+				obj.status = "Denied";
+				jsonObj.push(obj);
+			}
 		}
 	}
-	console.log(jsonObj);
 	sendAjaxPost("http://localhost:8080/PEAKReimbursment/tickethandler", jsonObj);
 }
 
@@ -90,7 +92,7 @@ function createPendingTicketTable(xhr)
 	for(let i = 0; i < response.length; ++i)
 	{
 		table += "<tr>"+
-		"<td id=\"pendUserId"+i+"\" hidden>"+response[i].userId+"</td>"+
+		"<td hidden>"+response[i].ticketId+"</td>"+
 		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
 		"<td>"+response[i].ticketOpener.title+"</td>"+
 		"<td>"+response[i].name+"</td>"+
@@ -116,6 +118,7 @@ function createAcceptedTicketTable(xhr)
 				"<th scope=\"col\">"+"Title"+"</th>"+
 				"<th scope=\"col\">"+"Description"+"</th>"+
 				"<th scope=\"col\">"+"Amount"+"</th>"+
+				"<th scope=\"col\">"+"Resolved By"+"</th>"+
 				"</tr>"+
 				"</thead>"+
 				"<tbody>";
@@ -125,7 +128,8 @@ function createAcceptedTicketTable(xhr)
 		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
 		"<td>"+response[i].ticketOpener.title+"</td>"+
 		"<td>"+response[i].name+"</td>"+
-		"<td>"+"$"+response[i].amount+"</td></tr>";
+		"<td>"+"$"+response[i].amount+"</td>" +
+		"<td>"+response[i].ticketResolver+"</td></tr>";
 	}
 	table += "</tbody>";
 	document.getElementById("atTable").innerHTML = table;
@@ -140,6 +144,7 @@ function createDeclinedTicketTable(xhr)
 				"<th scope=\"col\">"+"Title"+"</th>"+
 				"<th scope=\"col\">"+"Description"+"</th>"+
 				"<th scope=\"col\">"+"Amount"+"</th>"+
+				"<th scope=\"col\">"+"Resolved By"+"</th>"+
 				"</tr>"+
 				"</thead>"+
 				"<tbody>";
@@ -149,7 +154,8 @@ function createDeclinedTicketTable(xhr)
 		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
 		"<td>"+response[i].ticketOpener.title+"</td>"+
 		"<td>"+response[i].name+"</td>"+
-		"<td>"+"$"+response[i].amount+"</td><tr>";
+		"<td>"+"$"+response[i].amount+"</td>" +
+		"<td>"+response[i].ticketResolver+"</td></tr>";
 	}
 	table += "</tbody>";
 	document.getElementById("dtTable").innerHTML = table;

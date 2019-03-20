@@ -14,16 +14,17 @@ import com.dao.imp.TicketDaoImp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.model.Ticket;
 
-public class DeclinedTicketServlet extends HttpServlet {
+public class AcceptedTicketEmpServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TicketDao ticketdao = new TicketDaoImp();
-		List<Ticket> tickets = ticketdao.getTicketsByStatus("Denied");
+		List<Ticket> tickets = ticketdao.getTicketsByStatusEmp("Accepted", (int)request.getSession().getAttribute("id"));
 		ObjectMapper om = new ObjectMapper();
 		String ticketJSON = om.writeValueAsString(tickets);
 		PrintWriter pw = response.getWriter();
 		pw.print(ticketJSON);
 		pw.close();
 	}
+
 }

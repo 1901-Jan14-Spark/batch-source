@@ -111,6 +111,36 @@
     <servlet-name>DeclinedTicketServlet</servlet-name>
     <url-pattern>/declinedtickets</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>PendingTicketEmpServlet</display-name>
+    <servlet-name>PendingTicketEmpServlet</servlet-name>
+    <servlet-class>com.servlet.PendingTicketEmpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PendingTicketEmpServlet</servlet-name>
+    <url-pattern>/pendingticketsemp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AcceptedTicketEmpServlet</display-name>
+    <servlet-name>AcceptedTicketEmpServlet</servlet-name>
+    <servlet-class>com.servlet.AcceptedTicketEmpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AcceptedTicketEmpServlet</servlet-name>
+    <url-pattern>/acceptedticketsemp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeclinedTicketEmpServlet</display-name>
+    <servlet-name>DeclinedTicketEmpServlet</servlet-name>
+    <servlet-class>com.servlet.DeclinedTicketEmpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeclinedTicketEmpServlet</servlet-name>
+    <url-pattern>/declinedticketsemp</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>TicketHandleServlet</display-name>
