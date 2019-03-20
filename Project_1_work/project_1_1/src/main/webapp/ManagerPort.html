@@ -7,13 +7,13 @@
 
 	<body>
 	
-	
+		
 		<label>View Pending Requests</label>
-		<select>
-			<option></option>
-			<option></option>
+		<select id = "emps">
+			
 		</select>
-		<a href = "Login.html">Log Out</a>
+		<button id = "logout">Logout</button>
+		
 		<h4>Your Employees</h4>
 	<table id = "Employees">
 		<tr>
@@ -21,6 +21,18 @@
 			<th>Employee ID</th>
 		</tr>
 	</table>
+	
+	<table id = "modalTable">
+		<tr>
+			<th>Employee ID</th>
+			<th>Date Submitted</th>
+			<th>Reason</th>
+			<th>Amount</th>
+			
+		</tr>
+	
+	</table>
+	
 	<table id = "view">
 		<tr>
 			<th>Employee ID</th>
@@ -30,10 +42,10 @@
 			<th>Status</th>
 		</tr>
 	</table>	
-	<form id = "form" action = "servletLocation" method = "POST"><input type = "submit"  value = "Submit Changes"></form>
+	<form id = "form" action = "UpdateRequest" method = "POST"></form>
 	</body>
 
-
+	<script src= "Scripts/ViewAllRequests.js"></script>
 	<script src = "Scripts/ManagerPort.js"></script>
 	<script src="Scripts/ManagersEmployees.js"></script>
  </html>

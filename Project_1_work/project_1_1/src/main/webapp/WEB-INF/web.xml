@@ -107,4 +107,34 @@
     <servlet-name>EmployeesRequestApiServlet</servlet-name>
     <url-pattern>/EmpReqApi</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateRequestServlet</display-name>
+    <servlet-name>UpdateRequestServlet</servlet-name>
+    <servlet-class>project_1_1.UpdateRequestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateRequestServlet</servlet-name>
+    <url-pattern>/UpdateRequest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>project_1_1.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AllEmployeeRequestsServletApi</display-name>
+    <servlet-name>AllEmployeeRequestsServletApi</servlet-name>
+    <servlet-class>project_1_1.AllEmployeeRequestsServletApi</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllEmployeeRequestsServletApi</servlet-name>
+    <url-pattern>/AllEmpReqApi</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -1,6 +1,9 @@
 package project_1_1;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -9,15 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import daos.EmployeeDaoImp;
 
 /**
- * Servlet implementation class UpdateEmployeeServlet
+ * Servlet implementation class UpdateRequestServlet
  */
-public class UpdateEmployeeServlet extends HttpServlet {
+public class UpdateRequestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+       EmployeeDaoImp reqUp = new EmployeeDaoImp();
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateEmployeeServlet() {
+    public UpdateRequestServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,15 +37,16 @@ public class UpdateEmployeeServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int id = Integer.parseInt(request.getParameter("id"));
+		String status = request.getParameter("status");
+		String reason = request.getParameter("reason");
+		double amount = Double.parseDouble(request.getParameter("amount"));
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+		LocalDateTime now = LocalDateTime.now();
+		String dateApproved = dtf.format(now);
 		
-		String user = (String) request.getSession().getAttribute("username");
-		String pass = request.getParameter("newPass");
-		EmployeeDaoImp emp = new EmployeeDaoImp();
-		emp.updatePassword(user, pass);
-		System.out.println(user);
-		doGet(request, response);
-		response.sendRedirect("Emp");
-		
+		reqUp.updateRequest(id, status, reason, amount, dateApproved);
+		response.sendRedirect("MngHome");
 	}
 
 }

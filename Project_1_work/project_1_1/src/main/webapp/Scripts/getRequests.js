@@ -18,11 +18,13 @@ function popRTable(xhr){
 	let employeeTable = document.getElementById("employeeReimbursementStatus");
 	for(request of requests){
 		let bo = request.approved;
-		let req = "pending";
-		if (bo === true){
-			req = "approved"}
-			else{
-				req = "Pending";
+		let req = "Pending";
+		if (bo == 1){
+			req = "Approved"}
+		else if(bo == 2){
+			req = "Denied"
+		}else if(bo == 0){
+			req = "Pending";
 			}
 		addRow(req, request.dateSubmitted.substr(0,10));
 	}

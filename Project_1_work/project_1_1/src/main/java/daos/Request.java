@@ -9,7 +9,7 @@ public class Request implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private int employeeId;
-	private boolean approved;
+	private int approved;
 	private String dateSubmitted;
 	private String reason;
 	private double amount;
@@ -19,10 +19,10 @@ public class Request implements Serializable{
 	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
-	public boolean isApproved() {
+	public int getApproved() {
 		return approved;
 	}
-	public void setApproved(boolean approved) {
+	public void setApproved(int approved) {
 		this.approved = approved;
 	}
 	public String getDateSubmitted() {
@@ -50,7 +50,7 @@ public class Request implements Serializable{
 		long temp;
 		temp = Double.doubleToLongBits(amount);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + (approved ? 1231 : 1237);
+		result = prime * result + approved;
 		result = prime * result + ((dateSubmitted == null) ? 0 : dateSubmitted.hashCode());
 		result = prime * result + employeeId;
 		result = prime * result + ((reason == null) ? 0 : reason.hashCode());
@@ -92,7 +92,7 @@ public class Request implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Request(int employeeId, boolean approved, String dateSubmitted, String reason, double amount) {
+	public Request(int employeeId, int approved, String dateSubmitted, String reason, double amount) {
 		super();
 		this.employeeId = employeeId;
 		this.approved = approved;

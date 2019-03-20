@@ -1,23 +1,29 @@
 package project_1_1;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import daos.EmployeeDaoImp;
+import daos.Request;
 
 /**
- * Servlet implementation class UpdateEmployeeServlet
+ * Servlet implementation class AllEmployeeRequestsServletApi
  */
-public class UpdateEmployeeServlet extends HttpServlet {
+public class AllEmployeeRequestsServletApi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateEmployeeServlet() {
+    public AllEmployeeRequestsServletApi() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,23 +32,23 @@ public class UpdateEmployeeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		ObjectMapper om = new ObjectMapper();
+		String requestJSON;
+		EmployeeDaoImp allReq = new EmployeeDaoImp();
+		List<Request> requests = allReq.apiRequest();
+		requestJSON = om.writeValueAsString(requests);
+		PrintWriter pw = response.getWriter();
+		pw.flush();
+		pw.write(requestJSON);
+		pw.close();
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String user = (String) request.getSession().getAttribute("username");
-		String pass = request.getParameter("newPass");
-		EmployeeDaoImp emp = new EmployeeDaoImp();
-		emp.updatePassword(user, pass);
-		System.out.println(user);
+		// TODO Auto-generated method stub
 		doGet(request, response);
-		response.sendRedirect("Emp");
-		
 	}
 
 }

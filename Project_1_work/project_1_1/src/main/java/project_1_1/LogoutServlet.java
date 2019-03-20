@@ -5,19 +5,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import daos.EmployeeDaoImp;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class UpdateEmployeeServlet
+ * Servlet implementation class LogoutServlet
  */
-public class UpdateEmployeeServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateEmployeeServlet() {
+    public LogoutServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,23 +25,17 @@ public class UpdateEmployeeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		session.invalidate();
+		response.sendRedirect("eLogin");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String user = (String) request.getSession().getAttribute("username");
-		String pass = request.getParameter("newPass");
-		EmployeeDaoImp emp = new EmployeeDaoImp();
-		emp.updatePassword(user, pass);
-		System.out.println(user);
+		// TODO Auto-generated method stub
 		doGet(request, response);
-		response.sendRedirect("Emp");
-		
 	}
 
 }

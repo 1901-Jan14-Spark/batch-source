@@ -15,16 +15,17 @@ function sendAjaxGet(url, callback){
 	xhr.send();
 }
 
+document.getElementById("logout").addEventListener("click", function(){
+	location.href = "Logout";
+	console.log("Logout");
+})
+
 function popInfo(xhr){
 	let employee = JSON.parse(xhr.response);
 	console.log(employee);
-	
 	 document.getElementById("employeeName").innerHTML = employee.firstName;
 	 document.getElementById("MangerID").innerHTML = employee.managerId;
 	 document.getElementById("employeeId").innerHTML = employee.employeeId;
-	 
-	
-	
 }
 
 sendAjaxGet(burl,popInfo);

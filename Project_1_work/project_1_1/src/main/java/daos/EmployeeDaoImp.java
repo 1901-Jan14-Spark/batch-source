@@ -114,7 +114,7 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
 					int empId = rs.getInt("EMPLOYEE_ID");
-					boolean aproved = rs.getBoolean("APPROVED");
+					int aproved = rs.getInt("APPROVED");
 					String date = rs.getString("DATE_SUBMITTED");
 					String reason = rs.getString("REASON");
 					double amount = rs.getDouble("AMOUNT");
@@ -262,8 +262,24 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 
 	@Override
 	public List<Request> apiRequest() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Request> requests = new ArrayList<Request>();
+		String sql = "SELECT * FROM REIMBURSEMENT_REQUEST WHERE APPROVED = 0";
+		try(Connection con = ConnetionSrc.getConnection();
+				Statement s = con.createStatement();
+				ResultSet rs = s.executeQuery(sql);){
+				while(rs.next()) {
+					int empId = rs.getInt("EMPLOYEE_ID");	
+					int	approval = rs.getInt("APPROVED");
+					String date = rs.getString("DATE_SUBMITTED");
+					String reason = rs.getString("REASON");
+					double amount = rs.getDouble("AMOUNT");
+					requests.add(new Request(empId, approval, date, reason, amount));
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return requests;
 	}
 
 
@@ -334,7 +350,7 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 					ResultSet rs = ps.executeQuery();
 					while(rs.next()) {
 					int empId = rs.getInt("EMPLOYEE_ID");	
-					boolean	approval = rs.getBoolean("APPROVED");
+					int	approval = rs.getInt("APPROVED");
 					String date = rs.getString("DATE_SUBMITTED");
 					String reason = rs.getString("REASON");
 					double amount = rs.getDouble("AMOUNT");
@@ -346,6 +362,33 @@ public class EmployeeDaoImp implements EmployeeDao, Runnable{
 			}
 		}
 		return requests;
+	}
+
+
+
+	@Override
+	public void updateRequest(int id, String status, String reason, double amount, String dateApproved) {
+		int stat= 0;
+		if(status.equals("Denied")){
+			stat = 2;
+		}else if(status.equals("Approved")) {
+			stat = 1;
+		}else if(status.equals("Pending")) {
+			stat = 0;
+		}
+		
+		String sql = "UPDATE REIMBURSEMENT_REQUEST SET APPROVED = ? WHERE EMPLOYEE_ID = ? AND REASON = ? AND AMOUNT = ?";
+		try(Connection con = ConnetionSrc.getConnection();
+				PreparedStatement ps = con.prepareStatement(sql)){
+			 	ps.setInt(1, stat);
+			 	ps.setInt(2, id);
+			 	ps.setString(3, reason);
+			 	ps.setDouble(4, amount);
+			 	ps.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 

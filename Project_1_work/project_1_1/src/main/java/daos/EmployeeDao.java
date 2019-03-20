@@ -20,6 +20,9 @@ public interface EmployeeDao {
 	public List<Request> yourEmployeesRequests(String username);
 	public List<Integer> getIdbyMngUser(String username);
 	public List<Request> getRequestById(String username);
+	public void updateRequest(int id, String status, String reason, double amount, String dateApproved);
+	
+	
 
 	
 }

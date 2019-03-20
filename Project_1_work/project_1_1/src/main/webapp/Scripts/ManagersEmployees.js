@@ -27,11 +27,17 @@ function addRow(name, id){
 	let row = document.createElement("tr");
 	let cell1 = document.createElement("td");
 	let cell2 = document.createElement("td");
+	
+	//let opt = document.createElement("option");
+	
+
+	
 	row.appendChild(cell1);
 	row.appendChild(cell2);
 	cell1.innerHTML=name;
 	cell2.innerHTML=id;
 	document.getElementById("Employees").appendChild(row);
+	
 }
 
 
