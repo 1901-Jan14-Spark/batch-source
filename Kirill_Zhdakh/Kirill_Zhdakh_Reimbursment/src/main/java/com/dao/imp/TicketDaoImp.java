@@ -12,6 +12,7 @@ import com.dao.TicketDao;
 import com.model.Ticket;
 import com.model.User;
 import com.util.ConnectionUtil;
+import com.util.PasswordEncryption;
 
 public class TicketDaoImp implements TicketDao {
 
@@ -84,9 +85,30 @@ public class TicketDaoImp implements TicketDao {
 	}
 
 	@Override
-	public boolean updateTicket(Ticket ticket) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean updateTicket(int userId, String status, String resolvedBy) {
+		String sql = "UPDATE TICKET"
+				+" SET TICKET_STATUS = ?"
+				+" SET TICKET_RESOLVER = ?"
+				+" WHERE TICKET_USERID = ?";
+		
+	try(Connection c = ConnectionUtil.getConnectionFromFile();
+			PreparedStatement ps = c.prepareStatement(sql))
+	{
+		ps.setString(1, status);
+		ps.setString(2, resolvedBy);
+		ps.setInt(3, userId);
+		ps.executeUpdate();
+		return true;
+	}
+	catch (IOException e)
+	{
+		e.printStackTrace();
+	}
+	catch (SQLException e)
+	{
+		e.printStackTrace();
+	}
+	return false;
 	}
 
 	@Override

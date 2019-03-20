@@ -111,4 +111,14 @@
     <servlet-name>DeclinedTicketServlet</servlet-name>
     <url-pattern>/declinedtickets</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TicketHandleServlet</display-name>
+    <servlet-name>TicketHandleServlet</servlet-name>
+    <servlet-class>com.servlet.TicketHandleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TicketHandleServlet</servlet-name>
+    <url-pattern>/tickethandler</url-pattern>
+  </servlet-mapping>
 </web-app>

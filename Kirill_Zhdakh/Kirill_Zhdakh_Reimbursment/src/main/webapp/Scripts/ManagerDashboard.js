@@ -9,6 +9,18 @@ function sendAjaxGet(url, func){
 	xhr.send();
 }
 
+function sendAjaxPost(url, obj){
+	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
+	xhr.onreadystatechange = function(){
+		if(this.readyState===4 && this.status===200){
+			
+		}
+	}
+	xhr.open("POST", url);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.send(JSON.stringify(obj));
+}
+
 
 sendAjaxGet("http://localhost:8080/PEAKReimbursment/session", checkLogin);
 
@@ -28,6 +40,40 @@ function getDeclinedTickets()
 	sendAjaxGet("http://localhost:8080/PEAKReimbursment/declinedtickets", createDeclinedTicketTable);
 }
 
+function submitPendingTickets()
+{
+	let i;
+	let size = document.getElementById("ptTable").tBodies[0].childElementCount;
+	let jsonObj = new Array();
+	for (i = 0; i < size; ++i)
+	{
+		if(document.getElementsByName("pendingoptions" + i)[0].checked)
+		{
+			let obj = 
+			{
+				userId: 0,
+				status: ""
+			};
+			obj.userId = document.getElementById("ptTable").tBodies[0].children[i].children[0].innerHTML;
+			obj.status = "Accepted";
+			jsonObj.push(obj);
+		}
+		else
+		{
+			let obj = 
+			{
+				userId: 0,
+				status: ""
+			};
+			obj.userId = document.getElementById("ptTable").tBodies[0].children[i].children[0].innerHTML;
+			obj.status = "Denied";
+			jsonObj.push(obj);
+		}
+	}
+	console.log(jsonObj);
+	sendAjaxPost("http://localhost:8080/PEAKReimbursment/tickethandler", jsonObj);
+}
+
 function createPendingTicketTable(xhr)
 {
 	let response = JSON.parse(xhr.response);
@@ -44,16 +90,17 @@ function createPendingTicketTable(xhr)
 	for(let i = 0; i < response.length; ++i)
 	{
 		table += "<tr>"+
+		"<td id=\"pendUserId"+i+"\" hidden>"+response[i].userId+"</td>"+
 		"<td>"+response[i].ticketOpener.firstName +" "+response[i].ticketOpener.lastName+"</td>"+
 		"<td>"+response[i].ticketOpener.title+"</td>"+
 		"<td>"+response[i].name+"</td>"+
 		"<td>"+"$"+response[i].amount+"</td>"+
 		"<td>"+"<div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">"+ 
-			   "<label class=\"btn btn-outline-success btn-sm\" style=\"margin-right: 10px;\">"+ 
-			   "<input type=\"radio\" name=\"pendingoptions\" autocomplete=\"off\">Accept"+
+			   "<label class=\"btn btn-outline-success btn-sm\" style=\"margin-right: 10px;\" onclick>"+ 
+			   "<input type=\"radio\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Accept"+
 			   "</label>"+
 			   "<label class=\"btn btn-outline-danger btn-sm\">"+ 
-			   "<input type=\"radio\" name=\"pendingoptions\" autocomplete=\"off\">Deny"+
+			   "<input type=\"radio\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Deny"+
 			   "</label></div></td></tr>";
 	}
 	table += "</tbody>";
