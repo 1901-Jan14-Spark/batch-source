@@ -1,11 +1,11 @@
 <h4>Highlight Component</h4>
 
-<select [(ngModel)]='selectedColor' name='selectedColor'>
-      <option *ngFor='let color of colors' [value]='color'>{{color}}</option>
-</select>
-
 <div class="filler-text" [ngStyle]="{'background-color': style}" (mouseover)="updateStyle(selectedColor)">
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sagittis pellentesque dapibus. Proin accumsan convallis augue in consectetur. Vestibulum imperdiet dictum arcu eget congue. Sed quis quam eget dolor ullamcorper malesuada. Proin est ligula, tempus non rhoncus sed, lobortis id tellus. Fusce metus diam, pellentesque eu nibh nec, venenatis suscipit metus. Phasellus in ligula blandit, consequat metus non, efficitur enim. Nullam imperdiet, est a fringilla molestie, augue orci porttitor ante, sed porta sem nisi nec risus. Cras sit amet tellus velit. Nunc eget aliquam ante. Integer eu quam consequat, convallis nibh nec, facilisis nibh. Donec odio lorem, hendrerit rhoncus sollicitudin et, rutrum ac neque. Cras iaculis condimentum nisl sed faucibus.
   </p>
 </div>
+
+<select [(ngModel)]='selectedColor' name='selectedColor'>
+      <option *ngFor='let color of colors' [value]='color'>{{color}}</option>
+</select>
