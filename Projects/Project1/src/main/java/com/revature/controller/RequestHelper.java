@@ -41,20 +41,20 @@ public class RequestHelper {
 				}
 				break;
 			case "departments":
-				// direct request and response to department delegate
+				// direct request and response to employee delegate
 				if ("GET".equals(request.getMethod())) {
 					dd.getDepartments(request, response);
 				} else {
 					response.sendError(405, "Method Not Supported For /" + record);
 				}
 				break;
-			case "employees/emp":
-				if ("GET".equals(request.getMethod())) {
-					ed.getEmployee(request, response);
-				} else {
-					response.sendError(405, "Method not supported for /" + record);
-				}
-				break;
+//			case "employees/emp":
+//				if ("GET".equals(request.getMethod())) {
+//					ed.getEmployee(request, response);
+//				} else {
+//					response.sendError(405, "Method not supported for /" + record);
+//				}
+//				break;
 			case "reimbursements":
 				// direct request and response to department delegate
 				if ("GET".equals(request.getMethod())) {

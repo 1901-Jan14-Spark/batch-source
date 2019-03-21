@@ -46,11 +46,12 @@ public class EmployeeDelegate {
 	public void getEmployee(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		ObjectMapper om = new ObjectMapper();
 		
-		String id = request.getParameter("empId");
+//		int empId = (int) request.getSession().getAttribute("id");
+		int empId = 4;
 		
 		String employeeJSON;
 		
-		Employee e = eService.getByStringId(id);
+		Employee e = eService.getById(empId);
 		if (e == null) {
 			employeeJSON = "";
 			response.setStatus(404);

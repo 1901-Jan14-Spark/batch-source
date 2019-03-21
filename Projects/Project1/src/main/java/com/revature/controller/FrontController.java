@@ -26,7 +26,7 @@ public class FrontController extends DefaultServlet {
 
 		System.out.println("Get request to front controller");
 		System.out.println(request.getContextPath());
-				System.out.println(request.getRequestURI());
+		System.out.println(request.getRequestURI());
 		if(request.getRequestURI().substring(request.getContextPath().length()).startsWith("/static/")) {
 			super.doGet(request, response);
 		} else {

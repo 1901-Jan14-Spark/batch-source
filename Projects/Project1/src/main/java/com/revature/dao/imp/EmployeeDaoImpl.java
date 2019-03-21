@@ -74,34 +74,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 	
 	@Override
-	public Employee getEmployeeByStringId(String id) {
-		String sql = "SELECT * FROM EMPLOYEES WHERE EMP_ID = ?";
-		Employee e = null;
-		
-		try(Connection c = ConnectionUtil.getConnection();
-				PreparedStatement ps = c.prepareStatement(sql)){
-			
-			ps.setString(1,  id);
-			ResultSet rs = ps.executeQuery();
-			
-			while(rs.next()) {
-				int empId = rs.getInt("EMP_ID");
-				int deptId = rs.getInt("DEPT_ID");
-				String firstName = rs.getString("EMP_FIRSTNAME");
-				String lastName = rs.getString("EMP_LASTNAME");
-				String email = rs.getString("EMP_EMAIL");
-				String username = rs.getString("EMP_USERNAME");
-				String password = rs.getString("EMP_PASS");
-				e = new Employee(empId, firstName, lastName, email, username, password, new Department(deptId));
-			}
-			
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}	
-		return e;
-	}
-	
-	@Override
 	public Employee getEmployeeByName(String firstname, String lastname) {
 		String sql = "SELECT * FROM EMPLOYEES WHERE EMP_FIRSTNAME = ? AND EMP_LASTNAME =?";
 		Employee emp = null;

@@ -1,4 +1,4 @@
-function sendAjaxGet(url, func){
+function sendAjaxGet(url){
 	let xhr = new XMLHttpRequest() || new ActiveXObject("Microsoft.HTTPRequest");
 	
 	xhr.onreadystatechange = function(){
@@ -10,16 +10,4 @@ function sendAjaxGet(url, func){
 	xhr.send();
 }
 
-sendAjaxGet("http://localhost:8080/Project1/api/departments", display);
-
-function display(xhr){
-	departments = JSON.parse(xhr.response);
-	
-	let table = document.getElementById("table");
-	
-	for(i in departments){
-		let nextRow = document.createElement("tr");	
-		nextRow.innerHTML = `<td>${departments[i].deptId}</td><td>${departments[i].name}</td><td>${departments[i].managerId}</td>></td>`;
-		table.appendChild(nextRow);
-	}
-}
+sendAjaxGet("http://localhost:8080/Project1/api/departments");
