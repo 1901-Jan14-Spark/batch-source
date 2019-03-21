@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { People } from '../people';
 
 @Component({
   selector: 'app-table',
