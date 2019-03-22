@@ -9,11 +9,10 @@ export class SelectComponent implements OnInit {
   
 
   animals: string[] = ["cat", " dog", " bear", " tiger"];
-  isAnimal: boolean = false;
   colors: string[] = ["blue", " light-blue", " sky-blue"];
-  isColor: boolean = false;
   days: string[] = ["sunday", "funday", " holiday"];
-  isday: boolean = false;
+
+  ltype = null;
 
   constructor() {}
 

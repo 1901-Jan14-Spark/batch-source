@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!--  Root tags of configuration -->
+<hibernate-configuration>
+	<!-- this tag begins configuration to a database -->
+	<session-factory>
+	
+		<property name="hibernate.connection.driver_class">
+			oracle.jdbc.OracleDriver
+		</property>
+		
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.Oracle10gDialect
+		</property>
+		
+		<property name="hibernate.connection.url">
+			jdbc:oracle:thin:@dt07-revature-db.cltjdonmahma.us-east-1.rds.amazonaws.com:1521:admin
+		</property>
+		
+		<property name="hibernate.connection.username">
+			dtran07
+		</property>
+		
+		<property name="hibernate.connection.password">
+			Age3mpire#
+		</property>
+		
+		<!-- This property determines how many connections a single user is allowed to a database. A higher number will speed up the process for a user.
+		but a lot will also eat up all the available connections  -->
+		<property name="hibernate.connection.pool_size">
+			2
+		</property>
+		
+		<property name="show_sql">
+			true
+		</property>
+		
+		<!-- the below property is what tells hibernate how to deal with a database. It can be one of four states:
+				1) Create: Hibernate will purge existing database and create it from scratch
+				2) Update: Hibernate will connects to the existing database and interacts with it without removing current data
+				3) Validate: Creates the schema, destroying old data
+				4) Create-Drop: purges existing tables and creates them from scratch... then when the server is shut down
+					it will purges the data again
+		 -->
+		<property name="hibernate.hbm2ddl.auto">
+			update
+		</property>
+		
+		<!--  now the configuration know where to go to look for the cat configuration -->
+		<mapping resource="cat.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>
