@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!--  Root tag of configuration -->
+<hibernate-configuration>
+
+	<!--  This tag begins configuration to a database -->
+	<session-factory>
+		<property name="hibernate.connection.driver_class">
+			oracle.jdbc.OracleDriver
+		</property>
+		
+		<!--  specifies dialect of hibernate we want to us -->
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.Oracle10gDialect
+		</property>
+		
+		<property name="hibernate.connection.url">
+			jdbc:oracle:thin:@myinstance.cvfy9ieeus3o.us-east-1.rds.amazonaws.com:1521:orcl
+		</property>
+		
+		<property name="hibernate.connection.username">
+			vksadanani
+		</property>
+		
+		<property name="hibernate.connection.password">
+			p4ssw0rd
+		</property>
+		
+		<!-- This property determines how many connections a single user is allowed to utilize for a database, a higher number
+		will speed up the process for a user, but a lot will also eat up all the available connections. -->
+		<property name="hibernate.connection.pool_size">
+			2
+		</property>
+		
+		<property name="show_sql">
+			true
+		</property>
+		
+		<!-- The below property is what tells hibernate how to deal with a database. It can be one of four states:
+			1. Create: hibernate will purge existing database, and create it from scratch.
+			2. Update: Hibernate connects to the existing database and interacts with it without removing current data.
+			3. Validate: Creates the schema, destroying old data
+			4. Create-Drop: Purges existing tables, and creates them from scratch, then when server is shut down, it will purge the data again. -->
+		<property name="hibernate.hbm2ddl.auto">
+			update
+		</property>
+		
+		<mapping resource="cat.hbm.xml"/>
+	</session-factory>
+
+
+
+
+
+</hibernate-configuration>
