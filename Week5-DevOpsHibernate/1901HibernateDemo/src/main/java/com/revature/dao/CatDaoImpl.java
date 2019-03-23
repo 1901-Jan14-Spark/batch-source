@@ -84,6 +84,22 @@ public class CatDaoImpl implements CatDao{
 		}finally {
 			session.close();
 		}
+	}
+		
+		public void deleteCatById(Integer id){
+			Session session = HibernateUtil.getSession();
+			Transaction tx = null;
+			
+			try{
+				tx = session.beginTransaction();
+				session.delete(session.get(Cat.class, id));
+				tx.commit();
+			}catch(HibernateException e){
+				e.printStackTrace();
+				tx.rollback();
+			}finally{
+				session.close();
+			}
 		
 	}
 
