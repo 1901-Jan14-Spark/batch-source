@@ -10,12 +10,12 @@ function sendAjaxGet(url, func){
 	
 	xhr.send();
 }
-document.getElementById("ResolvedB").addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/resolve", fillResolve));
-//fillResolve.stopImmediatePropagation();
-document.getElementById("tbutton").addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/table", fillTable) );
-document.getElementById("aButton").addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/active", fillActive) );
-let xbutton=document.getElementById("xButton")
-xbutton.addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/active", ReimById) );
+
+
+
+
+
+
 console.log("rrrrrrrrrrrrrrrrrrr");
 
 function fillTable(xhr){
@@ -114,11 +114,49 @@ function doApproveFunction(){
 	console.log(request);
    sendAjaxPost("http://localhost:8080/Project-1/api/approve", printResponse, request);
 }
+let approveById=document.getElementById("ApproveById");
+approveById.addEventListener("click",  doApproveFunction2);
+function doApproveFunction2(){
+	let ReimId=document.getElementById("selectById").value;
+	console.log(ReimId);
+	
+	
+	
+	
+	
+	let NewRequest = {
+	 "id": ReimId,
+	 }
+	console.log(NewRequest);
+	
+	let request=JSON.stringify(NewRequest)
+	console.log(request);
+   sendAjaxPost("http://localhost:8080/Project-1/api/approve", printResponse, request);
+}
 
 let deny=document.getElementById("Deny");
 deny.addEventListener("click",  doDenyFunction);
 function doDenyFunction(){
 	let ReimId=document.getElementById("select").value;
+	console.log(ReimId);
+	
+	
+	
+	
+	
+	let NewRequest = {
+	 "id": ReimId,
+	 }
+	console.log(NewRequest);
+	
+	let request=JSON.stringify(NewRequest)
+	console.log(request);
+   sendAjaxPost("http://localhost:8080/Project-1/api/deny", printResponse, request);
+}
+let denyById=document.getElementById("DenyById");
+denyById.addEventListener("click",  doDenyFunction2);
+function doDenyFunction2(){
+	let ReimId=document.getElementById("selectById").value;
 	console.log(ReimId);
 	
 	
@@ -182,7 +220,16 @@ function ReimById(xhr){
 	let Empl = document.getElementById("selectReimId").value;
 	console.log(Empl)
 	let table = document.getElementById("ReimByIDT");
+	let select=document.getElementById("selectById");
 	
+	while(table.hasChildNodes())
+	{
+	   table.removeChild(table.firstChild);
+	}
+	while(select.hasChildNodes())
+	{
+	   select.removeChild(select.firstChild);
+	}
 	for(i in requests){
 		
 		let nextRow = document.createElement("tr");
@@ -205,7 +252,10 @@ function ReimById(xhr){
 			app_by=requests[i].approvedBy;
 			den_by=requests[i].deniedBy;
 			
-		
+			let select=document.getElementById("selectById");
+			let option = document.createElement("option");
+			option.innerHTML=id;
+			select.append(option);
 			
 		
 		nextRow.innerHTML = `<td>${id}</td><td>${name}</td><td>${category}</td><td>${cost}</td><td>${merchant}</td><td>${purchaseDate}</td><td>${app_by}</td><td>${den_by}</td>`;
@@ -213,4 +263,61 @@ function ReimById(xhr){
 		table.appendChild(nextRow);
 		}
 	}	
+}
+// All Ajax calls------------------------------------------------------------------------------------------------
+document.getElementById("ResolvedB").addEventListener("click", sendResolveAjaxGet);
+function sendResolveAjaxGet(){
+	let url="http://localhost:8080/Project-1/api/resolve";
+	console.log("getting");
+	let xhr = new XMLHttpRequest() ;
+	xhr.open("GET", url);
+	xhr.onreadystatechange = function(){
+		if(this.readyState===4 && this.status===200){
+			fillResolve(this);
+		}
+	}
+	
+	xhr.send();
+}
+document.getElementById("tbutton").addEventListener("click", sendTableAjaxGet);
+function sendTableAjaxGet(){
+	let url="http://localhost:8080/Project-1/api/table";
+	console.log("getting");
+	let xhr = new XMLHttpRequest() ;
+	xhr.open("GET", url);
+	xhr.onreadystatechange = function(){
+		if(this.readyState===4 && this.status===200){
+			fillTable(this);
+		}
+	}
+	
+	xhr.send();
+}
+document.getElementById("aButton").addEventListener("click", sendActiveAjaxGet);
+function sendActiveAjaxGet(){
+	let url="http://localhost:8080/Project-1/api/active";
+	console.log("getting");
+	let xhr = new XMLHttpRequest() ;
+	xhr.open("GET", url);
+	xhr.onreadystatechange = function(){
+		if(this.readyState===4 && this.status===200){
+			fillActive(this);
+		}
+	}
+	
+	xhr.send();
+}
+document.getElementById("xButton").addEventListener("click", sendReimByIdAjaxGet);
+function sendReimByIdAjaxGet(){
+	let url="http://localhost:8080/Project-1/api/active";
+	console.log("getting");
+	let xhr = new XMLHttpRequest() ;
+	xhr.open("GET", url);
+	xhr.onreadystatechange = function(){
+		if(this.readyState===4 && this.status===200){
+			ReimById(this);
+		}
+	}
+	
+	xhr.send();
 }

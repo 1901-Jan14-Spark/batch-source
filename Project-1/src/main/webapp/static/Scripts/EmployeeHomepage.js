@@ -1,3 +1,8 @@
+
+
+
+
+
 function sendAjaxGet(url, func){
 	let xhr = new XMLHttpRequest() ;
 	xhr.open("GET", url);
@@ -9,14 +14,22 @@ function sendAjaxGet(url, func){
 	
 	xhr.send();
 }
-  
- let ActiveB=document.getElementById("ActiveB");
- ActiveB.addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/viewActive", getActive)) ;
- let empInfo=document.getElementById("empInfo");
- empInfo.addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/session", listInfo)) ;
- let ResolvedB=document.getElementById("ResolvedB");
- ResolvedB.addEventListener("click", sendAjaxGet("http://localhost:8080/Project-1/api/viewResolved", getResolved)) ;
+let ActiveB=document.getElementById("ActiveB");
+ActiveB.addEventListener("click", sendGetActive) ;
+function sendGetActive(){
+	sendAjaxGet("http://localhost:8080/Project-1/api/viewActive", getActive)
+}
 
+ let empInfo=document.getElementById("empInfo");
+ empInfo.addEventListener("click", sendlistInfo) ;
+ function sendlistInfo(){
+	 sendAjaxGet("http://localhost:8080/Project-1/api/session", listInfo)
+ }
+ let ResolvedB=document.getElementById("ResolvedB");
+ ResolvedB.addEventListener("click", sendgetResolved) ;
+ function sendgetResolved(){
+	 sendAjaxGet("http://localhost:8080/Project-1/api/viewResolved", getResolved);
+ }
 function listInfo(xhr){
 	let session = JSON.parse(xhr.response);
 	let id = "n/a";
