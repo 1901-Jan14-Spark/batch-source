@@ -1,0 +1,34 @@
+<h1>Table Component</h1>
+
+<button (click)="addBobRoss()">Add Ross</button>
+<button (click)="clearBobRoss()">Clear Ross</button>
+<button (click)="bobify()">{{bobifyStr}}</button>
+
+<div *ngIf="isBobified">
+    <table class="table">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Birthday</th>
+        </tr>
+        <tr *ngFor="let bobs of people">
+            <td>{{bobs.firstname + " " + bobs.lastname}}</td>
+            <td>{{bobs.email}}</td>
+            <td>{{bobs.birthday | date:'longDate'}}</td>
+        </tr>
+    </table>
+</div>
+<div *ngIf="!isBobified">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Birthday</th>
+            </tr>
+            <tr *ngFor="let bobs of people">
+                <td>{{bobs.firstname + " " + bobs.lastname}}</td>
+                <td>{{bobs.email}}</td>
+                <td>{{bobs.birthday | date:'longDate'}}</td>
+            </tr>
+        </table>
+    </div>

@@ -1,0 +1,13 @@
+<h1>Select Component</h1>
+<form>
+  <label for="animals">Animals</label>
+  <input type="radio" name="options" value="animals" (change)="changeDisplay('animals')"/><br>
+  <label for="colors">Colors</label>
+  <input type="radio" name="options" value="colors" (change)="changeDisplay('colors')"/><br>
+  <label for="days">Days</label>
+  <input type="radio" name="options" value="days" (change)="changeDisplay('days')"/><br>
+</form>
+
+<ul>
+  <li *ngFor="let i of displayItems">{{i}}</li>
+</ul>
