@@ -1,0 +1,21 @@
+#searchbox {
+  padding: 1rem;
+  background: #ff424f;
+}
+
+#sidebar {
+  background: #222b31;
+  font-size: 20px;
+  font-weight: bold;
+  height: 100%;
+}
+
+.nav-link i {
+  margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    width: 100% !important;
+  }
+}

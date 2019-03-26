@@ -1,0 +1,12 @@
+<div id="home_container" class="container-fluid">
+  <h3 id="title" class="text-muted text-center mb-3">Now Playing</h3>
+
+  <div class="row">
+    <div id="nowPlayingContainer" *ngFor="let movie of movies">
+      <div id="addPadding" class="col-lg3-col-sm-4 my-5">
+        <img src="{{ imgUrl }}{{ movie.poster_path }}" alt="" />
+        <p class="text-muted text-center mb-3" id="mTitle">{{ movie.title }}</p>
+      </div>
+    </div>
+  </div>
+</div>

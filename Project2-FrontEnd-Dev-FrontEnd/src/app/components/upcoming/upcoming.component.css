@@ -1,0 +1,29 @@
+#home_container {
+  background-color: rgba(0, 0, 0, 0.87);
+}
+
+h3 {
+  padding-top: 30px;
+}
+
+#addPadding {
+  padding-left: 6rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#mTitle {
+  font-size: 26px;
+  max-width: 300px;
+}
+
+#release_date {
+  font-size: 20px;
+}
+
+img {
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 450px;
+  max-height: 450px;
+}
