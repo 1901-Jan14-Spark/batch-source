@@ -10,13 +10,11 @@ public class LoginService {
 	
 	public Employee loginResult(String username, String password) {		
 		Employee currentEmp = ed.getEmployeeByUsername(username);
-		if(username != null && password != null) {
-			String passwordString = currentEmp.getPassword();	
-			if(password.equals(passwordString)){
-				return currentEmp;
-			} else {
-				return null;
-			}
+		System.out.println(username);
+		System.out.println(password);
+		
+		if(currentEmp != null && currentEmp.getPassword().equals(password)) {
+			return currentEmp;
 		} else {
 			return null;
 		}

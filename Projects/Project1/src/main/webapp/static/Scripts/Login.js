@@ -1,4 +1,4 @@
-let url = "http://localhost:8080/Project1/api/login";
+let url = "http://localhost:8083/Project1/api/login";
 
 function sendPost(){
 	let attempt = getLoginInfo();
@@ -31,8 +31,8 @@ function ajaxPostRequest(url, callback, objectJS) {
 }
 
 function getLoginInfo() {
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+    let username = document.getElementById("inputUsername").value;
+    let password = document.getElementById("inputPassword").value;
     
     return patient;
 }

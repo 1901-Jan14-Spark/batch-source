@@ -20,8 +20,4 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  visible: boolean = false;
-
-
 }

@@ -7,8 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FillerTextComponent implements OnInit {
 
-  selectedColor: string = 'orange';
-
   constructor() { }
 
   ngOnInit() {

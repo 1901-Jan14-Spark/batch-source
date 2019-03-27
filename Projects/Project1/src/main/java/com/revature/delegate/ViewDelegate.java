@@ -27,7 +27,7 @@ public class ViewDelegate {
 				request.getSession().invalidate();
 				response.sendRedirect("/login");
 			} else {
-				request.getRequestDispatcher("/static/Views/EmpDash.html").forward(request, response);
+				request.getRequestDispatcher("/static/Views/MangDash.html").forward(request, response);
 			}
 			break;
 		default:

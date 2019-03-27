@@ -24,9 +24,12 @@ public class FrontController extends DefaultServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+		System.out.println();
 		System.out.println("Get request to front controller");
 		System.out.println(request.getContextPath());
 		System.out.println(request.getRequestURI());
+		System.out.println();
+		
 		if(request.getRequestURI().substring(request.getContextPath().length()).startsWith("/static/")) {
 			super.doGet(request, response);
 		} else {

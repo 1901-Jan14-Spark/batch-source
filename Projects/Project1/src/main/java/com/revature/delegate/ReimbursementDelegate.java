@@ -80,10 +80,22 @@ public class ReimbursementDelegate {
 		response.sendRedirect("/edash");
 	}	
 	
+	public void updateRequest(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public void approveRequest(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 	
 		
 	}
+	
+	public void denyRequest(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 	
 }

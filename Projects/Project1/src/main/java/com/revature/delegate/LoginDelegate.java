@@ -28,15 +28,15 @@ public class LoginDelegate {
 			session.setAttribute("firstname", e.getFirstName());
 			session.setAttribute("lastname", e.getLastName());
 
-			System.out.println("Successful login");
+			System.out.println("Login successful!");
 			
 			if ((e.getEmpId() == 2) || (e.getEmpId() == 4) || (e.getEmpId() == 11) || (e.getEmpId() == 13) || (e.getEmpId() == 18)) {
-				response.sendRedirect("./Project1/MangDash.html");
+				response.sendRedirect("/Project1/mDash");
 			} else {
-				response.sendRedirect("./Project1/EmpDash.html");			
+				response.sendRedirect("/Project1/eDash");			
 			}
 		} else {
-			response.sendRedirect("./Project1/login");
+			response.sendRedirect("/Project1/login");
 		}
 
 	}

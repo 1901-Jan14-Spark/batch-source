@@ -30,88 +30,73 @@ public class RequestHelper {
 			String record = uri.substring(5);
 			System.out.println(record);
 			switch (record) {
-			case "employees":
-				// direct request and response to employee delegate
-				if ("GET".equals(request.getMethod())) {
-					ed.getEmployees(request, response);
-				} else if ("POST".equals(request.getMethod())) {
-					ed.updateEmployee(request, response);
-				} else {
-					response.sendError(405, "Method Not Supported For /" + record);
-				}
-				break;
 			case "departments":
-				// direct request and response to employee delegate
 				if ("GET".equals(request.getMethod())) {
 					dd.getDepartments(request, response);
 				} else {
 					response.sendError(405, "Method Not Supported For /" + record);
 				}
 				break;
-//			case "employees/emp":
-//				if ("GET".equals(request.getMethod())) {
-//					ed.getEmployee(request, response);
-//				} else {
-//					response.sendError(405, "Method not supported for /" + record);
-//				}
-//				break;
+			case "employees":
+				if ("GET".equals(request.getMethod())) {
+					ed.getEmployees(request, response);
+				} else if ("POST".equals(request.getMethod())) {
+					ed.createEmployee(request, response);
+				} else if ("PUT".equals(request.getMethod())){
+					ed.updateEmployee(request, response);
+				} else {
+					response.sendError(405, "Method Not Supported For /" + record);
+				}
+				break;
+			case "employees/empId":
+				if ("GET".equals(request.getMethod())) {
+					ed.getEmployees(request, response);
+				} else {
+					response.sendError(405, "Method not supported for /" + record);
+				}
+				break;
 			case "reimbursements":
-				// direct request and response to department delegate
 				if ("GET".equals(request.getMethod())) {
 					rd.getRefunds(request, response);
 				} else if ("POST".equals(request.getMethod())) {
 					rd.createRefundRequest(request, response);
 				} else if ("PUT".equals(request.getMethod())) {
-					rd.createRefundRequest(request, response);
+					rd.updateRequest(request, response);
 				} else {
 					response.sendError(405, "Method Not Supported For /" + record);
 				}
 				break;
-			case "reimbursements/emp":
+			case "reimbursements/empId":
 				if ("GET".equals(request.getMethod())) {
 					rd.getIndividualRefund(request, response);
 				} else {
 					response.sendError(405, "Method not supported for /" + record);
 				}
 				break;
-			case "reimbursement/approve":
+			case "reimbursement/approved":
 				if ("PUT".equals(request.getMethod())) {
 					rd.approveRequest(request, response);
 				} else {
 					response.sendError(405, "Method not supported for /" + record);
 				}
 				break;
-			case "reimbursement/decline":
+			case "reimbursement/approved/empId":
 				if ("PUT".equals(request.getMethod())) {
 					rd.approveRequest(request, response);
 				} else {
 					response.sendError(405, "Method not supported for /" + record);
 				}
 				break;
-			case "login":
-				if ("POST".equals(request.getMethod())) {
-					lid.login(request, response);
+			case "reimbursement/declined":
+				if ("PUT".equals(request.getMethod())) {
+					rd.denyRequest(request, response);
 				} else {
 					response.sendError(405, "Method not supported for /" + record);
 				}
 				break;
-			case "edash":
-				if ("GET".equals(request.getMethod())) {
-					ed.createEmployee(request, response);
-				} else {
-					response.sendError(405, "Method not supported for /" + record);
-				}
-				break;
-			case "logout":
-				if ("GET".equals(request.getMethod())) {
-					lod.logout(request, response);
-				} else {
-					response.sendError(405, "Method not supported for /" + record);
-				}
-				break;
-			case "session":
-				if ("GET".equals(request.getMethod())) {
-					sd.check(request, response);
+			case "reimbursement/declined/empId":
+				if ("PUT".equals(request.getMethod())) {
+					rd.denyRequest(request, response);
 				} else {
 					response.sendError(405, "Method not supported for /" + record);
 				}
@@ -120,6 +105,13 @@ public class RequestHelper {
 				response.sendError(404, "Record Not Supported");
 				break;
 			}
+		} else if(uri.startsWith("/login")) {
+			lid.login(request, response);
+		} else if(uri.startsWith("/logout")) {
+			request.getSession(false).invalidate();
+			lod.logout(request, response);
+		} else if (uri.startsWith("/session")){
+			
 		} else {
 			vd.returnView(request, response);
 		}
