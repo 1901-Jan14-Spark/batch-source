@@ -98,11 +98,11 @@ function createPendingTicketTable(xhr)
 		"<td>"+response[i].name+"</td>"+
 		"<td>"+"$"+response[i].amount+"</td>"+
 		"<td>"+"<div class=\"btn-group btn-group-toggle\" data-toggle=\"buttons\">"+ 
-			   "<label class=\"btn btn-outline-success btn-sm\" style=\"margin-right: 10px;\" onclick>"+ 
-			   "<input type=\"radio\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Accept"+
+			   "<label class=\"btn btn-outline-success btn-sm\" style=\"margin-right: 10px;\">"+ 
+			   "<input type=\"checkbox\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Accept"+
 			   "</label>"+
 			   "<label class=\"btn btn-outline-danger btn-sm\">"+ 
-			   "<input type=\"radio\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Deny"+
+			   "<input type=\"checkbox\" name=\"pendingoptions"+i+"\" autocomplete=\"off\">Deny"+
 			   "</label></div></td></tr>";
 	}
 	table += "</tbody>";
