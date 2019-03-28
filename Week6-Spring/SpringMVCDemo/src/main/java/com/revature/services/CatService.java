@@ -32,6 +32,14 @@ public class CatService {
 	}
 	
 	public void addCat(Cat c) {
+		List<Cat> cats = this.getCats();
+		int maxId = 0;
+		for(Cat cat: cats) {
+			if(cat.getId()>maxId) {
+				maxId = cat.getId();
+			}
+		}
+		c.setId(++maxId);
 		this.cats.add(c);
 	}
 
