@@ -9,19 +9,19 @@ import com.revature.models.Cat;
 
 @Service
 public class CatService {
-	
+
 	private List<Cat> cats = new ArrayList<>();
-	
+
 	public CatService() {
 		cats.add(new Cat(1, "Fluffy", 8));
 		cats.add(new Cat(2, "Bear", 4));
 		cats.add(new Cat(3, "Somomo", 1));
 	}
-	
+
 	public List<Cat> getCats(){
 		return this.cats;
 	}
-	
+
 	public Cat getCatById(int id) {
 		for(Cat c: cats) {
 			if(c.getId() == id) {
@@ -30,21 +30,14 @@ public class CatService {
 		}
 		return null;
 	}
-	
+
 	public void addCat(Cat c) {
 		List<Cat> cats = this.getCats();
 		int maxId = 0;
-<<<<<<< HEAD
 		for (Cat cat: cats)
 		{
 			if (cat.getId() > maxId)
 				maxId = cat.getId();
-=======
-		for(Cat cat: cats) {
-			if(cat.getId()>maxId) {
-				maxId = cat.getId();
-			}
->>>>>>> Carolyn_Rehm
 		}
 		c.setId(++maxId);
 		this.cats.add(c);
