@@ -27,6 +27,12 @@ public class Cat {
 		this.numOfLives = numOfLives;
 	}
 
+	public Cat(String name, int numOfLives) {
+		super();
+		this.name = name;
+		this.numOfLives = numOfLives;
+	}
+	
 	public int getId() {
 		return id;
 	}

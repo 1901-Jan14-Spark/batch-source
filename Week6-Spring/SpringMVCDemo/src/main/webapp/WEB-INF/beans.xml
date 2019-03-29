@@ -12,6 +12,8 @@
 		<!-- enables MVC annotations -->
 		<mvc:annotation-driven></mvc:annotation-driven>
 		
+		<mvc:view-controller path="/" view-name="Home"/>
+		
 		<!-- set up location for static resource retrieval -->
 		<mvc:resources location="/WEB-INF/static/" mapping="/static/**"></mvc:resources>
 		
