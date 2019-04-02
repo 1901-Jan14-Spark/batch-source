@@ -1,0 +1,12 @@
+.details li {
+    list-style: none;
+  }
+  li {
+      margin-bottom:10px;
+      
+  }
+  #back{
+    background: rgba(0,0,0,.87) !important;
+    height: 100%;
+    padding-top: 2rem;
+}

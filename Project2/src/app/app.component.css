@@ -1,0 +1,19 @@
+#hero_container {
+  font-family: "Roboto", sans-serif;
+  height: 100%;
+}
+
+.col-3 {
+  padding-right: 0px;
+  padding-left: 0px;
+  height: 100vh;
+}
+
+.col-md {
+  padding: 0px;
+}
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}

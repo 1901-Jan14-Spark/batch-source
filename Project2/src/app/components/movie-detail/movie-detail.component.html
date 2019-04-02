@@ -1,0 +1,89 @@
+<div id="main_container">
+  <div id="top_container">
+    <div>
+      <img src="{{ imgUrl }}{{ movies.backdrop_path }}" />
+      <div id="info_container">
+        <h2>{{ movies.title }}</h2>
+        <div>
+          <i class="fas fa-calendar-alt"></i>
+          <span>{{ movies.release_date }}</span>
+          <i class="fas fa-stopwatch"></i>
+          <span>{{ movies.runtime }}</span>
+          <i class="fas fa-star"></i>
+          <span>{{ movies.vote_average }}</span>
+        </div>
+        <div class="row">
+          <span id="genres_container" *ngFor="let genre of genres">{{ genre.name }}</span>
+        </div>
+        <div id="overview">
+          {{ movies.overview }}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="more_info">
+    <div (click)="getCast()">CAST</div>
+    <div (click)="getTrailer()">TRAILER</div>
+    <div (click)="getSimilarMovies()">SIMILAR MOVIES</div>
+  </div>
+
+  <div id="bottom_container">
+    <div class="row" id="extra_details_container">
+
+      <div id="nav_info" *ngFor="let cast of casts">
+        <div id="addPadding" class="col-lg3-col-sm-4 my-5">
+          <div id="profile_container">
+            <a (click)="redirectUrl(cast.id)" style="cursor: pointer">
+              <img *ngIf="!cast.profile_path" class="center" id="cast_img" src="https://s3.amazonaws.com/project2-dt/profile-jedi.png"/>
+              <img class="center" id="cast_img" src="{{ imgUrl }}{{ cast.profile_path }}"/>
+            </a>
+            <br /><br /><br /><br /><br /><br /><br />
+            <br />
+            <br />
+
+            <div id="actor_name">
+              <div>
+                {{ cast.character }}
+              </div>
+              <div id="cast_name">
+                {{ cast.name }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="trailer_container">
+        <iframe width="760" height="515" [src]="getVideoUrl()" allowfullscreen></iframe>
+      </div>
+
+      <div id="nav_info" *ngFor="let simMovie of similarMovies">
+          <div id="addPadding" class="col-lg3-col-sm-4 my-5">
+            <div id="profile_container">
+              <a (click)="redirectUrl(simMovie.id)" style="cursor: pointer">
+                <img *ngIf="!simMovie.poster_path" id="simliar_movie_img" class="center" src="https://s3.amazonaws.com/project2-dt/no_poster_available.jpg"/>
+                <img *ngIf="simMovie.poster_path" id="simliar_movie_img" class="center" src="{{ imgUrl }}{{ simMovie.poster_path }}"/>
+              </a>
+              <br /><br /><br /><br /><br /><br /><br />
+              <br />
+              <br />
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <div>
+                <div class="text-muted" id="mTitle">
+                  {{ simMovie.title }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+</div>

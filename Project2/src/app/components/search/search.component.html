@@ -1,0 +1,22 @@
+<div id="search_container" class="container-fluid">
+  <h3 id="title" class="text-muted text-center mb-3">Search for "{{searchInput}}"</h3>
+
+  <div class="row">
+    <div id="searchContainer" *ngFor="let movie of movies">
+      <div id="addPadding" class="col-lg3-col-sm-4 my-5">
+        <a (click)="redirectUrl(movie.id)" style="cursor: pointer">
+          <img src="{{ imgUrl }}{{ movie.poster_path }}" alt="" />
+        </a>
+        <p class="text-muted text-center mb-3" id="mTitle">{{ movie.title }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div align="center">
+      <button class="btn btn-secondary" style="margin-right: 20px;" (click)="prevClick()" *ngIf="minPage > 1">Prev</button>
+      <span id="indexButtons" *ngFor="let button of buttons">
+          <button class="btn btn-secondary" style="margin-left: 5px; margin-right: 5px;" (click)="pageClick(button)">{{button}}</button>
+      </span>
+      <button class="btn btn-secondary" style="margin-left: 20px" (click)="nextClick()" *ngIf="minPage + 10 <= maxPage">Next</button>
+  </div>
+</div>

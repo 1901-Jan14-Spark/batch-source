@@ -1,0 +1,60 @@
+#main_container {
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.87);
+  padding-right: 6rem;
+  padding-left: 6rem;
+}
+
+.col-md {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+img {
+  padding-top: 2rem;
+  min-width: 230px;
+  max-width: 230px;
+  min-height: 380px;
+  max-height: 380px;
+}
+
+#star_name {
+  font-size: 28px;
+}
+
+#star_bday {
+  font-size: 18px;
+}
+
+#star_bio {
+  font-size: 18px;
+}
+
+#more_info {
+  padding-top: 2rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+#more_info div {
+  padding-left: 2rem;
+  cursor: pointer;
+}
+
+#profile_container {
+  padding-left: 50px;
+  min-width: 44px;
+  max-width: 440px;
+}
+
+#movie_title {
+  font-size: 18px;
+}
+
+#movie_character {
+  color: #9e9e9e;
+}

@@ -1,0 +1,138 @@
+#main_container {
+  color: white;
+}
+
+#top_container {
+  color: white;
+  height: 980px;
+}
+
+img {
+  height: 980px;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.95;
+  position: absolute;
+}
+
+.col-md {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+h1 {
+  z-index: 1;
+  padding-bottom: 1rem;
+}
+
+#info_container {
+  font-size: 18px;
+  padding-top: 2rem;
+  padding-left: 2rem;
+}
+
+#info_container span {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+#info_container i {
+  padding: 5px;
+}
+
+#genres_container {
+  padding-top: 2rem;
+  padding-left: 1rem;
+  color: #ff424f;
+}
+
+#overview {
+  padding-top: 1rem;
+  font-weight: 500;
+}
+
+#bottom_container {
+  background-color: rgba(0, 0, 0, 0.87);
+  z-index: -1;
+}
+
+#extra_details_container {
+  z-index: 1;
+}
+
+#nav_info {
+  color: white;
+}
+
+a:active {
+  text-decoration: underline red;
+  cursor: pointer;
+}
+
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#nav_info a span {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+#more_info {
+  padding-top: 2rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+#actor_name {
+  font-size: 20px;
+}
+
+#cast_name {
+  color: #9e9e9e;
+}
+
+#cast_img {
+  z-index: 1;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+#profile_container {
+  padding-left: 50px;
+  min-width: 400px;
+  max-width: 400px;
+}
+
+#trailer_container {
+  width: 100%;
+  text-align: center;
+}
+
+#more_info {
+  background-color: rgba(0, 0, 0, 0.87);
+  padding-bottom: 1rem;
+}
+
+#more_info div {
+  font-size: 18px;
+  padding-left: 2rem;
+  cursor: pointer;
+}
+
+#mTitle {
+  font-size: 22px;
+  max-width: 300px;
+  z-index: 1;
+}
+
+#simliar_movie_img {
+  z-index: 1;
+  min-width: 230px;
+  max-width: 230px;
+  min-height: 350px;
+  max-height: 350px;
+}

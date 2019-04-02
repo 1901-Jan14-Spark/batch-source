@@ -1,0 +1,27 @@
+<div id="home" class="container-fluid">
+  <h3 id="title" class="text-muted text-center mb-3">Now playing</h3>
+
+  <div class="row">
+    <div id="nowPlayingContainer" *ngFor="let movie of movies">
+      <div id="addPadding" class="col-lg3-col-sm-4 my-5">
+        <a (click)="redirectUrl(movie.id)" style="cursor: pointer">
+          <img *ngIf="!movie.poster_path" class="center" src="https://s3.amazonaws.com/project2-dt/no_poster_available.jpg"/>
+          <img *ngIf="movie.poster_path" class="center" src="{{ imgUrl }}{{ movie.poster_path }}"/>
+        </a>
+        <p class="text-muted text-center mb-3" id="mTitle">
+          {{ movie.title }}
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div align="center">
+    <button class="btn btn-secondary" style="margin-right: 20px;" (click)="prevClick()" *ngIf="minPage > 1">Prev</button>
+    <span id="indexButtons" *ngFor="let button of buttons">
+        <button class="btn btn-secondary" style="margin-left: 5px; margin-right: 5px;" (click)="pageClick(button)">{{button}}</button>
+    </span>
+    <button class="btn btn-secondary" style="margin-left: 20px" (click)="nextClick()" *ngIf="minPage + 10 <= maxPage">Next</button>
+  </div>
+  <br>
+  <br>
+</div>

@@ -1,0 +1,3 @@
+interface CastModel {
+  cast: Object[];
+}

@@ -1,0 +1,22 @@
+#register
+{
+  background-color: rgba(0,0,0,.87);
+  height: 100vh;
+  padding-top: 2rem;
+}
+.my-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+.container{
+      min-width: 150px;
+
+  max-width: 500px;
+
+}

@@ -1,0 +1,50 @@
+<div id="register">
+   <div class="container">
+         <mat-toolbar>
+     <span>Registration</span>
+   </mat-toolbar>
+   <mat-card class="my-card">
+      <mat-card-content>
+         <form class="my-form">  
+            <mat-form-field class="full-width">
+               <mat-label>User Name</mat-label>
+               <input  matInput  placeholder="User Name" name=" username" #username  ngModel  required minlength="3" >
+            </mat-form-field>
+            <mat-form-field class="full-width">
+               <mat-label>Password</mat-label>
+               <input  matInput type="password" placeholder="Password"  name="password" #password  ngModel  required minlength="3">
+         </mat-form-field>
+            <mat-form-field class="full-width">
+               <mat-label>Email</mat-label>
+               <input  matInput  placeholder="Email" type="email" name="email" #email >
+            </mat-form-field>
+            <mat-form-field class="full-width">
+               <mat-label>Date of Birth</mat-label>
+               <input matInput [matDatepicker]="picker" placeholder="Choose a date"  #date>
+               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+               <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+         </form>
+      </mat-card-content>
+      <mat-card-actions>
+         <button mat-raised-button (click)="add(username.value,password.value,email.value,date.value)" color="primary">REGISTER</button>       
+         <button mat-raised-button routerLink="../login"  color="primary">LOGIN</button>
+      </mat-card-actions>
+      <div class="row"  *ngIf="showMsg">
+      <div class="col-xs-8">
+         <p class="alert alert-success">
+             <strong>Registration Success!</strong> Please click login!.
+         </p>
+       </div>
+     </div>
+      <div class="row"  *ngIf="showMsg2">
+         <div class="col-xs-8">
+           <p class="alert alert-danger">
+               <strong>Registration Failed!</strong> please try Again!.
+           </p>
+         </div>
+       </div>
+   </mat-card>
+   </div>
+   </div>
