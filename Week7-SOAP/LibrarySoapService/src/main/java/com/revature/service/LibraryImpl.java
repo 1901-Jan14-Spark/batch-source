@@ -28,6 +28,9 @@ public class LibraryImpl implements Library {
 
 	@Override
 	public String addBook(Book book) {
+		if(bookList.contains(book)) {
+			throw new RuntimeException("Book has already been added!");
+		}
 		bookList.add(book);
 		return book.getName()+" added to the library";
 	}
