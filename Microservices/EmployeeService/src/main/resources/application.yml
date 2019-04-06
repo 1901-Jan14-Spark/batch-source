@@ -1,0 +1,25 @@
+#server:
+#  port: 3333
+#  
+#spring:
+#  application:
+#    name: employee-service
+#    
+#eureka:
+#  client:
+#   fetch-registry: true
+#   service-url:
+#      default: http://localhost:8761/eureka
+#  instance:
+#    lease-renewal-interval-in-seconds: 2
+#    lease-expiration-duration-in-seconds: 1
+#    
+#feign:
+#  hystrix:
+#    enabled: true
+#  
+#management:
+#  endpoint:
+#    web:
+#      exposure:
+#        include: hystrix.stream
