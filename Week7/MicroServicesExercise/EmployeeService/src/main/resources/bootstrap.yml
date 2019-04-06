@@ -1,0 +1,8 @@
+    
+spring:
+  cloud:
+    config:
+      name: employee-service
+      discovery:
+        service-id: config
+        enabled: true
