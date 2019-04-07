@@ -26,17 +26,17 @@ public class ReimbursementsDelegate {
 
 		if (reimId != null && reimId.matches("^\\d+$")) {
 			reimSearch.add(reimServ.getReimById(Integer.parseInt(reimId)));
-		}
-		else if(name != null){
-			for(Reimbursements r: allReims){
-				if(r.getReim_name().contains(name)) {
+		}else if (name!= null) {
+			for(Reimbursements r: allReims) {
+				if(r.getReim_name()  .contains(name)) {
 					reimSearch.add(r);
 				}
 			}
-		}else {
-
+		}else{
 			reimSearch = allReims;
+
 		}
+		
 		ObjectMapper om = new ObjectMapper();
 		reimJSON = om.writeValueAsString(reimSearch);
 		PrintWriter pw = response.getWriter();

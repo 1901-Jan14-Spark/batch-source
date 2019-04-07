@@ -6,12 +6,12 @@ h1{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 body{
-    color: white;
-    text-align: center;
     background-image: url(galaxy.jpg);
-    background-repeat: no-repeat;
-	background-size: cover;
-	
+		 color: white;
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat; 
 }
 
 header{

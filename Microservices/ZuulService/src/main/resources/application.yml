@@ -1,0 +1,18 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: zuul-server
+    
+zuul:
+  routes:
+    account:
+      path: /reimbursements/**
+      serviceId: reims-service
+      strip-prefix: false
+    customer:
+      path: /employees/**
+      serviceId: emps-service
+      strip-prefix: false
+      

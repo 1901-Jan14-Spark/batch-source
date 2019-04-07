@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: emp-service
+      discovery:
+        service-id: config
+        enabled: true

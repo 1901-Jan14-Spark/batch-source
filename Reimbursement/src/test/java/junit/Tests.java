@@ -35,7 +35,7 @@ public class Tests {
 	public void manaLogin() {
 		boolean isManager;
 		Employees employee = ed.getEmployeesById(1);
-		System.out.println(employee.getUsername());
+		 System.out.println(employee.getUsername());
 		System.out.println(employee.getPassword());
 		System.out.println(employee.IsMana());
 
