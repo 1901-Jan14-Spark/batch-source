@@ -7,11 +7,11 @@ spring:
     
 zuul:
   routes:
-    account:
+    reimbursement:
       path: /reimbursements/**
       serviceId: reimbursment-service
       strip-prefix: false
-    customer:
+    employee:
       path: /employees/**
       serviceId: employee-service
       strip-prefix: false
