@@ -8,7 +8,7 @@ import { PostService } from 'src/app/post.service';
 })
 export class UserComponent implements OnInit {
 
-  posts: Post[] = [];
+  posts: String[] = [];
 
   constructor(private postService: PostService) { }
 

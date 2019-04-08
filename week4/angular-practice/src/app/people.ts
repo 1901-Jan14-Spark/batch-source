@@ -1,6 +1,6 @@
-export class Peope {
+export class People {
   firstName: string;
   lastName: string;
   email: string;
-  birthday: number;
+  birthday: Date;
 }

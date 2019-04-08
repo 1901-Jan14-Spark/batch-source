@@ -11,8 +11,8 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<Post[]> {
+  getPosts(): Observable<String[]> {
     console.log("getting all posts")
-    return this.http.get<Post[]>(this.url);
+    return this.http.get<String[]>(this.url);
   }
 }
