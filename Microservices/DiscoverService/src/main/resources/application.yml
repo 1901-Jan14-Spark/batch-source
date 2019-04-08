@@ -1,0 +1,11 @@
+### server.port=8761
+### ^ what we've seen in preperties files
+
+server:
+  port: 8761
+  
+spring:  application:
+    name: eureka
+    
+eureka:  client:    register-with-eureka: false
+    fetch-registry: false

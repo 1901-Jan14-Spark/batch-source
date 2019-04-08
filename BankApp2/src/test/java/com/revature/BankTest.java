@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import com.revature.dao.AccountDaoImpl;
 import com.revature.models.Account;
+
 import com.revature.models.User;
 
 public class BankTest {

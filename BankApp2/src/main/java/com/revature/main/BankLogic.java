@@ -21,7 +21,7 @@ public class BankLogic {
 
 	public static void bank() {
 		
-		int choice = 0;
+		String choice;
 		
 		log.info("~~~~Welcome to Hassan's Bank~~~~");
 		log.info("| 1. Login");
@@ -29,19 +29,19 @@ public class BankLogic {
 		log.info("| 3. Quit");
 		
 		
-			choice = input.nextInt();
+			choice = input.next();
 			try {
-				while(choice != 1 && choice != 2 && choice != 3 ) {
+				while(!(choice.equals("1") || choice.equals("2") || choice.equals("3"))) {
 					log.info("Try again...");
-					choice = input.nextInt();
+					choice = input.next();
 				}
 			} catch(InputMismatchException e) {
 				e.printStackTrace();
 			}
 		
-			if(choice == 1) {
+			if(choice.equals("1")) {
 				login();
-			} else if (choice == 2) {
+			} else if (choice.equals("2")) {
 				register();
 			} else {
 				System.exit(0);
@@ -69,30 +69,36 @@ public class BankLogic {
 	public static void userAccount(String email) {
 		log.info("~~~~~~~~~~~~~~~~~");
 		log.info("Select an Action:\n1. Deposit\n2. Withdraw \n3. Balance \n4. Logout");
-		int choice = 0;
+		String choice;
+		
+		choice = input.next();
+		
 		try {
-			choice = input.nextInt();
+			while(!(choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4"))) {
+				log.info("Try again...");
+				choice = input.next();
+			}
 		} catch (InputMismatchException e) {
 			e.printStackTrace();
 		}
+		
 		switch (choice) {
-			case 1:
+			case "1":
 				deposit(email);
 				break;
-			case 2:
+			case "2":
 				withdraw(email);
 				break;
-			case 3:
+			case "3":
 				showBal(email);
 				break;
-			case 4:
+			case "4":
 				log.info("Logging off...");
 				bank();
 			default:
 				log.info("Invalid Input, try again.");
 				userAccount(email);
-		}
-			
+		}	
 				
 	}
 	
@@ -169,7 +175,7 @@ public class BankLogic {
 			log.info("How much would you like to withdraw?");
 			amount = input.next();
 			while(!(amount.matches("^[0-9]+$"))) {
-				log.info("Must be numbers");
+				log.info("Must be positive numbers");
 				amount = input.next();
 			}
 			damount = Double.parseDouble(amount);
@@ -223,7 +229,7 @@ public class BankLogic {
 			
 			log.info("Input starting balance: ");
 			double userBal = input.nextDouble();
-			log.info("Checkings or Savings?\n1. Checkins\n2. Savings");
+			log.info("Checkings or Savings?\n1. Checkings\n2. Savings");
 			choice = input.next();
 			while(!(choice.equals("1") || choice.equals("2"))) {
 				log.info("Invalid input, try again");
