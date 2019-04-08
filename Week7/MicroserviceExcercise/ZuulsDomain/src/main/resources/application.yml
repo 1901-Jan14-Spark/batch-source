@@ -1,0 +1,17 @@
+server:
+  port: 6660
+
+spring:
+  application:
+    name: zuuls-domain
+    
+zuul:
+  routes:
+    account:
+      path: /employees/**
+      serviceId: employee-service
+      strip-prefix: false
+    customer:
+      path: /reimbursements/**
+      serviceId: reimbursement-service
+      strip-prefix: false
