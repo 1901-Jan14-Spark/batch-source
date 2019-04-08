@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- Root tag of configuration -->
+<hibernate-configuration>
+	<!-- this tag begins configuration to a database -->
+	<session-factory>
+		<property name="hibernate.connection.driver_class">
+			oracle.jdbc.OracleDriver
+		</property>
+		<property name = "hibernate.dialect">
+			org.hibernate.dialect.Oracle10gDialect
+		</property>
+		<property name = "hibernate.connection.url">
+			jdbc:oracle:thin:@javaspark2019.cz2omqyzn2wb.us-east-2.rds.amazonaws.com:1521:ORCL
+		</property>
+		<property name="hibernate.connection.username">
+			djbogar
+		</property>
+		<property name="hibernate.connection.password">
+			Crayansd511
+		</property>
+		<!-- this property determines how many connections a single user is allowed to a database.
+		a higher number will speed up the process for a user. but will also eat up all the available
+		connections -->
+		<property name="hibernate.connection.pool_size">
+			2
+		</property>
+		<property name="show_sql">
+			true
+		</property>
+		<!-- the property below tells hibernate what to do with a
+		database it can be one of four states -->
+		<property name="hibernate.hbm2ddl.auto">
+			update
+		</property>
+		<mapping resource = "cat.hbm.xml"/>
+	</session-factory>
+</hibernate-configuration>
