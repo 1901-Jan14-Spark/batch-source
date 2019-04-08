@@ -15,7 +15,7 @@
         <version>1.5.9.RELEASE</version>
     </parent>
     <build>
-        <finalName>account-service</finalName>
+        <finalName>reimbursement-service</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

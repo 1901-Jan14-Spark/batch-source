@@ -22,20 +22,20 @@ public class ReimbursementController {
 
 	public ReimbursementController() {
 		reimbursements.add(new Reimbursement(1, 1, 250.00));
-		reimbursements.add(new Reimbursement(2, 1, 250.00));
-		reimbursements.add(new Reimbursement(3, 1, 250.00));
-		reimbursements.add(new Reimbursement(4, 2, 250.00));
-		reimbursements.add(new Reimbursement(5, 2, 250.00));
-		reimbursements.add(new Reimbursement(6, 3, 250.00));
-		reimbursements.add(new Reimbursement(7, 3, 250.00));
-		reimbursements.add(new Reimbursement(8, 3, 250.00));
-		reimbursements.add(new Reimbursement(9, 3, 250.00));
-		reimbursements.add(new Reimbursement(10, 3, 250.00));
-		reimbursements.add(new Reimbursement(11, 4, 250.00));
-		reimbursements.add(new Reimbursement(12, 5, 250.00));
-		reimbursements.add(new Reimbursement(13, 5, 250.00));
-		reimbursements.add(new Reimbursement(14, 5, 250.00));
-		reimbursements.add(new Reimbursement(1, 5, 250.00));
+		reimbursements.add(new Reimbursement(2, 1, 21.03));
+		reimbursements.add(new Reimbursement(3, 1, 100.00));
+		reimbursements.add(new Reimbursement(4, 2, 325.65));
+		reimbursements.add(new Reimbursement(5, 2, 404.25));
+		reimbursements.add(new Reimbursement(6, 3, 83.00));
+		reimbursements.add(new Reimbursement(7, 3, 500.75));
+		reimbursements.add(new Reimbursement(8, 3, 66.73));
+		reimbursements.add(new Reimbursement(9, 3, 202.00));
+		reimbursements.add(new Reimbursement(10, 3, 112.36));
+		reimbursements.add(new Reimbursement(11, 4, 700.00));
+		reimbursements.add(new Reimbursement(12, 5, 58.00));
+		reimbursements.add(new Reimbursement(13, 5, 603.23));
+		reimbursements.add(new Reimbursement(14, 5, 10.00));
+		reimbursements.add(new Reimbursement(15, 5, 890.34));
 	}
 	
 	public List<Reimbursement> getAllReimbursements() {
@@ -55,7 +55,7 @@ public class ReimbursementController {
 	}
 	
 	@GetMapping("/employee/{employeeId}")
-	public List<Reimbursement> getReimbursementsById(@PathVariable("employeeId") Integer employeeId) {
+	public List<Reimbursement> getReimbursementsByEmployeeId(@PathVariable("employeeId") Integer employeeId) {
 		return reimbursements.stream().filter(reim -> reim.getEmployeeId() == employeeId)
 				.collect(Collectors.toList());
 	}
