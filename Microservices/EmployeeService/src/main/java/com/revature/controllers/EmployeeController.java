@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.intercom.ReimbursementClient;
-import com.revature.models.Reimbursement;
 import com.revature.models.Employee;
+import com.revature.models.Reimbursement;
 
 @RestController
 @RequestMapping("/employees")
@@ -28,9 +28,9 @@ public class EmployeeController {
 	
 	public EmployeeController() {
 		super();
-		employees.add(new employee(1, "Jeff Patrick", "jpat@gmail.com", null));
-		employees.add(new employee(2, "Bod Hanson", "hbod@gmail.com", null));
-		employees.add(new employee(3, "Sarah Jones", "sarahjones@gmail.com", null));
+		employees.add(new Employee(1, "Jeff Patrick", "jpat@gmail.com", null));
+		employees.add(new Employee(2, "Bod Hanson", "hbod@gmail.com", null));
+		employees.add(new Employee(3, "Sarah Jones", "sarahjones@gmail.com", null));
 	}
 	
 	@GetMapping
@@ -42,11 +42,11 @@ public class EmployeeController {
 	@GetMapping("/{employeeId}")
 	public Employee getEmployeeById(@PathVariable("employeeId")Integer employeeId) {
 		log.info("getting employee by id:" + employeeId);
-		employee employee = employees.stream()
-				.filter(emp -> emp.getemployeeId()==employeeId)
+		Employee employee = employees.stream()
+				.filter(emp -> emp.getEmployeeId()==employeeId)
 				.findFirst().get();
 		List<Reimbursement> reimbursements = reimbursementClient.getReimbursementsByEmployeeId(employeeId);
-		employee.setReimbursement(reimbursements);
+		employee.setReimbursements(reimbursements);
 		return employee;
 	}
 

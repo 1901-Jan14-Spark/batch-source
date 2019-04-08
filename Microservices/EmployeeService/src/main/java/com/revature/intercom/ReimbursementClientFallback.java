@@ -9,9 +9,9 @@ import com.revature.models.Reimbursement;
 @Component
 public class ReimbursementClientFallback implements ReimbursementClient{
 
-	public List<Reimbursement> getReimbursementByEmployeeId(Integer employeeId) {
-		@GetMapping
-		public List<Reimbursement> getReimbursementByEmployeeId(@PathVariable("employeeId") Integer employeeId);
+	@Override
+	public List<Reimbursement> getReimbursementsByEmployeeId(Integer employeeId) {
+		return null;
 	}
 
 	

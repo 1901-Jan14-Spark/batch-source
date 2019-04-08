@@ -11,5 +11,5 @@ import com.revature.models.Reimbursement;
 @FeignClient(name="reimbursement-service", fallback=ReimbursementClientFallback.class)
 public interface ReimbursementClient {
 	@GetMapping("reimbursements/employee/{employeeId}")
-	public List<Reimbursement> getReimbursementByEmployeeId(@PathVariable("employeeId") Integer employeeId);
+	public List<Reimbursement> getReimbursementsByEmployeeId(@PathVariable("employeeId") Integer employeeId);
 }
